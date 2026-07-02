@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regis &amp; Savoy Capital — Private Wealth Management</title>
+<meta name="description" content="Regis & Savoy Capital advises a small number of families and individuals on the stewardship of significant wealth. Measured, private, enduring.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2312151A'/%3E%3Crect x='2.5' y='2.5' width='59' height='59' fill='none' stroke='%23B08D57' stroke-width='2'/%3E%3Ctext x='32' y='41' font-family='Georgia,serif' font-size='25' text-anchor='middle' fill='%23F4F1EA'%3ER%26S%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Marcellus&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+/* ============ Tokens — from design.md (dark-led concept) ============ */
+:root{
+  --ink:#12151A;        /* deep warm charcoal — primary bg */
+  --paper:#F4F1EA;      /* warm bone — primary text */
+  --gold:#B08D57;       /* muted antique gold — leads */
+  --navy:#1F3A5F;       /* deep slate navy */
+  --smoke:#1B1F26;      /* raised dark surface */
+  --ash:#8A8F98;        /* muted grey */
+
+  --paper-90:rgba(244,241,234,.9);
+  --paper-70:rgba(244,241,234,.7);
+  --paper-55:rgba(244,241,234,.55);
+  --paper-line:rgba(244,241,234,.14);
+  --paper-line-soft:rgba(244,241,234,.08);
+  --ink-70:rgba(18,21,26,.7);
+  --ink-line:rgba(18,21,26,.14);
+
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
+
+  /* type scale */
+  --t-hero:clamp(2.5rem,5.5vw,4rem);
+  --t-xl:clamp(2.25rem,4.6vw,3.9rem);
+  --t-lg:clamp(1.6rem,2.6vw,2.6rem);
+  --t-md:clamp(1.15rem,1.6vw,1.375rem);
+  --t-sm:1rem;
+  --t-xs:.6875rem;
+
+  --s-1:4px; --s-2:8px; --s-3:16px; --s-4:24px;
+  --s-5:40px; --s-6:64px; --s-7:96px;
+  --section:clamp(88px,12vw,168px);
+
+  --nav-h:76px;
+  --container:1200px;
+}
+
+/* ============ Reset & base ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 16px)}
+body{
+  font-family:var(--sans);
+  font-size:var(--t-sm);
+  line-height:1.7;
+  color:var(--paper-90);
+  background:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img,svg{display:block}
+a{color:var(--paper);text-decoration:none}
+::selection{background:var(--gold);color:var(--ink)}
+
+.container{max-width:var(--container);margin-inline:auto;padding-inline:clamp(20px,4vw,48px)}
+
+/* ============ Type utilities ============ */
+.eyebrow{
+  font-size:var(--t-xs);
+  font-weight:600;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--ash);
+  display:flex;align-items:center;gap:var(--s-3);
+}
+.eyebrow .idx{color:var(--gold)}
+.eyebrow::before{content:"";width:32px;height:1px;background:var(--gold);flex:none;transform-origin:left}
+.headline{
+  font-family:var(--serif);
+  font-weight:500;
+  font-size:var(--t-xl);
+  line-height:1.04;
+  letter-spacing:-.005em;
+  color:var(--paper);
+  margin-top:var(--s-4);
+}
+.headline .dot{color:var(--gold)}
+
+/* ============ Buttons ============ */
+.btn{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  font-family:var(--sans);font-size:.8125rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  padding:17px 30px;border:1px solid var(--paper);color:var(--paper);
+  background:transparent;cursor:pointer;
+  transition:background-color .25s cubic-bezier(.4,0,.2,1),color .25s cubic-bezier(.4,0,.2,1),border-color .25s cubic-bezier(.4,0,.2,1),transform .25s cubic-bezier(.4,0,.2,1);
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-solid{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.btn-solid:hover{background:var(--paper);border-color:var(--paper);color:var(--ink)}
+.btn-ghost:hover{background:var(--paper);color:var(--ink)}
+
+.text-link{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  font-size:.8125rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--paper);border-bottom:1px solid var(--gold);padding-bottom:6px;
+  transition:color .25s ease,gap .25s ease;
+}
+.text-link:hover{color:var(--gold);gap:var(--s-3)}
+
+/* ============ Nav ============ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:var(--nav-h);
+  background:rgba(18,21,26,.82);
+  backdrop-filter:saturate(140%) blur(8px);
+  border-bottom:1px solid var(--paper-line-soft);
+}
+.nav-inner{
+  max-width:var(--container);margin-inline:auto;height:100%;
+  padding-inline:clamp(20px,4vw,48px);
+  display:flex;align-items:center;justify-content:space-between;gap:var(--s-5);
+}
+.wordmark{
+  display:inline-flex;align-items:center;gap:14px;
+  color:var(--paper);white-space:nowrap;line-height:1;
+}
+.wordmark .mono{
+  width:44px;height:44px;flex:none;
+  border:1px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-weight:500;font-size:1.25rem;letter-spacing:.02em;
+}
+.wordmark .mono .amp{font-style:italic;color:var(--gold);font-size:.85em;margin:0 1px}
+.wordmark .wm-stack{display:inline-flex;flex-direction:column}
+.wordmark .wm-name{
+  font-family:'Marcellus',var(--serif);font-size:.95rem;
+  letter-spacing:.16em;text-transform:uppercase;
+}
+.wordmark .wm-sub{
+  font-family:var(--sans);font-size:.48rem;font-weight:600;
+  letter-spacing:.5em;text-transform:uppercase;
+  color:var(--ash);margin-top:6px;
+}
+.nav-links{display:flex;align-items:center;gap:clamp(20px,3vw,40px);list-style:none}
+.nav-links a{
+  position:relative;
+  font-size:.8125rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--paper-55);transition:color .2s ease;white-space:nowrap;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;right:0;bottom:-7px;height:1px;
+  background:var(--gold);transform:scaleX(0);transform-origin:right;
+  transition:transform .32s cubic-bezier(.4,0,.2,1);
+}
+.nav-links a:hover{color:var(--paper)}
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav-cta{padding:12px 22px;font-size:.75rem;white-space:nowrap}
+.menu-cta-item{display:none}
+.nav-toggle,.nav-toggle-label{display:none}
+
+/* ============ Hero ============ */
+.hero{
+  position:relative;
+  padding-top:calc(var(--nav-h) + clamp(80px,13vw,170px));
+  padding-bottom:clamp(80px,13vw,170px);
+  text-align:center;
+  overflow:hidden;
+  background-color:var(--ink);
+  background-image:
+    linear-gradient(180deg,rgba(18,21,26,.88) 0%,rgba(18,21,26,.80) 50%,rgba(18,21,26,.93) 100%),
+    radial-gradient(120% 90% at 50% 42%,rgba(18,21,26,.55) 0%,rgba(18,21,26,.82) 78%,rgba(18,21,26,.95) 100%),
+    url('../assets/hero-gallery.jpg');
+  background-repeat:no-repeat;
+  background-position:center 38%;
+  background-size:cover;
+}
+.hero::after{ /* soft vignette floor, opacity only */
+  content:"";position:absolute;left:0;right:0;bottom:0;height:40%;
+  background:linear-gradient(to bottom,transparent,rgba(18,21,26,.55));
+  pointer-events:none;
+}
+.hero-inner{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center}
+.hero .eyebrow{justify-content:center;color:var(--paper-55)}
+.hero .eyebrow::before{display:none}
+.hero h1{
+  font-family:var(--serif);font-weight:500;
+  font-size:var(--t-hero);line-height:1.0;letter-spacing:-.01em;
+  color:var(--paper);margin-top:var(--s-4);max-width:22ch;
+}
+.hero h1 .dot{color:var(--gold)}
+.hero-sub{
+  margin-top:var(--s-5);max-width:72ch;
+  font-size:clamp(0.9rem,1.2vw,1rem);line-height:1.55;color:var(--paper-70);
+}
+.hero-actions{margin-top:var(--s-5);display:flex;align-items:center;gap:var(--s-5);flex-wrap:wrap;justify-content:center}
+.hero-foot{
+  margin-top:var(--s-6);display:flex;gap:var(--s-4);flex-wrap:wrap;justify-content:center;
+  font-size:var(--t-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--ash);
+}
+.hero-foot span{position:relative;padding-inline:var(--s-3)}
+.hero-foot span::before{content:"";position:absolute;left:0;top:50%;width:3px;height:3px;background:var(--gold);border-radius:50%;transform:translateY(-50%)}
+.hero-foot span:first-child::before{display:none}
+
+/* ============ Sections ============ */
+.section{padding-block:var(--section);border-top:1px solid var(--paper-line-soft)}
+.section-head{max-width:760px}
+.lede{margin-top:var(--s-4);color:var(--paper-70);max-width:56ch}
+
+/* The Firm */
+.firm-cols{
+  display:grid;grid-template-columns:5fr 6fr;gap:clamp(40px,6vw,96px);
+  align-items:start;
+}
+.firm-copy p + p{margin-top:var(--s-4)}
+.firm-copy p{color:var(--paper-70)}
+.firm-copy strong{color:var(--paper);font-weight:600}
+.stats{
+  margin-top:var(--s-7);display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--paper-line);
+}
+.stat{padding:var(--s-5) var(--s-4) 0}
+.stat + .stat{border-left:1px solid var(--paper-line)}
+.stat-num{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,4.5vw,3.4rem);line-height:1;color:var(--paper)}
+.stat-num sup{font-size:.4em;color:var(--gold);margin-left:2px}
+.stat-label{margin-top:var(--s-3);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--ash)}
+
+/* Services — editorial list (distinct from concept 1's card grid) */
+.services-section{background:var(--paper);color:var(--ink)}
+.services-section .headline{color:var(--ink)}
+.service-list{margin-top:var(--s-7);border-top:1px solid var(--ink-line)}
+.srow{
+  display:grid;grid-template-columns:auto 1fr auto;gap:clamp(20px,4vw,56px);
+  align-items:baseline;
+  padding:var(--s-5) 0;border-bottom:1px solid var(--ink-line);
+  transition:padding-left .35s cubic-bezier(.22,.61,.36,1);
+}
+.srow-num{font-family:var(--serif);font-size:1.5rem;color:var(--gold);line-height:1}
+.srow-body h3{font-family:var(--serif);font-weight:500;font-size:var(--t-lg);color:var(--ink);line-height:1.1}
+.srow-body p{margin-top:var(--s-3);color:var(--ink-70);max-width:60ch}
+.srow-icon{color:var(--ash);opacity:.5;transition:opacity .35s ease,transform .35s ease}
+.srow:hover{padding-left:var(--s-3)}
+.srow:hover .srow-icon{opacity:1;color:var(--gold);transform:translateX(4px)}
+@media (hover:none){.srow:hover{padding-left:0}}
+
+/* Our Approach — big ghosted numerals */
+.principles{margin-top:var(--s-7);display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--paper-line);border:1px solid var(--paper-line)}
+.principle{background:var(--ink);padding:clamp(28px,4vw,52px)}
+.principle-num{font-family:var(--serif);font-size:2rem;color:var(--gold);display:block;line-height:1}
+.principle h3{font-family:var(--serif);font-weight:500;font-size:var(--t-md);color:var(--paper);margin-top:var(--s-4)}
+.principle p{margin-top:var(--s-3);color:var(--paper-70)}
+
+/* ============ Statement band — LIGHT breath ============ */
+.statement{background:var(--paper);color:var(--ink);padding-block:clamp(80px,12vw,150px)}
+.statement-quote{max-width:900px;margin-inline:auto;text-align:center;position:relative}
+.statement .qmark{
+  display:block;font-family:var(--serif);font-size:clamp(4rem,9vw,7rem);
+  color:var(--gold);line-height:.6;height:.5em;margin-bottom:var(--s-4);
+}
+.statement blockquote{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(1.6rem,3.4vw,2.7rem);line-height:1.25;letter-spacing:-.01em;color:var(--ink);
+}
+.statement cite{
+  display:block;margin-top:var(--s-5);font-style:normal;
+  font-size:var(--t-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--ink-70);
+}
+
+/* ============ Team ============ */
+.team-grid{margin-top:var(--s-7);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-4)}
+.member-photo{aspect-ratio:4/5;background:var(--smoke);position:relative;overflow:hidden;border:1px solid var(--paper-line-soft)}
+.member-photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.02) brightness(.95);transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+.member-photo::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,.61,.36,1)}
+.member:hover .member-photo img{transform:scale(1.04)}
+.member:hover .member-photo::after{transform:scaleX(1)}
+.member-meta{margin-top:var(--s-4)}
+.member-meta h3{font-family:var(--serif);font-weight:500;font-size:1.5rem;color:var(--paper);line-height:1.1}
+.member-meta p{margin-top:2px;font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+
+/* ============ Contact ============ */
+.contact{padding-block:var(--section);border-top:1px solid var(--paper-line-soft)}
+.contact-cols{margin-top:var(--s-6);display:grid;grid-template-columns:5fr 6fr;gap:clamp(40px,6vw,96px);align-items:start}
+.contact-note{font-size:var(--t-md);line-height:1.5;color:var(--paper-90);max-width:44ch}
+.contact-details{margin-top:var(--s-6);display:grid;gap:var(--s-5)}
+.contact-detail .label{font-size:var(--t-xs);letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:var(--s-2)}
+.contact-detail p:not(.label){color:var(--paper-70)}
+.contact-detail a{color:var(--paper);border-bottom:1px solid var(--paper-line)}
+.contact-detail a:hover{border-color:var(--gold)}
+
+.form{background:var(--smoke);padding:clamp(28px,4vw,48px);border:1px solid var(--paper-line-soft)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-4)}
+.field{display:flex;flex-direction:column;margin-bottom:var(--s-4)}
+.field label{font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--ash);margin-bottom:var(--s-2)}
+.field input,.field textarea{
+  font-family:var(--sans);font-size:1rem;color:var(--paper);
+  background:transparent;border:0;border-bottom:1px solid var(--paper-line);
+  padding:10px 0;transition:border-color .25s ease;
+}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
+.field textarea{resize:vertical;min-height:96px}
+.form .btn{margin-top:var(--s-2);width:100%;justify-content:center}
+.form-privacy{margin-top:var(--s-4);font-size:var(--t-xs);line-height:1.6;color:var(--ash)}
+
+/* ============ Footer ============ */
+.footer{border-top:1px solid var(--paper-line);padding-block:var(--s-6)}
+.footer-inner{max-width:var(--container);margin-inline:auto;padding-inline:clamp(20px,4vw,48px)}
+.footer-top{display:flex;align-items:center;justify-content:space-between;gap:var(--s-5);flex-wrap:wrap;padding-bottom:var(--s-5);border-bottom:1px solid var(--paper-line-soft)}
+.footer-nav{display:flex;flex-wrap:wrap;gap:var(--s-4) var(--s-5);list-style:none;align-items:center}
+.footer-nav a{font-size:.8125rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--paper-55);transition:color .2s ease}
+.footer-nav a:hover{color:var(--paper)}
+.footer-legal{margin-top:var(--s-5);display:flex;flex-direction:column;gap:var(--s-3)}
+.footer-legal p{font-size:var(--t-xs);line-height:1.7;color:var(--ash);max-width:none}
+.footer-legal p:last-child{color:var(--paper-55)}
+
+/* ============ Reveal animations (transforms/opacity only) ============ */
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1)}
+.js .reveal.in{opacity:1;transform:none}
+.js .reveal.d1{transition-delay:.09s}
+.js .reveal.d2{transition-delay:.18s}
+.js .reveal.d3{transition-delay:.27s}
+
+/* Hero load choreography */
+.js .h-fade{opacity:0;transform:translateY(18px)}
+.js .hero .eyebrow{opacity:0;transform:translateY(18px);animation:fade-rise .7s .3s cubic-bezier(.22,.61,.36,1) forwards}
+.js .hero h1{opacity:0;transform:translateY(22px);animation:fade-rise .85s .42s cubic-bezier(.22,.61,.36,1) forwards}
+.js .hero-sub{opacity:0;transform:translateY(18px);animation:fade-rise .7s .6s cubic-bezier(.22,.61,.36,1) forwards}
+.js .hero-actions{opacity:0;transform:translateY(18px);animation:fade-rise .7s .74s cubic-bezier(.22,.61,.36,1) forwards}
+.js .hero-foot{opacity:0;transform:translateY(18px);animation:fade-rise .7s .88s cubic-bezier(.22,.61,.36,1) forwards}
+@keyframes fade-rise{to{opacity:1;transform:none}}
+
+/* ============ Responsive ============ */
+@media (max-width:960px){
+  .firm-cols,.contact-cols{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .principles{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  .nav-inner{gap:var(--s-4)}
+  .nav-links{
+    position:fixed;top:var(--nav-h);left:0;right:0;
+    background:var(--ink);border-bottom:1px solid var(--paper-line);
+    flex-direction:column;align-items:flex-start;
+    padding:var(--s-4) clamp(20px,4vw,48px) var(--s-5);gap:var(--s-4);
+    transform:translateY(-8px);opacity:0;visibility:hidden;
+    transition:transform .25s ease,opacity .25s ease,visibility .25s;
+  }
+  .nav-toggle:checked ~ .nav-links{transform:none;opacity:1;visibility:visible}
+  .nav-toggle-label{display:flex;flex-direction:column;gap:5px;cursor:pointer;padding:10px 2px;order:3}
+  .nav-toggle-label span{width:22px;height:1.5px;background:var(--paper);transition:transform .25s ease,opacity .2s ease}
+  .nav-toggle:checked ~ .nav-toggle-label span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .nav-toggle:checked ~ .nav-toggle-label span:nth-child(2){opacity:0}
+  .nav-toggle:checked ~ .nav-toggle-label span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  .nav-cta{padding:10px 16px;font-size:.6875rem}
+}
+@media (max-width:720px){
+  .srow{grid-template-columns:auto 1fr;gap:var(--s-4)}
+  .srow-icon{display:none}
+  .stats{grid-template-columns:1fr}
+  .stat{padding:var(--s-4) 0}
+  .stat + .stat{border-left:0;border-top:1px solid var(--paper-line);padding-left:0}
+  .form-row{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr}
+  .hero-actions{gap:var(--s-4)}
+}
+@media (max-width:560px){
+  .wordmark{gap:12px}
+  .wordmark .mono{width:40px;height:40px;font-size:1.1rem}
+  .wordmark .wm-name{font-size:.85rem;letter-spacing:.13em}
+  .wordmark .wm-sub{font-size:.44rem;letter-spacing:.44em;margin-top:5px}
+}
+@media (max-width:480px){
+  .nav-cta{display:none}
+  .menu-cta-item{display:block}
+  .nav-links .menu-cta-item a{display:inline-flex;padding:12px 22px;border:1px solid var(--paper);font-size:.75rem;font-weight:600;letter-spacing:.08em;color:var(--paper)}
+  .nav-links .menu-cta-item a::after{display:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+  .js .reveal,.js .hero-rule,.js .hero .eyebrow,.js .hero h1,.js .hero-sub,.js .hero-actions,.js .hero-foot{opacity:1!important;transform:none!important;animation:none!important}
+  .btn,.text-link,.srow,.member-photo img,.member-photo::after,.nav-links a::after{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ Nav ============ -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="wordmark"><span class="mono">R<span class="amp">&amp;</span>S</span><span class="wm-stack"><span class="wm-name">Regis &amp; Savoy</span><span class="wm-sub">Capital</span></span></a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle navigation">
+    <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true"><span></span><span></span><span></span></label>
+    <ul class="nav-links">
+      <li><a href="#firm">About Us</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#team">Leadership</a></li>
+      <li><a href="#approach">Philosophy</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li class="menu-cta-item"><a href="#contact">Request a Consultation</a></li>
+    </ul>
+    <a href="#contact" class="btn btn-ghost nav-cta">Request a Consultation</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ Hero ============ -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <p class="eyebrow">Stewardship. Perspective. Continuity.</p>
+      <h1>Building, preserving, and transitioning wealth across generations<span class="dot">.</span></h1>
+      <p class="hero-sub">Regis and Savoy Capital is an independent Multi-Family Office serving entrepreneurs, business owners, professionals, and families through Wealth Management, Private Equity, Family Office, and Legacy and Impact services. We combine institutional experience with the accessibility, continuity, and personal attention of an owner-led firm.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-solid">Request a Consultation</a>
+        <a href="#approach" class="text-link">Our approach
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="hero-foot">
+        <span>Est. 2011</span>
+        <span>Independent &amp; Fee-Only</span>
+        <span>By Introduction &amp; Enquiry</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Who We Are ============ -->
+  <section class="section" id="firm">
+    <div class="container">
+      <div class="firm-cols">
+        <div class="reveal">
+          <p class="eyebrow"><span class="idx">01</span> Who We Are</p>
+          <h2 class="headline">We believe wealth is never just about assets<span class="dot">.</span></h2>
+        </div>
+        <div class="firm-copy reveal d1">
+          <p>We believe wealth is never just about assets. It is about the opportunities it creates, the responsibilities it brings, and the future it helps shape. Our role is to help families navigate complexity, make informed decisions, and remain focused on what matters most over the long term.</p>
+        </div>
+      </div>
+      <div class="stats reveal">
+        <div class="stat">
+          <p class="stat-num">100<sup>%</sup></p>
+          <p class="stat-label">Owner-Led Firm</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">94</p>
+          <p class="stat-label">Years of Collective Industry Experience</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">10+</p>
+          <p class="stat-label">Years of Wealth Management Expertise</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">100<sup>%</sup></p>
+          <p class="stat-label">Client Retention, and a Growing Client Base</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ What Sets Us Apart ============ -->
+  <section class="section" id="differentiation">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span class="idx">02</span> What Sets Us Apart</p>
+        <h2 class="headline">Four differentiators<span class="dot">.</span></h2>
+      </div>
+      <div class="principles">
+        <div class="principle reveal">
+          <h3>Owner-Led Relationships</h3>
+          <p>Direct engagement with the decision-makers responsible for managing your wealth.</p>
+        </div>
+        <div class="principle reveal d1">
+          <h3>Curated Client Partnerships</h3>
+          <p>We intentionally work with a select group of clients whose values, expectations, and long-term outlook align with our approach.</p>
+        </div>
+        <div class="principle reveal">
+          <h3>Independent Perspective</h3>
+          <p>Guidance shaped solely by our clients' interests, without product-sales obligations or institutional influences.</p>
+        </div>
+        <div class="principle reveal d1">
+          <h3>Multigenerational Perspective</h3>
+          <p>Ensuring today's decisions support the aspirations and continuity of future generations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Services (within Home) — editorial list ============ -->
+  <section class="section services-section" id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span class="idx">03</span> Services</p>
+        <h2 class="headline">Four service lines<span class="dot">.</span></h2>
+      </div>
+      <div class="service-list">
+        <article class="srow reveal">
+          <span class="srow-num">01</span>
+          <div class="srow-body">
+            <h3>Wealth Management</h3>
+            <p>Independent investment guidance tailored to evolving financial goals and market conditions.</p>
+          </div>
+          <svg class="srow-icon" width="26" height="26" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M3 22h22"/><path d="M6 22V13m5.5 9V8m5.5 14V11m5.5 11V6"/></svg>
+        </article>
+        <article class="srow reveal">
+          <span class="srow-num">02</span>
+          <div class="srow-body">
+            <h3>Private Equity</h3>
+            <p>Accessing carefully selected private-market opportunities with discipline and perspective.</p>
+          </div>
+          <svg class="srow-icon" width="26" height="26" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><circle cx="14" cy="7" r="3.5"/><path d="M14 10.5V16"/><path d="M6 21.5c0-3 3.5-5.5 8-5.5s8 2.5 8 5.5"/><path d="M6 25h16"/></svg>
+        </article>
+        <article class="srow reveal">
+          <span class="srow-num">03</span>
+          <div class="srow-body">
+            <h3>Family Office</h3>
+            <p>Coordinating family, business, and financial affairs through a unified framework.</p>
+          </div>
+          <svg class="srow-icon" width="26" height="26" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><rect x="4" y="4" width="20" height="20"/><path d="M4 12h20M12 12v12"/></svg>
+        </article>
+        <article class="srow reveal">
+          <span class="srow-num">04</span>
+          <div class="srow-body">
+            <h3>Legacy and Impact</h3>
+            <p>Helping future generations translate success into purpose, values, and lasting impact.</p>
+          </div>
+          <svg class="srow-icon" width="26" height="26" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><circle cx="14" cy="14" r="10"/><path d="M14 8v6l4 3"/></svg>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Philosophy ============ -->
+  <section class="section" id="approach">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span class="idx">04</span> Philosophy</p>
+        <h2 class="headline">A disciplined approach to long-term wealth<span class="dot">.</span></h2>
+        <p class="lede">We believe successful investing is driven by patience, sound judgment, and a consistent process rather than short-term market movements.</p>
+      </div>
+      <div class="principles">
+        <div class="principle reveal">
+          <span class="principle-num">01</span>
+          <h3>Capital Preservation</h3>
+          <p>Protecting capital remains the foundation of every investment decision.</p>
+        </div>
+        <div class="principle reveal d1">
+          <span class="principle-num">02</span>
+          <h3>Independent Thinking</h3>
+          <p>Objective decisions guided by facts, analysis, and client interests.</p>
+        </div>
+        <div class="principle reveal">
+          <span class="principle-num">03</span>
+          <h3>Long-Term Perspective</h3>
+          <p>Investment decisions guided by long-term objectives rather than short-term market movements.</p>
+        </div>
+        <div class="principle reveal d1">
+          <span class="principle-num">04</span>
+          <h3>Selective Deployment of Capital</h3>
+          <p>Investing only where opportunities are well understood and risks are carefully evaluated.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Statement band — light breath ============ -->
+  <section class="statement">
+    <div class="container">
+      <div class="statement-quote reveal">
+        <span class="qmark" aria-hidden="true">&ldquo;</span>
+        <blockquote>They are the first call we make on anything that touches the family's money — and usually the only one we need.</blockquote>
+        <cite>A client family &middot; Bangalore &middot; since 2014</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Leadership ============ -->
+  <section class="section" id="team">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow"><span class="idx">05</span> Leadership</p>
+        <h2 class="headline">Experience. Judgment. Relationships.<span class="dot">.</span></h2>
+        <p class="lede">Our leadership team combines decades of experience across investment management, entrepreneurship, and family wealth. Having guided clients through multiple market cycles and economic environments, we understand that successful outcomes are built on discipline, perspective, and trusted relationships. Experience matters. So do accessibility, accountability, and the trust that develops through enduring relationships. These principles continue to shape every relationship we build and every decision we support.</p>
+      </div>
+      <div class="team-grid">
+        <article class="member reveal">
+          <div class="member-photo"><img src="../assets/team/devika-rao.jpg" alt="Devika Rao, Managing Partner" width="800" height="1000" loading="lazy"></div>
+          <div class="member-meta">
+            <h3>Devika Rao</h3>
+            <p>Managing Partner</p>
+          </div>
+        </article>
+        <article class="member reveal d1">
+          <div class="member-photo"><img src="../assets/team/nikhil-menon.jpg" alt="Nikhil Menon, Chief Investment Officer" width="800" height="1000" loading="lazy"></div>
+          <div class="member-meta">
+            <h3>Nikhil Menon</h3>
+            <p>Chief Investment Officer</p>
+          </div>
+        </article>
+        <article class="member reveal d2">
+          <div class="member-photo"><img src="../assets/team/meera-krishnan.jpg" alt="Meera Krishnan, Head of Client Advisory" width="800" height="1000" loading="lazy"></div>
+          <div class="member-meta">
+            <h3>Meera Krishnan</h3>
+            <p>Head of Client Advisory</p>
+          </div>
+        </article>
+        <article class="member reveal d3">
+          <div class="member-photo"><img src="../assets/team/aditya-sharma.jpg" alt="Aditya Sharma, Partner, Private Markets" width="800" height="1000" loading="lazy"></div>
+          <div class="member-meta">
+            <h3>Aditya Sharma</h3>
+            <p>Partner, Private Markets</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Contact ============ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="reveal">
+        <p class="eyebrow"><span class="idx">06</span> Contact</p>
+        <h2 class="headline">Let Us Start the Conversation<span class="dot">.</span></h2>
+      </div>
+      <div class="contact-cols">
+        <div class="reveal d1">
+          <p class="contact-note">Successful wealth endures not through markets alone, but through thoughtful decisions, shared values, and lasting relationships. We welcome the opportunity to understand your objectives and discuss how we may support your future aspirations.</p>
+          <div class="contact-details">
+            <div class="contact-detail">
+              <p class="label">Office</p>
+              <p>Regis and Savoy Capital<br>World Trade Center, 2nd Floor<br>Brigade Gateway Campus<br>Rajajinagar, Bengaluru – 560055</p>
+            </div>
+            <div class="contact-detail">
+              <p class="label">Contact</p>
+              <p><a href="tel:+919611806161">+91 96118 06161</a><br><a href="mailto:connect@regisandsavoy.com">connect@regisandsavoy.com</a></p>
+            </div>
+          </div>
+        </div>
+        <form class="form reveal d2" action="#" method="post">
+          <div class="form-row">
+            <div class="field">
+              <label for="f-name">Name</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="f-email">Email</label>
+              <input id="f-email" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone <span style="text-transform:none;letter-spacing:0">(optional)</span></label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="f-message">How can we help</label>
+            <textarea id="f-message" name="message" rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn btn-solid">Request a Consultation</button>
+          <p class="form-privacy">Your enquiry is read only by a partner of the firm. We never share your details, and we never call unannounced.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <a href="#top" class="wordmark"><span class="mono">R<span class="amp">&amp;</span>S</span><span class="wm-stack"><span class="wm-name">Regis &amp; Savoy</span><span class="wm-sub">Capital</span></span></a>
+      <ul class="footer-nav">
+        <li><a href="#firm">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#team">Leadership</a></li>
+        <li><a href="#approach">Philosophy</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-legal">
+      <p>Regis &amp; Savoy Capital provides investment advisory services to select clients. Nothing on this website constitutes an offer, solicitation, or investment advice. Past performance is not indicative of future results.</p>
+      <p>&copy; 2026 Regis &amp; Savoy Capital &middot; regisandsavoy.com</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(el){el.classList.add('in');});
+    return;
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });
+  },{rootMargin:'0px 0px -8% 0px',threshold:.1});
+  els.forEach(function(el){io.observe(el);});
+
+  var toggle=document.getElementById('nav-toggle');
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.addEventListener('click',function(){toggle.checked=false;});
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regis &amp; Savoy Capital — Independent Multi-Family Office</title>
+<meta name="description" content="Regis and Savoy Capital is an independent Multi-Family Office serving entrepreneurs, business owners, professionals, and families through Wealth Management, Private Equity, Family Office, and Legacy and Impact services.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2312151A'/%3E%3Crect x='2.5' y='2.5' width='59' height='59' fill='none' stroke='%23B08D57' stroke-width='2'/%3E%3Ctext x='32' y='41' font-family='Georgia,serif' font-size='25' text-anchor='middle' fill='%23F4F1EA'%3ER%26S%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Marcellus&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add('js');</script>
+<style>
+/* ============ Tokens — from design.md ============ */
+:root{
+  --ink:#12151A;        /* deep warm charcoal — dark bands; light-band text */
+  --paper:#F4F1EA;      /* warm bone — light bands; dark-band text */
+  --gold:#B08D57;       /* muted antique gold — the single accent */
+  --navy:#1F3A5F;       /* deep slate navy — reserved */
+  --smoke:#1B1F26;      /* raised dark surface — cards on dark */
+  --ash:#8A8F98;        /* muted grey — labels, metadata */
+
+  --ink-70:rgba(18,21,26,.72);
+  --ink-60:rgba(18,21,26,.6);
+  --line:rgba(18,21,26,.14);
+  --line-soft:rgba(18,21,26,.08);
+  --paper-90:rgba(244,241,234,.9);
+  --paper-70:rgba(244,241,234,.7);
+  --paper-55:rgba(244,241,234,.55);
+  --paper-line:rgba(244,241,234,.14);
+  --paper-line-soft:rgba(244,241,234,.08);
+  --gold-seam:rgba(176,141,87,.45);   /* band seams + soft gold hairlines */
+  --gold-line:rgba(176,141,87,.6);
+
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',-apple-system,'Helvetica Neue',Arial,sans-serif;
+  --marcellus:'Marcellus',Georgia,serif;
+
+  /* type scale */
+  --t-xl:clamp(2.25rem,4.6vw,3.9rem);
+  --t-lg:clamp(1.6rem,2.6vw,2.6rem);
+  --t-md:clamp(1.15rem,1.6vw,1.375rem);
+  --t-sm:1rem;
+  --t-xs:.6875rem;
+
+  /* spacing — 8px base */
+  --s-1:4px; --s-2:8px; --s-3:16px; --s-4:24px;
+  --s-5:40px; --s-6:64px; --s-7:96px;
+  --section:clamp(88px,12vw,168px);
+
+  --nav-h:76px;
+  --container:1200px;
+}
+
+/* ============ Reset & base ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--nav-h) + 12px)}
+html,body{overflow-x:clip}
+body{
+  font-family:var(--sans);
+  font-size:var(--t-sm);
+  line-height:1.7;
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+img,svg{display:block}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--gold);color:var(--ink)}
+
+.container{max-width:var(--container);margin-inline:auto;padding-inline:clamp(20px,4vw,48px)}
+.dot{color:var(--gold)}
+
+/* ============ Bands — alternating full-bleed grounds ============ */
+.band{padding-block:var(--section)}
+.band-paper{background:var(--paper);color:var(--ink)}
+.band-ink{background:var(--ink);color:var(--paper)}
+main > section + section{border-top:1px solid var(--gold-seam)}
+footer{border-top:1px solid var(--gold-seam)}
+
+/* ============ Eyebrows / overlines ============ */
+.eyebrow{
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ash);display:inline-flex;align-items:baseline;gap:14px;line-height:1;
+}
+.eyebrow .idx{color:var(--gold);letter-spacing:.08em}
+.band-head{display:flex;align-items:center;gap:clamp(20px,3vw,32px);margin-bottom:clamp(44px,6.5vw,76px)}
+.band-head::after{content:"";flex:1;height:1px}
+.band-paper .band-head::after{background:var(--line)}
+.band-ink .band-head::after{background:var(--paper-line-soft)}
+.eyebrow-c{display:flex;align-items:center;justify-content:center;gap:18px}
+.eyebrow-c::before,.eyebrow-c::after{content:"";width:32px;height:1px;background:var(--gold-line)}
+
+/* ============ Buttons ============ */
+.btn,.btn-solid{
+  display:inline-block;font-family:var(--sans);font-size:var(--t-xs);font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;line-height:1;cursor:pointer;
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.btn{border:1px solid rgba(18,21,26,.35);color:var(--ink);padding:13px 22px}
+.btn:hover{transform:translateY(-2px);border-color:var(--gold)}
+.btn-solid{background:var(--gold);color:var(--ink);padding:18px 34px;border:1px solid var(--gold)}
+.btn-solid:hover{transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(176,141,87,.55)}
+
+/* ============ Nav ============ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(244,241,234,.9);
+  -webkit-backdrop-filter:blur(12px) saturate(1.4);backdrop-filter:blur(12px) saturate(1.4);
+  border-bottom:1px solid var(--line);
+  transition:background .35s ease,border-color .35s ease;
+}
+html.js .nav:not(.scrolled){background:transparent;border-color:transparent;-webkit-backdrop-filter:none;backdrop-filter:none}
+.nav:has(.menu-toggle:checked){background:rgba(244,241,234,.97)!important;border-color:var(--line)!important}
+.nav-inner{
+  height:var(--nav-h);display:flex;align-items:center;gap:clamp(20px,2.5vw,40px);
+  padding-inline:clamp(20px,3vw,44px);
+}
+.menu-toggle{position:absolute;opacity:0;pointer-events:none}
+
+/* --- Logo lockup (per design.md §02) --- */
+.lockup{display:flex;align-items:center;gap:14px;flex:none}
+.monogram{
+  width:44px;height:44px;border:1px solid var(--gold);flex:none;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-weight:500;font-size:1.2rem;line-height:1;color:var(--ink);
+}
+.amp{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--gold)}
+.lockup-text{line-height:1}
+.lockup-name{display:block;font-family:var(--marcellus);font-size:.95rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.lockup-cap{display:block;margin-top:5px;font-family:var(--sans);font-weight:600;font-size:.5625rem;letter-spacing:.5em;text-transform:uppercase;color:var(--ash)}
+html.js .nav:not(.scrolled) .lockup-text{opacity:0}
+.nav .lockup-text{transition:opacity .35s ease}
+
+/* --- Links --- */
+.nav-links{display:flex;align-items:center;gap:clamp(18px,2vw,30px);margin-left:auto}
+.nav-links > a,.sub-parent{
+  position:relative;font-size:var(--t-xs);font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-70);padding:6px 0;white-space:nowrap;
+  transition:color .25s ease;display:inline-flex;align-items:center;gap:7px;
+}
+.nav-links > a:hover,.sub-parent:hover{color:var(--ink)}
+.nav-links > a::after,.sub-parent::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);
+  transform:scaleX(0);transform-origin:left;transition:transform .32s ease;
+}
+.nav-links > a:hover::after,.has-sub:hover .sub-parent::after,.has-sub:focus-within .sub-parent::after{transform:scaleX(1)}
+
+/* --- Services dropdown --- */
+.has-sub{position:relative}
+.sub-parent .caret{transition:transform .3s ease}
+.has-sub:hover .caret,.has-sub:focus-within .caret{transform:rotate(180deg)}
+.sub{
+  position:absolute;top:100%;left:-24px;min-width:236px;padding:12px 0;margin-top:14px;
+  background:var(--paper);border:1px solid var(--line);
+  box-shadow:0 28px 60px -30px rgba(18,21,26,.35);
+  opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:opacity .28s ease,transform .28s ease,visibility 0s linear .28s;
+}
+.sub::before{content:"";position:absolute;top:-15px;left:0;right:0;height:15px} /* hover bridge */
+.has-sub:hover .sub,.has-sub:focus-within .sub{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.sub a{
+  display:block;padding:11px 24px;font-size:var(--t-xs);font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--ink-60);
+  transition:color .2s ease,background .2s ease;
+}
+.sub a:hover{color:var(--ink);background:rgba(18,21,26,.045)}
+
+.nav-cta{flex:none}
+
+/* --- Hamburger (pure CSS) --- */
+.burger{display:none;flex:none;width:40px;height:40px;margin-left:auto;cursor:pointer;position:relative}
+.burger span{
+  position:absolute;left:9px;right:9px;height:1.5px;background:var(--ink);
+  transition:transform .3s ease,opacity .3s ease;
+}
+.burger span:nth-child(1){top:14px}
+.burger span:nth-child(2){top:20px}
+.burger span:nth-child(3){top:26px}
+.menu-toggle:checked ~ .nav-inner .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-toggle:checked ~ .nav-inner .burger span:nth-child(2){opacity:0}
+.menu-toggle:checked ~ .nav-inner .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* --- Mobile panel --- */
+.mobile-panel{
+  position:fixed;top:var(--nav-h);left:0;right:0;z-index:99;
+  max-height:calc(100dvh - var(--nav-h));overflow:auto;
+  background:var(--paper);border-bottom:1px solid var(--line);
+  padding:20px clamp(20px,4vw,40px) 36px;
+  display:none;flex-direction:column;
+  opacity:0;visibility:hidden;transform:translateY(-10px);
+  transition:opacity .3s ease,transform .3s ease,visibility 0s linear .3s;
+}
+.menu-toggle:checked ~ .mobile-panel{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.mobile-panel a{
+  padding:14px 0;font-size:.8125rem;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--line-soft);
+}
+.mobile-panel .mp-group{
+  padding:18px 0 8px;font-size:var(--t-xs);font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--ash);
+}
+.mobile-panel .mp-sub{padding-left:18px;color:var(--ink-60);font-weight:500}
+.mobile-panel .mp-cta{
+  margin-top:24px;border-bottom:none;text-align:center;
+  background:var(--gold);color:var(--ink);padding:16px 0;letter-spacing:.18em;
+}
+
+@media(max-width:1080px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .mobile-panel{display:flex}
+}
+@media(max-width:640px){
+  .nav-cta{display:none}
+}
+@media(max-width:560px){
+  .lockup-text{display:none}
+}
+
+/* ============ Hero — the wordmark is the masthead ============ */
+.hero{padding-top:calc(var(--nav-h) + clamp(26px,4.5vw,60px));padding-bottom:clamp(80px,10vw,140px)}
+.wordmark{padding-inline:clamp(14px,2.5vw,36px);text-align:center}
+.wm-line{width:100%}
+.wm-text{
+  display:inline-block;font-family:var(--marcellus);font-weight:400;
+  font-size:8.6vw; /* fallback estimate; JS fits exactly to the viewport after fonts load */
+  line-height:1;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink);white-space:nowrap;
+}
+.wm-text .amp{font-size:.95em}
+.wm-last{letter-spacing:0}
+.wm-cap{
+  display:flex;align-items:center;gap:clamp(16px,3vw,30px);
+  padding-inline:clamp(14px,2.5vw,36px);margin-top:clamp(14px,2.4vw,28px);
+}
+.wm-cap .rule{flex:1;height:1px;background:var(--gold-line)}
+.wm-cap .cap{
+  font-family:var(--sans);font-weight:600;font-size:clamp(.6875rem,1.1vw,.8125rem);
+  letter-spacing:.5em;margin-right:-.5em;text-transform:uppercase;color:var(--ash);line-height:1;
+}
+
+.hero-body{text-align:center;margin-top:clamp(64px,9vw,124px)}
+.h1{
+  font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,5vw,4.5rem);
+  line-height:1.08;letter-spacing:-.01em;color:var(--ink);
+}
+.tagline{
+  font-family:var(--serif);font-style:italic;font-weight:500;
+  font-size:clamp(1.2rem,1.9vw,1.55rem);line-height:1.45;color:var(--ink-60);
+  margin-top:clamp(18px,2.5vw,28px);
+}
+.intro{
+  max-width:70ch;margin:clamp(22px,3vw,34px) auto 0;
+  font-size:1.0625rem;line-height:1.8;color:var(--ink-70);
+}
+.hero-cta{margin-top:clamp(32px,4.5vw,48px)}
+@media(max-width:600px){.h1 br{display:none}}
+
+/* --- Stat strip — big-numbers band --- */
+.stats{
+  margin-top:clamp(76px,10vw,132px);
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+.stat{padding:clamp(28px,3.5vw,46px) clamp(18px,2.5vw,36px);border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+.stat-num{
+  font-family:var(--serif);font-weight:500;font-size:clamp(2.1rem,3.2vw,3.1rem);
+  line-height:1;color:var(--ink);white-space:nowrap;
+}
+.stat-num .unit{color:var(--gold);font-size:.55em;vertical-align:.5em;margin-left:2px}
+.stat-label{
+  margin-top:12px;font-size:var(--t-xs);font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ash);line-height:1.6;
+}
+@media(max-width:900px){
+  .stats{grid-template-columns:1fr 1fr}
+  .stat{border-left:0;border-top:1px solid var(--line)}
+  .stat:nth-child(-n+2){border-top:0}
+  .stat:nth-child(even){border-left:1px solid var(--line)}
+}
+@media(max-width:520px){
+  .stats{grid-template-columns:1fr}
+  .stat{border-left:0 !important;border-top:1px solid var(--line)}
+  .stat:first-child{border-top:0}
+}
+
+/* ============ Who We Are — statement on ink ============ */
+.who{text-align:center}
+.statement{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(1.9rem,3.6vw,3.1rem);line-height:1.22;letter-spacing:-.005em;
+  color:var(--paper);max-width:30ch;margin:clamp(30px,4.5vw,46px) auto 0;
+}
+.statement-sub{
+  max-width:62ch;margin:clamp(22px,3.2vw,34px) auto 0;
+  font-size:var(--t-md);line-height:1.75;color:var(--paper-70);
+}
+
+/* ============ What Sets Us Apart — numbered lattice grid ============ */
+.apart-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--line);border:1px solid var(--line);
+}
+.apart-cell{background:var(--paper);padding:clamp(30px,4.5vw,58px)}
+.cell-idx{
+  display:block;font-family:var(--serif);font-weight:500;
+  font-size:clamp(1.5rem,2vw,1.9rem);line-height:1;color:var(--gold);
+}
+.cell-title{
+  font-family:var(--serif);font-weight:500;font-size:clamp(1.45rem,2.1vw,1.9rem);
+  line-height:1.15;letter-spacing:-.005em;color:var(--ink);
+  margin-top:clamp(20px,3vw,30px);
+}
+.cell-body{margin-top:14px;color:var(--ink-70);max-width:46ch;font-size:.9375rem;line-height:1.75}
+@media(max-width:760px){.apart-grid{grid-template-columns:1fr}}
+
+/* ============ Services teaser — four cards on ink ============ */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,28px)}
+.svc-card{
+  background:var(--smoke);border:1px solid var(--paper-line-soft);
+  padding:clamp(28px,4vw,50px);display:flex;flex-direction:column;
+  transition:transform .35s cubic-bezier(.22,.61,.36,1),border-color .35s ease;
+}
+.svc-card:hover{transform:translateY(-4px);border-color:var(--gold-seam)}
+.svc-icon{width:26px;height:26px;color:var(--ash);transition:color .35s ease}
+.svc-icon svg{width:100%;height:100%}
+.svc-card:hover .svc-icon{color:var(--gold)}
+.svc-title{
+  font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,2.2vw,2rem);
+  line-height:1.12;color:var(--paper);margin-top:clamp(20px,3vw,32px);
+}
+.svc-body{margin-top:12px;color:var(--paper-70);max-width:48ch;font-size:.9375rem;line-height:1.75}
+.svc-arrow{
+  margin-top:auto;padding-top:clamp(24px,3vw,34px);
+  color:var(--gold);display:inline-flex;
+  transition:transform .35s cubic-bezier(.22,.61,.36,1);
+}
+.svc-card:hover .svc-arrow{transform:translateX(6px)}
+@media(max-width:760px){.svc-grid{grid-template-columns:1fr}}
+
+/* ============ CTA band ============ */
+.cta-band{text-align:center}
+.cta-title{
+  font-family:var(--serif);font-weight:500;font-size:var(--t-xl);
+  line-height:1.05;letter-spacing:-.005em;color:var(--ink);
+  margin-top:clamp(22px,3.2vw,34px);
+}
+.cta-band .btn-solid{margin-top:clamp(30px,4.5vw,46px)}
+
+/* ============ Footer ============ */
+.footer{background:var(--ink);color:var(--paper);padding:clamp(56px,7vw,84px) 0 36px}
+.foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:clamp(28px,4vw,56px);flex-wrap:wrap}
+.footer .monogram{color:var(--paper)}
+.footer .lockup-name{color:var(--paper)}
+.foot-links{display:flex;flex-wrap:wrap;gap:14px 28px;max-width:560px;padding-top:6px}
+.foot-links a{
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--paper-55);transition:color .25s ease;white-space:nowrap;
+}
+.foot-links a:hover{color:var(--paper)}
+.foot-bottom{
+  margin-top:clamp(40px,5vw,60px);padding-top:24px;
+  border-top:1px solid var(--paper-line-soft);
+  font-size:.75rem;color:var(--paper-55);
+}
+
+/* ============ Motion — transforms & opacity only ============ */
+html.js .reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity .8s cubic-bezier(.22,.61,.36,1),transform .8s cubic-bezier(.22,.61,.36,1);
+}
+html.js .reveal.in{opacity:1;transform:none}
+html.js .reveal.d1{transition-delay:.09s}
+html.js .reveal.d2{transition-delay:.18s}
+html.js .reveal.d3{transition-delay:.27s}
+
+@keyframes rise{to{opacity:1;transform:none}}
+html.js .hz{opacity:0;transform:translateY(18px);animation:rise .9s cubic-bezier(.22,.61,.36,1) forwards}
+html.js .hz-1{animation-delay:.1s}
+html.js .hz-2{animation-delay:.24s}
+html.js .hz-3{animation-delay:.38s}
+html.js .hz-4{animation-delay:.5s}
+html.js .hz-5{animation-delay:.6s}
+html.js .hz-6{animation-delay:.7s}
+html.js .hz-7{animation-delay:.82s}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  html.js .reveal,html.js .hz{opacity:1;transform:none;animation:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ Nav ============ -->
+<header class="nav" id="nav">
+  <input type="checkbox" id="menu" class="menu-toggle" aria-label="Toggle menu">
+  <div class="nav-inner">
+    <a class="lockup" href="#top" aria-label="Regis &amp; Savoy Capital — home">
+      <span class="monogram">R<span class="amp">&amp;</span>S</span>
+      <span class="lockup-text">
+        <span class="lockup-name">Regis <span class="amp">&amp;</span> Savoy</span>
+        <span class="lockup-cap">Capital</span>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="about.html">About Us</a>
+      <div class="has-sub">
+        <a class="sub-parent" href="#services" aria-haspopup="true">
+          Services
+          <svg class="caret" viewBox="0 0 10 6" width="9" height="6" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg>
+        </a>
+        <div class="sub">
+          <a href="wealth-management.html">Wealth Management</a>
+          <a href="private-equity.html">Private Equity</a>
+          <a href="family-office.html">Family Office</a>
+          <a href="legacy-and-impact.html">Legacy and Impact</a>
+        </div>
+      </div>
+      <a href="leadership.html">Leadership</a>
+      <a href="investment-philosophy.html">Investment Philosophy</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="btn nav-cta" href="contact.html">Request a Consultation</a>
+    <label for="menu" class="burger" aria-hidden="true"><span></span><span></span><span></span></label>
+  </div>
+  <div class="mobile-panel">
+    <a href="about.html">About Us</a>
+    <span class="mp-group">Services</span>
+    <a class="mp-sub" href="wealth-management.html">Wealth Management</a>
+    <a class="mp-sub" href="private-equity.html">Private Equity</a>
+    <a class="mp-sub" href="family-office.html">Family Office</a>
+    <a class="mp-sub" href="legacy-and-impact.html">Legacy and Impact</a>
+    <a href="leadership.html">Leadership</a>
+    <a href="investment-philosophy.html">Investment Philosophy</a>
+    <a href="contact.html">Contact</a>
+    <a class="mp-cta" href="contact.html">Request a Consultation</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ Hero — the wordmark is the masthead ============ -->
+  <section class="band-paper hero">
+    <div class="wordmark hz hz-1" role="img" aria-label="Regis &amp; Savoy">
+      <div class="wm-line"><span class="wm-text">Regis <span class="amp">&amp;</span> Savo<span class="wm-last">y</span></span></div>
+    </div>
+    <div class="wm-cap hz hz-2" aria-hidden="true">
+      <span class="rule"></span><span class="cap">Capital</span><span class="rule"></span>
+    </div>
+
+    <div class="hero-body container">
+      <h1 class="h1 hz hz-3">Stewardship<span class="dot">.</span> Perspective<span class="dot">.</span><br>Continuity<span class="dot">.</span></h1>
+      <p class="tagline hz hz-4">Building, preserving, and transitioning wealth across generations.</p>
+      <p class="intro hz hz-5">Regis and Savoy Capital is an independent Multi-Family Office serving entrepreneurs, business owners, professionals, and families through Wealth Management, Private Equity, Family Office, and Legacy and Impact services. We combine institutional experience with the accessibility, continuity, and personal attention of an owner-led firm.</p>
+      <div class="hero-cta hz hz-6"><a class="btn-solid" href="contact.html">Request a Consultation</a></div>
+    </div>
+
+    <div class="container hz hz-7">
+      <div class="stats">
+        <div class="stat">
+          <p class="stat-num">100<span class="unit">%</span></p>
+          <p class="stat-label">Owner-Led Firm</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">94</p>
+          <p class="stat-label">Years of Collective Industry Experience</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">A Decade</p>
+          <p class="stat-label">of Wealth Management Expertise</p>
+        </div>
+        <div class="stat">
+          <p class="stat-num">100<span class="unit">%</span></p>
+          <p class="stat-label">Client Retention, and a Growing Client Base</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 01 · Who We Are ============ -->
+  <section class="band band-ink who">
+    <div class="container">
+      <div class="eyebrow-c reveal"><p class="eyebrow"><span class="idx">01</span>Who We Are</p></div>
+      <p class="statement reveal d1">We believe wealth is never just about assets<span class="dot">.</span></p>
+      <p class="statement-sub reveal d2">It is about the opportunities it creates, the responsibilities it brings, and the future it helps shape. Our role is to help families navigate complexity, make informed decisions, and remain focused on what matters most over the long term.</p>
+    </div>
+  </section>
+
+  <!-- ============ 02 · What Sets Us Apart ============ -->
+  <section class="band band-paper">
+    <div class="container">
+      <div class="band-head reveal"><p class="eyebrow"><span class="idx">02</span>What Sets Us Apart</p></div>
+      <div class="apart-grid">
+        <article class="apart-cell reveal">
+          <span class="cell-idx">01</span>
+          <h2 class="cell-title">Owner-Led Relationships<span class="dot">.</span></h2>
+          <p class="cell-body">Direct engagement with the decision-makers responsible for managing your wealth.</p>
+        </article>
+        <article class="apart-cell reveal d1">
+          <span class="cell-idx">02</span>
+          <h2 class="cell-title">Curated Client Partnerships<span class="dot">.</span></h2>
+          <p class="cell-body">We intentionally work with a select group of clients whose values, expectations, and long-term outlook align with our approach.</p>
+        </article>
+        <article class="apart-cell reveal d2">
+          <span class="cell-idx">03</span>
+          <h2 class="cell-title">Independent Perspective<span class="dot">.</span></h2>
+          <p class="cell-body">Guidance shaped solely by our clients&rsquo; interests, without product-sales obligations or institutional influences.</p>
+        </article>
+        <article class="apart-cell reveal d3">
+          <span class="cell-idx">04</span>
+          <h2 class="cell-title">Multigenerational Perspective<span class="dot">.</span></h2>
+          <p class="cell-body">Ensuring today&rsquo;s decisions support the aspirations and continuity of future generations.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 · Services ============ -->
+  <section class="band band-ink" id="services">
+    <div class="container">
+      <div class="band-head reveal"><p class="eyebrow"><span class="idx">03</span>Services</p></div>
+      <div class="svc-grid">
+
+        <a class="svc-card reveal" href="wealth-management.html">
+          <span class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 20.5h18"/><path d="M3.5 16.5 9.5 10l3.5 3.5L20 6"/><circle cx="20" cy="6" r="1.5"/>
+            </svg>
+          </span>
+          <h2 class="svc-title">Wealth Management<span class="dot">.</span></h2>
+          <p class="svc-body">Independent investment guidance tailored to evolving financial goals and market conditions.</p>
+          <span class="svc-arrow" aria-hidden="true">
+            <svg viewBox="0 0 20 10" width="20" height="10" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5h17"/><path d="M14.5 1.5 18 5l-3.5 3.5"/></svg>
+          </span>
+        </a>
+
+        <a class="svc-card reveal d1" href="private-equity.html">
+          <span class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8.75"/><circle cx="12" cy="12" r="2.25"/>
+              <path d="M12 3.25V6M20.75 12H18M12 20.75V18M3.25 12H6"/>
+            </svg>
+          </span>
+          <h2 class="svc-title">Private Equity<span class="dot">.</span></h2>
+          <p class="svc-body">Accessing carefully selected private-market opportunities with discipline and perspective.</p>
+          <span class="svc-arrow" aria-hidden="true">
+            <svg viewBox="0 0 20 10" width="20" height="10" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5h17"/><path d="M14.5 1.5 18 5l-3.5 3.5"/></svg>
+          </span>
+        </a>
+
+        <a class="svc-card reveal d2" href="family-office.html">
+          <span class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3.5 11.5 12 4.5l8.5 7"/><path d="M6 9.5V19.5h12V9.5"/><path d="M10.25 19.5v-5h3.5v5"/>
+            </svg>
+          </span>
+          <h2 class="svc-title">Family Office<span class="dot">.</span></h2>
+          <p class="svc-body">Coordinating family, business, and financial affairs through a unified framework.</p>
+          <span class="svc-arrow" aria-hidden="true">
+            <svg viewBox="0 0 20 10" width="20" height="10" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5h17"/><path d="M14.5 1.5 18 5l-3.5 3.5"/></svg>
+          </span>
+        </a>
+
+        <a class="svc-card reveal d3" href="legacy-and-impact.html">
+          <span class="svc-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20.5V10.5"/>
+              <path d="M12 13C8.5 13 6 10.8 6 7.25 9.5 7.25 12 9.5 12 13Z"/>
+              <path d="M12 10.5c0-3.5 2.5-5.75 6-5.75 0 3.55-2.5 5.75-6 5.75Z"/>
+            </svg>
+          </span>
+          <h2 class="svc-title">Legacy and Impact<span class="dot">.</span></h2>
+          <p class="svc-body">Helping future generations translate success into purpose, values, and lasting impact.</p>
+          <span class="svc-arrow" aria-hidden="true">
+            <svg viewBox="0 0 20 10" width="20" height="10" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5h17"/><path d="M14.5 1.5 18 5l-3.5 3.5"/></svg>
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 · Request a Consultation ============ -->
+  <section class="band band-paper cta-band">
+    <div class="container">
+      <div class="eyebrow-c reveal"><p class="eyebrow"><span class="idx">04</span>Contact</p></div>
+      <h2 class="cta-title reveal d1">Request a Consultation<span class="dot">.</span></h2>
+      <div class="reveal d2"><a class="btn-solid" href="contact.html">Request a Consultation</a></div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="foot-top">
+      <a class="lockup" href="#top" aria-label="Regis &amp; Savoy Capital — home">
+        <span class="monogram">R<span class="amp">&amp;</span>S</span>
+        <span class="lockup-text">
+          <span class="lockup-name">Regis <span class="amp">&amp;</span> Savoy</span>
+          <span class="lockup-cap">Capital</span>
+        </span>
+      </a>
+      <nav class="foot-links" aria-label="Footer">
+        <a href="about.html">About Us</a>
+        <a href="wealth-management.html">Wealth Management</a>
+        <a href="private-equity.html">Private Equity</a>
+        <a href="family-office.html">Family Office</a>
+        <a href="legacy-and-impact.html">Legacy and Impact</a>
+        <a href="leadership.html">Leadership</a>
+        <a href="investment-philosophy.html">Investment Philosophy</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <p>&copy; 2026 Regis &amp; Savoy Capital. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* Nav — transparent over the masthead, paper once scrolled */
+  var nav=document.getElementById('nav');
+  function onScroll(){nav.classList.toggle('scrolled',window.scrollY>24)}
+  onScroll();
+  window.addEventListener('scroll',onScroll,{passive:true});
+
+  /* Masthead fit — scale the wordmark to exact edge-to-edge once fonts load.
+     Linear: one measure at the CSS fallback size, one correction. */
+  var wm=document.querySelector('.wm-text'),line=document.querySelector('.wm-line');
+  function fit(){
+    if(!wm||!line)return;
+    wm.style.fontSize='';
+    var avail=line.clientWidth;
+    var w=wm.getBoundingClientRect().width;
+    if(w>0&&avail>0){
+      wm.style.fontSize=(parseFloat(getComputedStyle(wm).fontSize)*avail/w).toFixed(2)+'px';
+    }
+  }
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit)}
+  fit();
+  var rt;
+  window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(fit,120)});
+
+  /* Scroll reveals */
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+      });
+    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){io.observe(el)});
+  }else{
+    els.forEach(function(el){el.classList.add('in')});
+  }
+
+  /* Close the mobile menu when a link is chosen */
+  var menu=document.getElementById('menu');
+  document.querySelectorAll('.mobile-panel a').forEach(function(a){
+    a.addEventListener('click',function(){menu.checked=false});
+  });
+})();
+</script>
+</body>
+</html>
