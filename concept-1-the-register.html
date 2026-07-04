@@ -34,7 +34,7 @@
   --serif:'Spectral',Georgia,serif;
   --mono:'IBM Plex Mono','SFMono-Regular',Menlo,monospace;
 
-  --t-hero:clamp(2.75rem,7.5vw,6rem);
+  --t-hero:clamp(2.4rem,5.5vw,4.5rem);
   --t-xl:clamp(2rem,4.4vw,3.5rem);
   --t-lg:clamp(1.5rem,2.4vw,2.25rem);
   --t-fig:clamp(2.5rem,5vw,4rem);
@@ -68,7 +68,8 @@ img,svg{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--gold);color:var(--ivory)}
 
-.container{max-width:var(--container);margin:0 auto;padding-inline:clamp(20px,4vw,48px)}
+/* full-width shell: every section shares the hero's slim gutter */
+.container{width:100%;margin:0 auto;padding-inline:clamp(20px,3vw,56px)}
 
 /* shared type helpers ---------------------------------------- */
 .eyebrow{
@@ -187,56 +188,90 @@ a{color:inherit;text-decoration:none}
 .nav-burger span:nth-child(3){top:18px}
 
 /* ============================================================
-   HERO — dark, image/video-ready media + coordinate content
+   HERO — full-bleed media, headline upper left, anchored lower
+   band: photo note + inline stat row + scroll cue + hairline
    ============================================================ */
-.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;
-  padding-top:calc(var(--nav-h) + var(--s-6));padding-bottom:var(--s-7);
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;
+  padding-top:calc(var(--nav-h) + var(--s-6));padding-bottom:var(--s-5);
   background:var(--midnight);overflow:hidden;isolation:isolate}
 .hero-media{position:absolute;inset:0;z-index:-2;background:var(--midnight)}
 .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 30%;
   filter:grayscale(1) brightness(.62) contrast(1.06)}
 .js .hero-media img{animation:heroDrift 30s ease-in-out infinite alternate}
 @keyframes heroDrift{from{transform:scale(1.03)}to{transform:scale(1.11)}}
-/* scrims: vertical for legibility + horizontal weight to the left where type sits + top fade under nav */
+/* scrims: image reads at the top, deepens to near-solid midnight at the base
+   where the note, stats, and rule sit; slight left weight under the headline */
 .hero-scrim{position:absolute;inset:0;z-index:-1;
   background:
-    linear-gradient(90deg, rgba(7,27,59,.88) 0%, rgba(7,27,59,.55) 42%, rgba(7,27,59,.2) 78%, rgba(7,27,59,.32) 100%),
-    linear-gradient(180deg, rgba(7,27,59,.7) 0%, rgba(7,27,59,.35) 30%, rgba(7,27,59,.62) 74%, rgba(7,27,59,.94) 100%);}
-.hero-scrim::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 220px 40px rgba(7,27,59,.6)}
+    linear-gradient(90deg, rgba(7,27,59,.72) 0%, rgba(7,27,59,.4) 46%, rgba(7,27,59,.16) 100%),
+    linear-gradient(180deg, rgba(7,27,59,.62) 0%, rgba(7,27,59,.38) 32%, rgba(13,41,89,.78) 72%, rgba(7,27,59,.97) 100%);}
+.hero-scrim::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 220px 40px rgba(7,27,59,.55)}
 
-.hero-inner{position:relative;max-width:none}
+.hero-inner{position:relative;display:flex;flex-direction:column;flex:1}
+.hero-head{margin-top:clamp(16px,7vh,88px)}
 .hero-eyebrow{color:var(--ivory-55)}
 .hero-eyebrow .idx{color:var(--gold)}
 .hero-eyebrow .dot{color:var(--gold)}
 
 .hero-title{font-family:var(--grotesk);font-weight:600;font-size:var(--t-hero);
-  line-height:1.02;letter-spacing:-.03em;color:var(--ivory);margin-top:var(--s-4)}
+  line-height:1.04;letter-spacing:-.03em;color:var(--ivory);margin-top:var(--s-4)}
 .hero-title .ln{display:block}
 .hero-title .pd{font-style:normal;color:var(--gold)}
-.hero-tagline{font-family:var(--grotesk);font-weight:400;font-size:var(--t-md);
-  color:var(--ivory-90);margin-top:var(--s-5);max-width:none;letter-spacing:.01em}
-.hero-intro{margin-top:var(--s-4);color:var(--ivory-70);max-width:none;line-height:1.75}
-.hero-actions{margin-top:var(--s-6);display:flex;gap:var(--s-4);flex-wrap:wrap;align-items:center}
+
+/* lower band ------------------------------------------------- */
+.hero-foot{margin-top:auto;padding-top:var(--s-6)}
+.hero-note{display:flex;align-items:flex-start;gap:clamp(20px,3vw,40px)}
+.hero-thumb{width:clamp(130px,15vw,200px);aspect-ratio:16/10;object-fit:cover;flex:none;
+  border:1px solid var(--ivory-line);filter:grayscale(1) brightness(.9) contrast(1.05)}
+.hero-note p{color:var(--ivory-90);max-width:38ch;font-size:var(--t-md);line-height:1.6}
+
+.hero-stats{display:flex;align-items:center;justify-content:space-between;gap:var(--s-5);
+  margin-top:var(--s-6);padding-bottom:var(--s-5);border-bottom:1px solid var(--ivory-line)}
+.h-stat-group{display:flex;align-items:flex-start;gap:clamp(28px,4.5vw,72px);flex-wrap:wrap}
+.h-stat{display:flex;align-items:flex-start;gap:var(--s-3)}
+.h-stat .ring{width:16px;height:16px;flex:none;margin-top:4px;border:1px solid var(--gold-line);
+  border-radius:50%;position:relative}
+.h-stat .ring::after{content:"";position:absolute;inset:0;margin:auto;width:4px;height:4px;
+  border-radius:50%;background:var(--gold)}
+.h-stat .num{font-family:var(--serif);font-weight:500;font-size:1.15rem;line-height:1.2;
+  color:var(--ivory);font-feature-settings:"tnum" 1;display:block}
+.h-stat .lbl{font-family:var(--mono);font-size:var(--t-xs);letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ivory-55);display:block;margin-top:4px}
+
+.scroll-cue{display:inline-flex;align-items:center;gap:var(--s-3);flex:none;color:var(--ivory-90)}
+.scroll-cue .sq{width:52px;height:52px;flex:none;display:grid;place-items:center;
+  background:var(--gold);color:var(--ivory);transition:transform .3s cubic-bezier(.22,.61,.36,1),background-color .25s}
+.scroll-cue:hover .sq{transform:translateY(3px)}
+.scroll-cue .sc-label{font-family:var(--mono);font-size:var(--t-xs);font-weight:500;
+  letter-spacing:.16em;text-transform:uppercase}
 
 /* hero load choreography */
 .js .h-rise{opacity:0;transform:translateY(20px);
   animation:heroRise .9s cubic-bezier(.22,.61,.36,1) forwards}
 @keyframes heroRise{to{opacity:1;transform:none}}
 
-/* ============================================================
-   STAT STRIP — four ruled figures beneath the hero (dark)
-   ============================================================ */
-.stat-strip{background:var(--midnight);padding-block:0 var(--s-7)}
-.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--gold-line)}
-.stat{padding:var(--s-6) var(--s-4) 0}
-.stat:first-child{padding-left:0}
-.stat + .stat{border-left:1px solid var(--ivory-line)}
-.stat-num{font-family:var(--serif);font-weight:500;font-size:var(--t-fig);line-height:.95;
-  color:var(--ivory);font-feature-settings:"tnum" 1;letter-spacing:-.01em}
-.stat-num sup{font-family:var(--mono);font-size:.26em;color:var(--gold);vertical-align:super;
-  letter-spacing:.06em;margin-left:3px;top:-.2em;position:relative}
-.stat-label{font-family:var(--mono);margin-top:var(--s-4);font-size:var(--t-xs);
-  letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-55);line-height:1.7;max-width:26ch}
+/* hero scroll choreography ----------------------------------
+   .hero-wrap pins the hero for most of an extra viewport and
+   scrubs --p from 0 to 1. At 0 the headline sits low beside the
+   scroll cue with note + stats hidden; at 1 it is the final
+   layout. JS enables .hero-anim only on larger screens and
+   never under prefers-reduced-motion; without it, --p stays 1
+   and the hero renders in its final state. */
+.hero-wrap{position:relative;--p:1}
+.hero-wrap.hero-anim{height:235svh}
+.hero-anim .hero{position:sticky;top:0;height:100svh;min-height:0}
+/* headline settles into place over the first ~42% of the scroll,
+   before anything below it starts to load */
+.hero-anim .hero-head{transform:translateY(calc((1 - clamp(0,var(--p)/.42,1)) * var(--shift,0px)));will-change:transform}
+.hero-anim .hero-eyebrow{opacity:clamp(0,(var(--p) - .22)/.2,1)}
+/* only after the headline is in place: image + intro, then the three stats one by one */
+.hero-anim .hero-note{opacity:clamp(0,(var(--p) - .48)/.14,1);
+  transform:translateY(calc((1 - clamp(0,(var(--p) - .48)/.14,1)) * 28px))}
+.hero-anim .h-stat{--sp:0;opacity:var(--sp);
+  transform:translateY(calc((1 - var(--sp)) * 20px))}
+.hero-anim .h-stat:nth-child(1){--sp:clamp(0,(var(--p) - .66)/.1,1)}
+.hero-anim .h-stat:nth-child(2){--sp:clamp(0,(var(--p) - .78)/.1,1)}
+.hero-anim .h-stat:nth-child(3){--sp:clamp(0,(var(--p) - .9)/.1,1)}
 
 /* ============================================================
    WHO WE ARE — statement band (light), gold registration ticks
@@ -252,42 +287,94 @@ a{color:inherit;text-decoration:none}
   font-size:clamp(1.4rem,2.7vw,2.15rem);line-height:1.42;letter-spacing:-.01em;color:var(--charcoal)}
 .statement .em{color:var(--midnight);font-style:normal;font-weight:500}
 
+/* Pinned zoom reveal. Start state shows only the two gold corner ticks
+   centred on screen; scrubbing --wp zooms the statement in from small,
+   then fades the FIG. 01 group in after the text has landed. */
+.who-wrap{position:relative;--wp:1}
+.who-wrap.who-anim{height:220svh}
+.who-anim .who{position:sticky;top:0;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:center}
+/* Corners open first: a tiny rectangle at centre grows outward to the
+   frame. --cx/--cy (set in JS) are the centre-to-corner distances;
+   the tick L-shapes keep their size, only their position travels. */
+.who-anim .statement::before{will-change:transform;
+  transform:translate(
+    calc((1 - clamp(0,var(--wp)/.35,1)) * var(--cx,0px)),
+    calc((1 - clamp(0,var(--wp)/.35,1)) * var(--cy,0px)))}
+.who-anim .statement::after{will-change:transform;
+  transform:translate(
+    calc((1 - clamp(0,var(--wp)/.35,1)) * (var(--cx,0px) * -1)),
+    calc((1 - clamp(0,var(--wp)/.35,1)) * (var(--cy,0px) * -1)))}
+/* Statement zooms in once the frame has opened */
+.who-anim .statement p{opacity:clamp(0,(var(--wp) - .4)/.3,1);
+  transform:scale(calc(.76 + .24 * clamp(0,(var(--wp) - .4)/.3,1)));
+  transform-origin:center;will-change:transform,opacity}
+
 /* ============================================================
    WHAT SETS US APART — 2x2 ruled grid (dark)
    ============================================================ */
-.apart{background:var(--midnight)}
-.apart-grid{display:grid;grid-template-columns:1fr 1fr;margin-top:var(--s-7);
-  border-top:1px solid var(--ivory-line);border-left:1px solid var(--ivory-line)}
-.apart-cell{padding:clamp(28px,3.4vw,48px);
-  border-right:1px solid var(--ivory-line);border-bottom:1px solid var(--ivory-line);
-  transition:background-color .4s}
-.apart-cell:hover{background:rgba(255,255,255,.02)}
+/* split layout: dark text panel left, full-bleed image right (ref: SCR-20260704-dtfy) */
+.apart-wrap{position:relative;--ap:1;--enter:1}
+.apart-wrap.apart-anim{height:220svh}
+.apart{background:var(--midnight);padding-block:0;position:relative;overflow:hidden}
+/* the section grows in through a circle as it rises into view (driven by
+   --enter), reaching the full frame by the time it pins to the top */
+.apart-anim .apart{position:sticky;top:0;
+  clip-path:circle(calc(20svh + clamp(0, var(--enter), 1) * 100vmax) at 50% 50%)}
+.apart-panel{position:relative;z-index:1;width:50%;min-height:100svh;
+  padding:var(--section) clamp(48px,5vw,88px) var(--section) clamp(20px,3vw,56px);
+  display:flex;flex-direction:column;justify-content:center}
+.apart-media{position:absolute;top:0;bottom:0;right:0;left:50%;z-index:2;
+  background:url('../assets/apart-feature.jpg') center/cover no-repeat}
+/* once pinned, the image's left edge recedes to the right half */
+.apart-anim .apart-media{left:calc(50% * clamp(0, var(--ap) / .4, 1))}
+.apart-rule{height:1px;background:var(--gold);width:100%;margin:var(--s-5) 0 var(--s-4)}
+.apart-panel .eyebrow{margin-bottom:var(--s-4)}
+/* left elements load one by one once the image has settled */
+.apart-anim .apart-reveal{
+  opacity:clamp(0, (var(--ap) - (.45 + var(--i) * .05)) / .12, 1);
+  transform:translateY(calc((1 - clamp(0, (var(--ap) - (.45 + var(--i) * .05)) / .12, 1)) * 18px));
+  will-change:opacity,transform}
+.apart-grid{display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(28px,3vw,40px) clamp(28px,3vw,52px);margin-top:0}
 .apart-num{font-family:var(--mono);font-size:.8rem;font-weight:500;letter-spacing:.1em;color:var(--gold)}
 .apart-cell h3{font-family:var(--grotesk);font-weight:600;font-size:var(--t-lg);
-  line-height:1.14;letter-spacing:-.01em;color:var(--ivory);margin:var(--s-4) 0 var(--s-3)}
-.apart-cell p{color:var(--ivory-70);max-width:44ch}
+  line-height:1.14;letter-spacing:-.01em;color:var(--ivory);margin:var(--s-3) 0 var(--s-3)}
+.apart-cell p{color:var(--ivory-70);max-width:40ch}
 
 /* ============================================================
-   SERVICES — four cards (light), line icons + arrow links
+   SERVICES — ruled list rows (light), hover-revealed image
    ============================================================ */
 .services{background:var(--ivory)}
-.services-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-3);margin-top:var(--s-7)}
-.svc-card{position:relative;display:flex;flex-direction:column;
-  background:var(--linen);border:1px solid var(--midnight-line);
-  padding:clamp(28px,3.4vw,46px);
-  transition:transform .35s cubic-bezier(.22,.61,.36,1),border-color .35s,background-color .35s}
-.svc-card:hover{transform:translateY(-4px);border-color:var(--gold-line);background:#fff}
-.svc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:var(--s-4)}
-.svc-num{font-family:var(--mono);font-size:.8rem;letter-spacing:.14em;color:var(--gold)}
-.svc-icon{color:var(--slate);transition:color .35s,transform .35s}
-.svc-card:hover .svc-icon{color:var(--gold);transform:translateY(-2px)}
-.svc-card h3{font-family:var(--grotesk);font-weight:600;font-size:var(--t-lg);
-  line-height:1.15;letter-spacing:-.01em;color:var(--midnight);margin:var(--s-5) 0 var(--s-3)}
-.svc-card p{color:var(--midnight-70);max-width:42ch;flex:1}
-.svc-card .text-link{margin-top:var(--s-5)}
-.svc-card::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;
-  background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,.61,.36,1)}
-.svc-card:hover::after{transform:scaleX(1)}
+.services-body{display:grid;grid-template-columns:160px 1fr;gap:clamp(24px,4vw,64px);margin-top:var(--s-7)}
+.services-aside{display:flex;flex-direction:column}
+.services-label{font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--slate)}
+.svc-thumb{margin-top:var(--s-4);width:100%;aspect-ratio:4/5;background-size:cover;background-position:center;
+  border:1px solid var(--midnight-line);
+  opacity:0;transform:translateY(14px);transition:opacity .45s cubic-bezier(.22,.61,.36,1),transform .45s cubic-bezier(.22,.61,.36,1)}
+.svc-thumb.show{opacity:1;transform:none}
+.services-list{border-top:1px solid var(--midnight-line)}
+.svc-row{position:relative;display:flex;align-items:center;justify-content:space-between;gap:var(--s-4);
+  padding:clamp(14px,1.6vw,20px) clamp(16px,2vw,28px);
+  border-bottom:1px solid var(--midnight-line);transition:background-color .35s}
+.svc-row::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);
+  transform:scaleY(0);transform-origin:top;transition:transform .4s cubic-bezier(.22,.61,.36,1)}
+.svc-row:hover{background:var(--linen)}
+.svc-row:hover::before{transform:scaleY(1)}
+.svc-row-text{display:flex;flex-wrap:wrap;gap:var(--s-4);flex:1;min-width:0}
+.svc-num{font-family:var(--mono);font-size:.8rem;letter-spacing:.14em;color:var(--gold);flex:none;align-self:flex-start}
+.svc-row h3{font-family:var(--grotesk);font-weight:600;font-size:var(--t-lg);
+  letter-spacing:-.01em;color:var(--midnight);white-space:nowrap;flex:none;transition:color .35s;align-self:flex-start}
+.svc-row:hover h3{color:var(--gold)}
+.svc-row p{color:var(--midnight-70);flex-basis:100%;min-width:0;margin-top:4px}
+.svc-right{display:flex;align-items:center;gap:var(--s-3);flex:none}
+.svc-right span{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
+.svc-arrow{width:38px;height:38px;flex:none;display:flex;align-items:center;justify-content:center;
+  background:var(--gold);color:var(--ivory);transition:background-color .35s,transform .35s}
+.svc-arrow svg{transition:transform .35s}
+.svc-row:hover .svc-arrow{background:var(--midnight)}
+.svc-row:hover .svc-arrow svg{transform:translate(2px,2px)}
 
 /* ============================================================
    CONTACT — ruled two-column: invitation + consultation form (dark)
@@ -346,12 +433,7 @@ a{color:inherit;text-decoration:none}
    RESPONSIVE
    ============================================================ */
 @media (max-width:1080px){
-  .stat-grid{grid-template-columns:1fr 1fr}
-  .stat{padding-top:var(--s-5)}
-  .stat:nth-child(1),.stat:nth-child(2){padding-left:var(--s-4)}
-  .stat:nth-child(1){padding-left:0}
-  .stat:nth-child(3){padding-left:0;border-left:0}
-  .stat:nth-child(3),.stat:nth-child(4){border-top:1px solid var(--ivory-line)}
+  .hero-stats{flex-wrap:wrap}
 }
 @media (max-width:860px){
   .nav-burger{display:block;z-index:120}
@@ -379,25 +461,31 @@ a{color:inherit;text-decoration:none}
   .nav-cta{margin-top:var(--s-4);width:100%;justify-content:center;padding:16px}
   .contact-grid{grid-template-columns:1fr;gap:var(--s-6)}
 }
+@media (max-width:880px){
+  .apart{overflow:visible}
+  .apart-media{position:relative;left:auto;right:auto;top:auto;bottom:auto;min-height:56svh}
+  .apart-panel{width:100%;min-height:0;padding:var(--section) clamp(20px,5vw,56px)}
+}
 @media (max-width:720px){
   .apart-grid{grid-template-columns:1fr}
-  .services-grid{grid-template-columns:1fr}
+  .services-body{grid-template-columns:1fr;gap:var(--s-4)}
+  .services-aside{flex-direction:row;align-items:center}
+  .svc-thumb{display:none}
+  .svc-row{flex-wrap:wrap;row-gap:var(--s-2)}
+  .svc-row-text{flex-wrap:wrap;row-gap:4px}
+  .svc-row p{white-space:normal;flex-basis:100%}
   .form-row{grid-template-columns:1fr}
-  .stat-grid{grid-template-columns:1fr}
-  .stat + .stat{border-left:0}
-  .stat{border-top:1px solid var(--ivory-line);padding-left:0!important;padding-top:var(--s-5)}
-  .stat:first-child{border-top:0}
+  .hero-note{flex-direction:column;gap:var(--s-4)}
+  .hero-stats{flex-direction:column;align-items:flex-start}
+  .h-stat-group{flex-direction:column;gap:var(--s-4)}
   .footer-bottom{flex-direction:column}
-}
-@media (max-width:520px){
-  .hero-actions .btn{width:100%;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){
   *{scroll-behavior:auto!important}
   .js .reveal{opacity:1!important;transform:none!important;transition:none!important}
   .js .h-rise{opacity:1!important;transform:none!important;animation:none!important}
   .js .hero-media img{animation:none!important}
-  .btn,.text-link,.svc-card,.nav-links a::after{transition:none!important}
+  .btn,.text-link,.svc-row,.svc-row::before,.svc-arrow,.svc-thumb,.nav-links a::after{transition:none!important}
 }
 </style>
 </head>
@@ -438,6 +526,7 @@ a{color:inherit;text-decoration:none}
 </nav>
 
 <!-- ===================== HERO ===================== -->
+<div class="hero-wrap">
 <header class="hero dark">
   <div class="hero-media">
     <img
@@ -452,86 +541,88 @@ a{color:inherit;text-decoration:none}
   </div>
   <div class="hero-scrim"></div>
 
-  <div class="container">
-    <div class="hero-inner">
-      <p class="eyebrow hero-eyebrow h-rise" style="animation-delay:.2s"><span class="idx">FIG. 00</span> <span class="dot">·</span> Independent Multi-Family Office</p>
+  <div class="container hero-inner">
+    <div class="hero-head">
+      <p class="eyebrow hero-eyebrow"><span class="idx">FIG. 00</span> <span class="dot">·</span> Independent Multi-Family Office</p>
       <h1 class="hero-title h-rise" style="animation-delay:.32s">
-        <span class="ln">Stewardship<span class="pd">.</span></span>
-        <span class="ln">Perspective<span class="pd">.</span></span>
-        <span class="ln">Continuity</span>
+        <span class="ln">Building, preserving, and</span>
+        <span class="ln">transitioning wealth</span>
+        <span class="ln">across generations<span class="pd">.</span></span>
       </h1>
-      <p class="hero-tagline h-rise" style="animation-delay:.52s">Building, preserving, and transitioning wealth across generations.</p>
-      <p class="hero-intro h-rise" style="animation-delay:.62s">Regis and Savoy Capital is an independent Multi-Family Office serving entrepreneurs, business owners, professionals, and families through Wealth Management, Private Equity, Family Office, and Legacy and Impact services. We combine institutional experience with the accessibility, continuity, and personal attention of an owner-led firm.</p>
-      <div class="hero-actions h-rise" style="animation-delay:.74s">
-        <a href="#contact" class="btn btn-solid">Request a Consultation
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a href="#services" class="text-link">Our services
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </div>
+
+    <div class="hero-foot">
+      <div class="hero-note">
+        <img class="hero-thumb"
+          src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=480&q=60&fm=jpg"
+          alt="An advisor in conversation with clients" loading="lazy" decoding="async">
+        <p>An independent Multi-Family Office combining institutional experience with the personal attention of an owner-led firm.</p>
+      </div>
+
+      <div class="hero-stats">
+        <div class="h-stat-group">
+          <div class="h-stat">
+            <span class="ring" aria-hidden="true"></span>
+            <span><span class="num">100%</span><span class="lbl">Owner-Led Firm</span></span>
+          </div>
+          <div class="h-stat">
+            <span class="ring" aria-hidden="true"></span>
+            <span><span class="num">94 Years</span><span class="lbl">Collective Industry Experience</span></span>
+          </div>
+          <div class="h-stat">
+            <span class="ring" aria-hidden="true"></span>
+            <span><span class="num">100%</span><span class="lbl">Client Retention Rate</span></span>
+          </div>
+        </div>
+        <a class="scroll-cue h-rise" style="animation-delay:.5s" href="#about">
+          <span class="sq" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7l10 10"/><path d="M17 8v9H8"/></svg>
+          </span>
+          <span class="sc-label">Scroll to explore</span>
         </a>
       </div>
     </div>
   </div>
 </header>
-
-<!-- ===================== STAT STRIP ===================== -->
-<section class="stat-strip dark" aria-label="Firm at a glance">
-  <div class="container">
-    <div class="stat-grid">
-      <div class="stat reveal">
-        <p class="stat-num">100<sup>%</sup></p>
-        <p class="stat-label">Owner-Led Firm</p>
-      </div>
-      <div class="stat reveal d1">
-        <p class="stat-num">94</p>
-        <p class="stat-label">Years of Collective Industry Experience</p>
-      </div>
-      <div class="stat reveal d2">
-        <p class="stat-num">10<sup>+</sup></p>
-        <p class="stat-label">Years of Wealth Management Expertise</p>
-      </div>
-      <div class="stat reveal d3">
-        <p class="stat-num">100<sup>%</sup></p>
-        <p class="stat-label">Client Retention, and a Growing Client Base</p>
-      </div>
-    </div>
-  </div>
-</section>
+</div>
 
 <!-- ===================== WHO WE ARE ===================== -->
+<div class="who-wrap">
 <section class="section who" id="about">
   <div class="container">
-    <p class="eyebrow reveal"><span class="idx">FIG. 01</span> <span style="color:var(--gold)">·</span> Who we are</p>
-    <div class="statement reveal d1">
+    <p class="eyebrow"><span class="idx">FIG. 01</span> <span style="color:var(--gold)">·</span> Who we are</p>
+    <div class="statement">
       <p>We believe wealth is never just about assets. It is about <span class="em">the opportunities it creates, the responsibilities it brings, and the future it helps shape.</span> Our role is to help families navigate complexity, make informed decisions, and remain focused on what matters most over the long term.</p>
     </div>
   </div>
 </section>
+</div>
 
 <!-- ===================== WHAT SETS US APART ===================== -->
+<div class="apart-wrap">
 <section class="section apart dark">
-  <div class="container">
-    <div class="section-head">
-      <p class="eyebrow reveal"><span class="idx">FIG. 02</span> <span style="color:var(--gold)">·</span> What sets us apart</p>
-      <h2 class="headline reveal d1">Considered by design, not by scale</h2>
-    </div>
+  <div class="apart-media" role="img" aria-label="Regis &amp; Savoy Capital gallery interior"></div>
+  <div class="apart-panel">
+    <p class="eyebrow apart-reveal" style="--i:0"><span class="idx">FIG. 02</span> <span style="color:var(--gold)">·</span> What sets us apart</p>
+    <h2 class="headline apart-reveal" style="--i:1">Considered by design, not by scale</h2>
+    <div class="apart-rule apart-reveal" style="--i:2"></div>
     <div class="apart-grid">
-      <div class="apart-cell reveal">
+      <div class="apart-cell apart-reveal" style="--i:3">
         <span class="apart-num">01</span>
         <h3>Owner-Led Relationships</h3>
         <p>Direct engagement with the decision-makers responsible for managing your wealth.</p>
       </div>
-      <div class="apart-cell reveal d1">
+      <div class="apart-cell apart-reveal" style="--i:4">
         <span class="apart-num">02</span>
         <h3>Curated Client Partnerships</h3>
         <p>We intentionally work with a select group of clients whose values, expectations, and long-term outlook align with our approach.</p>
       </div>
-      <div class="apart-cell reveal">
+      <div class="apart-cell apart-reveal" style="--i:5">
         <span class="apart-num">03</span>
         <h3>Independent Perspective</h3>
         <p>Guidance shaped solely by our clients' interests, without product-sales obligations or institutional influences.</p>
       </div>
-      <div class="apart-cell reveal d1">
+      <div class="apart-cell apart-reveal" style="--i:6">
         <span class="apart-num">04</span>
         <h3>Multigenerational Perspective</h3>
         <p>Ensuring today's decisions support the aspirations and continuity of future generations.</p>
@@ -539,6 +630,7 @@ a{color:inherit;text-decoration:none}
     </div>
   </div>
 </section>
+</div>
 
 <!-- ===================== SERVICES ===================== -->
 <section class="section services" id="services">
@@ -548,48 +640,62 @@ a{color:inherit;text-decoration:none}
       <h2 class="headline reveal d1">Four disciplines, one relationship</h2>
       <p class="lede reveal d1">A unified framework across the whole of a family's wealth, coordinated by the people who advise you.</p>
     </div>
-    <div class="services-grid">
 
-      <a class="svc-card reveal" href="#">
-        <div class="svc-top">
-          <span class="svc-num">01</span>
-          <svg class="svc-icon" width="30" height="30" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M4 23h20"/><path d="M8 23v-6M13 23v-9M18 23v-5M23 23V9"/><path d="M5 13l5-4 4 2 8-7"/><path d="M21 4h3v3"/></svg>
-        </div>
-        <h3>Wealth Management</h3>
-        <p>Independent investment guidance tailored to evolving financial goals and market conditions.</p>
-        <span class="text-link">Explore <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
+    <div class="services-body reveal d1">
+      <div class="services-aside">
+        <p class="services-label">Services</p>
+        <div class="svc-thumb" id="svc-thumb" aria-hidden="true"></div>
+      </div>
 
-      <a class="svc-card reveal d1" href="#">
-        <div class="svc-top">
-          <span class="svc-num">02</span>
-          <svg class="svc-icon" width="30" height="30" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3l8 6.2L14 25 6 9.2 14 3z"/><path d="M6.2 9.5h15.6M14 3v22"/></svg>
-        </div>
-        <h3>Private Equity</h3>
-        <p>Accessing carefully selected private-market opportunities with discipline and perspective.</p>
-        <span class="text-link">Explore <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
+      <div class="services-list">
+        <a class="svc-row" href="#" data-img="../assets/services/svc-wealth-management.jpg">
+          <div class="svc-row-text">
+            <span class="svc-num">01</span>
+            <h3>Wealth Management</h3>
+            <p>Independent investment guidance tailored to evolving financial goals and market conditions.</p>
+          </div>
+          <div class="svc-right">
+            <span class="svc-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7l10 10M9 17h8V9"/></svg></span>
+            <span>Service</span>
+          </div>
+        </a>
 
-      <a class="svc-card reveal" href="#">
-        <div class="svc-top">
-          <span class="svc-num">03</span>
-          <svg class="svc-icon" width="30" height="30" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8.5" r="3"/><circle cx="19.5" cy="10.5" r="2.4"/><path d="M4 22c0-3.4 2.7-6 6-6s6 2.6 6 6"/><path d="M16.6 22c0-2.3 1.2-4.2 3.9-4.2S24 19.7 24 22"/></svg>
-        </div>
-        <h3>Family Office</h3>
-        <p>Coordinating family, business, and financial affairs through a unified framework.</p>
-        <span class="text-link">Explore <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
+        <a class="svc-row" href="#" data-img="../assets/services/svc-private-equity.jpg">
+          <div class="svc-row-text">
+            <span class="svc-num">02</span>
+            <h3>Private Equity</h3>
+            <p>Accessing carefully selected private-market opportunities with discipline and perspective.</p>
+          </div>
+          <div class="svc-right">
+            <span class="svc-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7l10 10M9 17h8V9"/></svg></span>
+            <span>Service</span>
+          </div>
+        </a>
 
-      <a class="svc-card reveal d1" href="#">
-        <div class="svc-top">
-          <span class="svc-num">04</span>
-          <svg class="svc-icon" width="30" height="30" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"><path d="M14 24V11"/><path d="M14 11c0-3.2 2.6-5.8 5.8-5.8M14 11c0-3.2-2.6-5.8-5.8-5.8"/><path d="M14 16.5c0-2.2 1.9-4 4.2-4M14 16.5c0-2.2-1.9-4-4.2-4"/><path d="M8 24h12"/></svg>
-        </div>
-        <h3>Legacy and Impact</h3>
-        <p>Helping future generations translate success into purpose, values, and lasting impact.</p>
-        <span class="text-link">Explore <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-      </a>
+        <a class="svc-row" href="#" data-img="../assets/services/svc-family-office.jpg">
+          <div class="svc-row-text">
+            <span class="svc-num">03</span>
+            <h3>Family Office</h3>
+            <p>Coordinating family, business, and financial affairs through a unified framework.</p>
+          </div>
+          <div class="svc-right">
+            <span class="svc-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7l10 10M9 17h8V9"/></svg></span>
+            <span>Service</span>
+          </div>
+        </a>
 
+        <a class="svc-row" href="#" data-img="../assets/services/svc-legacy-impact.jpg">
+          <div class="svc-row-text">
+            <span class="svc-num">04</span>
+            <h3>Legacy and Impact</h3>
+            <p>Helping future generations translate success into purpose, values, and lasting impact.</p>
+          </div>
+          <div class="svc-right">
+            <span class="svc-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7l10 10M9 17h8V9"/></svg></span>
+            <span>Service</span>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -605,7 +711,7 @@ a{color:inherit;text-decoration:none}
       <div class="contact-aside">
         <p class="contact-lede">A private, considered conversation about your family's wealth, and whether our approach is the right fit for the years ahead.</p>
         <div class="data-block">
-          <div><span class="k">Email</span><span class="v">[ add firm email ]</span></div>
+          <div><span class="k">Email</span><span class="v">backoffice@regisandsavoy.com</span></div>
           <div><span class="k">By introduction</span><span class="v">Mondays to Fridays</span></div>
           <div><span class="k">Discretion</span><span class="v">Every enquiry is held in confidence</span></div>
         </div>
@@ -689,6 +795,125 @@ a{color:inherit;text-decoration:none}
   var nav = document.querySelector('.nav');
   var onScroll = function(){ nav.classList.toggle('scrolled', window.scrollY > 24); };
   onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* Hero scroll choreography: pin the hero and scrub --p from 0 to 1.
+     The headline travels from just above the base rule up to its
+     resting position; note + stats fade in along the way. */
+  var wrap = document.querySelector('.hero-wrap');
+  if(wrap){
+    var head = wrap.querySelector('.hero-head');
+    var cue = wrap.querySelector('.scroll-cue');
+    var mq = matchMedia('(min-width:721px) and (min-height:561px)');
+    var heroActive = false;
+
+    var measureShift = function(){
+      wrap.style.setProperty('--shift','0px');
+      /* start state: drop the headline so its bottom edge lines up with
+         the scroll cue's bottom edge on the right */
+      var shift = cue.getBoundingClientRect().bottom - head.getBoundingClientRect().bottom;
+      wrap.style.setProperty('--shift', Math.max(0, shift) + 'px');
+    };
+    var scrub = function(){
+      var range = wrap.offsetHeight - window.innerHeight;
+      var p = range > 0 ? Math.min(1, Math.max(0, -wrap.getBoundingClientRect().top / range)) : 1;
+      wrap.style.setProperty('--p', p.toFixed(4));
+    };
+    var heroUpdate = function(){
+      var on = mq.matches && !reduce;
+      if(on !== heroActive){
+        heroActive = on;
+        wrap.classList.toggle('hero-anim', on);
+        if(!on){ wrap.style.setProperty('--p', 1); return; }
+      }
+      if(heroActive){ measureShift(); scrub(); }
+    };
+    window.addEventListener('scroll', function(){ if(heroActive) scrub(); }, {passive:true});
+    window.addEventListener('resize', heroUpdate);
+    heroUpdate();
+  }
+
+  /* Who we are: pin and scrub --wp from 0 to 1. The corner ticks stay
+     put while the statement zooms in from small, then the FIG. 01
+     group fades in once the text has settled. */
+  var whoWrap = document.querySelector('.who-wrap');
+  if(whoWrap){
+    var whoStatement = whoWrap.querySelector('.statement');
+    var whoMq = matchMedia('(min-width:721px) and (min-height:561px)');
+    var whoActive = false;
+    var TICK = 26; /* corner tick size; keep in step with the CSS */
+    var whoMeasure = function(){
+      /* centre-to-corner distances so the ticks collapse to a small
+         rectangle at the middle of the statement box */
+      whoWrap.style.setProperty('--cx', (whoStatement.offsetWidth / 2 - TICK / 2) + 'px');
+      whoWrap.style.setProperty('--cy', (whoStatement.offsetHeight / 2 - TICK / 2) + 'px');
+    };
+    var whoScrub = function(){
+      var range = whoWrap.offsetHeight - window.innerHeight;
+      var p = range > 0 ? Math.min(1, Math.max(0, -whoWrap.getBoundingClientRect().top / range)) : 1;
+      whoWrap.style.setProperty('--wp', p.toFixed(4));
+    };
+    var whoUpdate = function(){
+      var on = whoMq.matches && !reduce;
+      if(on !== whoActive){
+        whoActive = on;
+        whoWrap.classList.toggle('who-anim', on);
+        if(!on){ whoWrap.style.setProperty('--wp', 1); return; }
+      }
+      if(whoActive){ whoMeasure(); whoScrub(); }
+    };
+    window.addEventListener('scroll', function(){ if(whoActive) whoScrub(); }, {passive:true});
+    window.addEventListener('resize', whoUpdate);
+    whoUpdate();
+  }
+
+  /* What sets us apart: pin and scrub --ap from 0 to 1. The image fills the
+     section, then its left edge recedes to the right half, and once it has
+     settled the left-hand elements fade in one at a time. */
+  var apartWrap = document.querySelector('.apart-wrap');
+  if(apartWrap){
+    var apartMq = matchMedia('(min-width:721px) and (min-height:561px)');
+    var apartActive = false;
+    var apartScrub = function(){
+      var vh = window.innerHeight;
+      var top = apartWrap.getBoundingClientRect().top;
+      var range = apartWrap.offsetHeight - vh;
+      /* --enter grows the circle as the section rises into view (before it
+         pins); --ap scrubs the recede and reveals once it is pinned. */
+      var enter = Math.min(1, Math.max(0, (vh - top) / vh));
+      var p = range > 0 ? Math.min(1, Math.max(0, -top / range)) : 1;
+      apartWrap.style.setProperty('--enter', enter.toFixed(4));
+      apartWrap.style.setProperty('--ap', p.toFixed(4));
+    };
+    var apartUpdate = function(){
+      var on = apartMq.matches && !reduce;
+      if(on !== apartActive){
+        apartActive = on;
+        apartWrap.classList.toggle('apart-anim', on);
+        if(!on){ apartWrap.style.setProperty('--enter', 1); apartWrap.style.setProperty('--ap', 1); return; }
+      }
+      if(apartActive){ apartScrub(); }
+    };
+    window.addEventListener('scroll', function(){ if(apartActive) apartScrub(); }, {passive:true});
+    window.addEventListener('resize', apartUpdate);
+    apartUpdate();
+  }
+
+  /* Services: reveal the hover image matched to the row in focus */
+  var svcThumb = document.getElementById('svc-thumb');
+  if(svcThumb){
+    document.querySelectorAll('.svc-row').forEach(function(row){
+      row.addEventListener('mouseenter', function(){
+        svcThumb.style.backgroundImage = "url('" + row.dataset.img + "')";
+        svcThumb.classList.add('show');
+      });
+      row.addEventListener('mouseleave', function(){ svcThumb.classList.remove('show'); });
+      row.addEventListener('focus', function(){
+        svcThumb.style.backgroundImage = "url('" + row.dataset.img + "')";
+        svcThumb.classList.add('show');
+      });
+      row.addEventListener('blur', function(){ svcThumb.classList.remove('show'); });
+    });
+  }
 
   /* Mobile: close menu after choosing a link */
   var toggle = document.getElementById('navtoggle');
