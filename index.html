@@ -16,6 +16,8 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);padding:64
 h1{font-family:var(--serif);font-weight:600;font-size:2.6rem;line-height:1.05}
 h1 .dot{color:var(--gold)}
 .sub{margin-top:16px;color:#4a4f58;line-height:1.6}
+.section-head{max-width:60ch;margin-top:72px;margin-bottom:28px}
+.section-label{font-size:.6875rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ash);margin:0}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
 .card{border:1px solid rgba(18,21,26,.14);text-decoration:none;color:inherit;display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease}
 .card:hover{transform:translateY(-4px);box-shadow:0 18px 50px -24px rgba(18,21,26,.4)}
@@ -33,7 +35,7 @@ h1 .dot{color:var(--gold)}
 <div class="head">
   <p class="eyebrow">Regis &amp; Savoy Capital</p>
   <h1>Design concepts<span class="dot">.</span></h1>
-  <p class="sub">The refined homepage on the finalized design system, and two concept directions for the Wealth Management service page.</p>
+  <p class="sub">The refined homepage on the finalized design system, and two directions for the Wealth Management service page.</p>
 </div>
 
 <div class="grid">
@@ -47,24 +49,31 @@ h1 .dot{color:var(--gold)}
       <span class="open">View homepage</span>
     </div>
   </a>
+</div>
+
+<div class="section-head">
+  <p class="section-label">Service page</p>
+</div>
+
+<div class="grid">
   <a class="card" href="wealth-management-a.html">
     <div class="card-top">
-      <span class="tag">Wealth Management · Concept A</span>
+      <span class="tag">Concept A</span>
       <span class="card-title">Image led</span>
     </div>
     <div class="card-body">
       <p class="card-desc">Opens full bleed on the cliffside estate at sunset, then settles into a light editorial body with a cascading grid of the four areas of support.</p>
-      <span class="open">View concept A</span>
+      <span class="open">View concept</span>
     </div>
   </a>
   <a class="card" href="wealth-management-b.html">
     <div class="card-top">
-      <span class="tag">Wealth Management · Concept B</span>
+      <span class="tag">Concept B</span>
       <span class="card-title">Typography led</span>
     </div>
     <div class="card-body">
       <p class="card-desc">A type only midnight opening that washes into ivory as you scroll, with the four areas of support presented as full height split screen panels.</p>
-      <span class="open">View concept B</span>
+      <span class="open">View concept</span>
     </div>
   </a>
 </div>
