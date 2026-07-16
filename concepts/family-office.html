@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regis &amp; Savoy Capital · Family Office · Concept B</title>
+<meta name="description" content="Coordinating family, business, and financial affairs through a unified framework.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500&family=Spectral:ital,wght@0,200;0,300;1,200;1,300&family=Marcellus&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   REGIS & SAVOY CAPITAL · WEALTH MANAGEMENT · CONCEPT B
+   Typography led. The page opens on pure midnight type, the
+   signature midnight to ivory wash carries the overview, and
+   the four Areas of Support become full screen stacking panels.
+   Finalized design system throughout: nothing heavier than 400,
+   one gold signal, photography grade unchanged.
+   ============================================================ */
+:root{
+  --midnight:#071B3B;
+  --ivory:#F8F6F1;
+  --gold:#C8A25A;
+  --ink:#0B1526;
+  --ink-60:rgba(7,27,59,.6);
+  --ink-40:rgba(7,27,59,.4);
+  --ink-15:rgba(7,27,59,.15);
+  --rule:rgba(7,27,59,.18);
+  --rule-light:rgba(248,246,241,.22);
+  --display:'Archivo',system-ui,sans-serif;
+  --figure:'Spectral',Georgia,serif;
+  --gutter:clamp(24px,5vw,72px);
+  --theme-p:0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+body{
+  font-family:var(--display);
+  font-weight:300;
+  font-size:1.0625rem;
+  line-height:1.65;
+  letter-spacing:.005em;
+  background:var(--ivory);
+  color:var(--midnight);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+::selection{background:var(--gold);color:var(--midnight)}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* ---- shared type roles ---- */
+.display-l{
+  font-weight:200;
+  font-size:clamp(2.1rem,4.6vw,3.9rem);
+  line-height:1.08;
+  letter-spacing:-.012em;
+}
+.figure-quote{
+  font-family:var(--figure);
+  font-weight:200;
+  font-style:italic;
+  font-size:clamp(1.6rem,3.2vw,2.6rem);
+  line-height:1.3;
+}
+strong,b{font-weight:400}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:14px;
+  padding:clamp(20px,3.2vw,36px) var(--gutter)}
+.nav-mark{display:flex;align-items:center;gap:14px;color:var(--ivory);text-decoration:none}
+.nav-logo{height:60px;width:auto;display:block}
+.nav-divider{width:1px;height:48px;background:rgba(248,246,241,.35)}
+.nav-wordmark{display:flex;flex-direction:column;line-height:1.15}
+.nav-mark .wm-name{font-family:'Marcellus',var(--figure);font-size:.95rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase}
+.nav-mark .wm-sub{font-size:.625rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,246,241,.62)}
+.nav-right{display:flex;align-items:center;gap:clamp(22px,2.8vw,44px);flex-wrap:wrap}
+.nav-links{display:flex;align-items:center;gap:clamp(18px,2.4vw,36px);list-style:none}
+.nav-links a{font-family:var(--display);font-weight:300;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory);text-decoration:none;white-space:nowrap;transition:color .3s ease}
+.nav-links a:hover{color:var(--gold)}
+
+.nav-dropdown{position:relative}
+.nav-dropdown>a{display:inline-flex;align-items:center;gap:7px}
+.nav-caret{width:5px;height:5px;margin-top:-2px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;
+  transform:rotate(45deg);transition:transform .3s ease}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 22px);left:50%;transform:translateX(-50%) translateY(-8px);
+  min-width:236px;list-style:none;margin:0;padding:16px 0;text-align:left;
+  background:var(--midnight);border:1px solid rgba(248,246,241,.14);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .3s ease,transform .3s ease,visibility .3s;z-index:50}
+.nav-dropdown-menu li{padding:0}
+.nav-dropdown-menu a{display:block;padding:11px 26px;font-family:var(--display);font-weight:300;
+  font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;
+  color:var(--ivory);text-decoration:none;transition:color .3s ease}
+.nav-dropdown-menu a:hover{color:var(--gold)}
+@media (hover:hover) and (pointer:fine){
+  .nav-dropdown:hover .nav-caret,.nav-dropdown:focus-within .nav-caret{transform:rotate(225deg);margin-top:2px}
+  .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{
+    opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+}
+
+@media (max-width:760px){
+  .nav{justify-content:center;text-align:center}
+  .nav-right{width:100%;justify-content:center}
+  .nav-links{flex-wrap:wrap;justify-content:center;row-gap:10px}
+}
+
+/* ============================================================
+   HERO: pure midnight typography. No image competes with the
+   name of the discipline; the page earns its imagery on scroll.
+   ============================================================ */
+.hero{position:relative;height:100svh;min-height:560px;overflow:hidden;background:var(--midnight);
+  display:flex;align-items:center;justify-content:center;text-align:center;color:var(--ivory)}
+.hero-copy{padding:0 var(--gutter);max-width:1000px}
+.hero-eyebrow{font-size:.75rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(248,246,241,.6);margin-bottom:clamp(20px,3vw,36px)}
+.hero-title{font-weight:200;text-transform:uppercase;
+  font-size:clamp(2.7rem,7vw,6.2rem);line-height:1.1;letter-spacing:.05em}
+.hero-title .ln{display:block}
+.hero-desc{font-weight:300;font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.6;
+  color:rgba(248,246,241,.66);max-width:46ch;margin:clamp(22px,3vw,36px) auto 0}
+.scroll-cue{position:absolute;left:50%;bottom:4svh;transform:translateX(-50%);
+  font-size:.7rem;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:rgba(248,246,241,.65)}
+.scroll-cue::after{content:"";display:block;width:1px;height:26px;background:rgba(248,246,241,.4);margin:10px auto 0}
+
+/* ============================================================
+   MENU: full screen overlay, unchanged from the homepage
+   ============================================================ */
+
+/* ============================================================
+   STATEMENT: the client headline inks in character by character
+   while the whole section washes midnight to ivory beneath it,
+   the same signature move the client approved on the homepage.
+   Reduced to one screen total: headline half, image half.
+   ============================================================ */
+.statement{
+  min-height:640px;
+  display:flex;flex-direction:column;
+  background:color-mix(in srgb, var(--midnight) calc((1 - var(--theme-p)) * 100%), var(--ivory) calc(var(--theme-p) * 100%));
+  color:color-mix(in srgb, var(--ivory) calc((1 - var(--theme-p)) * 100%), var(--midnight) calc(var(--theme-p) * 100%));
+}
+.statement-text{flex:0 0 50svh;display:flex;align-items:center;justify-content:center;
+  padding:clamp(24px,4vw,48px) var(--gutter);text-align:center}
+.statement-inner{max-width:920px;margin:0 auto}
+.statement .eyebrow{font-size:.75rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
+  color:color-mix(in srgb, rgba(248,246,241,.55) calc((1 - var(--theme-p)) * 100%), rgba(7,27,59,.55) calc(var(--theme-p) * 100%));
+  margin-bottom:clamp(24px,3vw,40px)}
+.ink-lede{font-weight:200;font-size:clamp(1.9rem,4vw,3.3rem);line-height:1.16;letter-spacing:-.008em;margin:0 auto;max-width:55rem}
+.ink-lede strong{font-weight:400}
+.statement-copy{margin:clamp(20px,3vw,32px) auto 0;max-width:55rem;font-weight:300;font-size:1.05rem;line-height:1.7;
+  color:color-mix(in srgb, rgba(248,246,241,.72) calc((1 - var(--theme-p)) * 100%), var(--ink-60) calc(var(--theme-p) * 100%))}
+.js .ink-chars .c{color:color-mix(in srgb, rgba(248,246,241,.15) calc((1 - var(--theme-p)) * 100%), var(--ink-15) calc(var(--theme-p) * 100%));transition:color .3s linear}
+.js .ink-chars .c.lit{color:inherit}
+.statement-media{flex:0 0 75svh;overflow:hidden}
+.statement-media img{width:100%;height:100%;object-fit:cover;
+  filter:saturate(.82) brightness(.78) contrast(1.06)}
+
+/* ============================================================
+   APPROACH: sticky label left, working copy right, closed by
+   the owner led commitment as the system's Spectral pull quote.
+   Ported from Concept A's two column grid.
+   ============================================================ */
+.approach{padding:clamp(72px,9vw,120px) var(--gutter);border-top:1px solid var(--rule)}
+.approach-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);gap:clamp(32px,6vw,96px);max-width:1240px;margin:0 auto}
+.approach-label{position:sticky;top:clamp(96px,14vw,140px);align-self:start}
+.approach .eyebrow{font-size:.75rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(7,27,59,.55);margin-bottom:clamp(24px,3vw,40px)}
+.approach-copy{display:flex;flex-direction:column;gap:1.4em;color:var(--ink-60)}
+.approach-quote{margin-top:clamp(28px,3.6vw,44px);padding-top:clamp(28px,3.6vw,44px);
+  border-top:1px solid var(--rule);color:var(--midnight)}
+@media (max-width:760px){
+  .approach-grid{grid-template-columns:1fr}
+  .approach-label{position:static}
+}
+
+/* ============================================================
+   AREAS OF SUPPORT: split screen sticky panels. Copy sits on
+   solid midnight left, the image holds the full right half,
+   panels stack over the previous as you scroll
+   ============================================================ */
+.areas-head{padding:0 var(--gutter) clamp(56px,8vw,96px);text-align:center}
+.areas-head .eyebrow{font-size:.75rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(7,27,59,.55)}
+.area-desc{margin-top:clamp(16px,2.4vh,24px);font-weight:300;font-size:1rem;line-height:1.6;
+  color:rgba(248,246,241,.72);max-width:48ch}
+.area-panel{position:sticky;top:0;height:100svh;min-height:560px;overflow:hidden;background:var(--midnight);
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
+#area-1{z-index:1}
+#area-2{z-index:2}
+#area-3{z-index:3}
+#area-4{z-index:4}
+.area-media{grid-column:2;grid-row:1;position:relative;overflow:hidden}
+.area-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  filter:saturate(.82) brightness(.8) contrast(1.06)}
+.area-scrim{grid-column:2;grid-row:1;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg, rgba(7,27,59,.45) 0%, rgba(7,27,59,0) 32%)}
+.area-copy{grid-column:1;grid-row:1;z-index:2;display:flex;flex-direction:column;justify-content:center;
+  padding:clamp(88px,14vh,150px) clamp(36px,4vw,72px) clamp(56px,8vh,100px) var(--gutter);color:var(--ivory)}
+.area-title{font-weight:200;font-size:clamp(1.9rem,3.8vw,3.4rem);line-height:1.14;letter-spacing:-.008em}
+@media (max-width:760px){
+  .area-panel{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr)}
+  .area-copy{grid-column:1;grid-row:1;padding:clamp(88px,16vh,120px) var(--gutter) 40px}
+  .area-media{grid-column:1;grid-row:2}
+  .area-scrim{grid-column:1;grid-row:2;
+    background:linear-gradient(180deg, rgba(7,27,59,.45) 0%, rgba(7,27,59,0) 32%)}
+}
+
+/* ============================================================
+   NEXT SERVICE: quiet ruled row completing the four page loop
+   ============================================================ */
+.next{position:relative;z-index:5;background:var(--midnight);color:var(--ivory);
+  padding:clamp(64px,8vw,104px) var(--gutter);border-bottom:1px solid var(--rule-light)}
+.next a{display:flex;align-items:center;justify-content:space-between;gap:24px;
+  text-decoration:none;max-width:1240px;margin:0 auto}
+.next .eyebrow{font-size:.75rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(248,246,241,.55);margin-bottom:.9rem}
+.next-title{transition:color .3s ease}
+.next a:hover .next-title{color:var(--gold)}
+.next-arrow{flex:none;width:clamp(48px,5.5vw,56px);height:clamp(48px,5.5vw,56px);border-radius:50%;
+  border:1px solid rgba(248,246,241,.5);display:flex;align-items:center;justify-content:center;
+  color:var(--ivory);transition:background-color .3s ease,border-color .3s ease}
+.next a:hover .next-arrow{background:rgba(248,246,241,.12);border-color:rgba(248,246,241,.85)}
+
+/* ============================================================
+   CTA and FOOTER: unchanged from the approved homepage
+   ============================================================ */
+.cta-split{position:relative;z-index:5;overflow:hidden;background:var(--midnight);color:var(--ivory);
+  padding:clamp(80px,10vw,140px) var(--gutter) clamp(56px,7vw,88px)}
+.cta-split-header{position:relative;z-index:1;max-width:1180px;margin:0 auto clamp(48px,6vw,72px);
+  text-align:center}
+.cta-split-title{font-weight:200;text-transform:uppercase;font-size:clamp(1.8rem,4.4vw,3.4rem);
+  line-height:1.14;letter-spacing:.02em}
+.cta-split-body{position:relative;z-index:1;max-width:1180px;margin:0 auto;display:flex;
+  gap:clamp(48px,7vw,100px);align-items:flex-start;flex-wrap:wrap}
+.cta-info{flex:1 1 260px;max-width:320px;display:flex;flex-direction:column;gap:clamp(28px,3.5vw,40px)}
+.cta-info-label{display:block;font-size:.72rem;font-weight:400;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.cta-info-text{font-weight:300;font-size:1rem;line-height:1.7;color:rgba(248,246,241,.8)}
+.cta-info-text a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(248,246,241,.3);
+  transition:color .25s ease,border-color .25s ease}
+.cta-info-text a:hover{color:var(--gold);border-color:var(--gold)}
+.cta-form-col{flex:2 1 420px;min-width:0}
+.cta-form-col .cta-form{margin:0;max-width:none}
+.cta-split-base{position:relative;z-index:1;max-width:1180px;margin:clamp(64px,8vw,96px) auto 0;
+  height:1px;background:var(--rule-light)}
+@media (max-width:860px){
+  .cta-split-body{flex-direction:column;gap:clamp(40px,6vw,56px)}
+  .cta-info{max-width:none;flex-direction:row;flex-wrap:wrap;gap:clamp(28px,4vw,40px)}
+  .cta-info-block{flex:1 1 200px}
+}
+
+/* ---- CTA FORM ---- */
+.cta-form{position:relative;z-index:1;max-width:640px;margin:clamp(28px,4vw,44px) auto 0}
+.form-section{border:none;padding:0;margin-bottom:clamp(40px,5vw,60px)}
+.form-section-title{display:block;font-size:.9rem;font-weight:400;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:clamp(20px,3vw,28px);font-family:var(--display)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px) clamp(16px,2.4vw,28px)}
+.form-grid .form-group:nth-child(2){grid-column:2}
+.form-grid .form-group:nth-child(3){grid-column:1/3}
+.form-grid .form-group:nth-child(4){grid-column:1}
+.form-grid .form-group:nth-child(5){grid-column:2}
+.form-group{display:flex;flex-direction:column}
+.form-group label{font-size:.9rem;font-weight:400;letter-spacing:.04em;margin-bottom:8px;
+  color:rgba(248,246,241,.9)}
+.required{color:var(--gold);margin-left:2px}
+.form-group input,.form-group select{
+  background:rgba(248,246,241,.08);border:1px solid rgba(248,246,241,.2);
+  padding:clamp(10px,1.2vw,14px) clamp(12px,1.6vw,16px);
+  font-family:var(--display);font-size:.9rem;color:var(--ivory);
+  transition:border-color .2s ease,background-color .2s ease;
+}
+.form-group input::placeholder{color:rgba(248,246,241,.4)}
+.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--gold);
+  background:rgba(248,246,241,.12)}
+.form-group select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F8F6F1' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right clamp(10px,1.2vw,14px) center;
+  padding-right:clamp(32px,4vw,40px)}
+.form-group select option{background:var(--midnight);color:var(--ivory)}
+.form-submit{
+  margin-top:clamp(32px,4vw,48px);padding:clamp(12px,1.6vw,16px) clamp(40px,5vw,56px);
+  font-size:.8rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;
+  background:rgba(200,162,90,.2);border:1px solid var(--gold);color:var(--gold);
+  cursor:pointer;transition:all .3s ease;font-family:var(--display);
+}
+.form-submit:hover{background:var(--gold);color:var(--midnight)}
+@media (max-width:640px){
+  .form-grid{grid-template-columns:1fr}
+  .form-grid .form-group:nth-child(n){grid-column:1}
+}
+
+.footer{position:relative;z-index:5;background:var(--midnight);color:rgba(248,246,241,.7);
+  padding:clamp(48px,6vw,72px) var(--gutter) clamp(32px,4vw,40px)}
+.footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;
+  gap:clamp(24px,4vw,40px)}
+.footer-logo{height:clamp(72px,8vw,96px);width:auto;display:block}
+.footer-top .nav-divider{height:clamp(44px,5vw,64px)}
+.footer-nav{list-style:none;display:flex;flex-wrap:wrap;gap:12px clamp(20px,3vw,40px)}
+.footer-nav a{font-size:.75rem;font-weight:300;letter-spacing:.16em;
+  text-transform:uppercase;color:rgba(248,246,241,.7);text-decoration:none;transition:color .25s}
+.footer-nav a:hover{color:var(--gold)}
+.footer-rule{height:1px;background:var(--rule-light);margin:clamp(32px,4vw,48px) 0 clamp(24px,3vw,32px)}
+.footer-bottom{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  font-size:.75rem;font-weight:300;letter-spacing:.04em;color:rgba(248,246,241,.5);line-height:1.8}
+.footer-bottom p{max-width:70ch}
+@media (max-width:720px){
+  .footer-bottom{flex-direction:column}
+  .footer-top{flex-direction:column;align-items:center;text-align:center}
+  .footer-top .footer-nav{justify-content:center}
+}
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+
+<nav class="nav">
+  <a class="nav-mark" href="homepage.html" aria-label="Regis and Savoy Capital, home">
+    <img class="nav-logo" src="../assets/RandS White Transparent logo.png" alt="">
+    <span class="nav-divider" aria-hidden="true"></span>
+    <span class="nav-wordmark">
+      <span class="wm-name">Regis &amp; Savoy</span>
+      <span class="wm-sub">Capital</span>
+    </span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="about-us.html">About Us</a></li>
+      <li class="nav-dropdown">
+        <a href="services.html">Services<span class="nav-caret" aria-hidden="true"></span></a>
+        <ul class="nav-dropdown-menu">
+          <li><a href="wealth-management.html">Wealth Management</a></li>
+          <li><a href="private-equity.html">Private Equity</a></li>
+          <li><a href="family-office.html">Family Office</a></li>
+          <li><a href="legacy-and-impact.html">Legacy and Impact</a></li>
+        </ul>
+      </li>
+      <li><a href="corporate-services.html">Corporate Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <p class="hero-eyebrow">Services &middot; 03 &mdash; 04</p>
+    <h1 class="hero-title">
+      <span class="ln">Family</span>
+      <span class="ln">Office</span>
+    </h1>
+    <p class="hero-desc">Coordinating family, business, and financial affairs through a unified framework.</p>
+  </div>
+  <p class="scroll-cue">Scroll</p>
+</section>
+
+<section class="statement" id="overview">
+  <div class="statement-text">
+    <div class="statement-inner">
+      <p class="eyebrow">Overview</p>
+      <h2 class="ink-lede ink-chars">Connecting the Many Dimensions of <strong>Family Wealth</strong></h2>
+      <p class="statement-copy">As wealth expands, clients often find themselves managing a broad network of professionals, entities, responsibilities, and enduring financial priorities. Investments may represent only one aspect of a much larger picture.</p>
+    </div>
+  </div>
+  <figure class="statement-media" aria-label="A couple walking a quiet country road">
+  <img src="../assets/salman-saqib-z6UAWpQAhXs-unsplash.jpg" alt="">
+  </figure>
+</section>
+
+<section class="approach" id="approach">
+  <div class="approach-grid">
+    <div class="approach-label">
+      <p class="eyebrow">Our Approach</p>
+    </div>
+    <div class="approach-copy">
+      <p>Our Family Office offering is designed to provide oversight and coordination across the various elements of family wealth. We work alongside legal professionals, accountants, trustees, investment managers, and other specialists to help ensure that information, decisions, and priorities remain connected.</p>
+      <p>Rather than focusing solely on investments, our role is to bring structure, organization, and clarity to complex family affairs. This includes facilitating governance discussions, supporting succession initiatives, coordinating professional relationships, and helping future generations establish frameworks for effective decision-making.</p>
+      <blockquote class="figure-quote approach-quote">A coordinated approach allows clients to make decisions with greater efficiency, maintain oversight across multiple areas of responsibility, and focus on what matters most.</blockquote>
+    </div>
+  </div>
+</section>
+
+<div class="areas-head">
+</div>
+
+<section class="area-panel" id="area-1">
+  <div class="area-media">
+  <img src="../assets/robby-mccullough-ZWGexQLecAI-unsplash.jpg" alt="">
+  </div>
+  <div class="area-scrim"></div>
+  <div class="area-copy">
+    <h3 class="area-title">Family Governance and Decision-Making</h3>
+    <p class="area-desc">Supporting frameworks that bring structure and clarity to family decision-making.</p>
+  </div>
+</section>
+
+<section class="area-panel" id="area-2">
+  <div class="area-media">
+  <img src="../assets/polina-kuzovkova-4CEj-n9CLdc-unsplash.jpg" alt="">
+  </div>
+  <div class="area-scrim"></div>
+  <div class="area-copy">
+    <h3 class="area-title">Succession and Generational-Continuity Planning</h3>
+    <p class="area-desc">Coordinating succession initiatives that support continuity across generations.</p>
+  </div>
+</section>
+
+<section class="area-panel" id="area-3">
+  <div class="area-media">
+  <img src="../assets/mayur-deshpande-zZPeoLxLRyM-unsplash.jpg" alt="">
+  </div>
+  <div class="area-scrim"></div>
+  <div class="area-copy">
+    <h3 class="area-title">Professional Coordination and Risk Oversight</h3>
+    <p class="area-desc">Working alongside legal, accounting, and investment professionals to keep priorities connected.</p>
+  </div>
+</section>
+
+<section class="area-panel" id="area-4">
+  <div class="area-media">
+  <img src="../assets/25 - mathias-reding-Z2uovJDNwNQ-unsplash.jpg" alt="">
+  </div>
+  <div class="area-scrim"></div>
+  <div class="area-copy">
+    <h3 class="area-title">Family Enterprise and Wealth Stewardship</h3>
+    <p class="area-desc">Bringing oversight and coordination to the broader elements of family wealth.</p>
+  </div>
+</section>
+
+<section class="next">
+  <a href="legacy-and-impact.html" aria-label="Next service: Legacy and Impact">
+    <div class="next-copy">
+      <p class="eyebrow">Next Service &middot; 04 &mdash; 04</p>
+      <h2 class="display-l next-title">Legacy and Impact</h2>
+    </div>
+    <span class="next-arrow" aria-hidden="true">
+      <svg width="16" height="14" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </span>
+  </a>
+</section>
+
+<section class="cta-split" id="cta">
+  <div class="cta-split-header">
+    <h2 class="cta-split-title">Let Us Start the Conversation</h2>
+  </div>
+  <div class="cta-split-body">
+    <div class="cta-info">
+      <div class="cta-info-block">
+        <span class="cta-info-label">Address</span>
+        <p class="cta-info-text">Regis and Savoy Capital<br>World Trade Center, 2nd Floor<br>Brigade Gateway Campus<br>Rajajinagar, Bengaluru &ndash; 560055</p>
+      </div>
+      <div class="cta-info-block">
+        <span class="cta-info-label">Phone</span>
+        <p class="cta-info-text"><a href="tel:+919611806161">+91 96118 06161</a></p>
+      </div>
+      <div class="cta-info-block">
+        <span class="cta-info-label">Email</span>
+        <p class="cta-info-text"><a href="mailto:connect@regisandsavoy.com">connect@regisandsavoy.com</a></p>
+      </div>
+      <div class="cta-info-block">
+        <span class="cta-info-label">Office Hours</span>
+        <p class="cta-info-text">Monday &ndash; Friday<br>9:00 AM &ndash; 6:00 PM IST</p>
+      </div>
+    </div>
+    <div class="cta-form-col">
+      <form class="cta-form">
+        <fieldset class="form-section">
+          <legend class="form-section-title">Contact Information</legend>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="first-name">First Name<span class="required">*</span></label>
+              <input type="text" id="first-name" name="firstName" required>
+            </div>
+            <div class="form-group">
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="lastName">
+            </div>
+            <div class="form-group">
+              <label for="email">Email<span class="required">*</span></label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="city-country">City / Country<span class="required">*</span></label>
+              <input type="text" id="city-country" name="cityCountry" required>
+            </div>
+            <div class="form-group">
+              <label for="mobile">Mobile No<span class="required">*</span></label>
+              <input type="tel" id="mobile" name="mobile" required>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-section">
+          <legend class="form-section-title">Additional Information</legend>
+          <div class="form-group">
+            <label for="topic">Topic of Enquiry<span class="required">*</span></label>
+            <select id="topic" name="topic" required>
+              <option value="">Select a service</option>
+              <option value="personal-wealth">Personal Wealth Counsel (&#8377; 5 Cr to &#8377; 100Cr)</option>
+              <option value="family-office">Family Office Solutions (&#8377; 100Cr and Above)</option>
+              <option value="women-wealth">Dedicated Wealth Management for Women (&#8377; 5 Cr and Above)</option>
+              <option value="private-equity">Private Equity and Co-Investment (&#8377; 50 Cr and Above)</option>
+              <option value="emerging-wealth">Emerging Wealth Stewardship (&#8377; 1 Cr to &#8377; 10 Cr)</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="form-submit">Send Inquiry</button>
+      </form>
+    </div>
+  </div>
+  <div class="cta-split-base"></div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <a class="nav-mark" href="homepage.html" aria-label="Regis and Savoy Capital, home">
+      <img class="footer-logo" src="../assets/RandS White Transparent logo.png" alt="Regis and Savoy Capital seal">
+      <span class="nav-divider" aria-hidden="true"></span>
+      <span class="nav-wordmark">
+        <span class="wm-name">Regis &amp; Savoy</span>
+        <span class="wm-sub">Capital</span>
+      </span>
+    </a>
+    <ul class="footer-nav">
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="corporate-services.html">Corporate Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-rule"></div>
+  <div class="footer-bottom">
+    <p>This website is for informational purposes only and does not constitute investment advice, a solicitation, or an offer of services. Regis and Savoy Capital is an independent Multi-Family Office.</p>
+    <p>&copy; 2026 Regis &amp; Savoy Capital. All rights reserved.</p>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var rootEl = document.documentElement;
+
+  // Ink on scroll headline, same mechanic as the approved homepage
+  function splitChars(el){
+    var spans = [];
+    function walk(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(child){
+        if (child.nodeType === 3){
+          var frag = document.createDocumentFragment();
+          child.textContent.split('').forEach(function(ch){
+            if (/\s/.test(ch)){
+              frag.appendChild(document.createTextNode(ch));
+            } else {
+              var s = document.createElement('span');
+              s.className = 'c';
+              s.textContent = ch;
+              spans.push(s);
+              frag.appendChild(s);
+            }
+          });
+          node.replaceChild(frag, child);
+        } else if (child.nodeType === 1){
+          walk(child);
+        }
+      });
+    }
+    walk(el);
+    return spans;
+  }
+
+  var inkGroups = Array.prototype.slice.call(document.querySelectorAll('.ink-chars')).map(function(el){
+    return { el: el, spans: splitChars(el) };
+  });
+
+  // Theme wash: driven by the statement section's travel up the
+  // viewport, exactly like the homepage grid drives it there.
+  var statement = document.querySelector('.statement');
+
+  if (reduce){
+    inkGroups.forEach(function(g){ g.spans.forEach(function(s){ s.classList.add('lit'); }); });
+    rootEl.style.setProperty('--theme-p', 1);
+  } else {
+    var ticking = false;
+    var update = function(){
+      var vh = window.innerHeight;
+
+      inkGroups.forEach(function(g){
+        var rect = g.el.getBoundingClientRect();
+        var start = vh * .88;
+        var end = vh * .5;
+        var delay = .15;
+        var raw = (start - rect.top) / (start - end);
+        raw = Math.max(0, Math.min(1, raw));
+        var progress = Math.max(0, (raw - delay) / (1 - delay));
+        var total = g.spans.length;
+        var lit = Math.round(progress * total);
+        for (var i = 0; i < total; i++){
+          var should = i < lit;
+          if (g.spans[i].classList.contains('lit') !== should){
+            g.spans[i].classList.toggle('lit', should);
+          }
+        }
+      });
+
+      if (statement){
+        var rect = statement.getBoundingClientRect();
+        var start = vh * .85;
+        var end = vh * .1;
+        var raw = (start - rect.top) / (start - end);
+        var p = Math.max(0, Math.min(1, raw));
+        // smoothstep, so the page spends less time at the mid blend
+        rootEl.style.setProperty('--theme-p', p * p * (3 - 2 * p));
+      }
+
+      ticking = false;
+    };
+    var onScroll = function(){
+      if (!ticking){ ticking = true; requestAnimationFrame(update); }
+    };
+    window.addEventListener('scroll', onScroll, {passive:true});
+    window.addEventListener('resize', onScroll, {passive:true});
+    update();
+  }
+})();
+</script>
+
+</body>
+</html>
