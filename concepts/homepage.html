@@ -7,7 +7,7 @@
 <meta name="description" content="Regis &amp; Savoy Capital. An independent Multi-Family Office.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500&family=Spectral:ital,wght@0,200;0,300;1,200;1,300&family=Marcellus&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500&family=Spectral:ital,wght@0,200;0,300;1,200;1,300&family=Marcellus&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    REGIS & SAVOY CAPITAL · ROUND 2
@@ -97,8 +97,8 @@ strong,b{font-weight:400}
 .nav-logo{height:60px;width:auto;display:block}
 .nav-divider{width:1px;height:48px;background:rgba(248,246,241,.35)}
 .nav-wordmark{display:flex;flex-direction:column;line-height:1.15}
-.nav-mark .wm-name{font-family:'Marcellus',var(--figure);font-size:.95rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase}
-.nav-mark .wm-sub{font-size:.625rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,246,241,.62)}
+.nav-mark .wm-name{font-family:'Cormorant Garamond',var(--figure);font-size:1.15rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.nav-mark .wm-sub{font-size:.625rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
 
 .nav-right{display:flex;align-items:center;gap:clamp(22px,2.8vw,44px);flex-wrap:wrap}
 .nav-links{display:flex;align-items:center;gap:clamp(18px,2.4vw,36px);list-style:none}
@@ -303,6 +303,7 @@ strong,b{font-weight:400}
 .cta-split-body{position:relative;z-index:1;max-width:1180px;margin:0 auto;display:flex;
   gap:clamp(48px,7vw,100px);align-items:flex-start;flex-wrap:wrap}
 .cta-info{flex:1 1 260px;max-width:320px;display:flex;flex-direction:column;gap:clamp(28px,3.5vw,40px)}
+.cta-info-mark{align-self:flex-start}
 .cta-info-label{display:block;font-size:.72rem;font-weight:400;letter-spacing:.2em;
   text-transform:uppercase;color:var(--gold);margin-bottom:10px}
 .cta-info-text{font-weight:300;font-size:1rem;line-height:1.7;color:rgba(248,246,241,.8)}
@@ -317,6 +318,7 @@ strong,b{font-weight:400}
   .cta-split-body{flex-direction:column;gap:clamp(40px,6vw,56px)}
   .cta-info{max-width:none;flex-direction:row;flex-wrap:wrap;gap:clamp(28px,4vw,40px)}
   .cta-info-block{flex:1 1 200px}
+  .cta-info-mark{flex:1 1 100%}
 }
 
 /* ---- CTA FORM ---- */
@@ -363,22 +365,30 @@ strong,b{font-weight:400}
    ============================================================ */
 .footer{position:relative;z-index:5;background:var(--midnight);color:rgba(248,246,241,.7);
   padding:clamp(48px,6vw,72px) var(--gutter) clamp(32px,4vw,40px)}
-.footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;
-  gap:clamp(24px,4vw,40px)}
+.footer-top{display:flex;align-items:center;flex-wrap:wrap;gap:clamp(24px,4vw,40px)}
 .footer-logo{height:clamp(72px,8vw,96px);width:auto;display:block}
 .footer-top .nav-divider{height:clamp(44px,5vw,64px)}
-.footer-nav{list-style:none;display:flex;flex-wrap:wrap;gap:12px clamp(20px,3vw,40px)}
-.footer-nav a{font-size:.75rem;font-weight:300;letter-spacing:.16em;
-  text-transform:uppercase;color:rgba(248,246,241,.7);text-decoration:none;transition:color .25s}
-.footer-nav a:hover{color:var(--gold)}
-.footer-rule{height:1px;background:var(--rule-light);margin:clamp(32px,4vw,48px) 0 clamp(24px,3vw,32px)}
+.footer-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(28px,4vw,56px);
+  margin-top:clamp(40px,5vw,64px)}
+.footer-col-title{font-family:var(--display);font-weight:400;font-size:1.05rem;letter-spacing:.02em;
+  color:var(--ivory);margin:0 0 clamp(18px,2vw,26px)}
+.footer-col-list{list-style:none;display:flex;flex-direction:column;gap:clamp(12px,1.4vw,16px)}
+.footer-col-list a{font-size:.8rem;font-weight:300;letter-spacing:.04em;
+  color:rgba(248,246,241,.62);text-decoration:none;transition:color .25s}
+.footer-col-list a:hover{color:var(--gold)}
+.footer-rule{height:1px;background:var(--rule-light);margin:clamp(40px,5vw,64px) 0 clamp(24px,3vw,32px)}
 .footer-bottom{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
   font-size:.75rem;font-weight:300;letter-spacing:.04em;color:rgba(248,246,241,.5);line-height:1.8}
 .footer-bottom p{max-width:70ch}
+@media (max-width:900px){
+  .footer-cols{grid-template-columns:repeat(2,1fr);gap:clamp(28px,5vw,40px)}
+}
 @media (max-width:720px){
   .footer-bottom{flex-direction:column}
   .footer-top{flex-direction:column;align-items:center;text-align:center}
-  .footer-top .footer-nav{justify-content:center}
+}
+@media (max-width:460px){
+  .footer-cols{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -390,8 +400,8 @@ strong,b{font-weight:400}
     <img class="nav-logo" src="../assets/RandS White Transparent logo.png" alt="">
     <span class="nav-divider" aria-hidden="true"></span>
     <span class="nav-wordmark">
-      <span class="wm-name">Regis &amp; Savoy</span>
-      <span class="wm-sub">Capital</span>
+      <span class="wm-name">Regis &amp; Savoy Capital</span>
+      <span class="wm-sub">Pure trust, pure advice</span>
     </span>
   </a>
   <div class="nav-right">
@@ -407,7 +417,7 @@ strong,b{font-weight:400}
         </ul>
       </li>
       <li><a href="corporate-services.html">Corporate Services</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -415,16 +425,16 @@ strong,b{font-weight:400}
 <section class="hero" id="top">
   <div class="hero-slider">
     <figure class="hero-slide active">
-      <img src="../assets/sam-ferrara-uNvgvo2cs7k-unsplash.jpg" alt="Private jet cabin interior with leather seating" loading="eager">
-    </figure>
-    <figure class="hero-slide">
       <img src="../assets/martin-bennie-eXJOg0GVK0Y-unsplash.jpg" alt="Palace infinity pool at golden hour" loading="eager">
     </figure>
     <figure class="hero-slide">
       <img src="../assets/jack-anstey-XVoyX7l9ocY-unsplash.jpg" alt="Private jet in silhouette on the tarmac at golden hour" loading="eager">
     </figure>
     <figure class="hero-slide">
-      <img src="../assets/carmen-laezza-aqPh3BRZ-MY-unsplash.jpg" alt="A cruise ship at sea during a golden sunset" loading="eager">
+      <img src="../assets/kristopher-villa-RTU9JXYhqXQ-unsplash.jpg" alt="Two kayakers paddling on open water at sunrise" loading="eager">
+    </figure>
+    <figure class="hero-slide">
+      <img src="../assets/rodeo-project-management-software-PYqzYhTNjho-unsplash.jpg" alt="Sunlit modern lounge with pendant lighting and greenery" loading="eager">
     </figure>
   </div>
 
@@ -466,7 +476,7 @@ strong,b{font-weight:400}
     </div>
     <div class="apart-item">
       <figure class="apart-media">
-        <img src="../assets/zane-persaud-m3pQKpEs9Fc-unsplash.jpg" alt="A private jet on the tarmac at golden hour" loading="lazy">
+        <img src="../assets/rock-staar-NzIV4vOBA7s-unsplash.jpg" alt="A close handshake between two people in dark suits" loading="lazy">
       </figure>
       <h3>Curated Client Partnerships</h3>
       <p>We intentionally work with a select group of clients whose values, expectations, and long-term outlook align with our approach.</p>
@@ -480,7 +490,7 @@ strong,b{font-weight:400}
     </div>
     <div class="apart-item">
       <figure class="apart-media">
-        <img src="../assets/17 - filip-chmielecki-Bsb8m_pyvWs-unsplash.jpg" alt="A grand gilded hallway lit by chandeliers" loading="lazy">
+        <img src="../assets/derek-thomson-M1jCmRxO7cY-unsplash.jpg" alt="A father and young child walking along the shore at sunset" loading="lazy">
       </figure>
       <h3>Multigenerational Perspective</h3>
       <p>Ensuring today's decisions support the aspirations and continuity of future generations.</p>
@@ -490,7 +500,7 @@ strong,b{font-weight:400}
 
 <section class="service-panel" id="service-wealth-management">
   <div class="service-media">
-    <img src="../assets/23 - simon-humler-mNNm_c7ByC0-unsplash.jpg" alt="A city skyline of towers lit at first light">
+    <img src="../assets/nastuh-abootalebi-eHD8Y1Znfpk-unsplash.jpg" alt="A sunlit modern office with floor to ceiling windows and a wooden meeting table">
   </div>
   <div class="service-scrim"></div>
   <div class="service-copy">
@@ -505,7 +515,7 @@ strong,b{font-weight:400}
 
 <section class="service-panel" id="service-private-equity">
   <div class="service-media">
-    <img src="../assets/frankie-x6vyL4YKP9c-unsplash.jpg" alt="A boardroom seen through a glass office door">
+    <img src="../assets/service-2-private-equity.jpg" alt="A dark glass walled boardroom with a long table and leather chairs">
   </div>
   <div class="service-scrim"></div>
   <div class="service-copy">
@@ -520,7 +530,7 @@ strong,b{font-weight:400}
 
 <section class="service-panel" id="service-family-office">
   <div class="service-media">
-    <img src="../assets/17 - filip-chmielecki-Bsb8m_pyvWs-unsplash.jpg" alt="A modern luxury family residence lit at dusk">
+    <img src="../assets/23 - simon-humler-mNNm_c7ByC0-unsplash.jpg" alt="A city skyline of towers lit at first light">
   </div>
   <div class="service-scrim"></div>
   <div class="service-copy">
@@ -535,7 +545,7 @@ strong,b{font-weight:400}
 
 <section class="service-panel" id="service-legacy-impact">
   <div class="service-media">
-    <img src="../assets/42 - noah-buscher-x8ZStukS2PM-unsplash.jpg" alt="An antique pocket watch resting on an open leather-bound book, symbolizing legacy and time">
+    <img src="../assets/service-4-legacy-impact.jpg" alt="An antique pocket watch open beside a worn leather bound book">
   </div>
   <div class="service-scrim"></div>
   <div class="service-copy">
@@ -567,6 +577,14 @@ strong,b{font-weight:400}
   </div>
   <div class="cta-split-body">
     <div class="cta-info">
+      <a class="nav-mark cta-info-mark" href="#top" aria-label="Regis and Savoy Capital, home">
+        <img class="nav-logo" src="../assets/RandS White Transparent logo.png" alt="">
+        <span class="nav-divider" aria-hidden="true"></span>
+        <span class="nav-wordmark">
+          <span class="wm-name">Regis &amp; Savoy Capital</span>
+          <span class="wm-sub">Pure trust, pure advice</span>
+        </span>
+      </a>
       <div class="cta-info-block">
         <span class="cta-info-label">Address</span>
         <p class="cta-info-text">Regis and Savoy Capital<br>World Trade Center, 2nd Floor<br>Brigade Gateway Campus<br>Rajajinagar, Bengaluru &ndash; 560055</p>
@@ -618,11 +636,11 @@ strong,b{font-weight:400}
             <label for="topic">Topic of Enquiry<span class="required">*</span></label>
             <select id="topic" name="topic" required>
               <option value="">Select a service</option>
+              <option value="emerging-wealth">Emerging Wealth Stewardship (&#8377; 1 Cr to &#8377; 10 Cr)</option>
               <option value="personal-wealth">Personal Wealth Counsel (&#8377; 5 Cr to &#8377; 100Cr)</option>
-              <option value="family-office">Family Office Solutions (&#8377; 100Cr and Above)</option>
               <option value="women-wealth">Dedicated Wealth Management for Women (&#8377; 5 Cr and Above)</option>
               <option value="private-equity">Private Equity and Co-Investment (&#8377; 50 Cr and Above)</option>
-              <option value="emerging-wealth">Emerging Wealth Stewardship (&#8377; 1 Cr to &#8377; 10 Cr)</option>
+              <option value="family-office">Family Office Solutions (&#8377; 100Cr and Above)</option>
             </select>
           </div>
         </fieldset>
@@ -640,16 +658,44 @@ strong,b{font-weight:400}
       <img class="footer-logo" src="../assets/RandS White Transparent logo.png" alt="Regis and Savoy Capital seal">
       <span class="nav-divider" aria-hidden="true"></span>
       <span class="nav-wordmark">
-        <span class="wm-name">Regis &amp; Savoy</span>
-        <span class="wm-sub">Capital</span>
+        <span class="wm-name">Regis &amp; Savoy Capital</span>
+        <span class="wm-sub">Pure trust, pure advice</span>
       </span>
     </a>
-    <ul class="footer-nav">
-      <li><a href="about-us.html">About Us</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="corporate-services.html">Corporate Services</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
+  </div>
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h4 class="footer-col-title">Site Map</h4>
+      <ul class="footer-col-list">
+        <li><a href="#top">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="corporate-services.html">Corporate Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">What We Do</h4>
+      <ul class="footer-col-list">
+        <li><a href="wealth-management.html">Wealth Management</a></li>
+        <li><a href="private-equity.html">Private Equity</a></li>
+        <li><a href="family-office.html">Family Office</a></li>
+        <li><a href="legacy-and-impact.html">Legacy and Impact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">Insights</h4>
+      <ul class="footer-col-list">
+        <li><a href="leadership-perspective.html">Leadership Perspective</a></li>
+        <li><a href="news.html">News</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">Get in Touch</h4>
+      <ul class="footer-col-list">
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="contact.html">Register a Complaint</a></li>
+      </ul>
+    </div>
   </div>
   <div class="footer-rule"></div>
   <div class="footer-bottom">

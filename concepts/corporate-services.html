@@ -7,35 +7,34 @@
 <meta name="description" content="Provided through Regis and Savoy Corporate Services LLP — specialised corporate advisory services across legal advisory, business structuring, governance and compliance, and risk and strategic advisory.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500&family=Spectral:ital,wght@0,200;0,300;1,200;1,300&family=Marcellus&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;500;700&family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    REGIS & SAVOY CAPITAL · CORPORATE SERVICES
-   Finalized design system throughout, same three tokens as every
-   other page (midnight / ivory / gold) — no new hue introduced.
-   The page's "own gold theme" (site-spec, 2026-07-11) is expressed
-   by leaning harder on the existing --gold accent (rule lines,
-   figure numbering, eyebrow labels) than the rest of the site does,
-   not by swapping in a new ground color. Nav, menu overlay, CTA and
-   footer stay identical to every other page so site-wide chrome
-   remains consistent.
+   A distinct design system for this page only: same three-token
+   architecture as the rest of the site (dark ground / light ground
+   / accent) and the same section structure, but a new palette
+   (deep chambers green, warm parchment, antique brass) and a new
+   typographic pairing (Bodoni Moda for headlines, Jost for UI and
+   body) in place of the site's navy/ivory/gold and Archivo/Spectral.
+   Structure, layout and markup are unchanged from the approved page.
    ============================================================ */
 :root{
-  --midnight:#071B3B;
-  --ivory:#F8F6F1;
-  --gold:#C8A25A;
-  --ink:#0B1526;
-  --ink-60:rgba(7,27,59,.6);
-  --ink-40:rgba(7,27,59,.4);
-  --ink-15:rgba(7,27,59,.15);
-  --rule:rgba(7,27,59,.18);
-  --rule-light:rgba(248,246,241,.22);
-  --display:'Archivo',system-ui,sans-serif;
-  --figure:'Spectral',Georgia,serif;
+  --midnight:#14241E;
+  --ivory:#F6F1E6;
+  --gold:#9C7A44;
+  --ink:#121E19;
+  --ink-60:rgba(20,36,30,.6);
+  --ink-40:rgba(20,36,30,.4);
+  --ink-15:rgba(20,36,30,.15);
+  --rule:rgba(20,36,30,.18);
+  --rule-light:rgba(246,241,230,.22);
+  --display:'Jost',system-ui,sans-serif;
+  --figure:'Bodoni Moda',Georgia,serif;
   --gutter:clamp(24px,5vw,72px);
   --theme-p:0;
-  /* page-owned token: gold-tinted rule, built from --gold's own RGB */
-  --gold-rule:rgba(200,162,90,.4);
+  /* page-owned token: brass-tinted rule, built from --gold's own RGB */
+  --gold-rule:rgba(156,122,68,.4);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -58,16 +57,16 @@ body{
 img{max-width:100%;display:block}
 a{color:inherit}
 strong,b{font-weight:400}
-.eyebrow{font-size:.75rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(7,27,59,.55);margin-bottom:clamp(20px,2.6vw,32px)}
+.eyebrow{font-size:.75rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(20,36,30,.55);margin-bottom:clamp(20px,2.6vw,32px)}
 
 /* ---- NAV (unchanged site chrome) ---- */
 .nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:14px;padding:clamp(20px,3.2vw,36px) var(--gutter)}
 .nav-mark{display:flex;align-items:center;gap:14px;color:var(--ivory);text-decoration:none}
 .nav-logo{height:60px;width:auto;display:block}
-.nav-divider{width:1px;height:48px;background:rgba(248,246,241,.35)}
+.nav-divider{width:1px;height:48px;background:rgba(246,241,230,.35)}
 .nav-wordmark{display:flex;flex-direction:column;line-height:1.15}
-.nav-mark .wm-name{font-family:'Marcellus',var(--figure);font-size:.95rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase}
-.nav-mark .wm-sub{font-size:.625rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,246,241,.62)}
+.nav-mark .wm-name{font-family:var(--figure);font-size:.95rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase}
+.nav-mark .wm-sub{font-size:.625rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:rgba(246,241,230,.62)}
 .nav-right{display:flex;align-items:center;gap:clamp(22px,2.8vw,44px);flex-wrap:wrap}
 .nav-links{display:flex;align-items:center;gap:clamp(18px,2.4vw,36px);list-style:none}
 .nav-links a{font-family:var(--display);font-weight:300;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory);text-decoration:none;white-space:nowrap;transition:color .3s ease}
@@ -79,7 +78,7 @@ strong,b{font-weight:400}
   transform:rotate(45deg);transition:transform .3s ease}
 .nav-dropdown-menu{position:absolute;top:calc(100% + 22px);left:50%;transform:translateX(-50%) translateY(-8px);
   min-width:236px;list-style:none;margin:0;padding:16px 0;text-align:left;
-  background:var(--midnight);border:1px solid rgba(248,246,241,.14);
+  background:var(--midnight);border:1px solid rgba(246,241,230,.14);
   opacity:0;visibility:hidden;pointer-events:none;
   transition:opacity .3s ease,transform .3s ease,visibility .3s;z-index:50}
 .nav-dropdown-menu li{padding:0}
@@ -104,56 +103,57 @@ strong,b{font-weight:400}
 .hero-media{position:absolute;inset:0}
 .hero-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) brightness(.78) contrast(1.06);animation:slowZoom 8s ease-out forwards}
 @keyframes slowZoom{0%{transform:scale(1)}100%{transform:scale(1.1)}}
-.hero-scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg, rgba(7,27,59,.55) 0%, rgba(7,27,59,0) 30%, rgba(7,27,59,0) 52%, rgba(7,27,59,.92) 100%)}
-.hero-copy{position:absolute;left:0;right:0;bottom:clamp(64px,10svh,120px);z-index:3;padding:0 var(--gutter);max-width:920px;margin:0 auto;color:var(--ivory);text-align:center}
-.hero-count{display:block;font-size:.75rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:clamp(16px,2.2vw,24px)}
-.hero-title{font-weight:200;font-size:clamp(2.3rem,5.4vw,4.6rem);line-height:1.12;letter-spacing:-.006em;margin-bottom:clamp(14px,1.8vw,22px)}
-.hero-desc{font-weight:300;font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.6;color:rgba(248,246,241,.72);max-width:60ch;margin:0 auto}
-.scroll-cue{position:absolute;left:50%;bottom:4svh;transform:translateX(-50%);z-index:3;font-size:.7rem;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:rgba(248,246,241,.65)}
-.scroll-cue::after{content:"";display:block;width:1px;height:26px;background:rgba(248,246,241,.4);margin:10px auto 0}
+.hero-scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg, rgba(20,36,30,.55) 0%, rgba(20,36,30,0) 30%, rgba(20,36,30,0) 52%, rgba(20,36,30,.92) 100%)}
+.hero-copy{position:absolute;left:0;right:0;bottom:clamp(64px,10svh,120px);z-index:3;padding:0 var(--gutter);max-width:1196px;margin:0 auto;color:var(--ivory);text-align:center}
+.hero-count{display:block;font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ivory);margin-bottom:clamp(16px,2.2vw,24px)}
+.hero-title{font-family:var(--figure);font-weight:400;font-size:clamp(2.3rem,5.4vw,4.6rem);line-height:1.12;letter-spacing:-.006em;margin-bottom:clamp(14px,1.8vw,22px)}
+.hero-desc{font-weight:300;font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.6;color:rgba(246,241,230,.72);max-width:60ch;margin:0 auto}
+.scroll-cue{position:absolute;left:50%;bottom:4svh;transform:translateX(-50%);z-index:3;font-size:.7rem;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:rgba(246,241,230,.65)}
+.scroll-cue::after{content:"";display:block;width:1px;height:26px;background:rgba(246,241,230,.4);margin:10px auto 0}
 
 /* ---- MENU (unchanged site chrome) ---- */
 
 /* ---- STATEMENT — the same ink-reveal + theme-wash device used on the
    service detail pages, unchanged: washes between --midnight and
-   --ivory. The eyebrow label is gold instead of muted ivory on the
-   dark end of the wash — the page's one added gold accent here. ---- */
-.statement{height:100svh;min-height:640px;display:flex;flex-direction:column;
+   --ivory. The eyebrow label is brass instead of muted parchment on
+   the dark end of the wash — the page's one added accent here. ---- */
+.statement{min-height:1600px;display:flex;flex-direction:column;
   background:color-mix(in srgb, var(--gold) calc((1 - var(--theme-p)) * 100%), var(--ivory) calc(var(--theme-p) * 100%));
   color:color-mix(in srgb, var(--ivory) calc((1 - var(--theme-p)) * 100%), var(--midnight) calc(var(--theme-p) * 100%));
 }
-.statement-text{flex:0 0 50%;display:flex;align-items:center;justify-content:center;padding:clamp(24px,4vw,48px) var(--gutter);text-align:center}
+.statement-text{flex:0 0 100svh;display:flex;align-items:center;justify-content:center;padding:clamp(24px,4vw,48px) var(--gutter);text-align:center}
 .statement-inner{max-width:920px;margin:0 auto}
 .statement .eyebrow{font-size:.75rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
-  color:color-mix(in srgb, rgba(7,27,59,.55) calc((1 - var(--theme-p)) * 100%), rgba(200,162,90,.75) calc(var(--theme-p) * 100%));
+  color:color-mix(in srgb, rgba(20,36,30,.55) calc((1 - var(--theme-p)) * 100%), rgba(156,122,68,.75) calc(var(--theme-p) * 100%));
   margin-bottom:clamp(24px,3vw,40px)}
-.ink-lede{font-weight:200;font-size:clamp(1.9rem,4vw,3.3rem);line-height:1.16;letter-spacing:-.008em;margin:0 auto;max-width:55rem}
+.ink-lede{font-family:var(--figure);font-weight:400;font-size:clamp(1.9rem,4vw,3.3rem);line-height:1.16;letter-spacing:-.008em;margin:0 auto;max-width:55rem}
 .ink-lede strong{font-weight:400}
 .statement-copy{margin:clamp(20px,3vw,32px) auto 0;max-width:55rem;font-weight:300;font-size:1.05rem;line-height:1.7;
-  color:color-mix(in srgb, rgba(248,246,241,.72) calc((1 - var(--theme-p)) * 100%), var(--ink-60) calc(var(--theme-p) * 100%))}
-.js .ink-chars .c{color:color-mix(in srgb, rgba(248,246,241,.15) calc((1 - var(--theme-p)) * 100%), var(--ink-15) calc(var(--theme-p) * 100%));transition:color .3s linear}
+  color:color-mix(in srgb, rgba(246,241,230,.72) calc((1 - var(--theme-p)) * 100%), var(--ink-60) calc(var(--theme-p) * 100%))}
+.js .ink-chars .c{color:color-mix(in srgb, rgba(246,241,230,.15) calc((1 - var(--theme-p)) * 100%), var(--ink-15) calc(var(--theme-p) * 100%));transition:color .3s linear}
 .js .ink-chars .c.lit{color:inherit}
-.statement-media{flex:0 0 50%;overflow:hidden}
+.statement-media{flex:0 0 100svh;overflow:hidden}
 .statement-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) brightness(.8) contrast(1.06)}
 
-/* ---- CAPABILITIES — the page's gold-theme signal, expressed as a
-   ruled 2x2 grid on the standard ivory ground: the same restrained
-   "number + title + description" shape as the Investment Philosophy
+/* ---- CAPABILITIES — the page's accent signal, expressed as a
+   ruled 2x2 grid on the standard parchment ground: the same restrained
+   "title + description" shape as the Investment Philosophy
    principles list on About Us, with a short list appended to each
-   entry and every accent (rule, number, eyebrow, bullet) in gold
-   instead of the site's usual muted navy. Body copy and headings
-   stay on the standard ink tiers for legibility. No new motion
-   device introduced — this is a static list, same as Philosophy. ---- */
+   entry and every accent (rule, eyebrow, bullet) in brass
+   instead of the site's usual muted navy. Body copy stays on the
+   standard ink tiers for legibility; headings sit in the page's
+   serif for the same editorial voice as the hero and overview. No
+   new motion device introduced — this is a static list, same as
+   Philosophy. ---- */
 .capabilities{background:var(--ivory);color:var(--midnight);padding:clamp(80px,10vw,130px) var(--gutter) clamp(88px,11vw,150px);border-top:1px solid var(--rule)}
 .capabilities-inner{max-width:1180px;margin:0 auto}
 .capabilities-head{max-width:640px;margin-bottom:clamp(48px,6vw,80px)}
 .capabilities-head .eyebrow{color:var(--gold)}
-.capabilities-head h2{font-weight:200;font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.18;letter-spacing:-.008em;margin:.4em 0 .7em}
+.capabilities-head h2{font-family:var(--figure);font-weight:400;font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.18;letter-spacing:-.008em;margin:.4em 0 .7em}
 .capabilities-head p{color:var(--ink-60)}
 .capability-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(48px,6vw,88px)}
 .capability-group{padding:clamp(28px,3.4vw,40px) 0;border-top:1px solid var(--gold-rule)}
-.capability-num{display:block;font-family:var(--figure);font-weight:200;font-style:italic;font-size:clamp(1.5rem,2.4vw,1.9rem);color:var(--gold);margin-bottom:.6rem}
-.capability-group h3{font-weight:400;font-size:clamp(1.1rem,1.7vw,1.3rem);margin-bottom:.55rem;letter-spacing:-.005em}
+.capability-group h3{font-family:var(--figure);font-weight:500;font-size:clamp(1.1rem,1.7vw,1.3rem);margin-bottom:.55rem;letter-spacing:-.005em}
 .capability-group > p{color:var(--ink-60);max-width:42ch}
 .capability-list{list-style:none;margin-top:1.1rem;display:flex;flex-direction:column;gap:.5rem}
 .capability-list li{position:relative;padding-left:1.3em;font-size:.9375rem;font-weight:300;color:var(--ink-60)}
@@ -162,41 +162,16 @@ strong,b{font-weight:400}
   .capability-grid{grid-template-columns:1fr}
 }
 
-/* ---- CTA + FOOTER (unchanged from the approved homepage) ---- */
-.cta-split{position:relative;z-index:5;overflow:hidden;background:var(--midnight);color:var(--ivory);
-  padding:clamp(80px,10vw,140px) var(--gutter) clamp(56px,7vw,88px)}
-.cta-split-header{position:relative;z-index:1;max-width:1180px;margin:0 auto clamp(48px,6vw,72px);
-  text-align:center}
-.cta-split-title{font-weight:200;text-transform:uppercase;font-size:clamp(1.8rem,4.4vw,3.4rem);
-  line-height:1.14;letter-spacing:.02em}
-.cta-split-body{position:relative;z-index:1;max-width:1180px;margin:0 auto;display:flex;
-  gap:clamp(48px,7vw,100px);align-items:flex-start;flex-wrap:wrap}
-.cta-info{flex:1 1 260px;max-width:320px;display:flex;flex-direction:column;gap:clamp(28px,3.5vw,40px)}
-.cta-info-label{display:block;font-size:.72rem;font-weight:400;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.cta-info-text{font-weight:300;font-size:1rem;line-height:1.7;color:rgba(248,246,241,.8)}
-.cta-info-text a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(248,246,241,.3);
-  transition:color .25s ease,border-color .25s ease}
-.cta-info-text a:hover{color:var(--gold);border-color:var(--gold)}
-.cta-form-col{flex:2 1 420px;min-width:0}
-.cta-form-col .cta-form{margin:0;max-width:none}
-.cta-split-base{position:relative;z-index:1;max-width:1180px;margin:clamp(64px,8vw,96px) auto 0;
-  height:1px;background:var(--rule-light)}
-@media (max-width:860px){
-  .cta-split-body{flex-direction:column;gap:clamp(40px,6vw,56px)}
-  .cta-info{max-width:none;flex-direction:row;flex-wrap:wrap;gap:clamp(28px,4vw,40px)}
-  .cta-info-block{flex:1 1 200px}
-}
-
-.footer{position:relative;z-index:5;background:var(--midnight);color:rgba(248,246,241,.7);padding:clamp(48px,6vw,72px) var(--gutter) clamp(32px,4vw,40px)}
+/* ---- FOOTER (unchanged from the approved homepage) ---- */
+.footer{position:relative;z-index:5;background:var(--midnight);color:rgba(246,241,230,.7);padding:clamp(48px,6vw,72px) var(--gutter) clamp(32px,4vw,40px)}
 .footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:clamp(24px,4vw,40px)}
 .footer-logo{height:clamp(72px,8vw,96px);width:auto;display:block}
 .footer-top .nav-divider{height:clamp(44px,5vw,64px)}
 .footer-nav{list-style:none;display:flex;flex-wrap:wrap;gap:12px clamp(20px,3vw,40px)}
-.footer-nav a{font-size:.75rem;font-weight:300;letter-spacing:.16em;text-transform:uppercase;color:rgba(248,246,241,.7);text-decoration:none;transition:color .25s}
+.footer-nav a{font-size:.75rem;font-weight:300;letter-spacing:.16em;text-transform:uppercase;color:rgba(246,241,230,.7);text-decoration:none;transition:color .25s}
 .footer-nav a:hover{color:var(--gold)}
 .footer-rule{height:1px;background:var(--rule-light);margin:clamp(32px,4vw,48px) 0 clamp(24px,3vw,32px)}
-.footer-bottom{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:.75rem;font-weight:300;letter-spacing:.04em;color:rgba(248,246,241,.5);line-height:1.8}
+.footer-bottom{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:.75rem;font-weight:300;letter-spacing:.04em;color:rgba(246,241,230,.5);line-height:1.8}
 .footer-bottom p{max-width:70ch}
 @media (max-width:720px){
   .footer-bottom{flex-direction:column}
@@ -204,39 +179,6 @@ strong,b{font-weight:400}
   .footer-top .footer-nav{justify-content:center}
 }
 
-/* ---- CTA FORM ---- */
-.cta-form{position:relative;z-index:1;max-width:640px;margin:clamp(28px,4vw,44px) auto 0}
-.form-section{border:none;padding:0;margin-bottom:clamp(40px,5vw,60px)}
-.form-section-title{display:block;font-size:.9rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:clamp(20px,3vw,28px);font-family:var(--display)}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px) clamp(16px,2.4vw,28px)}
-.form-grid .form-group:nth-child(2){grid-column:2}
-.form-grid .form-group:nth-child(3){grid-column:1/3}
-.form-grid .form-group:nth-child(4){grid-column:1}
-.form-grid .form-group:nth-child(5){grid-column:2}
-.form-group{display:flex;flex-direction:column}
-.form-group label{font-size:.9rem;font-weight:400;letter-spacing:.04em;margin-bottom:8px;color:rgba(248,246,241,.9)}
-.required{color:var(--gold);margin-left:2px}
-.form-group input,.form-group select{
-  background:rgba(248,246,241,.08);border:1px solid rgba(248,246,241,.2);
-  padding:clamp(10px,1.2vw,14px) clamp(12px,1.6vw,16px);
-  font-family:var(--display);font-size:.9rem;color:var(--ivory);
-  transition:border-color .2s ease,background-color .2s ease;
-}
-.form-group input::placeholder{color:rgba(248,246,241,.4)}
-.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--gold);background:rgba(248,246,241,.12)}
-.form-group select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F8F6F1' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right clamp(10px,1.2vw,14px) center;padding-right:clamp(32px,4vw,40px)}
-.form-group select option{background:var(--midnight);color:var(--ivory)}
-.form-submit{
-  margin-top:clamp(32px,4vw,48px);padding:clamp(12px,1.6vw,16px) clamp(40px,5vw,56px);
-  font-size:.8rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;
-  background:rgba(200,162,90,.2);border:1px solid var(--gold);color:var(--gold);
-  cursor:pointer;transition:all .3s ease;font-family:var(--display);
-}
-.form-submit:hover{background:var(--gold);color:var(--midnight)}
-@media (max-width:640px){
-  .form-grid{grid-template-columns:1fr}
-  .form-grid .form-group:nth-child(n){grid-column:1}
-}
 </style>
 </head>
 <body>
@@ -264,14 +206,14 @@ strong,b{font-weight:400}
         </ul>
       </li>
       <li><a href="corporate-services.html">Corporate Services</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
 
 <section class="hero" id="top">
   <div class="hero-media">
-    <img src="../assets/17 - filip-chmielecki-Bsb8m_pyvWs-unsplash.jpg" alt="A dark marble staircase with a brass handrail">
+    <img src="../assets/s-o-c-i-a-l-c-u-t-1RT4txDDAbM-unsplash.jpg" alt="A dark marble staircase with a brass handrail">
   </div>
   <div class="hero-scrim"></div>
   <div class="hero-copy">
@@ -290,7 +232,7 @@ strong,b{font-weight:400}
     </div>
   </div>
   <figure class="statement-media" aria-label="A light-filled modern architectural interior">
-    <img src="../assets/21 - stephen-bellocillo-3BuWBZtcnd0-unsplash.jpg" alt="A light-filled modern architectural skylight">
+    <img src="../assets/benjamin-child-0sT9YhNgSEs-unsplash.jpg" alt="A light-filled modern architectural skylight">
   </figure>
 </section>
 
@@ -302,7 +244,6 @@ strong,b{font-weight:400}
     </div>
     <div class="capability-grid">
       <div class="capability-group">
-        <span class="capability-num">01</span>
         <h3>Legal Advisory</h3>
         <p>Providing practical legal support to help businesses navigate commercial, employment, and regulatory matters.</p>
         <ul class="capability-list">
@@ -313,7 +254,6 @@ strong,b{font-weight:400}
         </ul>
       </div>
       <div class="capability-group">
-        <span class="capability-num">02</span>
         <h3>Business Structuring</h3>
         <p>Supporting businesses through every stage of growth, restructuring, and strategic expansion.</p>
         <ul class="capability-list">
@@ -324,7 +264,6 @@ strong,b{font-weight:400}
         </ul>
       </div>
       <div class="capability-group">
-        <span class="capability-num">03</span>
         <h3>Governance &amp; Compliance</h3>
         <p>Helping organisations establish robust governance frameworks and meet evolving regulatory requirements.</p>
         <ul class="capability-list">
@@ -335,7 +274,6 @@ strong,b{font-weight:400}
         </ul>
       </div>
       <div class="capability-group">
-        <span class="capability-num">04</span>
         <h3>Risk &amp; Strategic Advisory</h3>
         <p>Delivering independent advisory solutions to strengthen governance, mitigate risks, and support informed decision-making.</p>
         <ul class="capability-list">
@@ -348,79 +286,6 @@ strong,b{font-weight:400}
       </div>
     </div>
   </div>
-</section>
-
-<section class="cta-split" id="cta">
-  <div class="cta-split-header">
-    <h2 class="cta-split-title">Connect with Our Corporate Services Team</h2>
-  </div>
-  <div class="cta-split-body">
-    <div class="cta-info">
-      <div class="cta-info-block">
-        <span class="cta-info-label">Address</span>
-        <p class="cta-info-text">Regis and Savoy Capital<br>World Trade Center, 2nd Floor<br>Brigade Gateway Campus<br>Rajajinagar, Bengaluru &ndash; 560055</p>
-      </div>
-      <div class="cta-info-block">
-        <span class="cta-info-label">Phone</span>
-        <p class="cta-info-text"><a href="tel:+919611806161">+91 96118 06161</a></p>
-      </div>
-      <div class="cta-info-block">
-        <span class="cta-info-label">Email</span>
-        <p class="cta-info-text"><a href="mailto:connect@regisandsavoy.com">connect@regisandsavoy.com</a></p>
-      </div>
-      <div class="cta-info-block">
-        <span class="cta-info-label">Office Hours</span>
-        <p class="cta-info-text">Monday &ndash; Friday<br>9:00 AM &ndash; 6:00 PM IST</p>
-      </div>
-    </div>
-    <div class="cta-form-col">
-      <form class="cta-form">
-        <fieldset class="form-section">
-          <legend class="form-section-title">Contact Information</legend>
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="first-name">First Name<span class="required">*</span></label>
-              <input type="text" id="first-name" name="firstName" required>
-            </div>
-            <div class="form-group">
-              <label for="last-name">Last Name</label>
-              <input type="text" id="last-name" name="lastName">
-            </div>
-            <div class="form-group">
-              <label for="email">Email<span class="required">*</span></label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-              <label for="city-country">City / Country<span class="required">*</span></label>
-              <input type="text" id="city-country" name="cityCountry" required>
-            </div>
-            <div class="form-group">
-              <label for="mobile">Mobile No<span class="required">*</span></label>
-              <input type="tel" id="mobile" name="mobile" required>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset class="form-section">
-          <legend class="form-section-title">Additional Information</legend>
-          <div class="form-group">
-            <label for="topic">Topic of Enquiry<span class="required">*</span></label>
-            <select id="topic" name="topic" required>
-              <option value="">Select a service</option>
-              <option value="personal-wealth">Personal Wealth Counsel (₹ 5 Cr to ₹ 100Cr)</option>
-              <option value="family-office">Family Office Solutions (₹ 100Cr and Above)</option>
-              <option value="women-wealth">Dedicated Wealth Management for Women (₹ 5 Cr and Above)</option>
-              <option value="private-equity">Private Equity and Co-Investment (₹ 50 Cr and Above)</option>
-              <option value="emerging-wealth">Emerging Wealth Stewardship (₹ 1 Cr to ₹ 10 Cr)</option>
-            </select>
-          </div>
-        </fieldset>
-
-        <button type="submit" class="form-submit">Send Inquiry</button>
-      </form>
-    </div>
-  </div>
-  <div class="cta-split-base"></div>
 </section>
 
 <footer class="footer">
@@ -437,7 +302,7 @@ strong,b{font-weight:400}
     <li><a href="about-us.html">About Us</a></li>
     <li><a href="services.html">Services</a></li>
     <li><a href="corporate-services.html">Corporate Services</a></li>
-    <li><a href="#">Contact</a></li>
+    <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
   <div class="footer-rule"></div>

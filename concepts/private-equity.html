@@ -141,12 +141,12 @@ strong,b{font-weight:400}
    Reduced to one screen total: headline half, image half.
    ============================================================ */
 .statement{
-  min-height:640px;
+  min-height:1600px;
   display:flex;flex-direction:column;
   background:color-mix(in srgb, var(--midnight) calc((1 - var(--theme-p)) * 100%), var(--ivory) calc(var(--theme-p) * 100%));
   color:color-mix(in srgb, var(--ivory) calc((1 - var(--theme-p)) * 100%), var(--midnight) calc(var(--theme-p) * 100%));
 }
-.statement-text{flex:0 0 50svh;display:flex;align-items:center;justify-content:center;
+.statement-text{flex:0 0 100svh;display:flex;align-items:center;justify-content:center;
   padding:clamp(24px,4vw,48px) var(--gutter);text-align:center}
 .statement-inner{max-width:920px;margin:0 auto}
 .statement .eyebrow{font-size:.75rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
@@ -158,7 +158,7 @@ strong,b{font-weight:400}
   color:color-mix(in srgb, rgba(248,246,241,.72) calc((1 - var(--theme-p)) * 100%), var(--ink-60) calc(var(--theme-p) * 100%))}
 .js .ink-chars .c{color:color-mix(in srgb, rgba(248,246,241,.15) calc((1 - var(--theme-p)) * 100%), var(--ink-15) calc(var(--theme-p) * 100%));transition:color .3s linear}
 .js .ink-chars .c.lit{color:inherit}
-.statement-media{flex:0 0 75svh;overflow:hidden}
+.statement-media{flex:0 0 100svh;overflow:hidden}
 .statement-media img{width:100%;height:100%;object-fit:cover;
   filter:saturate(.82) brightness(.78) contrast(1.06)}
 
@@ -212,20 +212,31 @@ strong,b{font-weight:400}
 }
 
 /* ============================================================
-   NEXT SERVICE: quiet ruled row completing the four page loop
+   NEXT SERVICE: quiet ruled row completing the four page loop,
+   split so a visitor can step back or forward through the set
    ============================================================ */
-.next{position:relative;z-index:5;background:var(--midnight);color:var(--ivory);
-  padding:clamp(64px,8vw,104px) var(--gutter);border-bottom:1px solid var(--rule-light)}
-.next a{display:flex;align-items:center;justify-content:space-between;gap:24px;
-  text-decoration:none;max-width:1240px;margin:0 auto}
+.next{position:relative;z-index:5;display:flex;background:var(--midnight);color:var(--ivory);
+  border-bottom:1px solid var(--rule-light)}
+.next-half{flex:1 1 50%;min-width:0;display:flex;align-items:center;gap:20px;
+  padding:clamp(56px,7vw,96px) clamp(24px,4vw,56px);text-decoration:none}
+.next-prev{justify-content:flex-start;padding-left:var(--gutter);border-right:1px solid var(--rule-light)}
+.next-next{justify-content:flex-end;padding-right:var(--gutter);text-align:right}
+.next-next .next-arrow{order:2}
 .next .eyebrow{font-size:.75rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
   color:rgba(248,246,241,.55);margin-bottom:.9rem}
-.next-title{transition:color .3s ease}
-.next a:hover .next-title{color:var(--gold)}
-.next-arrow{flex:none;width:clamp(48px,5.5vw,56px);height:clamp(48px,5.5vw,56px);border-radius:50%;
+.next-title{transition:color .3s ease;font-size:clamp(1.4rem,2.8vw,2.4rem)}
+.next-half:hover .next-title{color:var(--gold)}
+.next-arrow{flex:none;width:clamp(44px,5vw,52px);height:clamp(44px,5vw,52px);border-radius:50%;
   border:1px solid rgba(248,246,241,.5);display:flex;align-items:center;justify-content:center;
   color:var(--ivory);transition:background-color .3s ease,border-color .3s ease}
-.next a:hover .next-arrow{background:rgba(248,246,241,.12);border-color:rgba(248,246,241,.85)}
+.next-half:hover .next-arrow{background:rgba(248,246,241,.12);border-color:rgba(248,246,241,.85)}
+@media (max-width:640px){
+  .next{flex-direction:column}
+  .next-half{padding:clamp(40px,8vw,56px) var(--gutter)}
+  .next-prev{border-right:none;border-bottom:1px solid var(--rule-light)}
+  .next-next{justify-content:flex-start;text-align:left}
+  .next-next .next-arrow{order:0}
+}
 
 /* ============================================================
    CTA and FOOTER: unchanged from the approved homepage
@@ -340,7 +351,7 @@ strong,b{font-weight:400}
         </ul>
       </li>
       <li><a href="corporate-services.html">Corporate Services</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -365,8 +376,8 @@ strong,b{font-weight:400}
       <p class="statement-copy">Private-market investments can play an important role in portfolio diversification and future capital appreciation. They provide access to businesses, sectors, and opportunities that may not be available through public markets.</p>
     </div>
   </div>
-  <figure class="statement-media" aria-label="An elevated vantage point overlooking a still mountain lake">
-  <img src="../assets/35 - tania-lyahnovich-syyIpzxrL2c-unsplash.jpg" alt="">
+  <figure class="statement-media" aria-label="Sunlit modern lounge with pendant lighting and greenery">
+  <img src="../assets/rodeo-project-management-software-PYqzYhTNjho-unsplash.jpg" alt="Sunlit modern lounge with pendant lighting and greenery" loading="lazy">
   </figure>
 </section>
 
@@ -388,7 +399,7 @@ strong,b{font-weight:400}
 
 <section class="area-panel" id="area-1">
   <div class="area-media">
-  <img src="../assets/jack-anstey-XVoyX7l9ocY-unsplash.jpg" alt="">
+  <img src="../assets/sean-pollock-PhYq704ffdA-unsplash.jpg" alt="">
   </div>
   <div class="area-scrim"></div>
   <div class="area-copy">
@@ -399,7 +410,7 @@ strong,b{font-weight:400}
 
 <section class="area-panel" id="area-2">
   <div class="area-media">
-  <img src="../assets/jon-tyson-fHWio71N5uA-unsplash.jpg" alt="">
+  <img src="../assets/compagnons-CwTfKH5edSk-unsplash.jpg" alt="">
   </div>
   <div class="area-scrim"></div>
   <div class="area-copy">
@@ -410,7 +421,7 @@ strong,b{font-weight:400}
 
 <section class="area-panel" id="area-3">
   <div class="area-media">
-  <img src="../assets/hans-Mw19fSLfjbQ-unsplash.jpg" alt="">
+  <img src="../assets/patrick-perkins-3wylDrjxH-E-unsplash.jpg" alt="">
   </div>
   <div class="area-scrim"></div>
   <div class="area-copy">
@@ -421,7 +432,7 @@ strong,b{font-weight:400}
 
 <section class="area-panel" id="area-4">
   <div class="area-media">
-  <img src="../assets/hans-1uJVd81R_dY-unsplash.jpg" alt="">
+  <img src="../assets/scott-graham-5fNmWej4tAA-unsplash.jpg" alt="">
   </div>
   <div class="area-scrim"></div>
   <div class="area-copy">
@@ -431,88 +442,24 @@ strong,b{font-weight:400}
 </section>
 
 <section class="next">
-  <a href="family-office.html" aria-label="Next service: Family Office">
+  <a class="next-half next-prev" href="wealth-management.html" aria-label="Previous service: Wealth Management">
+    <span class="next-arrow" aria-hidden="true">
+      <svg width="16" height="14" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M6 1L1 6l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </span>
     <div class="next-copy">
-      <p class="eyebrow">Next Service &middot; 03 &mdash; 04</p>
+      <p class="eyebrow">Previous Service</p>
+      <h2 class="display-l next-title">Wealth Management</h2>
+    </div>
+  </a>
+  <a class="next-half next-next" href="family-office.html" aria-label="Next service: Family Office">
+    <div class="next-copy">
+      <p class="eyebrow">Next Service</p>
       <h2 class="display-l next-title">Family Office</h2>
     </div>
     <span class="next-arrow" aria-hidden="true">
       <svg width="16" height="14" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
     </span>
   </a>
-</section>
-
-<section class="cta-split" id="cta">
-  <div class="cta-split-header">
-    <h2 class="cta-split-title">Let Us Start the Conversation</h2>
-  </div>
-  <div class="cta-split-body">
-    <div class="cta-info">
-      <div class="cta-info-block">
-        <span class="cta-info-label">Address</span>
-        <p class="cta-info-text">Regis and Savoy Capital<br>World Trade Center, 2nd Floor<br>Brigade Gateway Campus<br>Rajajinagar, Bengaluru &ndash; 560055</p>
-      </div>
-      <div class="cta-info-block">
-        <span class="cta-info-label">Phone</span>
-        <p class="cta-info-text"><a href="tel:+919611806161">+91 96118 06161</a></p>
-      </div>
-      <div class="cta-info-block">
-        <span class="cta-info-label">Email</span>
-        <p class="cta-info-text"><a href="mailto:connect@regisandsavoy.com">connect@regisandsavoy.com</a></p>
-      </div>
-      <div class="cta-info-block">
-        <span class="cta-info-label">Office Hours</span>
-        <p class="cta-info-text">Monday &ndash; Friday<br>9:00 AM &ndash; 6:00 PM IST</p>
-      </div>
-    </div>
-    <div class="cta-form-col">
-      <form class="cta-form">
-        <fieldset class="form-section">
-          <legend class="form-section-title">Contact Information</legend>
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="first-name">First Name<span class="required">*</span></label>
-              <input type="text" id="first-name" name="firstName" required>
-            </div>
-            <div class="form-group">
-              <label for="last-name">Last Name</label>
-              <input type="text" id="last-name" name="lastName">
-            </div>
-            <div class="form-group">
-              <label for="email">Email<span class="required">*</span></label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-              <label for="city-country">City / Country<span class="required">*</span></label>
-              <input type="text" id="city-country" name="cityCountry" required>
-            </div>
-            <div class="form-group">
-              <label for="mobile">Mobile No<span class="required">*</span></label>
-              <input type="tel" id="mobile" name="mobile" required>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset class="form-section">
-          <legend class="form-section-title">Additional Information</legend>
-          <div class="form-group">
-            <label for="topic">Topic of Enquiry<span class="required">*</span></label>
-            <select id="topic" name="topic" required>
-              <option value="">Select a service</option>
-              <option value="personal-wealth">Personal Wealth Counsel (&#8377; 5 Cr to &#8377; 100Cr)</option>
-              <option value="family-office">Family Office Solutions (&#8377; 100Cr and Above)</option>
-              <option value="women-wealth">Dedicated Wealth Management for Women (&#8377; 5 Cr and Above)</option>
-              <option value="private-equity">Private Equity and Co-Investment (&#8377; 50 Cr and Above)</option>
-              <option value="emerging-wealth">Emerging Wealth Stewardship (&#8377; 1 Cr to &#8377; 10 Cr)</option>
-            </select>
-          </div>
-        </fieldset>
-
-        <button type="submit" class="form-submit">Send Inquiry</button>
-      </form>
-    </div>
-  </div>
-  <div class="cta-split-base"></div>
 </section>
 
 <footer class="footer">
@@ -529,7 +476,7 @@ strong,b{font-weight:400}
       <li><a href="about-us.html">About Us</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="corporate-services.html">Corporate Services</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
   <div class="footer-rule"></div>

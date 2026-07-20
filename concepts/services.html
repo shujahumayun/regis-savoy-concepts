@@ -199,10 +199,9 @@ strong,b{font-weight:400}
 /* SERVICE LIST — editorial rows, not the homepage's sticky stacked panels */
 .svc-list{padding:0 var(--gutter) clamp(40px,6vw,72px);border-top:1px solid var(--rule)}
 .svc-list-inner{max-width:1240px;margin:0 auto}
-.svc-row{display:grid;grid-template-columns:96px 200px 1fr 64px;align-items:center;gap:clamp(20px,3vw,40px);
+.svc-row{display:grid;grid-template-columns:200px 1fr 64px;align-items:center;gap:clamp(20px,3vw,40px);
   padding:clamp(32px,4.5vw,52px) 0;border-bottom:1px solid var(--rule);text-decoration:none;color:inherit}
 .svc-row:first-child{border-top:1px solid var(--rule)}
-.svc-num{font-family:var(--figure);font-weight:200;font-style:italic;font-size:clamp(1.5rem,2.4vw,2rem);color:var(--ink-40)}
 .svc-media{aspect-ratio:4/3;overflow:hidden;background:rgba(7,27,59,.06)}
 .svc-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) brightness(.82) contrast(1.06);
   transform:scale(1.001);transition:transform 1.2s cubic-bezier(.16,.7,.24,1)}
@@ -215,7 +214,7 @@ strong,b{font-weight:400}
   transition:background-color .3s ease,border-color .3s ease}
 .svc-row:hover .svc-arrow{background:rgba(7,27,59,.06);border-color:rgba(7,27,59,.7)}
 @media (max-width:820px){
-  .svc-row{grid-template-columns:56px 120px 1fr}
+  .svc-row{grid-template-columns:120px 1fr}
   .svc-arrow{display:none}
 }
 @media (max-width:560px){
@@ -249,7 +248,7 @@ strong,b{font-weight:400}
         </ul>
       </li>
       <li><a href="corporate-services.html">Corporate Services</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -277,8 +276,7 @@ strong,b{font-weight:400}
 <section class="svc-list" id="service-list">
   <div class="svc-list-inner">
     <a class="svc-row" href="wealth-management.html" aria-label="Wealth Management">
-      <span class="svc-num">01</span>
-      <figure class="svc-media"><img src="../assets/martin-bennie-eXJOg0GVK0Y-unsplash.jpg" alt=""></figure>
+      <figure class="svc-media"><img src="../assets/mike-cox-lQw5AE8ImTo-unsplash.jpg" alt=""></figure>
       <div class="svc-text">
         <h3>Wealth Management</h3>
         <p>Independent investment guidance tailored to evolving financial goals and market conditions.</p>
@@ -288,8 +286,7 @@ strong,b{font-weight:400}
       </span>
     </a>
     <a class="svc-row" href="private-equity.html" aria-label="Private Equity">
-      <span class="svc-num">02</span>
-      <figure class="svc-media"><img src="../assets/21 - stephen-bellocillo-3BuWBZtcnd0-unsplash.jpg" alt=""></figure>
+      <figure class="svc-media"><img src="../assets/service-2-private-equity.jpg" alt=""></figure>
       <div class="svc-text">
         <h3>Private Equity</h3>
         <p>Accessing carefully selected private-market opportunities with discipline and perspective.</p>
@@ -299,7 +296,6 @@ strong,b{font-weight:400}
       </span>
     </a>
     <a class="svc-row" href="family-office.html" aria-label="Family Office">
-      <span class="svc-num">03</span>
       <figure class="svc-media"><img src="../assets/20 - lucas-t-photography-sHEwH4lgGrY-unsplash.jpg" alt=""></figure>
       <div class="svc-text">
         <h3>Family Office</h3>
@@ -310,7 +306,6 @@ strong,b{font-weight:400}
       </span>
     </a>
     <a class="svc-row" href="legacy-and-impact.html" aria-label="Legacy and Impact">
-      <span class="svc-num">04</span>
       <figure class="svc-media"><img src="../assets/19 - brett-wharton-yDIDeepDoQA-unsplash.jpg" alt=""></figure>
       <div class="svc-text">
         <h3>Legacy and Impact</h3>
@@ -321,79 +316,6 @@ strong,b{font-weight:400}
       </span>
     </a>
   </div>
-</section>
-
-<section class="cta-split" id="cta">
-  <div class="cta-split-header">
-    <h2 class="cta-split-title">Let Us Start the Conversation</h2>
-  </div>
-  <div class="cta-split-body">
-    <div class="cta-info">
-      <div class="cta-info-block">
-        <span class="cta-info-label">Address</span>
-        <p class="cta-info-text">Regis and Savoy Capital<br>World Trade Center, 2nd Floor<br>Brigade Gateway Campus<br>Rajajinagar, Bengaluru &ndash; 560055</p>
-      </div>
-      <div class="cta-info-block">
-        <span class="cta-info-label">Phone</span>
-        <p class="cta-info-text"><a href="tel:+919611806161">+91 96118 06161</a></p>
-      </div>
-      <div class="cta-info-block">
-        <span class="cta-info-label">Email</span>
-        <p class="cta-info-text"><a href="mailto:connect@regisandsavoy.com">connect@regisandsavoy.com</a></p>
-      </div>
-      <div class="cta-info-block">
-        <span class="cta-info-label">Office Hours</span>
-        <p class="cta-info-text">Monday &ndash; Friday<br>9:00 AM &ndash; 6:00 PM IST</p>
-      </div>
-    </div>
-    <div class="cta-form-col">
-      <form class="cta-form">
-        <fieldset class="form-section">
-          <legend class="form-section-title">Contact Information</legend>
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="first-name">First Name<span class="required">*</span></label>
-              <input type="text" id="first-name" name="firstName" required>
-            </div>
-            <div class="form-group">
-              <label for="last-name">Last Name</label>
-              <input type="text" id="last-name" name="lastName">
-            </div>
-            <div class="form-group">
-              <label for="email">Email<span class="required">*</span></label>
-              <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-              <label for="city-country">City / Country<span class="required">*</span></label>
-              <input type="text" id="city-country" name="cityCountry" required>
-            </div>
-            <div class="form-group">
-              <label for="mobile">Mobile No<span class="required">*</span></label>
-              <input type="tel" id="mobile" name="mobile" required>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset class="form-section">
-          <legend class="form-section-title">Additional Information</legend>
-          <div class="form-group">
-            <label for="topic">Topic of Enquiry<span class="required">*</span></label>
-            <select id="topic" name="topic" required>
-              <option value="">Select a service</option>
-              <option value="personal-wealth">Personal Wealth Counsel (&#8377; 5 Cr to &#8377; 100Cr)</option>
-              <option value="family-office">Family Office Solutions (&#8377; 100Cr and Above)</option>
-              <option value="women-wealth">Dedicated Wealth Management for Women (&#8377; 5 Cr and Above)</option>
-              <option value="private-equity">Private Equity and Co-Investment (&#8377; 50 Cr and Above)</option>
-              <option value="emerging-wealth">Emerging Wealth Stewardship (&#8377; 1 Cr to &#8377; 10 Cr)</option>
-            </select>
-          </div>
-        </fieldset>
-
-        <button type="submit" class="form-submit">Send Inquiry</button>
-      </form>
-    </div>
-  </div>
-  <div class="cta-split-base"></div>
 </section>
 
 <footer class="footer">
@@ -410,7 +332,7 @@ strong,b{font-weight:400}
     <li><a href="about-us.html">About Us</a></li>
     <li><a href="services.html">Services</a></li>
     <li><a href="corporate-services.html">Corporate Services</a></li>
-    <li><a href="#">Contact</a></li>
+    <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
   <div class="footer-rule"></div>
