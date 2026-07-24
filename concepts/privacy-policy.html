@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regis &amp; Savoy Capital · Privacy Policy</title>
+<meta name="description" content="Regis and Savoy Capital's privacy policy and professional services disclaimer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500&family=Spectral:ital,wght@0,200;0,300;1,200;1,300&family=Marcellus&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --midnight:#071B3B;
+  --ivory:#F8F6F1;
+  --gold:#C8A25A;
+  --ink:#0B1526;
+  --ink-60:rgba(7,27,59,.6);
+  --ink-40:rgba(7,27,59,.4);
+  --ink-15:rgba(7,27,59,.15);
+  --rule:rgba(7,27,59,.18);
+  --rule-light:rgba(248,246,241,.22);
+  --display:'Archivo',system-ui,sans-serif;
+  --figure:'Spectral',Georgia,serif;
+  --gutter:clamp(24px,5vw,72px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+body{
+  font-family:var(--display);
+  font-weight:300;
+  font-size:1.0625rem;
+  line-height:1.65;
+  letter-spacing:.005em;
+  background:var(--ivory);
+  color:var(--midnight);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+::selection{background:var(--gold);color:var(--midnight)}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:14px;padding:clamp(18px,3vw,32px) var(--gutter)}
+.nav-mark{display:flex;align-items:center;gap:14px;color:var(--ivory);text-decoration:none}
+.nav-logo{height:60px;width:auto;display:block}
+.nav-divider{width:1px;height:48px;background:rgba(248,246,241,.35)}
+.nav-wordmark{display:flex;flex-direction:column;line-height:1.15}
+.nav-mark .wm-name{font-family:'Cormorant Garamond',var(--figure);font-size:1.15rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.nav-mark .wm-sub{font-size:.625rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:clamp(22px,2.8vw,44px);flex-wrap:wrap}
+.nav-links{display:flex;align-items:center;gap:clamp(18px,2.4vw,36px);list-style:none}
+.nav-links a{font-family:var(--display);font-weight:300;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory);text-decoration:none;white-space:nowrap;transition:color .3s ease}
+.nav-links a:hover{color:var(--gold)}
+
+.nav-dropdown{position:relative;display:inline-flex;align-items:center}
+.nav-caret-btn{background:none;border:none;padding:4px;margin:-4px 0 -4px -2px;display:inline-flex;align-items:center;cursor:pointer;color:inherit}
+.nav-dropdown.open .nav-caret{transform:rotate(225deg);margin-top:2px}
+.nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.nav-dropdown>a{display:inline-flex;align-items:center;gap:7px}
+.nav-caret{width:5px;height:5px;margin-top:-2px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;
+  transform:rotate(45deg);transition:transform .3s ease}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 22px);left:50%;transform:translateX(-50%) translateY(-8px);
+  min-width:236px;list-style:none;margin:0;padding:16px 0;text-align:left;
+  background:var(--midnight);border:1px solid rgba(248,246,241,.14);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .3s ease,transform .3s ease,visibility .3s;z-index:50}
+.nav-dropdown-menu li{padding:0}
+.nav-dropdown-menu a{display:block;padding:11px 26px;font-family:var(--display);font-weight:300;
+  font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;
+  color:var(--ivory);text-decoration:none;transition:color .3s ease}
+.nav-dropdown-menu a:hover{color:var(--gold)}
+@media (hover:hover) and (pointer:fine){
+  .nav-dropdown:hover .nav-caret,.nav-dropdown:focus-within .nav-caret{transform:rotate(225deg);margin-top:2px}
+  .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{
+    opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+}
+
+@media (max-width:760px){
+  .nav{justify-content:center;text-align:center}
+  .nav-right{width:100%;justify-content:center}
+  .nav-links{flex-wrap:wrap;justify-content:center;row-gap:10px}
+}
+
+/* HERO: pure midnight typography, no image competes with the page's purpose */
+.hero{position:relative;min-height:420px;overflow:hidden;background:var(--midnight);
+  display:flex;align-items:center;justify-content:center;text-align:center;color:var(--ivory);
+  padding:clamp(140px,18vw,190px) var(--gutter) clamp(56px,7vw,80px)}
+.hero-copy{max-width:900px}
+.hero-eyebrow{font-size:.75rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(248,246,241,.6);margin-bottom:clamp(18px,2.6vw,28px)}
+.hero-title{font-weight:200;text-transform:uppercase;
+  font-size:clamp(2.1rem,5vw,3.6rem);line-height:1.1;letter-spacing:.05em}
+.hero-desc{font-weight:300;font-size:clamp(.95rem,1.3vw,1.05rem);line-height:1.6;
+  color:rgba(248,246,241,.66);max-width:52ch;margin:clamp(18px,2.4vw,26px) auto 0}
+
+/* LEGAL CONTENT */
+.legal{padding:clamp(72px,9vw,110px) var(--gutter) clamp(72px,8vw,100px)}
+.legal-inner{max-width:760px;margin:0 auto}
+.legal-note{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-40);
+  margin-bottom:clamp(32px,4vw,44px);padding-bottom:clamp(24px,3vw,32px);border-bottom:1px solid var(--rule)}
+.legal-inner h2{font-family:var(--display);font-weight:400;font-size:.85rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--gold);margin:clamp(36px,4vw,48px) 0 14px}
+.legal-inner h2:first-of-type{margin-top:0}
+.legal-inner p{font-weight:300;font-size:1rem;line-height:1.8;color:var(--ink-60);margin-bottom:1.2em}
+.legal-inner p:last-child{margin-bottom:0}
+.legal-copyright{margin-top:clamp(40px,5vw,56px);padding-top:clamp(24px,3vw,32px);border-top:1px solid var(--rule);
+  font-size:.85rem;color:var(--ink-40)}
+
+/* FOOTER: unchanged from the approved homepage */
+.footer{position:relative;z-index:5;background:var(--midnight);color:rgba(248,246,241,.7);padding:clamp(48px,6vw,72px) var(--gutter) clamp(32px,4vw,40px)}
+.footer-top{display:flex;align-items:center;flex-wrap:wrap;gap:clamp(24px,4vw,40px)}
+.footer-logo{height:clamp(72px,8vw,96px);width:auto;display:block}
+.footer-top .nav-divider{height:clamp(44px,5vw,64px)}
+.footer-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(28px,4vw,56px);margin-top:clamp(40px,5vw,64px)}
+.footer-col-title{font-family:var(--display);font-weight:400;font-size:1.05rem;letter-spacing:.02em;color:var(--ivory);margin:0 0 clamp(18px,2vw,26px)}
+.footer-col-list{list-style:none;display:flex;flex-direction:column;gap:clamp(12px,1.4vw,16px)}
+.footer-col-list a{font-size:.8rem;font-weight:300;letter-spacing:.04em;color:rgba(248,246,241,.62);text-decoration:none;transition:color .25s}
+.footer-col-list a:hover{color:var(--gold)}
+.footer-rule{height:1px;background:var(--rule-light);margin:clamp(40px,5vw,64px) 0 clamp(24px,3vw,32px)}
+.footer-bottom{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:.75rem;font-weight:300;letter-spacing:.04em;color:rgba(248,246,241,.5);line-height:1.8}
+.footer-bottom p{max-width:70ch}
+@media (max-width:900px){
+  .footer-cols{grid-template-columns:repeat(2,1fr);gap:clamp(28px,5vw,40px)}
+}
+@media (max-width:720px){
+  .footer-bottom{flex-direction:column}
+  .footer-top{flex-direction:column;align-items:center;text-align:center}
+}
+@media (max-width:460px){
+  .footer-cols{grid-template-columns:1fr}
+}
+
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a class="nav-mark" href="homepage.html" aria-label="Regis and Savoy Capital, home">
+    <img class="nav-logo" src="../assets/RandS White Transparent logo.png" alt="">
+    <span class="nav-divider" aria-hidden="true"></span>
+    <span class="nav-wordmark">
+      <span class="wm-name">Regis &amp; Savoy Capital</span>
+      <span class="wm-sub">Pure trust, pure advice</span>
+    </span>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="wealth-management.html">Wealth Management</a></li>
+      <li class="nav-dropdown">
+        <a href="services.html">Our Services</a>
+        <button class="nav-caret-btn" type="button" aria-expanded="false" aria-label="Toggle Our Services menu"><span class="nav-caret" aria-hidden="true"></span></button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="private-equity.html">Private Equity</a></li>
+          <li><a href="family-office.html">Family Office</a></li>
+          <li><a href="legacy-and-impact.html">Legacy and Impact</a></li>
+        </ul>
+      </li>
+      <li><a href="corporate-services.html">Corporate Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <p class="hero-eyebrow">Legal</p>
+    <h1 class="hero-title">Privacy Policy</h1>
+    <p class="hero-desc">How Regis and Savoy Capital collects, uses, and protects information across this website and our services.</p>
+  </div>
+</section>
+
+<section class="legal">
+  <div class="legal-inner">
+    <p class="legal-note">Pending client legal review before publish</p>
+
+    <p>Your privacy is important to us. When visiting our website, the IP address used to access our website may be logged along with the dates and times of access. This information is purely used to analyze trends, administer our website, track user movement, and gather broad demographic information for internal use such as statistical assessments and website improvement. Most importantly, any recorded IP addresses are not linked to personally identifiable information.</p>
+
+    <p>Other information may be collected as well, which is rather typical of most websites. For instance, the source that referred you to our website is generally known. Likewise, your duration on our website, and your destination when you leave our website can also be tracked. Other common data collected includes the type of operating system the computer you are using to access our website has. Similarly, the type of web browser is often noted. Again, this is common data collection, and helps ultimately produce a better end user experience.</p>
+
+    <p>You should simply make the assumption our website uses cookies, and note that you are free to make adjustments in your web browser to disable these or otherwise receive notification of cookies so you can take whatever desired action you so choose. Please understand that refusing cookies may cripple some of our website features and render some aspects useless to you.</p>
+
+    <p>In the course of using this website, mobile applications, or its custom extensions, or availing products and services vide online or offline platforms including bank branches, other points of sales, third party platforms, or through communications, by electronic means or otherwise, or any other mode/platform communicated/introduced by us from time to time (collectively, the &ldquo;Services&rdquo;), Regis And Savoy Capital (R and S) may collect, receive, possess, store, use, deal, handle, transfer, retain and otherwise process Customer Information. By using or otherwise accessing our Services, you confirm that you have read and agreed to be bound by this Privacy Commitment and consent to the collection, receipt, possession, storage, usage, dealing with, handling, processing, transfer and retention of your Customer Information by R and S as described in this Privacy Commitment.</p>
+
+    <h2>Handling of Personal Information</h2>
+    <p>Our primary intention for collecting personal and private information from you is simply to conduct our business. We can use this internally to better serve you. Accordingly, we see no reason to share your personal information to other parties and outside interests unless you have authorized us to do so.</p>
+
+    <h2>Professional Services Disclaimer</h2>
+    <p>We are an AMFI Registered Mutual Fund Distributor and do not provide legal, tax, estate planning, trustee, fiduciary, philanthropy, accounting, or other professional advisory services.</p>
+    <p>Where requested, we may assist clients in identifying or accessing independent third party professionals and service providers in these areas. Any such engagement is undertaken directly between the client and the respective professional or service provider, and not through us.</p>
+    <p>Clients are encouraged to undertake their own evaluation and due diligence before engaging any service provider. We do not guarantee, endorse, supervise, monitor, or assume responsibility for the advice, services, actions, omissions, performance, or outcomes arising from any engagement with such third party professionals.</p>
+    <p>Any information, introductions, or referrals provided by us are offered solely as a convenience to clients and should not be construed as a recommendation, endorsement, or representation regarding the suitability, qualifications, or effectiveness of any third party professional or service provider.</p>
+
+    <h2>Change Notice</h2>
+    <p>As with any of our administrative and legal notice pages, the contents of this page can and will change over time. Accordingly, this page could read differently as of your very next visit. These changes are necessitated, and carried out, in order to protect you and our website. If this page is important to you, you should check back frequently as no other notice of changed content will be provided either before or after the change takes effect.</p>
+
+    <h2>Questions, Comments, Concerns</h2>
+    <p>If you have any questions about the contents of this page, or simply wish to reach us for any other reason, you may do so by using our Contact information.</p>
+
+    <p class="legal-copyright">&copy; 2026 Regis and Savoy Capital. All rights reserved.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <a class="nav-mark" href="homepage.html" aria-label="Regis and Savoy Capital, home">
+      <img class="footer-logo" src="../assets/RandS White Transparent logo.png" alt="Regis and Savoy Capital seal">
+      <span class="nav-divider" aria-hidden="true"></span>
+      <span class="nav-wordmark">
+        <span class="wm-name">Regis &amp; Savoy Capital</span>
+        <span class="wm-sub">Pure trust, pure advice</span>
+      </span>
+    </a>
+  </div>
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h4 class="footer-col-title">Site Map</h4>
+      <ul class="footer-col-list">
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="corporate-services.html">Corporate Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">What We Do</h4>
+      <ul class="footer-col-list">
+        <li><a href="wealth-management.html">Wealth Management</a></li>
+        <li><a href="private-equity.html">Private Equity</a></li>
+        <li><a href="family-office.html">Family Office</a></li>
+        <li><a href="legacy-and-impact.html">Legacy and Impact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">Insights</h4>
+      <ul class="footer-col-list">
+        <li><a href="leadership-perspective.html">Leadership Perspective</a></li>
+        <li><a href="news.html">News</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">Get in Touch</h4>
+      <ul class="footer-col-list">
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="contact.html">Register a Complaint</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-rule"></div>
+  <div class="footer-bottom">
+    <p>This website is for informational purposes only and does not constitute investment advice, a solicitation, or an offer of services. Regis and Savoy Capital is an independent Multi-Family Office.</p>
+    <p>&copy; 2026 Regis &amp; Savoy Capital. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('.nav-dropdown').forEach(function(dd){
+    var btn = dd.querySelector('.nav-caret-btn');
+    if(!btn) return;
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var isOpen = dd.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown.open').forEach(function(o){
+        if(o!==dd){ o.classList.remove('open'); var b=o.querySelector('.nav-caret-btn'); if(b) b.setAttribute('aria-expanded','false'); }
+      });
+      dd.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){
+      if(!dd.contains(e.target)){
+        dd.classList.remove('open');
+        var btn = dd.querySelector('.nav-caret-btn');
+        if(btn) btn.setAttribute('aria-expanded','false');
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

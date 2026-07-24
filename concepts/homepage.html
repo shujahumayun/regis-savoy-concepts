@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Regis &amp; Savoy Capital · Round 2</title>
+<title>Regis &amp; Savoy Capital · Home</title>
 <meta name="description" content="Regis &amp; Savoy Capital. An independent Multi-Family Office.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,7 +106,10 @@ strong,b{font-weight:400}
   text-transform:uppercase;color:var(--ivory);text-decoration:none;white-space:nowrap;transition:color .3s ease}
 .nav-links a:hover{color:var(--gold)}
 
-.nav-dropdown{position:relative}
+.nav-dropdown{position:relative;display:inline-flex;align-items:center}
+.nav-caret-btn{background:none;border:none;padding:4px;margin:-4px 0 -4px -2px;display:inline-flex;align-items:center;cursor:pointer;color:inherit}
+.nav-dropdown.open .nav-caret{transform:rotate(225deg);margin-top:2px}
+.nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
 .nav-dropdown>a{display:inline-flex;align-items:center;gap:7px}
 .nav-caret{width:5px;height:5px;margin-top:-2px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;
   transform:rotate(45deg);transition:transform .3s ease}
@@ -153,8 +156,8 @@ strong,b{font-weight:400}
     linear-gradient(180deg, rgba(7,27,59,.5) 0%, rgba(7,27,59,0) 24%, rgba(7,27,59,0) 54%, rgba(7,27,59,1) 100%)}
 
 .hero-copy{position:absolute;left:0;right:0;bottom:15svh;z-index:3;padding:0 var(--gutter);color:var(--ivory);text-align:center}
-.hero-eyebrow{font-size:.75rem;font-weight:300;letter-spacing:.18em;text-transform:uppercase;
-  color:rgba(248,246,241,.72);margin-bottom:1.15rem}
+.hero-eyebrow{font-size:.75rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ivory);text-shadow:0 1px 10px rgba(0,0,0,.55);margin-bottom:1.15rem}
 .hero-title{font-family:var(--display);font-weight:200;text-transform:uppercase;
   font-size:clamp(2rem,5vw,4rem);line-height:1.22;letter-spacing:.06em}
 .hero-title .ln{display:block}
@@ -276,8 +279,17 @@ strong,b{font-weight:400}
 .ebook-btn svg{transition:transform .3s ease}
 .ebook-btn:hover{background:var(--midnight);color:var(--gold)}
 .ebook-btn:hover svg{transform:translateX(4px)}
+button.ebook-btn{background:transparent;font-family:inherit;cursor:pointer}
 .ebook-meta{font-size:.72rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;
   color:var(--ink-40)}
+.ebook-gate-note{font-size:.82rem;line-height:1.6;color:var(--ink-60);margin-bottom:16px}
+.ebook-gate-form{display:flex;flex-wrap:wrap;gap:16px 20px}
+.ebook-gate-form input{flex:1 1 170px;min-width:0;background:transparent;border:none;
+  border-bottom:1px solid rgba(7,27,59,.25);padding:10px 2px;font-family:var(--display);
+  font-size:.85rem;color:var(--midnight);transition:border-color .25s ease}
+.ebook-gate-form input::placeholder{color:rgba(7,27,59,.42)}
+.ebook-gate-form input:focus{outline:none;border-color:var(--gold)}
+.ebook-gate-form .ebook-btn{flex:1 1 100%;justify-content:center;margin-top:8px}
 @media (max-width:820px){
   .ebook-inner{grid-template-columns:minmax(0,1fr);gap:clamp(40px,8vw,56px)}
   .ebook-visual{perspective:none;max-width:480px}
@@ -461,10 +473,11 @@ strong,b{font-weight:400}
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="about-us.html">About Us</a></li>
+      <li><a href="wealth-management.html">Wealth Management</a></li>
       <li class="nav-dropdown">
-        <a href="services.html">Services<span class="nav-caret" aria-hidden="true"></span></a>
+        <a href="services.html">Our Services</a>
+        <button class="nav-caret-btn" type="button" aria-expanded="false" aria-label="Toggle Our Services menu"><span class="nav-caret" aria-hidden="true"></span></button>
         <ul class="nav-dropdown-menu">
-          <li><a href="wealth-management.html">Wealth Management</a></li>
           <li><a href="private-equity.html">Private Equity</a></li>
           <li><a href="family-office.html">Family Office</a></li>
           <li><a href="legacy-and-impact.html">Legacy and Impact</a></li>
@@ -564,8 +577,20 @@ strong,b{font-weight:400}
       <h2 class="ebook-title">Structural Shifts 2047</h2>
       <p class="ebook-deck">Positioning Capital Ahead of Change</p>
       <p class="ebook-desc">Our outlook on the forces reshaping global capital over the decades ahead, and what they mean for the families and enterprises we serve. A considered view on where wealth is created, preserved, and passed on.</p>
-      <div class="ebook-actions">
-        <a class="ebook-btn" href="../assets/structural-shifts-2047.pdf" target="_blank" rel="noopener">
+      <div class="ebook-gate" id="ebook-gate">
+        <p class="ebook-gate-note">Share a few details to access the full report.</p>
+        <form class="ebook-gate-form" id="ebook-gate-form">
+          <input type="text" name="name" placeholder="Full Name" autocomplete="name" required>
+          <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+          <input type="text" name="company" placeholder="Company" autocomplete="organization" required>
+          <button type="submit" class="ebook-btn">
+            Read the Report
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </button>
+        </form>
+      </div>
+      <div class="ebook-actions" id="ebook-actions" hidden>
+        <a class="ebook-btn" href="../assets/structural-shifts-2047.pdf" target="_blank" rel="noopener" id="ebook-download-link">
           Read the Report
           <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </a>
@@ -672,7 +697,7 @@ strong,b{font-weight:400}
       </div>
       <div class="cta-info-block">
         <span class="cta-info-label">Office Hours</span>
-        <p class="cta-info-text">Monday &ndash; Friday<br>9:00 AM &ndash; 6:00 PM IST</p>
+        <p class="cta-info-text">Monday to Friday<br>9:30 AM to 6:30 PM IST</p>
       </div>
     </div>
     <div class="cta-form-col">
@@ -714,6 +739,7 @@ strong,b{font-weight:400}
               <option value="women-wealth">Dedicated Wealth Management for Women (&#8377; 5 Cr and Above)</option>
               <option value="private-equity">Private Equity and Co-Investment (&#8377; 50 Cr and Above)</option>
               <option value="family-office">Family Office Solutions (&#8377; 100Cr and Above)</option>
+              <option value="single-family-office">Single Family Office (&#8377; 500 Cr and Above)</option>
             </select>
           </div>
         </fieldset>
@@ -767,6 +793,7 @@ strong,b{font-weight:400}
       <ul class="footer-col-list">
         <li><a href="contact.html">Contact Us</a></li>
         <li><a href="contact.html">Register a Complaint</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
       </ul>
     </div>
   </div>
@@ -929,5 +956,42 @@ strong,b{font-weight:400}
 })();
 </script>
 
+<script>
+(function(){
+  document.querySelectorAll('.nav-dropdown').forEach(function(dd){
+    var btn = dd.querySelector('.nav-caret-btn');
+    if(!btn) return;
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var isOpen = dd.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown.open').forEach(function(o){
+        if(o!==dd){ o.classList.remove('open'); var b=o.querySelector('.nav-caret-btn'); if(b) b.setAttribute('aria-expanded','false'); }
+      });
+      dd.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){
+      if(!dd.contains(e.target)){
+        dd.classList.remove('open');
+        var btn = dd.querySelector('.nav-caret-btn');
+        if(btn) btn.setAttribute('aria-expanded','false');
+      }
+    });
+  });
+
+  var ebookForm = document.getElementById('ebook-gate-form');
+  if(ebookForm){
+    ebookForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      document.getElementById('ebook-gate').hidden = true;
+      document.getElementById('ebook-actions').hidden = false;
+      document.getElementById('ebook-download-link').click();
+    });
+  }
+})();
+</script>
 </body>
 </html>
