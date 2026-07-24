@@ -87,7 +87,7 @@ strong,b{font-weight:400}
 .nav-links a:hover{color:var(--gold)}
 
 .nav-dropdown{position:relative;display:inline-flex;align-items:center}
-.nav-caret-btn{background:none;border:none;padding:4px;margin:-4px 0 -4px -2px;display:inline-flex;align-items:center;cursor:pointer;color:inherit}
+.nav-caret-btn{background:none;border:none;padding:4px;margin:-4px 0 -4px -2px;display:inline-flex;align-items:center;cursor:pointer;color:var(--ivory)}
 .nav-dropdown.open .nav-caret{transform:rotate(225deg);margin-top:2px}
 .nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
 .nav-dropdown>a{display:inline-flex;align-items:center;gap:7px}
@@ -104,6 +104,8 @@ strong,b{font-weight:400}
   color:var(--ivory);text-decoration:none;transition:color .3s ease}
 .nav-dropdown-menu a:hover{color:var(--gold)}
 @media (hover:hover) and (pointer:fine){
+  .nav-dropdown::after{content:"";position:absolute;top:100%;left:50%;
+    transform:translateX(-50%);width:236px;height:22px}
   .nav-dropdown:hover .nav-caret,.nav-dropdown:focus-within .nav-caret{transform:rotate(225deg);margin-top:2px}
   .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{
     opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
@@ -188,8 +190,7 @@ strong,b{font-weight:400}
    solid midnight left, the image holds the full right half,
    panels stack over the previous as you scroll
    ============================================================ */
-.areas-head{padding:0 var(--gutter) clamp(56px,8vw,96px);text-align:center}
-.areas-head .eyebrow{font-size:.75rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(7,27,59,.55)}
+.area-copy .eyebrow{font-size:.75rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(248,246,241,.55);margin-bottom:.9rem}
 .area-desc{margin-top:clamp(16px,2.4vh,24px);font-weight:300;font-size:1rem;line-height:1.6;
   color:rgba(248,246,241,.72);max-width:48ch}
 .area-panel{position:sticky;top:0;height:100svh;min-height:560px;overflow:hidden;background:var(--midnight);
@@ -403,16 +404,13 @@ strong,b{font-weight:400}
   </div>
 </section>
 
-<div class="areas-head">
-  <p class="eyebrow">Areas of Support</p>
-</div>
-
 <section class="area-panel" id="area-1">
   <div class="area-media">
   <img src="../assets/lance-anderson-QdAAasrZhdk-unsplash.jpg" alt="A bold modern building with angular folded glass and steel planes">
   </div>
   <div class="area-scrim"></div>
   <div class="area-copy">
+    <p class="eyebrow">Areas of Support</p>
     <h3 class="area-title">Private Equity and Growth-Capital Opportunities</h3>
     <p class="area-desc">Evaluating private equity and growth-capital opportunities alongside our network and experience.</p>
   </div>
@@ -424,6 +422,7 @@ strong,b{font-weight:400}
   </div>
   <div class="area-scrim"></div>
   <div class="area-copy">
+    <p class="eyebrow">Areas of Support</p>
     <h3 class="area-title">Venture, Emerging-Business, and Co-Investment Opportunities</h3>
     <p class="area-desc">Access to venture, emerging-business, and co-investment opportunities considered with care.</p>
   </div>
@@ -435,6 +434,7 @@ strong,b{font-weight:400}
   </div>
   <div class="area-scrim"></div>
   <div class="area-copy">
+    <p class="eyebrow">Areas of Support</p>
     <h3 class="area-title">Special Situations and Alternative Investments</h3>
     <p class="area-desc">Considered exposure to special situations and other alternative investments.</p>
   </div>
@@ -446,6 +446,7 @@ strong,b{font-weight:400}
   </div>
   <div class="area-scrim"></div>
   <div class="area-copy">
+    <p class="eyebrow">Areas of Support</p>
     <h3 class="area-title">Opportunity Evaluation, Due Diligence, and Ongoing Monitoring</h3>
     <p class="area-desc">Careful assessment, due diligence, and ongoing monitoring from sourcing through execution.</p>
   </div>
