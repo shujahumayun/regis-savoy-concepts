@@ -72,10 +72,11 @@ strong,b{font-weight:400}
 /* ============================================================
    NAV
    ============================================================ */
-.nav{position:fixed;top:0;left:0;right:0;z-index:40;
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;transition:background-color .4s ease;
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:14px;
   padding:clamp(18px,3vw,32px) var(--gutter)}
 .nav-mark{display:flex;align-items:center;gap:14px;color:var(--ivory);text-decoration:none}
+.nav.scrolled{background:var(--midnight)}
 .nav-logo{height:60px;width:auto;display:block}
 .nav-divider{width:1px;height:48px;background:rgba(248,246,241,.35)}
 .nav-wordmark{display:flex;flex-direction:column;line-height:1.15}
@@ -659,6 +660,17 @@ strong,b{font-weight:400}
       }
     });
   });
+})();
+</script>
+<script>
+(function(){
+  var nav = document.querySelector('.nav');
+  if(!nav) return;
+  function onNavScroll(){
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }
+  window.addEventListener('scroll', onNavScroll, {passive:true});
+  onNavScroll();
 })();
 </script>
 </body>
