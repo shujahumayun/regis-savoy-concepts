@@ -7,7 +7,7 @@
 <meta name="description" content="Accessing carefully selected private-market opportunities with discipline and perspective.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500&family=Spectral:ital,wght@0,200;0,300;1,200;1,300&family=Marcellus&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500&family=Spectral:ital,wght@0,200;0,300;1,200;1,300&family=Marcellus&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 /* ============================================================
    REGIS & SAVOY CAPITAL · WEALTH MANAGEMENT · CONCEPT B
@@ -74,13 +74,13 @@ strong,b{font-weight:400}
    ============================================================ */
 .nav{position:fixed;top:0;left:0;right:0;z-index:40;
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:14px;
-  padding:clamp(20px,3.2vw,36px) var(--gutter)}
+  padding:clamp(18px,3vw,32px) var(--gutter)}
 .nav-mark{display:flex;align-items:center;gap:14px;color:var(--ivory);text-decoration:none}
 .nav-logo{height:60px;width:auto;display:block}
 .nav-divider{width:1px;height:48px;background:rgba(248,246,241,.35)}
 .nav-wordmark{display:flex;flex-direction:column;line-height:1.15}
-.nav-mark .wm-name{font-family:'Marcellus',var(--figure);font-size:.95rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase}
-.nav-mark .wm-sub{font-size:.625rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,246,241,.62)}
+.nav-mark .wm-name{font-family:'Cormorant Garamond',var(--figure);font-size:1.15rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.nav-mark .wm-sub{font-size:.625rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
 .nav-right{display:flex;align-items:center;gap:clamp(22px,2.8vw,44px);flex-wrap:wrap}
 .nav-links{display:flex;align-items:center;gap:clamp(18px,2.4vw,36px);list-style:none}
 .nav-links a{font-family:var(--display);font-weight:300;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory);text-decoration:none;white-space:nowrap;transition:color .3s ease}
@@ -307,22 +307,27 @@ strong,b{font-weight:400}
 
 .footer{position:relative;z-index:5;background:var(--midnight);color:rgba(248,246,241,.7);
   padding:clamp(48px,6vw,72px) var(--gutter) clamp(32px,4vw,40px)}
-.footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;
-  gap:clamp(24px,4vw,40px)}
+.footer-top{display:flex;align-items:center;flex-wrap:wrap;gap:clamp(24px,4vw,40px)}
 .footer-logo{height:clamp(72px,8vw,96px);width:auto;display:block}
 .footer-top .nav-divider{height:clamp(44px,5vw,64px)}
-.footer-nav{list-style:none;display:flex;flex-wrap:wrap;gap:12px clamp(20px,3vw,40px)}
-.footer-nav a{font-size:.75rem;font-weight:300;letter-spacing:.16em;
-  text-transform:uppercase;color:rgba(248,246,241,.7);text-decoration:none;transition:color .25s}
-.footer-nav a:hover{color:var(--gold)}
-.footer-rule{height:1px;background:var(--rule-light);margin:clamp(32px,4vw,48px) 0 clamp(24px,3vw,32px)}
+.footer-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(28px,4vw,56px);margin-top:clamp(40px,5vw,64px)}
+.footer-col-title{font-family:var(--display);font-weight:400;font-size:1.05rem;letter-spacing:.02em;color:var(--ivory);margin:0 0 clamp(18px,2vw,26px)}
+.footer-col-list{list-style:none;display:flex;flex-direction:column;gap:clamp(12px,1.4vw,16px)}
+.footer-col-list a{font-size:.8rem;font-weight:300;letter-spacing:.04em;color:rgba(248,246,241,.62);text-decoration:none;transition:color .25s}
+.footer-col-list a:hover{color:var(--gold)}
+.footer-rule{height:1px;background:var(--rule-light);margin:clamp(40px,5vw,64px) 0 clamp(24px,3vw,32px)}
 .footer-bottom{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;
   font-size:.75rem;font-weight:300;letter-spacing:.04em;color:rgba(248,246,241,.5);line-height:1.8}
 .footer-bottom p{max-width:70ch}
+@media (max-width:900px){
+  .footer-cols{grid-template-columns:repeat(2,1fr);gap:clamp(28px,5vw,40px)}
+}
 @media (max-width:720px){
   .footer-bottom{flex-direction:column}
   .footer-top{flex-direction:column;align-items:center;text-align:center}
-  .footer-top .footer-nav{justify-content:center}
+}
+@media (max-width:460px){
+  .footer-cols{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -334,8 +339,8 @@ strong,b{font-weight:400}
     <img class="nav-logo" src="../assets/RandS White Transparent logo.png" alt="">
     <span class="nav-divider" aria-hidden="true"></span>
     <span class="nav-wordmark">
-      <span class="wm-name">Regis &amp; Savoy</span>
-      <span class="wm-sub">Capital</span>
+      <span class="wm-name">Regis &amp; Savoy Capital</span>
+      <span class="wm-sub">Pure trust, pure advice</span>
     </span>
   </a>
   <div class="nav-right">
@@ -358,7 +363,7 @@ strong,b{font-weight:400}
 
 <section class="hero" id="top">
   <div class="hero-copy">
-    <p class="hero-eyebrow">Services &middot; 02 &mdash; 04</p>
+    <p class="hero-eyebrow">Services</p>
     <h1 class="hero-title">
       <span class="ln">Private</span>
       <span class="ln">Equity</span>
@@ -395,11 +400,12 @@ strong,b{font-weight:400}
 </section>
 
 <div class="areas-head">
+  <p class="eyebrow">Areas of Support</p>
 </div>
 
 <section class="area-panel" id="area-1">
   <div class="area-media">
-  <img src="../assets/sean-pollock-PhYq704ffdA-unsplash.jpg" alt="">
+  <img src="../assets/lance-anderson-QdAAasrZhdk-unsplash.jpg" alt="A bold modern building with angular folded glass and steel planes">
   </div>
   <div class="area-scrim"></div>
   <div class="area-copy">
@@ -432,7 +438,7 @@ strong,b{font-weight:400}
 
 <section class="area-panel" id="area-4">
   <div class="area-media">
-  <img src="../assets/scott-graham-5fNmWej4tAA-unsplash.jpg" alt="">
+  <img src="../assets/nick-karvounis-6ckFibuzLAU-unsplash.jpg" alt="A two-tier bridge overlooking a river and passing boats">
   </div>
   <div class="area-scrim"></div>
   <div class="area-copy">
@@ -468,16 +474,44 @@ strong,b{font-weight:400}
       <img class="footer-logo" src="../assets/RandS White Transparent logo.png" alt="Regis and Savoy Capital seal">
       <span class="nav-divider" aria-hidden="true"></span>
       <span class="nav-wordmark">
-        <span class="wm-name">Regis &amp; Savoy</span>
-        <span class="wm-sub">Capital</span>
+        <span class="wm-name">Regis &amp; Savoy Capital</span>
+        <span class="wm-sub">Pure trust, pure advice</span>
       </span>
     </a>
-    <ul class="footer-nav">
-      <li><a href="about-us.html">About Us</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="corporate-services.html">Corporate Services</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+  </div>
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h4 class="footer-col-title">Site Map</h4>
+      <ul class="footer-col-list">
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="corporate-services.html">Corporate Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">What We Do</h4>
+      <ul class="footer-col-list">
+        <li><a href="wealth-management.html">Wealth Management</a></li>
+        <li><a href="private-equity.html">Private Equity</a></li>
+        <li><a href="family-office.html">Family Office</a></li>
+        <li><a href="legacy-and-impact.html">Legacy and Impact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">Insights</h4>
+      <ul class="footer-col-list">
+        <li><a href="leadership-perspective.html">Leadership Perspective</a></li>
+        <li><a href="news.html">News</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">Get in Touch</h4>
+      <ul class="footer-col-list">
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="contact.html">Register a Complaint</a></li>
+      </ul>
+    </div>
   </div>
   <div class="footer-rule"></div>
   <div class="footer-bottom">

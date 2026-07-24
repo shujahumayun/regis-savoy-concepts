@@ -235,6 +235,62 @@ strong,b{font-weight:400}
 }
 
 /* ============================================================
+   INSIGHTS — featured report. Split panel on ivory: the dark
+   landscape cover sits left as a raised hardcover, the report
+   billing and read link stacked right. Bridges the light wash
+   out of "What sets us apart" into the dark service panels.
+   ============================================================ */
+.ebook{position:relative;z-index:5;background:var(--ivory);color:var(--midnight);
+  padding:clamp(88px,11vw,168px) var(--gutter)}
+.ebook-inner{max-width:1180px;margin:0 auto;display:grid;
+  grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);
+  gap:clamp(40px,6vw,96px);align-items:center}
+.ebook-visual{perspective:1600px;min-width:0}
+.ebook-cover{position:relative;margin:0;transform:rotateY(-4deg) rotateX(1.5deg);
+  transform-style:preserve-3d;transition:transform 1s cubic-bezier(.16,.7,.24,1)}
+.ebook-cover::before{content:"";position:absolute;top:0;bottom:0;left:0;width:12px;
+  background:linear-gradient(90deg,rgba(7,27,59,.55),rgba(7,27,59,0));z-index:2;pointer-events:none}
+.ebook-cover img{width:100%;height:auto;
+  box-shadow:0 2px 4px rgba(7,27,59,.14),
+    28px 34px 60px -20px rgba(7,27,59,.42),
+    0 1px 0 rgba(200,162,90,.35);
+  outline:1px solid rgba(7,27,59,.08)}
+.ebook:hover .ebook-cover{transform:rotateY(-1.5deg) rotateX(.5deg) translateY(-4px)}
+
+.ebook-copy{max-width:440px;min-width:0}
+.ebook-eyebrow{display:flex;align-items:center;gap:14px;font-size:.72rem;font-weight:400;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--ink-40);margin-bottom:clamp(22px,3vw,32px)}
+.ebook-eyebrow::after{content:"";flex:1;height:1px;background:var(--rule)}
+.ebook-title{font-weight:200;font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.05;
+  letter-spacing:-.015em;margin-bottom:clamp(10px,1.4vw,16px)}
+.ebook-deck{font-family:var(--figure);font-weight:300;font-style:italic;
+  font-size:clamp(1.1rem,1.8vw,1.4rem);line-height:1.35;color:var(--ink-60);
+  margin-bottom:clamp(22px,3vw,30px)}
+.ebook-desc{font-weight:300;font-size:1rem;line-height:1.7;color:var(--ink-60);
+  max-width:38ch;margin-bottom:clamp(30px,4vw,40px)}
+.ebook-actions{display:flex;align-items:center;gap:clamp(18px,2.4vw,28px);flex-wrap:wrap}
+.ebook-btn{display:inline-flex;align-items:center;gap:12px;font-size:.75rem;font-weight:400;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--midnight);text-decoration:none;
+  padding:15px 30px;border:1px solid var(--midnight);
+  transition:background .3s ease,color .3s ease}
+.ebook-btn svg{transition:transform .3s ease}
+.ebook-btn:hover{background:var(--midnight);color:var(--gold)}
+.ebook-btn:hover svg{transform:translateX(4px)}
+.ebook-meta{font-size:.72rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-40)}
+@media (max-width:820px){
+  .ebook-inner{grid-template-columns:minmax(0,1fr);gap:clamp(40px,8vw,56px)}
+  .ebook-visual{perspective:none;max-width:480px}
+  .ebook-cover{transform:none}
+  .ebook:hover .ebook-cover{transform:translateY(-4px)}
+  .ebook-copy{max-width:none}
+}
+@media (max-width:420px){
+  .ebook-actions{gap:16px}
+  .ebook-btn{flex:1 1 100%;justify-content:center}
+}
+
+/* ============================================================
    SERVICES — one full-bleed panel per discipline. Image fills
    the frame; count sits above the title, both low-left.
    ============================================================ */
@@ -250,8 +306,6 @@ strong,b{font-weight:400}
   background:linear-gradient(180deg, rgba(7,27,59,.4) 0%, rgba(7,27,59,0) 30%, rgba(7,27,59,0) 56%, rgba(7,27,59,.9) 100%)}
 .service-copy{position:absolute;left:0;right:0;bottom:clamp(56px,8vw,100px);z-index:2;padding:0 var(--gutter);
   max-width:640px;color:var(--ivory)}
-.service-count{display:block;font-size:.75rem;font-weight:300;letter-spacing:.2em;
-  color:rgba(248,246,241,.6);margin-bottom:clamp(16px,2.2vw,24px)}
 .service-title{font-weight:200;font-size:clamp(2.2rem,5.2vw,4.2rem);line-height:1.06;
   letter-spacing:-.01em;margin-bottom:clamp(14px,1.8vw,20px)}
 .service-desc{font-weight:300;font-size:1rem;line-height:1.6;color:rgba(248,246,241,.7);max-width:36ch}
@@ -476,7 +530,7 @@ strong,b{font-weight:400}
     </div>
     <div class="apart-item">
       <figure class="apart-media">
-        <img src="../assets/rock-staar-NzIV4vOBA7s-unsplash.jpg" alt="A close handshake between two people in dark suits" loading="lazy">
+        <img src="../assets/arun-sharma-8TrRbwYfq2s-unsplash.jpg" alt="A close handshake between two people in dark suits" loading="lazy">
       </figure>
       <h3>Curated Client Partnerships</h3>
       <p>We intentionally work with a select group of clients whose values, expectations, and long-term outlook align with our approach.</p>
@@ -498,13 +552,35 @@ strong,b{font-weight:400}
   </div>
 </section>
 
+<section class="ebook" id="insights-report">
+  <div class="ebook-inner">
+    <div class="ebook-visual">
+      <figure class="ebook-cover">
+        <img src="../assets/ebook-cover.jpg" alt="Structural Shifts 2047, the Regis and Savoy Capital outlook report, cover">
+      </figure>
+    </div>
+    <div class="ebook-copy">
+      <p class="ebook-eyebrow">Insights</p>
+      <h2 class="ebook-title">Structural Shifts 2047</h2>
+      <p class="ebook-deck">Positioning Capital Ahead of Change</p>
+      <p class="ebook-desc">Our outlook on the forces reshaping global capital over the decades ahead, and what they mean for the families and enterprises we serve. A considered view on where wealth is created, preserved, and passed on.</p>
+      <div class="ebook-actions">
+        <a class="ebook-btn" href="../assets/structural-shifts-2047.pdf" target="_blank" rel="noopener">
+          Read the Report
+          <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+        <span class="ebook-meta">PDF &middot; 38 pages</span>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="service-panel" id="service-wealth-management">
   <div class="service-media">
-    <img src="../assets/nastuh-abootalebi-eHD8Y1Znfpk-unsplash.jpg" alt="A sunlit modern office with floor to ceiling windows and a wooden meeting table">
+    <img src="../assets/dynamic-hong-kong-uXH0I1SDU7o-unsplash.jpg" alt="A dynamic city skyline at dusk">
   </div>
   <div class="service-scrim"></div>
   <div class="service-copy">
-    <span class="service-count">01 — 04</span>
     <h2 class="service-title">Wealth Management</h2>
     <p class="service-desc">Independent investment guidance tailored to evolving financial goals and market conditions.</p>
   </div>
@@ -519,7 +595,6 @@ strong,b{font-weight:400}
   </div>
   <div class="service-scrim"></div>
   <div class="service-copy">
-    <span class="service-count">02 — 04</span>
     <h2 class="service-title">Private Equity</h2>
     <p class="service-desc">Accessing carefully selected private-market opportunities with discipline and perspective.</p>
   </div>
@@ -530,11 +605,10 @@ strong,b{font-weight:400}
 
 <section class="service-panel" id="service-family-office">
   <div class="service-media">
-    <img src="../assets/23 - simon-humler-mNNm_c7ByC0-unsplash.jpg" alt="A city skyline of towers lit at first light">
+    <img src="../assets/touzi-lEhMPypRyxA-unsplash.jpg" alt="A city skyline of towers lit at first light">
   </div>
   <div class="service-scrim"></div>
   <div class="service-copy">
-    <span class="service-count">03 — 04</span>
     <h2 class="service-title">Family Office</h2>
     <p class="service-desc">Coordinating family, business, and financial affairs through a unified framework.</p>
   </div>
@@ -549,7 +623,6 @@ strong,b{font-weight:400}
   </div>
   <div class="service-scrim"></div>
   <div class="service-copy">
-    <span class="service-count">04 — 04</span>
     <h2 class="service-title">Legacy and Impact</h2>
     <p class="service-desc">Helping future generations translate success into purpose, values, and lasting impact.</p>
   </div>
