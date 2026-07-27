@@ -112,9 +112,12 @@ a{color:inherit}
   text-align:center}
 .cta-split-title{font-weight:200;text-transform:uppercase;font-size:clamp(1.8rem,4.4vw,3.4rem);
   line-height:1.14;letter-spacing:.02em}
+.cta-split-desc{margin:clamp(14px,2vw,20px) auto 0;max-width:660px;font-weight:300;
+  font-size:1rem;line-height:1.7;color:rgba(248,246,241,.75)}
 .cta-split-body{position:relative;z-index:1;max-width:1180px;margin:0 auto;display:flex;
   gap:clamp(48px,7vw,100px);align-items:flex-start;flex-wrap:wrap}
 .cta-info{flex:1 1 260px;max-width:320px;display:flex;flex-direction:column;gap:clamp(28px,3.5vw,40px)}
+.cta-info-mark{align-self:flex-start}
 .cta-info-label{display:block;font-size:.72rem;font-weight:400;letter-spacing:.2em;
   text-transform:uppercase;color:var(--gold);margin-bottom:10px}
 .cta-info-text{font-weight:300;font-size:1rem;line-height:1.7;color:rgba(248,246,241,.8)}
@@ -129,6 +132,7 @@ a{color:inherit}
   .cta-split-body{flex-direction:column;gap:clamp(40px,6vw,56px)}
   .cta-info{max-width:none;flex-direction:row;flex-wrap:wrap;gap:clamp(28px,4vw,40px)}
   .cta-info-block{flex:1 1 200px}
+  .cta-info-mark{flex:1 1 100%}
 }
 
 /* ---- CTA FORM ---- */
@@ -238,10 +242,19 @@ a{color:inherit}
 
 <section class="cta-split" id="cta">
   <div class="cta-split-header">
-    <h2 class="cta-split-title">Let Us Start the Conversation</h2>
+    <h2 class="cta-split-title">Let Us Explore New Possibilities</h2>
+    <p class="cta-split-desc">Connect with our team to discuss how we can support your wealth and legacy aspirations.</p>
   </div>
   <div class="cta-split-body">
     <div class="cta-info">
+      <a class="nav-mark cta-info-mark" href="#top" aria-label="Regis and Savoy Capital, home">
+        <img class="nav-logo" src="../assets/RandS White Transparent logo.png" alt="">
+        <span class="nav-divider" aria-hidden="true"></span>
+        <span class="nav-wordmark">
+          <span class="wm-name">Regis and Savoy Capital</span>
+          <span class="wm-sub">Pure trust, pure advice</span>
+        </span>
+      </a>
       <div class="cta-info-block">
         <span class="cta-info-label">Address</span>
         <p class="cta-info-text">Regis and Savoy Capital<br>World Trade Center, 2nd Floor<br>Brigade Gateway Campus<br>Rajajinagar, Bengaluru &ndash; 560055</p>
