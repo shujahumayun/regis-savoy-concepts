@@ -244,6 +244,31 @@ body.nav-lock{overflow:hidden}
    NEXT SERVICE: quiet ruled row completing the four page loop,
    split so a visitor can step back or forward through the set
    ============================================================ */
+/* DEALS — the full list, added 2026-08-04. Sits after the Areas of Support
+   flow so the other three service pages keep their shared shape. Every deal
+   is a mark plus a short line on hover or focus; none is singled out. */
+.deals{padding:clamp(96px,12vw,150px) var(--gutter) clamp(80px,10vw,120px);
+  border-top:1px solid var(--rule);background:var(--ivory)}
+.deals-inner{max-width:1180px;margin:0 auto}
+.deals-head{max-width:760px;margin-bottom:clamp(48px,6vw,72px)}
+.deals-head h2{font-weight:200;font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.18;
+  letter-spacing:-.008em;margin-bottom:clamp(18px,2.2vw,26px)}
+.deals-head p{color:var(--ink-60);max-width:62ch}
+.deals-list{display:flex;flex-direction:column}
+.deals-row{display:flex;align-items:center;gap:clamp(28px,4vw,56px);
+  padding:clamp(22px,2.8vw,32px) 4px;border-bottom:1px solid var(--rule)}
+.deals-row:first-child{border-top:1px solid var(--rule)}
+.deal-logo{flex:0 0 clamp(140px,16vw,196px);display:flex;align-items:center;justify-content:flex-start}
+.deal-logo img{max-width:100%;max-height:clamp(36px,4vw,48px);width:auto;height:auto;
+  object-fit:contain;opacity:.85}
+.deal-logo .deal-name{font-size:.92rem;font-weight:400;letter-spacing:.02em;color:var(--midnight)}
+.deal-copy{flex:1 1 auto;min-width:0;color:var(--ink-60);font-size:.92rem;line-height:1.6;max-width:60ch}
+.deals-note{margin-top:clamp(40px,5vw,60px);font-size:.85rem;color:var(--ink-40);font-style:italic;max-width:70ch}
+@media (max-width:700px){
+  .deals-row{flex-direction:column;align-items:flex-start;gap:14px}
+  .deal-logo{flex:none}
+}
+
 .next{position:relative;z-index:5;display:flex;background:var(--midnight);color:var(--ivory);
   border-bottom:1px solid var(--rule-light)}
 .next-half{flex:1 1 50%;min-width:0;display:flex;align-items:center;gap:20px;
@@ -390,9 +415,8 @@ body.nav-lock{overflow:hidden}
           <li><a href="legacy-and-impact.html">Legacy and Impact</a></li>
         </ul>
       </li>
-      <li><a href="impact.html">Impact</a></li>
+      <li><a href="impact.html">Beyond Wealth</a></li>
       <li><a href="corporate-services.html">Corporate Services</a></li>
-      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -435,6 +459,7 @@ body.nav-lock{overflow:hidden}
   </div>
 </section>
 
+<div class="area-stack">
 <section class="area-panel" id="area-1">
   <div class="area-media">
   <img src="../assets/lance-anderson-QdAAasrZhdk-unsplash.jpg" alt="A bold modern building with angular folded glass and steel planes">
@@ -482,6 +507,80 @@ body.nav-lock{overflow:hidden}
     <p class="area-desc">Careful assessment, due diligence, and ongoing monitoring from sourcing through execution.</p>
   </div>
 </section>
+</div>
+
+<section class="deals" id="deals">
+  <div class="deals-inner">
+    <div class="deals-head">
+      <p class="eyebrow">Deals and Mandates</p>
+      <h2>Advised on strategic transactions across diverse sectors</h2>
+      <p>Investment mandates, capital raising, business structuring, and cross-border engagements. Some of these were proprietary, some were mandates, and several were both.</p>
+    </div>
+    <div class="deals-list">
+        <div class="deals-row">
+          <div class="deal-logo"><img src="../assets/logos/deals/nykaa.png" alt="Nykaa" loading="lazy"></div>
+          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="deals-row">
+          <div class="deal-logo"><img src="../assets/logos/deals/universityliving.png" alt="University Living" loading="lazy"></div>
+          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="deals-row">
+          <div class="deal-logo"><img src="../assets/logos/deals/kreedo.png" alt="Kreedo" loading="lazy"></div>
+          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="deals-row">
+          <div class="deal-logo"><img src="../assets/logos/deals/qnulabs.png" alt="QNu Labs" loading="lazy"></div>
+          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="deals-row">
+          <div class="deal-logo"><img src="../assets/logos/deals/brijrama.png" alt="BrijRama Palace" loading="lazy"></div>
+          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="deals-row">
+          <div class="deal-logo"><img src="../assets/logos/deals/adukale.png" alt="Adukale" loading="lazy"></div>
+          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="deals-row">
+          <div class="deal-logo"><img src="../assets/logos/deals/rotoris.png" alt="Rotoris" loading="lazy"></div>
+          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="deals-row">
+          <div class="deal-logo"><img src="../assets/logos/deals/harvesting.png" alt="Harvesting" loading="lazy"></div>
+          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="deals-row">
+          <div class="deal-logo"><img src="../assets/logos/deals/upaghna.png" alt="Upaghna Ventures" loading="lazy"></div>
+          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="deals-row">
+          <div class="deal-logo"><img src="../assets/logos/deals/tugkraft.png" alt="Tugkraft" loading="lazy"></div>
+          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="deals-row">
+          <div class="deal-logo"><span class="deal-name">N Gen</span></div>
+          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="deals-row">
+          <div class="deal-logo"><span class="deal-name">Nublo</span></div>
+          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="deals-row">
+          <div class="deal-logo"><span class="deal-name">CreditTap</span></div>
+          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="deals-row">
+          <div class="deal-logo"><span class="deal-name">Automatic Hospitality (India)</span></div>
+          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="deals-row">
+          <div class="deal-logo"><span class="deal-name">dltledgers</span></div>
+          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    <p class="deals-note">Placeholder state. Logo placement and copy are pending client sign-off, and five marks are pending artwork. Named transactions require written clearance before publish.</p>
+  </div>
+</section>
 
 <section class="next">
   <a class="next-half next-prev" href="wealth-management.html" aria-label="Previous service: Wealth Management">
@@ -522,7 +621,7 @@ body.nav-lock{overflow:hidden}
         <li><a href="homepage.html">Home</a></li>
         <li><a href="about-us.html">About Us</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="impact.html">Impact</a></li>
+        <li><a href="impact.html">Beyond Wealth</a></li>
       <li><a href="corporate-services.html">Corporate Services</a></li>
       </ul>
     </div>
@@ -536,19 +635,17 @@ body.nav-lock{overflow:hidden}
       </ul>
     </div>
     <div class="footer-col">
-      <h4 class="footer-col-title">Impact</h4>
+      <h4 class="footer-col-title">Beyond Wealth</h4>
       <ul class="footer-col-list">
-        <li><a href="impact.html">Impact</a></li>
-        <li><a href="purpose.html">Purpose</a></li>
-        <li><a href="perspectives.html">Perspectives</a></li>
-        <li><a href="stewardship.html">Stewardship</a></li>
+        <li><a href="impact.html">Beyond Wealth</a></li>
+        <li><a href="education-community-animal-welfare.html">Education, Community &amp; Animal Welfare</a></li>
+        <li><a href="thoughtful-leadership-mentorship.html">Thoughtful Leadership &amp; Mentorship</a></li>
         <li><a href="associations.html">Associations</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4 class="footer-col-title">Get in Touch</h4>
       <ul class="footer-col-list">
-        <li><a href="contact.html">Contact Us</a></li>
         <li><a href="register-a-complaint.html">Register a Complaint</a></li>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
       </ul>

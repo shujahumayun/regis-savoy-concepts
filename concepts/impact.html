@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Regis and Savoy Capital · Impact</title>
-<meta name="description" content="Purpose, Perspectives, Stewardship, and Associations — ten years of judgement shaped by the people, ideas, and causes we chose to stand beside.">
+<meta name="description" content="Education, community, animal welfare, and the conversations that shaped how we think. A decade of commitments made alongside the work of managing wealth.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500&family=Spectral:ital,wght@0,200;0,300;1,200;1,300&family=Marcellus&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
@@ -121,17 +121,19 @@ body.nav-lock{overflow:hidden}
   .nav-dropdown-menu a{padding:9px 0 9px 18px;font-size:.66rem}
 }
 
-/* HERO */
-.hero{position:relative;height:100svh;min-height:560px;overflow:hidden;background:var(--midnight)}
-.hero-media{position:absolute;inset:0}
-.hero-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) brightness(.78) contrast(1.06);animation:slowZoom 8s ease-out forwards}
-@keyframes slowZoom{0%{transform:scale(1)}100%{transform:scale(1.1)}}
-.hero-scrim{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg, rgba(7,27,59,.5) 0%, rgba(7,27,59,0) 30%, rgba(7,27,59,0) 52%, rgba(7,27,59,.92) 100%)}
-.hero-copy{position:absolute;left:0;right:0;bottom:clamp(64px,10svh,120px);z-index:3;padding:0 var(--gutter);max-width:920px;margin:0 auto;color:var(--ivory);text-align:center}
-.hero-count{display:block;font-size:.75rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,246,241,.6);margin-bottom:clamp(16px,2.2vw,24px)}
-.hero-title{font-weight:200;font-size:clamp(2.6rem,6.4vw,5.4rem);line-height:1.04;letter-spacing:-.01em;margin-bottom:clamp(14px,1.8vw,22px)}
-.hero-desc{font-weight:300;font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.6;color:rgba(248,246,241,.72);max-width:60ch;margin:0 auto}
-.scroll-cue{position:absolute;left:50%;bottom:4svh;transform:translateX(-50%);z-index:3;font-size:.7rem;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:rgba(248,246,241,.65)}
+/* HERO — text hero, same pattern as the four service detail pages */
+.hero{position:relative;height:100svh;min-height:560px;overflow:hidden;background:var(--midnight);
+  display:flex;align-items:center;justify-content:center;text-align:center;color:var(--ivory)}
+.hero-copy{padding:0 var(--gutter);max-width:1000px}
+.hero-eyebrow{font-size:.75rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(248,246,241,.6);margin-bottom:clamp(20px,3vw,36px)}
+.hero-title{font-weight:200;font-size:clamp(2rem,4.6vw,3.9rem);line-height:1.16;letter-spacing:-.008em}
+.hero-title .ln{display:block}
+.hero-title .ln-lead{color:rgba(248,246,241,.62)}
+.hero-desc{font-weight:300;font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.6;
+  color:rgba(248,246,241,.66);max-width:52ch;margin:clamp(22px,3vw,36px) auto 0}
+.scroll-cue{position:absolute;left:50%;bottom:4svh;transform:translateX(-50%);
+  font-size:.7rem;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:rgba(248,246,241,.65)}
 .scroll-cue::after{content:"";display:block;width:1px;height:26px;background:rgba(248,246,241,.4);margin:10px auto 0}
 
 /* FRAMEWORK — two column: philosophy statement left, four clickable rows right */
@@ -140,85 +142,28 @@ body.nav-lock{overflow:hidden}
 .framework-copy .ink-lede{font-weight:200;font-size:clamp(1.9rem,3.4vw,3rem);line-height:1.2;letter-spacing:-.008em}
 .framework-copy .ink-lede strong{font-weight:400;color:var(--gold-ink,inherit)}
 .framework-body{margin-top:clamp(28px,3.4vw,40px);color:var(--ink-60);max-width:46ch;display:flex;flex-direction:column;gap:1.2em}
+.framework-body .figure-quote{font-size:clamp(1.15rem,1.8vw,1.4rem);color:var(--midnight)}
 .framework-list{display:flex;flex-direction:column}
 .framework-row{display:flex;align-items:center;justify-content:space-between;gap:24px;
   padding:clamp(26px,3.4vw,38px) 4px;border-bottom:1px solid var(--rule);text-decoration:none;color:inherit;transition:padding-left .3s ease}
 .framework-row:first-child{border-top:1px solid var(--rule)}
 .framework-row:hover{padding-left:14px}
-.framework-row-text h3{font-weight:300;font-size:clamp(1.3rem,2vw,1.65rem);letter-spacing:-.006em;margin-bottom:.4rem;transition:color .3s ease}
+.framework-row-text h3{font-weight:300;font-size:clamp(1.3rem,2vw,1.65rem);letter-spacing:-.006em;transition:color .3s ease}
 .framework-row:hover .framework-row-text h3{color:var(--gold)}
-.framework-row-text p{color:var(--ink-60);font-size:.9rem;max-width:44ch}
 .framework-arrow{flex:none;width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:var(--midnight);transition:transform .3s ease}
 .framework-row:hover .framework-arrow{transform:translateX(6px);color:var(--gold)}
 @media (max-width:900px){
   .framework-inner{grid-template-columns:1fr;gap:clamp(40px,7vw,64px)}
 }
 
-/* CTA + FOOTER — unchanged from the approved homepage */
-.cta-split{position:relative;z-index:5;overflow:hidden;background:var(--midnight);color:var(--ivory);
-  padding:clamp(80px,10vw,140px) var(--gutter) clamp(56px,7vw,88px)}
-.cta-split-header{position:relative;z-index:1;max-width:1180px;margin:0 auto clamp(48px,6vw,72px);
-  text-align:center}
-.cta-split-title{font-weight:200;text-transform:uppercase;font-size:clamp(1.8rem,4.4vw,3.4rem);
-  line-height:1.14;letter-spacing:.02em}
-.cta-split-body{position:relative;z-index:1;max-width:1180px;margin:0 auto;display:flex;
-  gap:clamp(48px,7vw,100px);align-items:flex-start;flex-wrap:wrap}
-.cta-info{flex:1 1 260px;max-width:320px;display:flex;flex-direction:column;gap:clamp(28px,3.5vw,40px)}
-.cta-info-label{display:block;font-size:.72rem;font-weight:400;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.cta-info-text{font-weight:300;font-size:1rem;line-height:1.7;color:rgba(248,246,241,.8)}
-.cta-info-text a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(248,246,241,.3);
-  transition:color .25s ease,border-color .25s ease}
-.cta-info-text a:hover{color:var(--gold);border-color:var(--gold)}
-.cta-form-col{flex:2 1 420px;min-width:0}
-.cta-form-col .cta-form{margin:0;max-width:none}
-.cta-split-base{position:relative;z-index:1;max-width:1180px;margin:clamp(64px,8vw,96px) auto 0;
-  height:1px;background:var(--rule-light)}
-@media (max-width:860px){
-  .cta-split-body{flex-direction:column;gap:clamp(40px,6vw,56px)}
-  .cta-info{max-width:none;flex-direction:row;flex-wrap:wrap;gap:clamp(28px,4vw,40px)}
-  .cta-info-block{flex:1 1 200px}
-}
+/* UNDERTAKINGS — standalone section beneath the framework, centred like the sub-page overviews */
+.undertakings{padding:clamp(96px,12vw,150px) var(--gutter);border-top:1px solid var(--rule);text-align:center}
+.undertakings-inner{max-width:760px;margin:0 auto}
+.undertakings-inner h2{font-weight:200;font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.2;letter-spacing:-.008em;margin-bottom:clamp(24px,3vw,32px)}
+.undertakings-body{color:var(--ink-60);display:flex;flex-direction:column;gap:1.2em}
+.undertakings-body .figure-quote{color:var(--midnight)}
 
-/* ---- CTA FORM ---- */
-.cta-form{position:relative;z-index:1;max-width:640px;margin:clamp(28px,4vw,44px) auto 0}
-.form-section{border:none;padding:0;margin-bottom:clamp(40px,5vw,60px)}
-.form-section-title{display:block;font-size:.9rem;font-weight:400;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--gold);margin-bottom:clamp(20px,3vw,28px);font-family:var(--display)}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px) clamp(16px,2.4vw,28px)}
-.form-grid .form-group:nth-child(2){grid-column:2}
-.form-grid .form-group:nth-child(3){grid-column:1/3}
-.form-grid .form-group:nth-child(4){grid-column:1}
-.form-grid .form-group:nth-child(5){grid-column:2}
-.form-group{display:flex;flex-direction:column}
-.form-group label{font-size:.9rem;font-weight:400;letter-spacing:.04em;margin-bottom:8px;
-  color:rgba(248,246,241,.9)}
-.required{color:var(--gold);margin-left:2px}
-.form-group input,.form-group select{
-  background:rgba(248,246,241,.08);border:1px solid rgba(248,246,241,.2);
-  padding:clamp(10px,1.2vw,14px) clamp(12px,1.6vw,16px);
-  font-family:var(--display);font-size:.9rem;color:var(--ivory);
-  transition:border-color .2s ease,background-color .2s ease;
-}
-.form-group input::placeholder{color:rgba(248,246,241,.4)}
-.form-group input:focus,.form-group select:focus{outline:none;border-color:var(--gold);
-  background:rgba(248,246,241,.12)}
-.form-group select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23F8F6F1' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right clamp(10px,1.2vw,14px) center;
-  padding-right:clamp(32px,4vw,40px)}
-.form-group select option{background:var(--midnight);color:var(--ivory)}
-.form-submit{
-  margin-top:clamp(32px,4vw,48px);padding:clamp(12px,1.6vw,16px) clamp(40px,5vw,56px);
-  font-size:.8rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;
-  background:rgba(200,162,90,.2);border:1px solid var(--gold);color:var(--gold);
-  cursor:pointer;transition:all .3s ease;font-family:var(--display);
-}
-.form-submit:hover{background:var(--gold);color:var(--midnight)}
-@media (max-width:640px){
-  .form-grid{grid-template-columns:1fr}
-  .form-grid .form-group:nth-child(n){grid-column:1}
-}
-
+/* FOOTER — unchanged from the approved homepage */
 .footer{position:relative;z-index:5;background:var(--midnight);color:rgba(248,246,241,.7);padding:clamp(48px,6vw,72px) var(--gutter) clamp(32px,4vw,40px)}
 .footer-top{display:flex;align-items:center;flex-wrap:wrap;gap:clamp(24px,4vw,40px)}
 .footer-logo{height:clamp(72px,8vw,96px);width:auto;display:block}
@@ -273,47 +218,46 @@ body.nav-lock{overflow:hidden}
           <li><a href="legacy-and-impact.html">Legacy and Impact</a></li>
         </ul>
       </li>
-      <li><a href="impact.html" class="current">Impact</a></li>
+      <li><a href="impact.html" class="current">Beyond Wealth</a></li>
       <li><a href="corporate-services.html">Corporate Services</a></li>
-      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
+
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <p class="hero-eyebrow">Impact</p>
+    <h1 class="hero-title">
+      <span class="ln ln-lead">Not every question begins with wealth.</span>
+      <span class="ln">Some begin with purpose.</span>
+    </h1>
+    <p class="hero-desc">Education, community, animal welfare, and the conversations that shaped how we think.</p>
+  </div>
+  <p class="scroll-cue">Scroll</p>
+</section>
 
 <section class="framework" id="framework">
   <div class="framework-inner">
     <div class="framework-copy">
       <p class="eyebrow">Our Undertakings</p>
-      <h2 class="ink-lede ink-chars">For ten years, instead of building scale, <strong>we built perspective.</strong></h2>
+      <h2 class="ink-lede ink-chars">Wealth is one measure. <strong>It was never the only one.</strong></h2>
       <div class="framework-body">
-        <p>Instead of spending every waking hour chasing assets under management, we spent years sitting in rooms where ideas were being born &mdash; with entrepreneurs, scientists, policymakers, Olympians, writers, impact investors, family business owners, and academics.</p>
-        <p>Not because it generated revenue. Because we were curious. And because our clients deserved advisors who understood the world their wealth lived in.</p>
-        <p>This is not proof. It is philosophy first &mdash; the evidence follows on each of the four pages alongside.</p>
+        <p>Over the past decade we have supported education, community and animal welfare, mentored people building their own path, and taken part in conversations that shape business and society.</p>
+        <p>None of it was a mandate. Most of it never appeared on a balance sheet. All of it shaped the judgement our clients rely on.</p>
       </div>
     </div>
     <div class="framework-list">
-      <a class="framework-row" href="purpose.html" aria-label="Purpose">
+      <a class="framework-row" href="education-community-animal-welfare.html" aria-label="Education, Community &amp; Animal Welfare">
         <div class="framework-row-text">
-          <h3>Purpose</h3>
-          <p>Why we do what we do. The stories that shaped our thinking about what wealth is for.</p>
+          <h3>Education, Community &amp; Animal Welfare</h3>
         </div>
         <span class="framework-arrow" aria-hidden="true">
           <svg width="16" height="14" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </span>
       </a>
-      <a class="framework-row" href="perspectives.html" aria-label="Perspectives">
+      <a class="framework-row" href="thoughtful-leadership-mentorship.html" aria-label="Thoughtful Leadership &amp; Mentorship">
         <div class="framework-row-text">
-          <h3>Perspectives</h3>
-          <p>The conversations and rooms &mdash; LSE, Lexus, NYU, Cambridge &mdash; that have shaped our judgement over a decade.</p>
-        </div>
-        <span class="framework-arrow" aria-hidden="true">
-          <svg width="16" height="14" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </span>
-      </a>
-      <a class="framework-row" href="stewardship.html" aria-label="Stewardship">
-        <div class="framework-row-text">
-          <h3>Stewardship</h3>
-          <p>Where philosophy becomes action &mdash; our commitments to education, animal welfare, and performance-driven philanthropy.</p>
+          <h3>Thoughtful Leadership &amp; Mentorship</h3>
         </div>
         <span class="framework-arrow" aria-hidden="true">
           <svg width="16" height="14" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
@@ -322,12 +266,23 @@ body.nav-lock{overflow:hidden}
       <a class="framework-row" href="associations.html" aria-label="Associations">
         <div class="framework-row-text">
           <h3>Associations</h3>
-          <p>The institutions and fellowships that have trusted us with a seat at the table.</p>
         </div>
         <span class="framework-arrow" aria-hidden="true">
           <svg width="16" height="14" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </span>
       </a>
+    </div>
+  </div>
+</section>
+
+<section class="undertakings" id="story">
+  <div class="undertakings-inner">
+    <p class="eyebrow">A Personal Story</p>
+    <h2>Reuniting Families Beyond Financial Matters</h2>
+    <div class="undertakings-body">
+      <p>During the COVID-19 pandemic, when international travel restrictions made pet repatriation nearly impossible, we successfully coordinated the safe return of a client&rsquo;s beloved pet to India.</p>
+      <p>By navigating complex regulations, logistical challenges, and cross-border coordination, we went above and beyond to reunite a family when it mattered most.</p>
+      <p class="figure-quote">Sometimes stewardship begins long before an investment.</p>
     </div>
   </div>
 </section>
@@ -363,19 +318,17 @@ body.nav-lock{overflow:hidden}
       </ul>
     </div>
     <div class="footer-col">
-      <h4 class="footer-col-title">Impact</h4>
+      <h4 class="footer-col-title">Beyond Wealth</h4>
       <ul class="footer-col-list">
-        <li><a href="impact.html">Impact</a></li>
-        <li><a href="purpose.html">Purpose</a></li>
-        <li><a href="perspectives.html">Perspectives</a></li>
-        <li><a href="stewardship.html">Stewardship</a></li>
+        <li><a href="impact.html">Beyond Wealth</a></li>
+        <li><a href="education-community-animal-welfare.html">Education, Community &amp; Animal Welfare</a></li>
+        <li><a href="thoughtful-leadership-mentorship.html">Thoughtful Leadership &amp; Mentorship</a></li>
         <li><a href="associations.html">Associations</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4 class="footer-col-title">Get in Touch</h4>
       <ul class="footer-col-list">
-        <li><a href="contact.html">Contact Us</a></li>
         <li><a href="register-a-complaint.html">Register a Complaint</a></li>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
       </ul>

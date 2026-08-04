@@ -423,31 +423,53 @@ button.ebook-btn{background:transparent;font-family:inherit;cursor:pointer}
    rule at the very bottom of the section.
    ============================================================ */
 /* ============================================================
-   CORPORATE — compact gold band teasing the LLP practice.
-   Label + heading left; statement and CTA stacked to the right.
-   The one section where gold carries the ground; links out to
-   the full Corporate Services page.
+   DEALS — quiet white credibility strip between the service
+   panels and the CTA. Replaced the gold Corporate band on
+   2026-08-04. Logos scroll horizontally; the seventh mark is
+   deliberately clipped at desktop so the affordance reads.
+   Each mark links through to the full list on Private Equity.
    ============================================================ */
-.corporate{position:relative;z-index:5;background:var(--gold);color:var(--midnight);
-  padding:clamp(44px,5.5vw,68px) var(--gutter)}
-.corporate-inner{max-width:1180px;margin:0 auto;display:flex;align-items:flex-start;
-  justify-content:space-between;gap:clamp(28px,6vw,90px);flex-wrap:wrap}
-.corporate-lead{flex:1 1 340px;max-width:440px}
-.corporate-eyebrow{display:block;font-size:.72rem;font-weight:400;letter-spacing:.22em;
-  text-transform:uppercase;color:rgba(7,27,59,.6);margin-bottom:clamp(14px,1.8vw,20px)}
-.corporate-title{font-weight:200;text-transform:uppercase;font-size:clamp(1.6rem,3.2vw,2.5rem);
-  line-height:1.15;letter-spacing:.01em}
-.corporate-copy{flex:1 1 420px;max-width:560px;display:flex;flex-direction:column;align-items:flex-start}
-.corporate-desc{font-weight:300;font-size:clamp(1rem,1.4vw,1.12rem);line-height:1.6;
-  color:rgba(7,27,59,.8);margin-bottom:clamp(24px,3vw,32px)}
-.corporate-btn{display:inline-block;font-size:.75rem;font-weight:400;
-  letter-spacing:.2em;text-transform:uppercase;color:var(--midnight);text-decoration:none;
-  padding:15px 30px;border:1px solid var(--midnight);
-  transition:background .3s ease,color .3s ease}
-.corporate-btn:hover{background:var(--midnight);color:var(--gold)}
+.deals{position:relative;z-index:5;background:var(--ivory);color:var(--midnight);
+  padding:clamp(64px,7vw,96px) 0;border-top:1px solid var(--rule)}
+.deals-head{max-width:1180px;margin:0 auto clamp(34px,4vw,48px);padding:0 var(--gutter);
+  display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.deals-eyebrow{display:block;font-size:.72rem;font-weight:400;letter-spacing:.22em;
+  text-transform:uppercase;color:rgba(7,27,59,.55);margin-bottom:clamp(10px,1.4vw,14px)}
+.deals-title{font-weight:200;font-size:clamp(1.5rem,2.8vw,2.2rem);line-height:1.15;letter-spacing:-.006em}
+.deals-link{font-size:.72rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--midnight);text-decoration:none;border-bottom:1px solid var(--ink-15);
+  padding-bottom:5px;white-space:nowrap;transition:border-color .3s ease,color .3s ease}
+.deals-link:hover{color:var(--gold);border-color:var(--gold)}
+
+/* The rail. Edge fades sit above it and say "there is more this way". */
+.deals-rail{position:relative}
+.deals-rail::before,.deals-rail::after{content:"";position:absolute;top:0;bottom:0;width:clamp(24px,6vw,72px);
+  z-index:2;pointer-events:none}
+.deals-rail::before{left:0;background:linear-gradient(90deg,var(--ivory),rgba(248,246,241,0))}
+.deals-rail::after{right:0;background:linear-gradient(270deg,var(--ivory),rgba(248,246,241,0))}
+.deals-track{display:flex;gap:clamp(8px,1.4vw,20px);overflow-x:auto;scroll-snap-type:x proximity;
+  scroll-behavior:smooth;padding:0 var(--gutter);scrollbar-width:none;-ms-overflow-style:none}
+.deals-track::-webkit-scrollbar{display:none}
+.deal{flex:0 0 auto;scroll-snap-align:start;width:clamp(150px,15vw,196px);height:clamp(74px,8vw,92px);
+  display:flex;align-items:center;justify-content:center;padding:clamp(12px,1.6vw,18px);
+  text-decoration:none;color:inherit;border:1px solid transparent;
+  transition:border-color .3s ease,background-color .3s ease}
+.deal:hover,.deal:focus-visible{border-color:var(--rule);background:rgba(7,27,59,.02)}
+.deal:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.deal img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;
+  opacity:.62;transition:opacity .3s ease}
+.deal:hover img,.deal:focus-visible img{opacity:1}
+/* Marks with no artwork yet fall back to a typeset name, same footprint. */
+.deal-name{font-size:.82rem;font-weight:300;letter-spacing:.04em;text-align:center;line-height:1.35;
+  color:var(--ink-60);transition:color .3s ease}
+.deal:hover .deal-name,.deal:focus-visible .deal-name{color:var(--midnight)}
+.deals-note{max-width:1180px;margin:clamp(28px,3.4vw,40px) auto 0;padding:0 var(--gutter);
+  font-size:.78rem;color:var(--ink-40)}
 @media (max-width:760px){
-  .corporate-inner{flex-direction:column;align-items:flex-start;gap:20px}
-  .corporate-btn{width:100%;text-align:center}
+  .deals-head{flex-direction:column;align-items:flex-start;gap:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  .deals-track{scroll-behavior:auto}
 }
 
 .cta-split{position:relative;z-index:5;overflow:hidden;background:var(--midnight);color:var(--ivory);
@@ -580,9 +602,8 @@ button.ebook-btn{background:transparent;font-family:inherit;cursor:pointer}
           <li><a href="legacy-and-impact.html">Legacy and Impact</a></li>
         </ul>
       </li>
-      <li><a href="impact.html">Impact</a></li>
+      <li><a href="impact.html">Beyond Wealth</a></li>
       <li><a href="corporate-services.html">Corporate Services</a></li>
-      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -783,15 +804,31 @@ button.ebook-btn{background:transparent;font-family:inherit;cursor:pointer}
   </a>
 </section>
 
-<section class="corporate" id="corporate-services">
-  <div class="corporate-inner">
-    <div class="corporate-lead">
-      <span class="corporate-eyebrow">Corporate Services</span>
-      <h2 class="corporate-title">Beyond Personal Wealth</h2>
+<section class="deals" id="deals">
+  <div class="deals-head">
+    <div>
+      <span class="deals-eyebrow">Deals and Mandates</span>
+      <h2 class="deals-title">Where our capital has gone to work</h2>
     </div>
-    <div class="corporate-copy">
-      <p class="corporate-desc">Stewardship often extends to the businesses that create wealth. Through Regis and Savoy Corporate Services LLP, we provide specialised corporate advisory across legal, structuring, governance, and risk.</p>
-      <a class="corporate-btn" href="corporate-services.html">Explore Corporate Services</a>
+    <a class="deals-link" href="private-equity.html#deals">See all deals and mandates</a>
+  </div>
+  <div class="deals-rail">
+    <div class="deals-track" role="list" tabindex="0" aria-label="Deals and mandates, scroll horizontally">
+      <a class="deal" href="private-equity.html#deals" aria-label="Nykaa, see all deals and mandates"><img src="../assets/logos/deals/nykaa.png" alt="Nykaa" loading="lazy" width="220" height="75"></a>
+      <a class="deal" href="private-equity.html#deals" aria-label="University Living, see all deals and mandates"><img src="../assets/logos/deals/universityliving.png" alt="University Living" loading="lazy" width="220" height="75"></a>
+      <a class="deal" href="private-equity.html#deals" aria-label="Kreedo, see all deals and mandates"><img src="../assets/logos/deals/kreedo.png" alt="Kreedo" loading="lazy" width="220" height="75"></a>
+      <a class="deal" href="private-equity.html#deals" aria-label="QNu Labs, see all deals and mandates"><img src="../assets/logos/deals/qnulabs.png" alt="QNu Labs" loading="lazy" width="220" height="75"></a>
+      <a class="deal" href="private-equity.html#deals" aria-label="BrijRama Palace, see all deals and mandates"><img src="../assets/logos/deals/brijrama.png" alt="BrijRama Palace" loading="lazy" width="220" height="75"></a>
+      <a class="deal" href="private-equity.html#deals" aria-label="Adukale, see all deals and mandates"><img src="../assets/logos/deals/adukale.png" alt="Adukale" loading="lazy" width="220" height="75"></a>
+      <a class="deal" href="private-equity.html#deals" aria-label="Rotoris, see all deals and mandates"><img src="../assets/logos/deals/rotoris.png" alt="Rotoris" loading="lazy" width="220" height="75"></a>
+      <a class="deal" href="private-equity.html#deals" aria-label="Harvesting, see all deals and mandates"><img src="../assets/logos/deals/harvesting.png" alt="Harvesting" loading="lazy" width="220" height="75"></a>
+      <a class="deal" href="private-equity.html#deals" aria-label="Upaghna Ventures, see all deals and mandates"><img src="../assets/logos/deals/upaghna.png" alt="Upaghna Ventures" loading="lazy" width="220" height="75"></a>
+      <a class="deal" href="private-equity.html#deals" aria-label="Tugkraft, see all deals and mandates"><img src="../assets/logos/deals/tugkraft.png" alt="Tugkraft" loading="lazy" width="220" height="75"></a>
+      <a class="deal" href="private-equity.html#deals" aria-label="N Gen, see all deals and mandates"><span class="deal-name">N Gen</span></a>
+      <a class="deal" href="private-equity.html#deals" aria-label="Nublo, see all deals and mandates"><span class="deal-name">Nublo</span></a>
+      <a class="deal" href="private-equity.html#deals" aria-label="CreditTap, see all deals and mandates"><span class="deal-name">CreditTap</span></a>
+      <a class="deal" href="private-equity.html#deals" aria-label="Automatic Hospitality, see all deals and mandates"><span class="deal-name">Automatic Hospitality</span></a>
+      <a class="deal" href="private-equity.html#deals" aria-label="dltledgers, see all deals and mandates"><span class="deal-name">dltledgers</span></a>
     </div>
   </div>
 </section>
@@ -897,7 +934,7 @@ button.ebook-btn{background:transparent;font-family:inherit;cursor:pointer}
         <li><a href="#top">Home</a></li>
         <li><a href="about-us.html">About Us</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="impact.html">Impact</a></li>
+        <li><a href="impact.html">Beyond Wealth</a></li>
       <li><a href="corporate-services.html">Corporate Services</a></li>
       </ul>
     </div>
@@ -911,19 +948,17 @@ button.ebook-btn{background:transparent;font-family:inherit;cursor:pointer}
       </ul>
     </div>
     <div class="footer-col">
-      <h4 class="footer-col-title">Impact</h4>
+      <h4 class="footer-col-title">Beyond Wealth</h4>
       <ul class="footer-col-list">
-        <li><a href="impact.html">Impact</a></li>
-        <li><a href="purpose.html">Purpose</a></li>
-        <li><a href="perspectives.html">Perspectives</a></li>
-        <li><a href="stewardship.html">Stewardship</a></li>
+        <li><a href="impact.html">Beyond Wealth</a></li>
+        <li><a href="education-community-animal-welfare.html">Education, Community &amp; Animal Welfare</a></li>
+        <li><a href="thoughtful-leadership-mentorship.html">Thoughtful Leadership &amp; Mentorship</a></li>
         <li><a href="associations.html">Associations</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4 class="footer-col-title">Get in Touch</h4>
       <ul class="footer-col-list">
-        <li><a href="contact.html">Contact Us</a></li>
         <li><a href="register-a-complaint.html">Register a Complaint</a></li>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
       </ul>

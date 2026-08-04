@@ -143,25 +143,40 @@ body.nav-lock{overflow:hidden}
 .js .ink-chars .c.lit{color:inherit}
 .overview-body{margin:clamp(36px,4.6vw,56px) auto 0;max-width:680px;text-align:center;color:var(--ink-60);display:flex;flex-direction:column;gap:1.2em}
 
-/* CREDENTIAL WALL — mark + name, hover reveals a one-line popup bubble */
+/* CREDENTIAL WALL — one row, three per view, arrow navigation, hover reveals a line */
 .wall{padding:0 var(--gutter) clamp(96px,12vw,150px);border-top:1px solid var(--rule)}
-.wall-inner{max-width:1180px;margin:0 auto;padding-top:clamp(56px,7vw,88px);display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.6vw,32px)}
-.mark-item{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;
-  padding:clamp(32px,4vw,44px) clamp(16px,2vw,20px);border:1px solid var(--rule);cursor:default}
-.mark-badge{width:clamp(52px,6vw,64px);height:clamp(52px,6vw,64px);border-radius:50%;border:1px solid rgba(7,27,59,.3);
-  display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',var(--figure);
-  font-size:1.15rem;font-weight:600;letter-spacing:.02em;color:var(--midnight);margin-bottom:clamp(16px,2vw,20px);
-  transition:border-color .3s ease,background-color .3s ease}
-.mark-item:hover .mark-badge{border-color:var(--gold);background:rgba(200,162,90,.08)}
-.mark-item h3{font-weight:400;font-size:.95rem;letter-spacing:-.004em;line-height:1.3}
-.mark-bubble{position:absolute;left:50%;bottom:calc(100% + 10px);transform:translateX(-50%) translateY(6px);
-  width:min(240px,72vw);padding:14px 16px;background:var(--midnight);color:var(--ivory);font-size:.8rem;line-height:1.5;
-  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,transform .25s ease,visibility .25s;z-index:6}
-.mark-bubble::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);
-  border:6px solid transparent;border-top-color:var(--midnight)}
-.mark-item:hover .mark-bubble,.mark-item:focus-within .mark-bubble{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
-@media (max-width:900px){ .wall-inner{grid-template-columns:repeat(2,1fr)} }
-@media (max-width:520px){ .wall-inner{grid-template-columns:1fr} .mark-bubble{position:static;transform:none;opacity:1;visibility:visible;width:auto;margin-top:12px;background:none;color:var(--ink-60);padding:0} .mark-bubble::after{display:none} }
+.wall-inner{max-width:1180px;margin:0 auto;padding-top:clamp(56px,7vw,88px)}
+.mgallery{display:flex;align-items:center;gap:clamp(10px,1.4vw,18px)}
+.mgallery-rail{flex:1 1 auto;min-width:0;position:relative;overflow:hidden}
+.mgallery-rail::before,.mgallery-rail::after{content:"";position:absolute;top:0;bottom:0;width:clamp(16px,3vw,40px);z-index:2;pointer-events:none}
+.mgallery-rail::before{left:0;background:linear-gradient(90deg,var(--ivory),rgba(248,246,241,0))}
+.mgallery-rail::after{right:0;background:linear-gradient(270deg,var(--ivory),rgba(248,246,241,0))}
+.mgallery-track{display:flex;gap:clamp(16px,2.4vw,32px);overflow-x:auto;scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;padding:6px 2px}
+.mgallery-track::-webkit-scrollbar{display:none}
+.mgallery-item{position:relative;flex:0 0 calc((100% - 2*clamp(16px,2.4vw,32px))/3);scroll-snap-align:start;
+  min-width:0;display:flex;align-items:center;justify-content:center;overflow:hidden;
+  min-height:clamp(96px,10vw,128px);padding:clamp(16px,2vw,24px);border:1px solid var(--rule)}
+.mgallery-item img{max-width:82%;max-height:clamp(40px,4.6vw,56px);width:auto;height:auto;object-fit:contain;opacity:.68;transition:opacity .3s ease}
+.mgallery-item:hover img,.mgallery-item:focus-within img{opacity:1}
+.deal-name{font-size:.86rem;font-weight:300;letter-spacing:.03em;text-align:center;line-height:1.35;color:var(--ink-60);transition:color .3s ease}
+.mgallery-item:hover .deal-name,.mgallery-item:focus-within .deal-name{color:var(--midnight)}
+.mgallery-line{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:12px 14px;background:var(--midnight);color:var(--ivory);font-size:.8rem;line-height:1.45;
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,visibility .25s}
+.mgallery-item:hover .mgallery-line,.mgallery-item:focus-within .mgallery-line{opacity:1;visibility:visible}
+.mgallery-arrow{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--rule);background:var(--ivory);
+  display:flex;align-items:center;justify-content:center;color:var(--midnight);cursor:pointer;
+  transition:border-color .3s ease,background-color .3s ease,opacity .3s ease}
+.mgallery-arrow:hover{border-color:var(--gold);background:rgba(200,162,90,.08)}
+.mgallery-arrow:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.mgallery-arrow[disabled]{opacity:.3;cursor:default;pointer-events:none}
+@media (max-width:900px){ .mgallery-item{flex-basis:calc((100% - 16px)/2)} }
+@media (max-width:600px){
+  .mgallery-item{flex-basis:80%;flex-direction:column;gap:8px}
+  .mgallery-line{position:static;display:block;opacity:1;visibility:visible;background:none;color:var(--ink-60);padding:0;margin-top:10px;font-size:.75rem;text-align:center}
+}
+@media (prefers-reduced-motion:reduce){ .mgallery-track{scroll-behavior:auto} }
 
 .wall-note{max-width:760px;margin:clamp(48px,6vw,72px) auto 0;text-align:center;font-size:.85rem;color:var(--ink-40);font-style:italic}
 
@@ -242,9 +257,8 @@ body.nav-lock{overflow:hidden}
           <li><a href="legacy-and-impact.html">Legacy and Impact</a></li>
         </ul>
       </li>
-      <li><a href="impact.html" class="current">Impact</a></li>
+      <li><a href="impact.html" class="current">Beyond Wealth</a></li>
       <li><a href="corporate-services.html">Corporate Services</a></li>
-      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -261,66 +275,71 @@ body.nav-lock{overflow:hidden}
 
 <section class="wall" id="wall">
   <div class="wall-inner">
-    <div class="mark-item" tabindex="0">
-      <span class="mark-badge">FRSA</span>
-      <h3>Fellow of the Royal Society of Arts</h3>
-      <div class="mark-bubble">Honoured in recognition of contributions to business and society.</div>
-    </div>
-    <div class="mark-item" tabindex="0">
-      <span class="mark-badge">LSE</span>
-      <h3>London School of Economics</h3>
-      <div class="mark-bubble">Knowledge partner to the LSE Students&rsquo; Union.</div>
-    </div>
-    <div class="mark-item" tabindex="0">
-      <span class="mark-badge">PRI</span>
-      <h3>UN Principles for Responsible Investment</h3>
-      <div class="mark-bubble">Application submitted to become a signatory, reinforcing our commitment to responsible investing.</div>
-    </div>
-    <div class="mark-item" tabindex="0">
-      <span class="mark-badge">TFI</span>
-      <h3>Teach For India</h3>
-      <div class="mark-bubble">Former member of the Board of Advisors.</div>
-    </div>
-    <div class="mark-item" tabindex="0">
-      <span class="mark-badge">NITI</span>
-      <h3>NITI Aayog &amp; Atal Tinkering Labs</h3>
-      <div class="mark-bubble">Served as Senior Advisor, supporting innovation and entrepreneurship initiatives.</div>
-    </div>
-    <div class="mark-item" tabindex="0">
-      <span class="mark-badge">TLL</span>
-      <h3>Tata Literature Live</h3>
-      <div class="mark-bubble">Featured for Business Shastras: The Serendipity Mindset, on business and leadership.</div>
-    </div>
-    <div class="mark-item" tabindex="0">
-      <span class="mark-badge">QEDJT</span>
-      <h3>Queen Elizabeth Diamond Jubilee Trust</h3>
-      <div class="mark-bubble">Mentor for the Young Leaders Mentoring Programme, across 54 Commonwealth nations.</div>
-    </div>
-    <div class="mark-item" tabindex="0">
-      <span class="mark-badge">ACU</span>
-      <h3>Acumen Fund</h3>
-      <div class="mark-bubble">Associated with the Yes We Can initiative in support of social entrepreneurship and impact.</div>
-    </div>
-    <div class="mark-item" tabindex="0">
-      <span class="mark-badge">FAU</span>
-      <h3>University of Erlangen-N&uuml;rnberg</h3>
-      <div class="mark-bubble">Mentor for the Student Immersion Programme.</div>
-    </div>
-    <div class="mark-item" tabindex="0">
-      <span class="mark-badge">NYU</span>
-      <h3>New York University</h3>
-      <div class="mark-bubble">Invited speaker at the Centre for Emerging Economies.</div>
+    <div class="mgallery" data-mgallery>
+      <button class="mgallery-arrow mgallery-prev" type="button" aria-label="Previous">
+        <svg width="14" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M6 1L1 6l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 6h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
+      <div class="mgallery-rail">
+        <div class="mgallery-track" role="list" tabindex="0" aria-label="Associations, scroll horizontally">
+          <div class="mgallery-item" tabindex="0">
+            <img src="../assets/logos/associations/frsa.png" alt="Fellow of the Royal Society of Arts" loading="lazy">
+            <p class="mgallery-line">Honoured in recognition of contributions to business and society.</p>
+          </div>
+          <div class="mgallery-item" tabindex="0">
+            <img src="../assets/logos/associations/lse.png" alt="London School of Economics" loading="lazy">
+            <p class="mgallery-line">Knowledge partner to the LSE Students&rsquo; Union.</p>
+          </div>
+          <div class="mgallery-item" tabindex="0">
+            <!-- PRI status is application submitted, not signatory: mark held pending confirmation -->
+            <span class="deal-name">UN Principles for<br>Responsible Investment</span>
+            <p class="mgallery-line">Application submitted to become a signatory, reinforcing our commitment to responsible investing.</p>
+          </div>
+          <div class="mgallery-item" tabindex="0">
+            <img src="../assets/logos/associations/teachforindia.png" alt="Teach For India" loading="lazy">
+            <p class="mgallery-line">Former member of the Board of Advisors.</p>
+          </div>
+          <div class="mgallery-item" tabindex="0">
+            <!-- NITI Aayog uses the Government of India emblem, restricted under the State Emblem of India Act: mark held pending its own clearance -->
+            <span class="deal-name">NITI Aayog &amp;<br>Atal Tinkering Labs</span>
+            <p class="mgallery-line">Served as Senior Advisor, supporting innovation and entrepreneurship initiatives.</p>
+          </div>
+          <div class="mgallery-item" tabindex="0">
+            <img src="../assets/logos/associations/tatalitlive.png" alt="Tata Literature Live" loading="lazy">
+            <p class="mgallery-line">Featured for Business Shastras: The Serendipity Mindset, on business and leadership.</p>
+          </div>
+          <div class="mgallery-item" tabindex="0">
+            <!-- Trust wound up in 2020; no live body to grant permission for its mark, needs its own call -->
+            <span class="deal-name">Queen Elizabeth<br>Diamond Jubilee Trust</span>
+            <p class="mgallery-line">Mentor for the Young Leaders Mentoring Programme, across 54 Commonwealth nations.</p>
+          </div>
+          <div class="mgallery-item" tabindex="0">
+            <img src="../assets/logos/associations/acumenfund.png" alt="Acumen Fund" loading="lazy">
+            <p class="mgallery-line">Associated with the Yes We Can initiative in support of social entrepreneurship and impact.</p>
+          </div>
+          <div class="mgallery-item" tabindex="0">
+            <img src="../assets/logos/associations/erlangen.png" alt="University of Erlangen-N&uuml;rnberg" loading="lazy">
+            <p class="mgallery-line">Mentor for the Student Immersion Programme.</p>
+          </div>
+          <div class="mgallery-item" tabindex="0">
+            <img src="../assets/logos/associations/nyu.png" alt="New York University" loading="lazy">
+            <p class="mgallery-line">Invited speaker at the Centre for Emerging Economies.</p>
+          </div>
+        </div>
+      </div>
+      <button class="mgallery-arrow mgallery-next" type="button" aria-label="Next">
+        <svg width="14" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </button>
     </div>
   </div>
-  <p class="wall-note">These marks are placeholder monograms, not the institutions&rsquo; own logos. Written permission per institution is required before any third-party mark is placed on the live site &mdash; see site-spec.md.</p>
+  <p class="wall-note">Seven of ten are the institutions&rsquo; own logos, sourced but not yet cleared for use. Three (PRI, NITI Aayog, Queen Elizabeth Diamond Jubilee Trust) stay as text pending their own status or permission questions. Written clearance per institution is required before any mark goes live, see site-spec.md.</p>
 </section>
 
 <div class="next">
-  <a class="next-half next-prev" href="stewardship.html">
+  <a class="next-half next-prev" href="thoughtful-leadership-mentorship.html">
     <span class="next-arrow" aria-hidden="true"><svg width="14" height="12" viewBox="0 0 16 12" fill="none"><path d="M6 1L1 6l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 6h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
     <span>
       <span class="eyebrow">Previous</span>
-      <span class="next-title">Stewardship</span>
+      <span class="next-title">Thoughtful Leadership &amp; Mentorship</span>
     </span>
   </a>
   <a class="next-half next-next" href="impact.html">
@@ -363,19 +382,17 @@ body.nav-lock{overflow:hidden}
       </ul>
     </div>
     <div class="footer-col">
-      <h4 class="footer-col-title">Impact</h4>
+      <h4 class="footer-col-title">Beyond Wealth</h4>
       <ul class="footer-col-list">
-        <li><a href="impact.html">Impact</a></li>
-        <li><a href="purpose.html">Purpose</a></li>
-        <li><a href="perspectives.html">Perspectives</a></li>
-        <li><a href="stewardship.html">Stewardship</a></li>
+        <li><a href="impact.html">Beyond Wealth</a></li>
+        <li><a href="education-community-animal-welfare.html">Education, Community &amp; Animal Welfare</a></li>
+        <li><a href="thoughtful-leadership-mentorship.html">Thoughtful Leadership &amp; Mentorship</a></li>
         <li><a href="associations.html">Associations</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4 class="footer-col-title">Get in Touch</h4>
       <ul class="footer-col-list">
-        <li><a href="contact.html">Contact Us</a></li>
         <li><a href="register-a-complaint.html">Register a Complaint</a></li>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
       </ul>
@@ -529,6 +546,30 @@ body.nav-lock{overflow:hidden}
   }
   window.addEventListener('scroll', onNavScroll, {passive:true});
   onNavScroll();
+})();
+</script>
+
+<script>
+(function(){
+  document.querySelectorAll('[data-mgallery]').forEach(function(root){
+    var track = root.querySelector('.mgallery-track');
+    var prev = root.querySelector('.mgallery-prev');
+    var next = root.querySelector('.mgallery-next');
+    var item = track.querySelector('.mgallery-item');
+    function step(){
+      var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 24);
+      return (item ? item.getBoundingClientRect().width : 200) + gap;
+    }
+    function update(){
+      prev.disabled = track.scrollLeft <= 4;
+      next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
+    }
+    prev.addEventListener('click', function(){ track.scrollBy({left: -step(), behavior: 'smooth'}); });
+    next.addEventListener('click', function(){ track.scrollBy({left: step(), behavior: 'smooth'}); });
+    track.addEventListener('scroll', update, {passive: true});
+    window.addEventListener('resize', update);
+    update();
+  });
 })();
 </script>
 </body>

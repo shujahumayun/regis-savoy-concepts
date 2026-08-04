@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Regis and Savoy Capital · Stewardship</title>
-<meta name="description" content="Where philosophy becomes action — Pro Bono Engagements, Education, Animal Welfare and Advocacy, and Performance-Based Philanthropy.">
+<title>Regis and Savoy Capital · Thoughtful Leadership and Mentorship</title>
+<meta name="description" content="The talks, panels and programmes where we share what we have learned, and mentor the people building next.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500&family=Spectral:ital,wght@0,200;0,300;1,200;1,300&family=Marcellus&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
@@ -143,36 +143,6 @@ body.nav-lock{overflow:hidden}
 .js .ink-chars .c.lit{color:inherit}
 .overview-body{margin:clamp(36px,4.6vw,56px) auto 0;max-width:680px;text-align:center;color:var(--ink-60);display:flex;flex-direction:column;gap:1.2em}
 
-/* AREA PANELS — sticky-stacking commitment blocks, from Legacy and Impact */
-.area-panels{position:relative}
-.area-panel{position:sticky;top:0;height:100svh;min-height:600px;overflow:hidden;background:var(--midnight);
-  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
-#panel-1{z-index:1}
-#panel-2{z-index:2}
-#panel-3{z-index:3}
-#panel-4{z-index:4}
-.area-media{grid-column:2;grid-row:1;position:relative;overflow:hidden}
-.area-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-  filter:saturate(.82) brightness(.8) contrast(1.06)}
-.area-scrim{grid-column:2;grid-row:1;z-index:1;pointer-events:none;
-  background:linear-gradient(90deg, rgba(7,27,59,.45) 0%, rgba(7,27,59,0) 32%)}
-.area-copy{grid-column:1;grid-row:1;z-index:2;display:flex;flex-direction:column;justify-content:center;
-  padding:clamp(88px,14vh,150px) clamp(36px,4vw,72px) clamp(56px,8vh,100px) var(--gutter);color:var(--ivory)}
-.area-copy .eyebrow{color:rgba(248,246,241,.55)}
-.area-title{font-weight:200;font-size:clamp(1.7rem,3.4vw,3rem);line-height:1.14;letter-spacing:-.008em;margin-bottom:clamp(18px,2.4vh,28px)}
-.area-list{display:flex;flex-direction:column;gap:clamp(14px,1.8vh,20px);margin-top:clamp(8px,1vh,14px)}
-.area-list li{font-weight:300;font-size:.95rem;line-height:1.5;color:rgba(248,246,241,.78);max-width:52ch;padding-left:1.1em;position:relative}
-.area-list li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:1px;background:var(--gold)}
-.area-list li strong{font-weight:400;color:var(--ivory)}
-.area-flag{margin-top:clamp(20px,2.6vh,28px);font-size:.78rem;color:rgba(200,162,90,.85);max-width:48ch;font-style:italic}
-@media (max-width:760px){
-  .area-panel{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr)}
-  .area-copy{grid-column:1;grid-row:1;padding:clamp(88px,16vh,120px) var(--gutter) 40px}
-  .area-media{grid-column:1;grid-row:2}
-  .area-scrim{grid-column:1;grid-row:2;
-    background:linear-gradient(180deg, rgba(7,27,59,.45) 0%, rgba(7,27,59,0) 32%)}
-}
-
 /* NEXT */
 .next{position:relative;z-index:5;display:flex;background:var(--midnight);color:var(--ivory);
   border-bottom:1px solid var(--rule-light)}
@@ -219,6 +189,47 @@ body.nav-lock{overflow:hidden}
   .footer-cols{grid-template-columns:1fr}
 }
 
+
+/* HIGHLIGHT — the one item per page that gets expanded. No image: full width, centred */
+.story{position:relative;background:var(--midnight);color:var(--ivory);overflow:hidden}
+.story-copy{display:flex;flex-direction:column;align-items:center;text-align:center;
+  max-width:760px;margin:0 auto;padding:clamp(80px,10vw,130px) var(--gutter)}
+.story-copy .eyebrow{color:rgba(248,246,241,.55)}
+.story-copy h2{font-weight:200;font-size:clamp(1.9rem,3.4vw,2.9rem);line-height:1.18;letter-spacing:-.008em;margin-bottom:clamp(22px,3vw,32px)}
+.story-copy .story-body{display:flex;flex-direction:column;gap:1.2em;color:rgba(248,246,241,.78);max-width:56ch}
+.story-link{margin-top:clamp(24px,3vw,32px);font-size:.75rem;font-weight:400;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--gold);text-decoration:none;
+  border-bottom:1px solid rgba(200,162,90,.4);padding-bottom:4px;transition:border-color .3s ease}
+.story-link:hover{border-color:var(--gold)}
+
+/* GALLERY — plain grid, every logo shown at once, hover reveals a line */
+.mgallery-grid{display:flex;flex-wrap:wrap;gap:clamp(16px,2.4vw,32px)}
+.mgallery-item{position:relative;flex:0 0 calc((100% - 2*clamp(16px,2.4vw,32px))/3);
+  min-width:0;display:flex;align-items:center;justify-content:center;overflow:hidden;
+  min-height:clamp(96px,10vw,128px);padding:clamp(16px,2vw,24px);border:1px solid var(--rule)}
+.mgallery-item img{max-width:82%;max-height:clamp(40px,4.6vw,56px);width:auto;height:auto;object-fit:contain;opacity:.68;transition:opacity .3s ease}
+.mgallery-item:hover img,.mgallery-item:focus-within img{opacity:1}
+.deal-name{font-size:.86rem;font-weight:300;letter-spacing:.03em;text-align:center;line-height:1.35;color:var(--ink-60);transition:color .3s ease}
+.mgallery-item:hover .deal-name,.mgallery-item:focus-within .deal-name{color:var(--midnight)}
+.mgallery-line{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;
+  padding:12px 14px;background:var(--midnight);color:var(--ivory);font-size:.8rem;line-height:1.45;
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s ease,visibility .25s}
+.mgallery-item:hover .mgallery-line,.mgallery-item:focus-within .mgallery-line{opacity:1;visibility:visible}
+@media (max-width:900px){ .mgallery-item{flex-basis:calc((100% - 16px)/2)} }
+@media (max-width:600px){
+  .mgallery-item{flex-basis:100%;flex-direction:column;gap:8px}
+  .mgallery-line{position:static;display:block;opacity:1;visibility:visible;background:none;color:var(--ink-60);padding:0;margin-top:10px;font-size:.75rem;text-align:center}
+}
+
+/* ENGAGEMENTS — two areas, stacked in reading order, no slider */
+.commitments{padding:clamp(64px,8vw,96px) var(--gutter) clamp(88px,10vw,130px);border-top:1px solid var(--rule)}
+.commitments-inner{max-width:1180px;margin:0 auto}
+.commitments-head{margin-bottom:clamp(36px,4.4vw,52px)}
+.commitments-head h2{font-weight:200;font-size:clamp(1.5rem,2.6vw,2.2rem);line-height:1.2;letter-spacing:-.008em}
+.commitments-head .eyebrow{margin-bottom:.7rem}
+.commitments-list{display:flex;flex-direction:column;gap:clamp(36px,4.6vw,52px)}
+.commitment-title{font-weight:300;font-size:clamp(1.2rem,2vw,1.5rem);letter-spacing:-.006em;margin-bottom:.5rem}
+.commitment-intro{color:var(--ink-60);max-width:60ch;margin-bottom:clamp(18px,2.2vw,24px)}
 </style>
 </head>
 <body>
@@ -250,94 +261,107 @@ body.nav-lock{overflow:hidden}
           <li><a href="legacy-and-impact.html">Legacy and Impact</a></li>
         </ul>
       </li>
-      <li><a href="impact.html" class="current">Impact</a></li>
+      <li><a href="impact.html" class="current">Beyond Wealth</a></li>
       <li><a href="corporate-services.html">Corporate Services</a></li>
-      <li><a href="contact.html">Contact</a></li>
     </ul>
   </div>
 </nav>
 
 <section class="overview" id="overview">
   <div class="overview-inner">
-    <p class="eyebrow">Stewardship</p>
-    <h2 class="ink-lede ink-chars">Where <strong>philosophy becomes action</strong> &mdash; unforced, self-directed, and sustained.</h2>
+    <p class="eyebrow">Thoughtful Leadership &amp; Mentorship</p>
+    <h1 class="ink-lede ink-chars">Staying curious, <strong>and passing it on.</strong></h1>
     <div class="overview-body">
-      <p>ESG and mandatory compliance are the cost of doing business &mdash; every firm of our size carries them, and they aren&rsquo;t what we choose to highlight here. What follows instead is what we&rsquo;ve taken on voluntarily: the causes we identified ourselves, funded from our own resources, and stayed with over years.</p>
+      <p>Two strands that feed each other. One is the conversations we take part in publicly, on panels, at festivals and in lecture halls. The other is the far smaller number of people we work with directly, one at a time.</p>
     </div>
   </div>
 </section>
 
-<div class="area-panels">
-  <section class="area-panel" id="panel-1">
-    <div class="area-copy">
-      <p class="eyebrow">Pro Bono Engagements</p>
-      <h2 class="area-title">Yes We Can Initiative</h2>
-      <ul class="area-list">
-        <li>Championing education, healthcare, and community development through sustained social impact work &mdash; not a single donation, a standing commitment.</li>
-        <li><strong>17 projects</strong> across India, reaching <strong>2,500 students</strong> across <strong>400 schools</strong>.</li>
-        <li>Reuse of <strong>34,000 garments</strong> and <strong>3,000 sq ft</strong> of toxic landfill diverted through the Foundation&rsquo;s environmental programmes.</li>
-        <li><strong>3 animal welfare projects</strong>, India&rsquo;s <strong>first Social SEZ</strong>, and <strong>3 micro-enterprises</strong> supported into being.</li>
-      </ul>
-      <p class="area-flag">Draft copy pending Sanjna&rsquo;s sign-off. The 2026-07-31 call cited "20 to 800 students"; the Foundation&rsquo;s own project summary (supplied 2026-08-01) states 2,500 students across 400 schools &mdash; confirm which figure to publish before this goes live.</p>
+<section class="story" id="highlight">
+  <div class="story-copy">
+    <p class="eyebrow">Featured</p>
+    <h2>Queen Elizabeth Diamond Jubilee Trust</h2>
+    <div class="story-body">
+      <p>Mentor for the Young Leaders Mentoring Programme, a selective initiative spanning the Commonwealth.</p>
+      <p>The programme is demanding by design. Of roughly three thousand applicants, three were selected, and one completed it. Being accepted as a mentor is its own threshold.</p>
     </div>
-    <figure class="area-media"><img src="../assets/services/legacy-impact/statement-hands-sapling.jpg" alt=""></figure>
-    <div class="area-scrim"></div>
-  </section>
+  </div>
+</section>
 
-  <section class="area-panel" id="panel-2">
-    <div class="area-copy">
-      <p class="eyebrow">Education</p>
-      <h2 class="area-title">Government School Adoption, Doddaballapura</h2>
-      <ul class="area-list">
-        <li>Supporting educational infrastructure and student development through a long-term institutional engagement &mdash; not a grant, a continuing relationship.</li>
-        <li>Contributed to the structuring of the <strong>Educate Girls</strong> programme alongside Safeena Husain to advance girls&rsquo; education.</li>
-        <li>School deworming campaigns and health and hygiene awareness programmes, including adolescent hygiene product distribution in rural and underserved schools.</li>
-      </ul>
-      <p class="area-flag">Content pending a client-supplied narrative of outcomes at the school &mdash; the storyline the client asked us to develop from their facts, not yet drafted.</p>
+<section class="commitments" id="engagements">
+  <div class="commitments-inner">
+    <div class="commitments-head">
+      <p class="eyebrow">Our Engagements</p>
+      <h2>Across two areas</h2>
     </div>
-    <figure class="area-media"><img src="../assets/family-farm-homestead.jpg" alt=""></figure>
-    <div class="area-scrim"></div>
-  </section>
-
-  <section class="area-panel" id="panel-3">
-    <div class="area-copy">
-      <p class="eyebrow">Animal Welfare &amp; Advocacy</p>
-      <h2 class="area-title">Rehabilitation, Not Just Rescue</h2>
-      <ul class="area-list">
-        <li><strong>SPCA Kennel Adoption</strong> &mdash; supporting animal welfare through the adoption and care of a kennel at the Society for the Prevention of Cruelty to Animals.</li>
-        <li><strong>National Member, People For Animals (PFA)</strong> &mdash; active national membership supporting India&rsquo;s largest animal welfare organisation.</li>
-        <li>Ongoing partnerships with <strong>BWC, CUPA and ARF</strong> to promote animal welfare and responsible care.</li>
-        <li>Association with the <strong>Jane Goodall Institute</strong> in support of wildlife conservation and chimpanzee protection.</li>
-      </ul>
-      <p class="area-flag">Fact-check before publish: the client's own summary places this at Maasai Mara, Kenya &mdash; Kenya's wild chimpanzee population is at the Sweetwaters sanctuary, Ol Pejeta, not Maasai Mara. Confirm the exact programme and location with the client.</p>
+    <div class="commitments-list">
+      <div class="commitment-area" id="thoughtful-leadership">
+        <h3 class="commitment-title">Thoughtful Leadership</h3>
+        <p class="commitment-intro">Staying curious, exchanging ideas and contributing to conversations that shape business and society.</p>
+        <div class="mgallery-grid" role="list" aria-label="Thoughtful Leadership engagements">
+          <div class="mgallery-item">
+            <!-- also listed under Associations in the source doc, Sanjna to cross verify -->
+            <img src="../assets/logos/associations/frsa.png" alt="Fellow of the Royal Society of Arts" loading="lazy">
+            <p class="mgallery-line">Recognition for contributions to business and society</p>
+          </div>
+          <div class="mgallery-item">
+            <!-- also listed under Associations in the source doc, Sanjna to cross verify -->
+            <img src="../assets/logos/associations/lse.png" alt="London School of Economics" loading="lazy">
+            <p class="mgallery-line">Knowledge Partner</p>
+          </div>
+          <div class="mgallery-item">
+            <!-- also listed under Associations in the source doc, Sanjna to cross verify. PRI status is application submitted, not signatory: mark held pending confirmation -->
+            <span class="deal-name">UN Principles for<br>Responsible Investment</span>
+            <p class="mgallery-line">Application submitted to become a signatory</p>
+          </div>
+          <div class="mgallery-item">
+            <!-- also listed under Associations in the source doc, Sanjna to cross verify -->
+            <img src="../assets/logos/associations/tatalitlive.png" alt="Tata Literature Live" loading="lazy">
+            <p class="mgallery-line">Featured for Business Shastras: The Serendipity Mindset</p>
+          </div>
+          <div class="mgallery-item">
+            <!-- also listed under Associations in the source doc, Sanjna to cross verify -->
+            <img src="../assets/logos/associations/nyu.png" alt="New York University" loading="lazy">
+            <p class="mgallery-line">Invited speaker at the Centre for Emerging Economies</p>
+          </div>
+          <div class="mgallery-item">
+            <!-- also listed under Community in the source doc, Sanjna to cross verify -->
+            <img src="../assets/logos/associations/acumenfund.png" alt="Acumen Fund" loading="lazy">
+            <p class="mgallery-line">Engagement around impact investing and social entrepreneurship</p>
+          </div>
+        </div>
+      </div>
+      <div class="commitment-area" id="mentorship">
+        <h3 class="commitment-title">Mentorship</h3>
+        <p class="commitment-intro">Sharing experience, guidance and perspective with people building their own path.</p>
+        <div class="mgallery-grid" role="list" aria-label="Mentorship engagements">
+          <div class="mgallery-item">
+            <!-- also listed under Education in the source doc, Sanjna to cross verify -->
+            <img src="../assets/logos/associations/erlangen.png" alt="University of Erlangen-N&uuml;rnberg" loading="lazy">
+            <p class="mgallery-line">Student Immersion Programme</p>
+          </div>
+          <div class="mgallery-item">
+            <!-- also listed under Education in the source doc, Sanjna to cross verify. Generic programme name, no institutional mark -->
+            <span class="deal-name">Financial Literacy<br>&amp; Inclusion</span>
+            <p class="mgallery-line">Mentoring sessions and workshops</p>
+          </div>
+          <div class="mgallery-item">
+            <!-- also listed under Education in the source doc, Sanjna to cross verify. NITI Aayog uses the Government of India emblem, restricted under the State Emblem of India Act: mark held pending its own clearance -->
+            <span class="deal-name">NITI Aayog &amp;<br>Atal Tinkering Labs</span>
+            <p class="mgallery-line">Supporting young innovators and entrepreneurs</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <figure class="area-media"><img src="../assets/35 - tania-lyahnovich-syyIpzxrL2c-unsplash.jpg" alt=""></figure>
-    <div class="area-scrim"></div>
-  </section>
-
-  <section class="area-panel" id="panel-4">
-    <div class="area-copy">
-      <p class="eyebrow">Performance-Based Philanthropy</p>
-      <h2 class="area-title">Measurable, Not Just Charitable</h2>
-      <ul class="area-list">
-        <li>Philanthropy where the difference made is measurable &mdash; we see a cause through to its end, not simply write a check.</li>
-        <li><strong>CRY</strong> &mdash; supporting initiatives focused on child rights, education, and community development.</li>
-        <li><strong>Karuna Mother Teresa Charitable Trust</strong> &mdash; clothing collection and distribution drives for underserved communities.</li>
-        <li><strong>Food Labelling Initiative</strong> &mdash; contributed towards the implementation of India&rsquo;s vegetarian / non-vegetarian food labelling standard.</li>
-      </ul>
-      <p class="area-flag">Attribution needs care: some of this work ran through ASVCAN, some individually, some as a family &mdash; confirm which credit line applies to each item before publish.</p>
-    </div>
-    <figure class="area-media"><img src="../assets/services/legacy-impact/area5-chess-king-queen.jpg" alt=""></figure>
-    <div class="area-scrim"></div>
-  </section>
-</div>
+  </div>
+</section>
 
 <div class="next">
-  <a class="next-half next-prev" href="perspectives.html">
+  <a class="next-half next-prev" href="education-community-animal-welfare.html">
     <span class="next-arrow" aria-hidden="true"><svg width="14" height="12" viewBox="0 0 16 12" fill="none"><path d="M6 1L1 6l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 6h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
     <span>
       <span class="eyebrow">Previous</span>
-      <span class="next-title">Perspectives</span>
+      <span class="next-title">Education, Community &amp; Animal Welfare</span>
     </span>
   </a>
   <a class="next-half next-next" href="associations.html">
@@ -380,19 +404,17 @@ body.nav-lock{overflow:hidden}
       </ul>
     </div>
     <div class="footer-col">
-      <h4 class="footer-col-title">Impact</h4>
+      <h4 class="footer-col-title">Beyond Wealth</h4>
       <ul class="footer-col-list">
-        <li><a href="impact.html">Impact</a></li>
-        <li><a href="purpose.html">Purpose</a></li>
-        <li><a href="perspectives.html">Perspectives</a></li>
-        <li><a href="stewardship.html">Stewardship</a></li>
+        <li><a href="impact.html">Beyond Wealth</a></li>
+        <li><a href="education-community-animal-welfare.html">Education, Community &amp; Animal Welfare</a></li>
+        <li><a href="thoughtful-leadership-mentorship.html">Thoughtful Leadership &amp; Mentorship</a></li>
         <li><a href="associations.html">Associations</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4 class="footer-col-title">Get in Touch</h4>
       <ul class="footer-col-list">
-        <li><a href="contact.html">Contact Us</a></li>
         <li><a href="register-a-complaint.html">Register a Complaint</a></li>
         <li><a href="privacy-policy.html">Privacy Policy</a></li>
       </ul>
@@ -548,5 +570,6 @@ body.nav-lock{overflow:hidden}
   onNavScroll();
 })();
 </script>
+
 </body>
 </html>
