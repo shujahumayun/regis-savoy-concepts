@@ -244,29 +244,56 @@ body.nav-lock{overflow:hidden}
    NEXT SERVICE: quiet ruled row completing the four page loop,
    split so a visitor can step back or forward through the set
    ============================================================ */
-/* DEALS — the full list, added 2026-08-04. Sits after the Areas of Support
-   flow so the other three service pages keep their shared shape. Every deal
-   is a mark plus a short line on hover or focus; none is singled out. */
-.deals{padding:clamp(96px,12vw,150px) var(--gutter) clamp(80px,10vw,120px);
-  border-top:1px solid var(--rule);background:var(--ivory)}
-.deals-inner{max-width:1180px;margin:0 auto}
-.deals-head{max-width:760px;margin-bottom:clamp(48px,6vw,72px)}
-.deals-head h2{font-weight:200;font-size:clamp(1.6rem,3vw,2.4rem);line-height:1.18;
-  letter-spacing:-.008em;margin-bottom:clamp(18px,2.2vw,26px)}
-.deals-head p{color:var(--ink-60);max-width:62ch}
-.deals-list{display:flex;flex-direction:column}
-.deals-row{display:flex;align-items:center;gap:clamp(28px,4vw,56px);
-  padding:clamp(22px,2.8vw,32px) 4px;border-bottom:1px solid var(--rule)}
-.deals-row:first-child{border-top:1px solid var(--rule)}
-.deal-logo{flex:0 0 clamp(140px,16vw,196px);display:flex;align-items:center;justify-content:flex-start}
-.deal-logo img{max-width:100%;max-height:clamp(36px,4vw,48px);width:auto;height:auto;
-  object-fit:contain;opacity:.85}
-.deal-logo .deal-name{font-size:.92rem;font-weight:400;letter-spacing:.02em;color:var(--midnight)}
-.deal-copy{flex:1 1 auto;min-width:0;color:var(--ink-60);font-size:.92rem;line-height:1.6;max-width:60ch}
-.deals-note{margin-top:clamp(40px,5vw,60px);font-size:.85rem;color:var(--ink-40);font-style:italic;max-width:70ch}
-@media (max-width:700px){
-  .deals-row{flex-direction:column;align-items:flex-start;gap:14px}
-  .deal-logo{flex:none}
+/* ASSOCIATIONS — swapped in 2026-08-07 in place of the old Deals and
+   Mandates row list, reusing the homepage's "Our Associations" scroll rail
+   verbatim (same section, same #deals anchor so the homepage's own deal
+   links keep working) rather than maintaining two different logo-strip
+   layouts. Full sourcing/legal notes: assets/logos/associations-color/. */
+.assoc{position:relative;z-index:5;background:var(--ivory);color:var(--midnight);
+  padding:clamp(64px,7vw,96px) 0;border-top:1px solid var(--rule)}
+.assoc-head{max-width:1180px;margin:0 auto clamp(34px,4vw,48px);padding:0 var(--gutter);
+  display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.assoc-eyebrow{display:block;font-size:.72rem;font-weight:400;letter-spacing:.22em;
+  text-transform:uppercase;color:rgba(7,27,59,.55);margin-bottom:clamp(10px,1.4vw,14px)}
+.assoc-title{font-weight:200;font-size:clamp(1.5rem,2.8vw,2.2rem);line-height:1.15;letter-spacing:-.006em}
+.assoc-link{font-size:.72rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--midnight);text-decoration:none;border-bottom:1px solid var(--ink-15);
+  padding-bottom:5px;white-space:nowrap;transition:border-color .3s ease,color .3s ease}
+.assoc-link:hover{color:var(--gold);border-color:var(--gold)}
+/* Track auto-scrolls (marquee) at a steady drift; hover/focus pauses it.
+   Content is duplicated once (assoc-track-group x2) so translateX(-50%)
+   loops seamlessly — spacing lives on the item margin, not track gap, so
+   the two halves are pixel-identical and the seam is invisible. */
+.assoc-rail{position:relative;overflow:hidden;padding:0 var(--gutter)}
+.assoc-rail::before,.assoc-rail::after{content:"";position:absolute;top:0;bottom:0;width:clamp(24px,6vw,72px);
+  z-index:2;pointer-events:none}
+.assoc-rail::before{left:0;background:linear-gradient(90deg,var(--ivory),rgba(248,246,241,0))}
+.assoc-rail::after{right:0;background:linear-gradient(270deg,var(--ivory),rgba(248,246,241,0))}
+.assoc-track{display:flex;width:max-content;animation:assoc-marquee 70s linear infinite}
+.assoc-track:hover,.assoc-track:focus-within{animation-play-state:paused}
+.assoc-track-group{display:flex}
+.assoc-item{flex:0 0 auto;width:clamp(150px,15vw,196px);height:clamp(74px,8vw,92px);
+  margin-right:clamp(8px,1.4vw,20px);
+  display:flex;align-items:center;justify-content:center;padding:clamp(12px,1.6vw,18px);
+  text-decoration:none;color:inherit;border:1px solid transparent;
+  transition:border-color .3s ease,background-color .3s ease}
+@keyframes assoc-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.assoc-item:hover,.assoc-item:focus-visible{border-color:var(--rule);background:rgba(7,27,59,.02)}
+.assoc-item:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.assoc-item img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+/* Marks with no artwork yet fall back to a typeset name, same footprint. */
+.assoc-name{font-size:.82rem;font-weight:300;letter-spacing:.04em;text-align:center;line-height:1.35;
+  color:var(--ink-60);transition:color .3s ease}
+.assoc-item:hover .assoc-name,.assoc-item:focus-visible .assoc-name{color:var(--midnight)}
+@media (max-width:760px){
+  .assoc-head{flex-direction:column;align-items:flex-start;gap:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  .assoc-track{animation:none;width:auto;overflow-x:auto;scroll-snap-type:x proximity;
+    scroll-behavior:auto;scrollbar-width:none;-ms-overflow-style:none}
+  .assoc-track::-webkit-scrollbar{display:none}
+  .assoc-item{scroll-snap-align:start}
+  .assoc-track-group:nth-of-type(2){display:none}
 }
 
 .next{position:relative;z-index:5;display:flex;background:var(--midnight);color:var(--ivory);
@@ -415,7 +442,7 @@ body.nav-lock{overflow:hidden}
           <li><a href="legacy-and-impact.html">Legacy and Impact</a></li>
         </ul>
       </li>
-      <li><a href="impact.html">Beyond Wealth</a></li>
+      <li><a href="beyond-wealth.html">Beyond Wealth</a></li>
       <li><a href="corporate-services.html">Corporate Services</a></li>
     </ul>
   </div>
@@ -509,76 +536,79 @@ body.nav-lock{overflow:hidden}
 </section>
 </div>
 
-<section class="deals" id="deals">
-  <div class="deals-inner">
-    <div class="deals-head">
-      <p class="eyebrow">Deals and Mandates</p>
-      <h2>Advised on strategic transactions across diverse sectors</h2>
-      <p>Investment mandates, capital raising, business structuring, and cross-border engagements. Some of these were proprietary, some were mandates, and several were both.</p>
+<!-- Swapped 2026-08-07: was the "Deals and Mandates" row list (13 marks incl.
+     University Living, QNu Labs, Adukale, Rotoris, Harvesting, Automatic
+     Hospitality, dltledgers — none of which have sourced logos). Replaced
+     with a verbatim copy of the homepage's "Our Associations" rail per
+     Shuja's direction, id kept as "deals" so the homepage's own links here
+     (private-equity.html#deals) still resolve. -->
+<section class="assoc" id="deals">
+  <div class="assoc-head">
+    <div>
+      <span class="assoc-eyebrow">Our Associations</span>
+      <h2 class="assoc-title">The names we work alongside.</h2>
     </div>
-    <div class="deals-list">
-        <div class="deals-row">
-          <div class="deal-logo"><img src="../assets/logos/deals/nykaa.png" alt="Nykaa" loading="lazy"></div>
-          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="deals-row">
-          <div class="deal-logo"><img src="../assets/logos/deals/universityliving.png" alt="University Living" loading="lazy"></div>
-          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="deals-row">
-          <div class="deal-logo"><img src="../assets/logos/deals/kreedo.png" alt="Kreedo" loading="lazy"></div>
-          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="deals-row">
-          <div class="deal-logo"><img src="../assets/logos/deals/qnulabs.png" alt="QNu Labs" loading="lazy"></div>
-          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="deals-row">
-          <div class="deal-logo"><img src="../assets/logos/deals/brijrama.png" alt="BrijRama Palace" loading="lazy"></div>
-          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="deals-row">
-          <div class="deal-logo"><img src="../assets/logos/deals/adukale.png" alt="Adukale" loading="lazy"></div>
-          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="deals-row">
-          <div class="deal-logo"><img src="../assets/logos/deals/rotoris.png" alt="Rotoris" loading="lazy"></div>
-          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="deals-row">
-          <div class="deal-logo"><img src="../assets/logos/deals/harvesting.png" alt="Harvesting" loading="lazy"></div>
-          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="deals-row">
-          <div class="deal-logo"><img src="../assets/logos/deals/upaghna.png" alt="Upaghna Ventures" loading="lazy"></div>
-          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="deals-row">
-          <div class="deal-logo"><img src="../assets/logos/deals/tugkraft.png" alt="Tugkraft" loading="lazy"></div>
-          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="deals-row">
-          <div class="deal-logo"><span class="deal-name">N Gen</span></div>
-          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="deals-row">
-          <div class="deal-logo"><span class="deal-name">Nublo</span></div>
-          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="deals-row">
-          <div class="deal-logo"><span class="deal-name">CreditTap</span></div>
-          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="deals-row">
-          <div class="deal-logo"><span class="deal-name">Automatic Hospitality (India)</span></div>
-          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="deals-row">
-          <div class="deal-logo"><span class="deal-name">dltledgers</span></div>
-          <p class="deal-copy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
+    <a class="assoc-link" href="associations.html">More on our associations</a>
+  </div>
+  <div class="assoc-rail">
+    <div class="assoc-track" aria-label="Our associations">
+      <div class="assoc-track-group" role="list">
+        <a class="assoc-item" href="associations.html" aria-label="Jane Goodall, view on Associations"><img src="../assets/logos/associations-color/01-jane-goodall-institute-WHITE-VARIANT-ONLY.png" alt="Jane Goodall Institute" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="Ol Pejeta, view on Associations"><img src="../assets/logos/associations-color/02-ol-pejeta-conservancy.png" alt="Ol Pejeta Conservancy" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="LSE Student Union India Forum, view on Associations"><img src="../assets/logos/associations-color/03b-lse-student-union-wikimedia.png" alt="LSE Student Union India Forum" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="Fellow of the Royal Society of Arts, view on Associations"><img src="../assets/logos/associations-color/04-fellow-of-the-royal-society-of-arts-frsa.png" alt="Fellow of the Royal Society of Arts" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="New York University, view on Associations"><img src="../assets/logos/associations-color/05-new-york-university.png" alt="New York University" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="University of Erlangen-N&uuml;rnberg, view on Associations"><img src="../assets/logos/associations-color/06-university-of-erlangen-nurnberg.png" alt="University of Erlangen-N&uuml;rnberg" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="Queen Elizabeth Diamond Jubilee Trust, view on Associations"><img src="../assets/logos/associations-color/07-queen-elizabeth-diamond-jubilee-trust-TRUST-DEFUNCT-2020-NOBODY-TO-CLEAR-USE.png" alt="Queen Elizabeth Diamond Jubilee Trust" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="Atal Tinkering Labs, NITI Aayog, view on Associations"><img src="../assets/logos/associations-color/08-atal-innovation-mission-NITI-AAYOG-RESTRICTED-DO-NOT-PUBLISH.png" alt="Atal Tinkering Labs, NITI Aayog" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="Teach For India, view on Associations"><img src="../assets/logos/associations-color/09-teach-for-india.png" alt="Teach For India" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="CRY, view on Associations"><img src="../assets/logos/associations-color/10-cry-child-rights-and-you-BRAND-IS-MONOCHROME-BLACK.png" alt="CRY (Child Rights and You)" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="PFA, view on Associations"><img src="../assets/logos/associations-color/11-pfa-people-for-animals.png" alt="PFA (People for Animals)" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="Acumen Fund, view on Associations"><img src="../assets/logos/associations-color/12-acumen-fund.png" alt="Acumen Fund" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="Tata Literature Live, view on Associations"><img src="../assets/logos/associations-color/13-tata-literature-live.png" alt="Tata Literature Live" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="Lexus Life, view on Associations"><img src="../assets/logos/associations-color/14-lexus-PARENT-LOGO-NOT-LEXUS-LIFE-SUBMARK-BRAND-IS-MONOCHROME.png" alt="Lexus Life" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="BWC, view on Associations"><img src="../assets/logos/associations-color/15-bwc-beauty-without-cruelty-LOWRES.png" alt="BWC (Beauty Without Cruelty)" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="CUPA, view on Associations"><img src="../assets/logos/associations-color/16-cupa.png" alt="CUPA (Compassion Unlimited Plus Action)" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="ARF, view on Associations"><img src="../assets/logos/associations-color/17-arf-animal-rights-fund-UNCONFIRMED-MATCH.png" alt="ARF (Animal Rights Fund)" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="associations.html" aria-label="Karuna Mother Teresa Charitable Trust, view on Associations"><span class="assoc-name">Karuna Mother Teresa Charitable Trust</span></a>
+        <a class="assoc-item" href="private-equity.html#deals" aria-label="Nykaa, view on Private Equity"><img src="../assets/logos/associations-color/19-nykaa.png" alt="Nykaa" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="private-equity.html#deals" aria-label="Kreedo, view on Private Equity"><img src="../assets/logos/associations-color/20-kreedo.png" alt="Kreedo" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="private-equity.html#deals" aria-label="BrijRama Palace, view on Private Equity"><img src="../assets/logos/associations-color/21-brij-brijrama-palace.png" alt="BrijRama Palace" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="private-equity.html#deals" aria-label="Upaghna Ventures, view on Private Equity"><img src="../assets/logos/associations-color/22-upaghna-ventures-BRAND-IS-MONOCHROME-NAVY.png" alt="Upaghna Ventures" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="private-equity.html#deals" aria-label="Tugkraft, view on Private Equity"><img src="../assets/logos/associations-color/23-tugkraft.png" alt="Tugkraft" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="private-equity.html#deals" aria-label="N Gen, view on Private Equity"><img src="../assets/logos/associations-color/24-ngen-markets-UNCONFIRMED-MATCH.png" alt="N Gen" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" href="private-equity.html#deals" aria-label="Nublo, view on Private Equity"><span class="assoc-name">Nublo</span></a>
+        <a class="assoc-item" href="private-equity.html#deals" aria-label="Credit Tap, view on Private Equity"><span class="assoc-name">Credit Tap</span></a>
+      </div>
+      <div class="assoc-track-group" role="presentation" aria-hidden="true" inert>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="Jane Goodall, view on Associations"><img src="../assets/logos/associations-color/01-jane-goodall-institute-WHITE-VARIANT-ONLY.png" alt="Jane Goodall Institute" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="Ol Pejeta, view on Associations"><img src="../assets/logos/associations-color/02-ol-pejeta-conservancy.png" alt="Ol Pejeta Conservancy" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="LSE Student Union India Forum, view on Associations"><img src="../assets/logos/associations-color/03b-lse-student-union-wikimedia.png" alt="LSE Student Union India Forum" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="Fellow of the Royal Society of Arts, view on Associations"><img src="../assets/logos/associations-color/04-fellow-of-the-royal-society-of-arts-frsa.png" alt="Fellow of the Royal Society of Arts" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="New York University, view on Associations"><img src="../assets/logos/associations-color/05-new-york-university.png" alt="New York University" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="University of Erlangen-N&uuml;rnberg, view on Associations"><img src="../assets/logos/associations-color/06-university-of-erlangen-nurnberg.png" alt="University of Erlangen-N&uuml;rnberg" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="Queen Elizabeth Diamond Jubilee Trust, view on Associations"><img src="../assets/logos/associations-color/07-queen-elizabeth-diamond-jubilee-trust-TRUST-DEFUNCT-2020-NOBODY-TO-CLEAR-USE.png" alt="Queen Elizabeth Diamond Jubilee Trust" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="Atal Tinkering Labs, NITI Aayog, view on Associations"><img src="../assets/logos/associations-color/08-atal-innovation-mission-NITI-AAYOG-RESTRICTED-DO-NOT-PUBLISH.png" alt="Atal Tinkering Labs, NITI Aayog" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="Teach For India, view on Associations"><img src="../assets/logos/associations-color/09-teach-for-india.png" alt="Teach For India" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="CRY, view on Associations"><img src="../assets/logos/associations-color/10-cry-child-rights-and-you-BRAND-IS-MONOCHROME-BLACK.png" alt="CRY (Child Rights and You)" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="PFA, view on Associations"><img src="../assets/logos/associations-color/11-pfa-people-for-animals.png" alt="PFA (People for Animals)" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="Acumen Fund, view on Associations"><img src="../assets/logos/associations-color/12-acumen-fund.png" alt="Acumen Fund" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="Tata Literature Live, view on Associations"><img src="../assets/logos/associations-color/13-tata-literature-live.png" alt="Tata Literature Live" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="Lexus Life, view on Associations"><img src="../assets/logos/associations-color/14-lexus-PARENT-LOGO-NOT-LEXUS-LIFE-SUBMARK-BRAND-IS-MONOCHROME.png" alt="Lexus Life" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="BWC, view on Associations"><img src="../assets/logos/associations-color/15-bwc-beauty-without-cruelty-LOWRES.png" alt="BWC (Beauty Without Cruelty)" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="CUPA, view on Associations"><img src="../assets/logos/associations-color/16-cupa.png" alt="CUPA (Compassion Unlimited Plus Action)" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="ARF, view on Associations"><img src="../assets/logos/associations-color/17-arf-animal-rights-fund-UNCONFIRMED-MATCH.png" alt="ARF (Animal Rights Fund)" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="associations.html" aria-label="Karuna Mother Teresa Charitable Trust, view on Associations"><span class="assoc-name">Karuna Mother Teresa Charitable Trust</span></a>
+        <a class="assoc-item" tabindex="-1" href="private-equity.html#deals" aria-label="Nykaa, view on Private Equity"><img src="../assets/logos/associations-color/19-nykaa.png" alt="Nykaa" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="private-equity.html#deals" aria-label="Kreedo, view on Private Equity"><img src="../assets/logos/associations-color/20-kreedo.png" alt="Kreedo" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="private-equity.html#deals" aria-label="BrijRama Palace, view on Private Equity"><img src="../assets/logos/associations-color/21-brij-brijrama-palace.png" alt="BrijRama Palace" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="private-equity.html#deals" aria-label="Upaghna Ventures, view on Private Equity"><img src="../assets/logos/associations-color/22-upaghna-ventures-BRAND-IS-MONOCHROME-NAVY.png" alt="Upaghna Ventures" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="private-equity.html#deals" aria-label="Tugkraft, view on Private Equity"><img src="../assets/logos/associations-color/23-tugkraft.png" alt="Tugkraft" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="private-equity.html#deals" aria-label="N Gen, view on Private Equity"><img src="../assets/logos/associations-color/24-ngen-markets-UNCONFIRMED-MATCH.png" alt="N Gen" loading="lazy" width="220" height="75"></a>
+        <a class="assoc-item" tabindex="-1" href="private-equity.html#deals" aria-label="Nublo, view on Private Equity"><span class="assoc-name">Nublo</span></a>
+        <a class="assoc-item" tabindex="-1" href="private-equity.html#deals" aria-label="Credit Tap, view on Private Equity"><span class="assoc-name">Credit Tap</span></a>
+      </div>
     </div>
-    <p class="deals-note">Placeholder state. Logo placement and copy are pending client sign-off, and five marks are pending artwork. Named transactions require written clearance before publish.</p>
   </div>
 </section>
 
@@ -621,7 +651,7 @@ body.nav-lock{overflow:hidden}
         <li><a href="homepage.html">Home</a></li>
         <li><a href="about-us.html">About Us</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="impact.html">Beyond Wealth</a></li>
+        <li><a href="beyond-wealth.html">Beyond Wealth</a></li>
       <li><a href="corporate-services.html">Corporate Services</a></li>
       </ul>
     </div>
@@ -637,7 +667,7 @@ body.nav-lock{overflow:hidden}
     <div class="footer-col">
       <h4 class="footer-col-title">Beyond Wealth</h4>
       <ul class="footer-col-list">
-        <li><a href="impact.html">Beyond Wealth</a></li>
+        <li><a href="beyond-wealth.html">Beyond Wealth</a></li>
         <li><a href="education-community-animal-welfare.html">Education, Community &amp; Animal Welfare</a></li>
         <li><a href="thoughtful-leadership-mentorship.html">Thoughtful Leadership &amp; Mentorship</a></li>
         <li><a href="associations.html">Associations</a></li>

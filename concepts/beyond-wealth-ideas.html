@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regis and Savoy Capital · Where Ideas Shape the World · Beyond Wealth</title>
+<meta name="description" content="From London to New York, Germany to India — the rooms and conversations that have shaped how we think about business, leadership and India's place in the world.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500&family=Spectral:ital,wght@0,200;0,300;1,200;1,300&family=Marcellus&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --midnight:#0A0A0A;
+  --ivory:#F8F6F1;
+  --gold:#C8A25A;
+  --display:'Archivo',system-ui,sans-serif;
+  --figure:'Spectral',Georgia,serif;
+  --gutter:clamp(24px,5vw,72px);
+  --nav-h:96px;
+
+  --night:#0A0A0A;
+  --paper-90:rgba(248,246,241,.9);
+  --paper-78:rgba(248,246,241,.78);
+  --paper-55:rgba(248,246,241,.55);
+  --rule-light:rgba(248,246,241,.22);
+  --rule-night:rgba(248,246,241,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+body{
+  font-family:var(--display);
+  font-weight:300;
+  font-size:1.0625rem;
+  line-height:1.65;
+  letter-spacing:.005em;
+  background:var(--night);
+  color:var(--paper-90);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+::selection{background:var(--gold);color:var(--night)}
+img{max-width:100%;display:block}
+a{color:inherit}
+strong,b{font-weight:400}
+
+/* NAV — identical to beyond-wealth-coming-home.html */
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;background:transparent;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:14px;padding:clamp(18px,3vw,32px) var(--gutter);transition:background .35s ease}
+.nav-mark{display:flex;align-items:center;gap:14px;color:var(--ivory);text-decoration:none}
+.nav.scrolled{background:var(--midnight)}
+.nav-logo{height:60px;width:auto;display:block}
+.nav-divider{width:1px;height:48px;background:rgba(248,246,241,.35)}
+.nav-wordmark{display:flex;flex-direction:column;line-height:1.15}
+.nav-mark .wm-name{font-family:'Cormorant Garamond',var(--figure);font-size:1.15rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.nav-mark .wm-sub{font-size:.625rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;
+  padding:0;background:none;border:none;cursor:pointer;z-index:41}
+.nav-toggle-bar{display:block;width:100%;height:1.5px;background:var(--ivory);transition:transform .3s ease,opacity .3s ease}
+.nav.menu-open .nav-toggle-bar:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav.menu-open .nav-toggle-bar:nth-child(2){opacity:0}
+.nav.menu-open .nav-toggle-bar:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+body.nav-lock{overflow:hidden}
+
+.nav-right{display:flex;align-items:center;gap:clamp(22px,2.8vw,44px);flex-wrap:wrap}
+.nav-links{display:flex;align-items:center;gap:clamp(18px,2.4vw,36px);list-style:none}
+.nav-links a{font-family:var(--display);font-weight:300;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory);text-decoration:none;white-space:nowrap;transition:color .3s ease}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a.current{color:var(--gold)}
+
+.nav-dropdown{position:relative;display:inline-flex;align-items:center}
+.nav-caret-btn{background:none;border:none;padding:4px;margin:-4px 0 -4px -2px;display:inline-flex;align-items:center;cursor:pointer;color:var(--ivory)}
+.nav-dropdown.open .nav-caret{transform:rotate(225deg);margin-top:2px}
+.nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.nav-dropdown>a{display:inline-flex;align-items:center;gap:7px}
+.nav-caret{width:5px;height:5px;margin-top:-2px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;
+  transform:rotate(45deg);transition:transform .3s ease}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 22px);left:50%;transform:translateX(-50%) translateY(-8px);
+  min-width:236px;list-style:none;margin:0;padding:16px 0;text-align:left;
+  background:var(--midnight);border:1px solid rgba(248,246,241,.14);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .3s ease,transform .3s ease,visibility .3s;z-index:50}
+.nav-dropdown-menu li{padding:0}
+.nav-dropdown-menu a{display:block;padding:11px 26px;font-family:var(--display);font-weight:300;
+  font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;
+  color:var(--ivory);text-decoration:none;transition:color .3s ease}
+.nav-dropdown-menu a:hover{color:var(--gold)}
+@media (hover:hover) and (pointer:fine){
+  .nav-dropdown::after{content:"";position:absolute;top:100%;left:50%;
+    transform:translateX(-50%);width:236px;height:22px}
+  .nav-dropdown:hover .nav-caret,.nav-dropdown:focus-within .nav-caret{transform:rotate(225deg);margin-top:2px}
+  .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{
+    opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+}
+
+@media (max-width:760px){
+  .nav{justify-content:space-between;text-align:left}
+  .nav.menu-open{background:var(--midnight)}
+  .nav-toggle{display:flex}
+  .nav-right{position:fixed;top:var(--nav-h);left:0;right:0;margin:0;height:50vh;
+    background:var(--midnight);flex-direction:column;align-items:stretch;justify-content:flex-start;
+    padding:8px var(--gutter) 32px;overflow-y:auto;box-shadow:0 24px 48px rgba(0,0,0,.35);
+    opacity:0;visibility:hidden;transform:translateY(-16px);
+    transition:opacity .3s ease,transform .3s ease,visibility .3s}
+  .nav.menu-open .nav-right{opacity:1;visibility:visible;transform:translateY(0)}
+  .nav-links{flex-direction:column;align-items:flex-start;gap:22px;flex-wrap:nowrap;row-gap:0;width:100%;padding-top:24px}
+  .nav-links>li{width:100%}
+  .nav-dropdown{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between}
+  .nav-caret-btn{padding:10px}
+  .nav-dropdown-menu{position:static;left:auto;flex-basis:100%;width:100%;min-width:0;
+    border:none;background:none;padding:0;margin:0;opacity:1;visibility:visible;pointer-events:auto;
+    max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .nav-dropdown.open .nav-dropdown-menu{max-height:220px;margin-top:2px;padding-bottom:4px;transform:none}
+  .nav-dropdown-menu a{padding:9px 0 9px 18px;font-size:.66rem}
+}
+
+/* DECK — three full-viewport slides, one visible at a time, image left (letterboxed) / copy right */
+.deck{position:relative;height:100svh;min-height:560px;background:var(--night);overflow:hidden}
+.slide{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,50%) minmax(0,50%);
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .7s ease}
+.slide.active{opacity:1;visibility:visible;pointer-events:auto}
+
+/* image left. Slide 1 letterboxes to fit (black fills whatever it doesn't cover); slides 2-3 crop to fill */
+.slide-media{position:relative;height:100%;overflow:hidden;background:#000;
+  display:flex;align-items:center;justify-content:center}
+.slide-media img{width:100%;height:100%;object-fit:cover;object-position:center;
+  filter:saturate(.82) brightness(.82) contrast(1.05)}
+.slide[data-slide="1"] .slide-media img{object-fit:contain}
+.slide-media-fade{position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(90deg,rgba(10,10,10,0) 55%,rgba(10,10,10,.55) 82%,var(--night) 100%),
+    linear-gradient(0deg,rgba(10,10,10,.55) 0%,rgba(10,10,10,0) 22%,rgba(10,10,10,0) 78%,rgba(10,10,10,.4) 100%)}
+
+.slide-copy{position:relative;z-index:1;height:100%;overflow-y:auto;display:flex;flex-direction:column;justify-content:safe center;
+  padding:calc(var(--nav-h) + 32px) clamp(36px,5vw,84px) clamp(64px,7vw,96px);background:var(--night)}
+.slide-back{display:inline-flex;align-items:center;gap:9px;font-size:.68rem;font-weight:400;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--paper-55);text-decoration:none;margin-bottom:clamp(26px,3vw,38px);
+  transition:color .3s ease;width:fit-content}
+.slide-back svg{transform:rotate(180deg)}
+.slide-back:hover{color:var(--gold)}
+.slide-eyebrow{font-size:.72rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:clamp(16px,1.8vw,22px)}
+.slide-title{font-weight:200;font-size:clamp(2rem,3.8vw,3.2rem);line-height:1.14;letter-spacing:-.01em;color:var(--ivory)}
+.slide-kicker{font-family:var(--figure);font-style:italic;font-weight:300;color:var(--paper-78);
+  font-size:clamp(1rem,1.4vw,1.1rem);margin-top:clamp(12px,1.4vw,16px)}
+.slide-rule{width:56px;height:1px;background:rgba(200,162,90,.5);margin:clamp(26px,3vw,36px) 0}
+
+.slide-body{display:flex;flex-direction:column;color:var(--paper-78);font-size:1rem;line-height:1.7;max-width:46ch}
+.slide-body p{margin:0}
+.slide-beat{display:flex;flex-direction:column;gap:.6em}
+.slide-beat + .slide-beat{margin-top:1.6em}
+.slide-pull{font-family:var(--figure);font-style:italic;font-weight:300;color:var(--gold);
+  font-size:clamp(1.1rem,1.6vw,1.3rem);line-height:1.5;margin-top:clamp(28px,3.2vw,38px);max-width:40ch}
+
+.mention-list{display:flex;flex-direction:column;max-width:560px}
+.mention-row{display:flex;align-items:center;gap:clamp(18px,2.2vw,24px);padding:clamp(18px,2.2vw,24px) 0;border-top:1px solid var(--rule-night)}
+.mention-row:first-child{border-top:none;padding-top:0}
+.mention-logo{flex:none;width:130px;height:90px;border-radius:10px;background:rgba(248,246,241,.94);
+  display:flex;align-items:center;justify-content:center;padding:14px}
+.mention-logo img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+.mention-logo-name{font-family:var(--display);font-weight:600;font-size:.68rem;letter-spacing:.03em;
+  line-height:1.25;text-align:center;color:#071B3B}
+.mention-text{display:flex;flex-direction:column;min-width:0}
+.mention-name{font-family:var(--display);font-weight:400;font-size:1.05rem;color:var(--ivory);margin-bottom:.4em}
+.mention-desc{font-size:.9rem;color:var(--paper-55);line-height:1.6;max-width:42ch}
+
+/* ARROWS — vertically centred, pinned to the left/right edges of the slide */
+.deck-arrow{position:absolute;z-index:3;top:50%;transform:translateY(-50%);flex:none;width:68px;height:68px;border-radius:50%;
+  border:1px solid rgba(248,246,241,.3);background:rgba(10,10,10,.4);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;color:var(--ivory);cursor:pointer;
+  transition:border-color .3s ease,background-color .3s ease}
+.deck-arrow:hover{border-color:var(--gold);background:rgba(200,162,90,.14)}
+.deck-arrow:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.deck-prev{left:clamp(16px,3vw,40px)}
+.deck-next{right:clamp(16px,3vw,40px)}
+
+/* PAGER — bottom-left corner */
+.deck-pager{position:absolute;z-index:2;left:clamp(24px,3.5vw,40px);bottom:clamp(24px,3.5vw,40px);
+  font-size:1.15rem;font-weight:400;letter-spacing:.16em;color:var(--paper-78)}
+.deck-pager .deck-current{color:var(--gold)}
+
+@media (max-width:900px){
+  .deck{height:100svh}
+  .slide{grid-template-columns:1fr;grid-template-rows:42svh 1fr;overflow-y:auto}
+  .slide-media{height:42svh}
+  .slide-media-fade{background:
+      linear-gradient(0deg,var(--night) 0%,rgba(10,10,10,.35) 16%,rgba(10,10,10,0) 38%,rgba(10,10,10,0) 100%)}
+  .slide-copy{padding-top:calc(var(--nav-h) + 32px)}
+  .deck-arrow{top:21svh}
+}
+@media (max-width:460px){
+  .slide{grid-template-rows:36svh 1fr}
+  .slide-media{height:36svh}
+  .deck-arrow{top:18svh}
+  .mention-logo{width:100px;height:68px}
+}
+
+/* FOOTER — unchanged */
+.footer{position:relative;z-index:5;background:var(--midnight);color:rgba(248,246,241,.7);padding:clamp(48px,6vw,72px) var(--gutter) clamp(32px,4vw,40px)}
+.footer-top{display:flex;align-items:center;flex-wrap:wrap;gap:clamp(24px,4vw,40px)}
+.footer-logo{height:clamp(72px,8vw,96px);width:auto;display:block}
+.footer-top .nav-divider{height:clamp(44px,5vw,64px)}
+.footer-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(28px,4vw,56px);margin-top:clamp(40px,5vw,64px)}
+.footer-col-title{font-family:var(--display);font-weight:400;font-size:1.05rem;letter-spacing:.02em;color:var(--ivory);margin:0 0 clamp(18px,2vw,26px)}
+.footer-col-list{list-style:none;display:flex;flex-direction:column;gap:clamp(12px,1.4vw,16px)}
+.footer-col-list a{font-size:.8rem;font-weight:300;letter-spacing:.04em;color:rgba(248,246,241,.62);text-decoration:none;transition:color .25s}
+.footer-col-list a:hover{color:var(--gold)}
+.footer-rule{height:1px;background:var(--rule-light);margin:clamp(40px,5vw,64px) 0 clamp(24px,3vw,32px)}
+.footer-bottom{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:.75rem;font-weight:300;letter-spacing:.04em;color:rgba(248,246,241,.5);line-height:1.8}
+.footer-bottom p{max-width:70ch}
+@media (max-width:900px){
+  .footer-cols{grid-template-columns:repeat(2,1fr);gap:clamp(28px,5vw,40px)}
+}
+@media (max-width:720px){
+  .footer-bottom{flex-direction:column}
+  .footer-top{flex-direction:column;align-items:center;text-align:center}
+}
+@media (max-width:460px){
+  .footer-cols{grid-template-columns:1fr}
+}
+
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+<nav class="nav">
+  <a class="nav-mark" href="homepage.html" aria-label="Regis and Savoy Capital, home">
+    <img class="nav-logo" src="../assets/RandS White Transparent logo.png" alt="">
+    <span class="nav-divider" aria-hidden="true"></span>
+    <span class="nav-wordmark">
+      <span class="wm-name">Regis and Savoy Capital</span>
+      <span class="wm-sub">Pure trust, pure advice</span>
+    </span>
+  </a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+  </button>
+  <div class="nav-right" id="nav-menu">
+    <ul class="nav-links">
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="wealth-management.html">Wealth Management</a></li>
+      <li class="nav-dropdown">
+        <a href="services.html">Our Services</a>
+        <button class="nav-caret-btn" type="button" aria-expanded="false" aria-label="Toggle Our Services menu"><span class="nav-caret" aria-hidden="true"></span></button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="private-equity.html">Private Equity</a></li>
+          <li><a href="family-office.html">Family Office</a></li>
+          <li><a href="legacy-and-impact.html">Legacy and Impact</a></li>
+        </ul>
+      </li>
+      <li><a href="beyond-wealth.html" class="current">Beyond Wealth</a></li>
+      <li><a href="corporate-services.html">Corporate Services</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="deck" aria-roledescription="carousel" aria-label="Where Ideas Shape the World">
+
+  <article class="slide active" data-slide="1">
+    <div class="slide-media">
+      <img src="../assets/beyond-wealth/ideas/lexus-talk-mumbai.jpg" alt="">
+      <div class="slide-media-fade"></div>
+    </div>
+    <div class="slide-copy">
+      <a class="slide-back" href="beyond-wealth.html">
+        <svg width="14" height="10" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Beyond Wealth
+      </a>
+      <p class="slide-eyebrow">Thoughtful Leadership, India &amp; International</p>
+      <h1 class="slide-title">Lexus Talk, Mumbai.</h1>
+      <p class="slide-kicker">Where Ideas Shape the World</p>
+      <div class="slide-rule"></div>
+      <div class="slide-body">
+        <div class="slide-beat">
+          <p>Some change begins with action.</p>
+          <p>Other change begins with a conversation.</p>
+        </div>
+        <div class="slide-beat">
+          <p>Our journey has taken us into rooms where people from very different worlds come together to think about what comes next.</p>
+          <p>One of those rooms was the Lexus Talk stage in Mumbai.</p>
+        </div>
+        <div class="slide-beat">
+          <p>These aren&rsquo;t simply speaking engagements.</p>
+          <p>They are opportunities to listen, challenge assumptions, exchange perspectives and contribute to conversations about business, emerging economies, leadership, innovation and India&rsquo;s place in the world.</p>
+        </div>
+      </div>
+      <p class="slide-pull">Sometimes the first step towards changing the world is simply bringing the right people together to imagine it differently.</p>
+    </div>
+  </article>
+
+  <article class="slide" data-slide="2">
+    <div class="slide-media">
+      <img src="../assets/beyond-wealth/ideas/global-ideas-platforms.jpg" alt="">
+      <div class="slide-media-fade"></div>
+    </div>
+    <div class="slide-copy">
+      <a class="slide-back" href="beyond-wealth.html">
+        <svg width="14" height="10" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Beyond Wealth
+      </a>
+      <p class="slide-eyebrow">Mentions</p>
+      <h1 class="slide-title">Global Ideas Platforms.</h1>
+      <p class="slide-kicker">London &middot; New York &middot; Westminster</p>
+      <div class="slide-rule"></div>
+      <div class="mention-list">
+        <div class="mention-row">
+          <div class="mention-logo"><img src="../assets/logos/associations/lse.png" alt="London School of Economics" loading="lazy"></div>
+          <div class="mention-text">
+            <p class="mention-name">London School of Economics</p>
+            <p class="mention-desc">Knowledge partner, helping bring together founders, policymakers, entrepreneurs, journalists, business leaders and public intellectuals to explore ideas shaping India&rsquo;s future.</p>
+          </div>
+        </div>
+        <div class="mention-row">
+          <div class="mention-logo"><img src="../assets/logos/associations/nyu.png" alt="New York University" loading="lazy"></div>
+          <div class="mention-text">
+            <p class="mention-name">New York University</p>
+            <p class="mention-desc">Invited speaker at the Centre for Emerging Economies.</p>
+          </div>
+        </div>
+        <div class="mention-row">
+          <!-- No official mark sourced for the House of Commons: typeset name inside the logo chip -->
+          <div class="mention-logo" aria-hidden="true"><span class="mention-logo-name">House of Commons</span></div>
+          <div class="mention-text">
+            <p class="mention-name">House of Commons, Westminster</p>
+            <p class="mention-desc">Shared perspectives on Emerging India in conversation with UK policymakers.</p>
+          </div>
+        </div>
+        <div class="mention-row">
+          <div class="mention-logo"><img src="../assets/logos/associations/frsa.png" alt="Fellow of the Royal Society of Arts" loading="lazy"></div>
+          <div class="mention-text">
+            <p class="mention-name">Fellow of the Royal Society of Arts</p>
+            <p class="mention-desc">Honoured in recognition of contributions to business and society.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="slide" data-slide="3">
+    <div class="slide-media">
+      <img src="../assets/beyond-wealth/ideas/india-policy-enterprise.jpg" alt="">
+      <div class="slide-media-fade"></div>
+    </div>
+    <div class="slide-copy">
+      <a class="slide-back" href="beyond-wealth.html">
+        <svg width="14" height="10" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Beyond Wealth
+      </a>
+      <p class="slide-eyebrow">Mentions</p>
+      <h1 class="slide-title">India Policy &amp; Enterprise.</h1>
+      <p class="slide-kicker">Mumbai &middot; New Delhi</p>
+      <div class="slide-rule"></div>
+      <div class="mention-list">
+        <div class="mention-row">
+          <div class="mention-logo"><img src="../assets/logos/associations/tatalitlive.png" alt="Tata Literature Live" loading="lazy"></div>
+          <div class="mention-text">
+            <p class="mention-name">Tata Literature Live</p>
+            <p class="mention-desc">Featured for Business Shastras, The Serendipity Mindset, on business and leadership.</p>
+          </div>
+        </div>
+        <div class="mention-row">
+          <!-- NITI Aayog's mark carries the Government of India emblem, restricted under the State Emblem of India Act: typeset name inside the logo chip -->
+          <div class="mention-logo" aria-hidden="true"><span class="mention-logo-name">NITI Aayog</span></div>
+          <div class="mention-text">
+            <p class="mention-name">NITI Aayog &amp; Atal Tinkering Labs</p>
+            <p class="mention-desc">Served as Senior Advisor, supporting innovation and entrepreneurship initiatives.</p>
+          </div>
+        </div>
+        <div class="mention-row">
+          <div class="mention-logo"><img src="../assets/logos/associations/acumenfund.png" alt="Acumen Fund" loading="lazy"></div>
+          <div class="mention-text">
+            <p class="mention-name">Acumen Fund</p>
+            <p class="mention-desc">Engagement around impact investing, social entrepreneurship and emerging business trends.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <button class="deck-arrow deck-prev" type="button" aria-label="Previous slide">
+    <svg width="21" height="18" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M6 1L1 6l5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 6h14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+  </button>
+  <button class="deck-arrow deck-next" type="button" aria-label="Next slide">
+    <svg width="21" height="18" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+  </button>
+  <div class="deck-pager" aria-live="polite"><span class="deck-current">01</span> / <span class="deck-total">03</span></div>
+
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <a class="nav-mark" href="homepage.html" aria-label="Regis and Savoy Capital, home">
+      <img class="footer-logo" src="../assets/RandS White Transparent logo.png" alt="">
+      <span class="nav-divider" aria-hidden="true"></span>
+      <span class="nav-wordmark">
+        <span class="wm-name">Regis and Savoy Capital</span>
+        <span class="wm-sub">Pure trust, pure advice</span>
+      </span>
+    </a>
+  </div>
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h4 class="footer-col-title">Site Map</h4>
+      <ul class="footer-col-list">
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="corporate-services.html">Corporate Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">What We Do</h4>
+      <ul class="footer-col-list">
+        <li><a href="wealth-management.html">Wealth Management</a></li>
+        <li><a href="private-equity.html">Private Equity</a></li>
+        <li><a href="family-office.html">Family Office</a></li>
+        <li><a href="legacy-and-impact.html">Legacy and Impact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">Beyond Wealth</h4>
+      <ul class="footer-col-list">
+        <li><a href="beyond-wealth.html">Beyond Wealth</a></li>
+        <li><a href="beyond-wealth-coming-home.html">She Refused to Board</a></li>
+        <li><a href="beyond-wealth-ideas.html">Where Ideas Shape the World</a></li>
+        <li><a href="beyond-wealth-education.html">A Classroom. A Choice. A Future.</a></li>
+        <li><a href="beyond-wealth-wildlife.html">Protecting What Cannot Speak for Itself</a></li>
+        <li><a href="beyond-wealth-mentorship.html">Shaping the Leaders of Tomorrow</a></li>
+        <li><a href="associations.html">Associations</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">Get in Touch</h4>
+      <ul class="footer-col-list">
+        <li><a href="register-a-complaint.html">Register a Complaint</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-rule"></div>
+  <div class="footer-bottom">
+    <p>This website is for informational purposes only and does not constitute investment advice, a solicitation, or an offer of services. Regis and Savoy Capital is an independent Multi-Family Office.</p>
+    <p>&copy; 2026 Regis and Savoy Capital. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('.nav-dropdown').forEach(function(dd){
+    var btn = dd.querySelector('.nav-caret-btn');
+    if(!btn) return;
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var isOpen = dd.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown.open').forEach(function(o){
+        if(o!==dd){ o.classList.remove('open'); var b=o.querySelector('.nav-caret-btn'); if(b) b.setAttribute('aria-expanded','false'); }
+      });
+      dd.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){
+      if(!dd.contains(e.target)){
+        dd.classList.remove('open');
+        var btn = dd.querySelector('.nav-caret-btn');
+        if(btn) btn.setAttribute('aria-expanded','false');
+      }
+    });
+  });
+
+  var navEl = document.querySelector('.nav');
+  var navToggle = document.querySelector('.nav-toggle');
+  var navMenu = document.getElementById('nav-menu');
+  if(navEl && navToggle && navMenu){
+    var setNavH = function(){ document.documentElement.style.setProperty('--nav-h', navEl.offsetHeight + 'px'); };
+    setNavH();
+    window.addEventListener('resize', setNavH);
+    var closeNavMenu = function(){
+      navEl.classList.remove('menu-open');
+      navToggle.setAttribute('aria-expanded','false');
+      document.body.classList.remove('nav-lock');
+    };
+    navToggle.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = navEl.classList.contains('menu-open');
+      navEl.classList.toggle('menu-open', !isOpen);
+      navToggle.setAttribute('aria-expanded', String(!isOpen));
+      document.body.classList.toggle('nav-lock', !isOpen);
+    });
+    navMenu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', closeNavMenu);
+    });
+    document.addEventListener('click', function(e){
+      if(navEl.classList.contains('menu-open') && !navEl.contains(e.target)) closeNavMenu();
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && navEl.classList.contains('menu-open')){ closeNavMenu(); navToggle.focus(); }
+    });
+    window.addEventListener('resize', function(){
+      if(window.innerWidth > 760 && navEl.classList.contains('menu-open')) closeNavMenu();
+    });
+  }
+})();
+</script>
+<script>
+(function(){
+  var nav = document.querySelector('.nav');
+  if(!nav) return;
+  function onNavScroll(){
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }
+  window.addEventListener('scroll', onNavScroll, {passive:true});
+  onNavScroll();
+})();
+</script>
+<script>
+(function(){
+  var deck = document.querySelector('.deck');
+  if(!deck) return;
+  var slides = Array.prototype.slice.call(deck.querySelectorAll('.slide'));
+  var total = slides.length;
+  if(!total) return;
+  var current = 0;
+  var currentEl = deck.querySelector('.deck-current');
+  var totalEl = deck.querySelector('.deck-total');
+  var prevBtn = deck.querySelector('.deck-prev');
+  var nextBtn = deck.querySelector('.deck-next');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var timer = null;
+
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+  if(totalEl) totalEl.textContent = pad(total);
+
+  function show(index){
+    current = (index + total) % total;
+    slides.forEach(function(s, i){
+      var active = i === current;
+      s.classList.toggle('active', active);
+      s.setAttribute('aria-hidden', active ? 'false' : 'true');
+    });
+    if(currentEl) currentEl.textContent = pad(current + 1);
+  }
+
+  function next(){ show(current + 1); }
+  function prev(){ show(current - 1); }
+
+  function restart(){
+    if(timer) clearInterval(timer);
+    if(reduceMotion) return;
+    timer = setInterval(next, 10000);
+  }
+
+  if(prevBtn) prevBtn.addEventListener('click', function(){ prev(); restart(); });
+  if(nextBtn) nextBtn.addEventListener('click', function(){ next(); restart(); });
+  deck.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowLeft'){ prev(); restart(); }
+    if(e.key === 'ArrowRight'){ next(); restart(); }
+  });
+
+  show(0);
+  restart();
+})();
+</script>
+</body>
+</html>
