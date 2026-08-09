@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Regis and Savoy Capital · A Classroom. A Choice. A Future. · Beyond Wealth</title>
-<meta name="description" content="From a government school in Doddaballapura to Development Impact Bonds, girls' education in Nairobi and everyday care closer to home: what education support looks like when it goes beyond enrollment numbers.">
+<meta name="description" content="From a private school in Doddaballapura to Development Impact Bonds, girls' education in Narok and everyday care closer to home: what education support looks like when it goes beyond enrollment numbers.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@100;200;300;400;500&family=Spectral:ital,wght@0,200;0,300;1,200;1,300&family=Marcellus&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
@@ -203,6 +203,31 @@ body.nav-lock{overflow:hidden}
   .slide-extras img{height:120px}
 }
 
+/* STORY NAV — previous story, hub, next story */
+.story-nav{position:relative;z-index:5;display:flex;background:var(--night);color:var(--ivory);
+  border-top:1px solid rgba(248,246,241,.14)}
+.story-nav-link{flex:1 1 0;min-width:0;display:flex;align-items:center;gap:16px;
+  padding:clamp(40px,5vw,64px) clamp(24px,4vw,56px);text-decoration:none}
+.story-nav-prev{justify-content:flex-start;padding-left:var(--gutter)}
+.story-nav-next{justify-content:flex-end;padding-right:var(--gutter);text-align:right}
+.story-nav-next .story-nav-arrow{order:2}
+.story-nav-hub{flex:0 0 auto;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:6px;padding:clamp(40px,5vw,64px) clamp(20px,3vw,32px);text-decoration:none;text-align:center;
+  border-left:1px solid rgba(248,246,241,.14);border-right:1px solid rgba(248,246,241,.14)}
+.story-nav .eyebrow{font-size:.68rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--paper-55);margin:0}
+.story-nav-title{transition:color .3s ease;font-size:clamp(1rem,1.6vw,1.3rem);font-weight:200;color:var(--ivory);display:block;margin-top:.4em}
+.story-nav-link:hover .story-nav-title,.story-nav-hub:hover .story-nav-title{color:var(--gold)}
+.story-nav-arrow{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid rgba(248,246,241,.3);
+  display:flex;align-items:center;justify-content:center;transition:border-color .3s ease,background-color .3s ease}
+.story-nav-link:hover .story-nav-arrow{border-color:var(--gold);background:rgba(200,162,90,.12)}
+@media (max-width:760px){
+  .story-nav{flex-direction:column}
+  .story-nav-hub{order:-1;border-left:none;border-right:none;border-bottom:1px solid rgba(248,246,241,.14)}
+  .story-nav-next{text-align:left;justify-content:flex-start}
+  .story-nav-next .story-nav-arrow{order:0}
+}
+
 /* FOOTER — unchanged */
 .footer{position:relative;z-index:5;background:var(--midnight);color:rgba(248,246,241,.7);padding:clamp(48px,6vw,72px) var(--gutter) clamp(32px,4vw,40px)}
 .footer-top{display:flex;align-items:center;flex-wrap:wrap;gap:clamp(24px,4vw,40px)}
@@ -278,7 +303,7 @@ body.nav-lock{overflow:hidden}
       </a>
       <p class="slide-eyebrow">Education &amp; Community, India</p>
       <h1 class="slide-title">One School. One Decade. A Different Tomorrow.</h1>
-      <p class="slide-kicker">Doddaballapura Government School</p>
+      <p class="slide-kicker">Sri Guru Raghavendra Vidyaniketana, Doddaballapura</p>
       <div class="slide-rule"></div>
       <div class="slide-body">
         <div class="slide-beat">
@@ -286,7 +311,7 @@ body.nav-lock{overflow:hidden}
           <p>We wanted to help its students imagine a better life.</p>
         </div>
         <div class="slide-beat">
-          <p>Our long term association with a government school in Doddaballapura has extended beyond infrastructure: school buses, security, meals, a dedicated computer laboratory and ongoing support for student development. The school has maintained a 100% pass percentage for the last decade.</p>
+          <p>Our long term association with a private school in Doddaballapura, managed by a trust, has extended beyond infrastructure: school buses, security, meals, a dedicated computer laboratory and ongoing support for student development. The school has grown from 15 students to over 800 in the last decade, maintaining a <strong>100% pass rate</strong> throughout.</p>
         </div>
         <div class="slide-beat">
           <p>But the real story begins after the examination.</p>
@@ -297,6 +322,8 @@ body.nav-lock{overflow:hidden}
       <div class="slide-extras">
         <img src="../assets/beyond-wealth/education/doddaballapura-signboard.jpg" alt="Sri Guru Raghavendra Vidyaniketana, the Doddaballapura school's own signboard" loading="lazy">
         <img src="../assets/beyond-wealth/education/doddaballapura-building-2.jpg" alt="A second building on the Doddaballapura school campus" loading="lazy">
+        <img src="../assets/beyond-wealth/education/doddaballapura-extra-1.jpg" alt="Students assembled at the Doddaballapura school" loading="lazy">
+        <img src="../assets/beyond-wealth/education/doddaballapura-extra-2.jpg" alt="Students at the Doddaballapura school campus" loading="lazy">
       </div>
     </div>
   </article>
@@ -320,7 +347,14 @@ body.nav-lock{overflow:hidden}
           <div class="mention-logo" aria-hidden="true"><span class="mention-logo-name">Impact Bonds</span></div>
           <div class="mention-text">
             <p class="mention-name">Development Impact Bonds</p>
-            <p class="mention-desc">Worked alongside policymakers to help advance Development Impact Bonds in India, bringing together capital, social purpose and measurable outcomes.</p>
+            <p class="mention-desc">Worked alongside policymakers to help advance Development Impact Bonds in India, bringing together capital, social purpose and measurable outcomes. One such bond returned an IRR of 15%, an example of Performance-Based Philanthropy: paying for verified outcomes rather than activity. India&rsquo;s private philanthropic spending reached roughly INR 1.31 trillion (about $16 billion) in FY2024, source: Bain India Philanthropy Report 2025.</p>
+          </div>
+        </div>
+        <div class="mention-row">
+          <div class="mention-logo" aria-hidden="true"><span class="mention-logo-name">Narok</span></div>
+          <div class="mention-text">
+            <p class="mention-name">Girls&rsquo; Education, Narok, Kenya</p>
+            <p class="mention-desc">Supported efforts to encourage and enable girls to continue their education at Nkoilale Primary School, in a remote part of Narok, Kenya.</p>
           </div>
         </div>
         <div class="mention-row">
@@ -330,13 +364,10 @@ body.nav-lock{overflow:hidden}
             <p class="mention-desc">More than 2,500 rural students reached across around 400 schools through 17 completed projects, alongside health, hygiene and community programmes.</p>
           </div>
         </div>
-        <div class="mention-row">
-          <div class="mention-logo" aria-hidden="true"><span class="mention-logo-name">Nairobi</span></div>
-          <div class="mention-text">
-            <p class="mention-name">Girls&rsquo; Education, Nairobi</p>
-            <p class="mention-desc">Supported efforts to encourage and enable girls to continue their education in a remote part of Nairobi, Kenya.</p>
-          </div>
-        </div>
+      </div>
+      <div class="slide-extras">
+        <img src="../assets/beyond-wealth/education/dib-diagram.jpg" alt="Diagram of how a Development Impact Bond structures investor, outcome payer and service provider roles" loading="lazy" class="is-mark">
+        <img src="../assets/beyond-wealth/education/rajasthan-girls-education.jpg" alt="Girls near Jaipur, Rajasthan" loading="lazy">
       </div>
     </div>
   </article>
@@ -352,7 +383,7 @@ body.nav-lock{overflow:hidden}
         Beyond Wealth
       </a>
       <p class="slide-eyebrow">Mentions</p>
-      <h1 class="slide-title">Everyday Care &amp; Partners.</h1>
+      <h1 class="slide-title">The Everyday Things That Matter.</h1>
       <p class="slide-kicker">Delivering warmth, health and opportunity</p>
       <div class="slide-rule"></div>
       <div class="mention-list">
@@ -401,6 +432,27 @@ body.nav-lock{overflow:hidden}
 
 </section>
 
+<div class="story-nav">
+  <a class="story-nav-link story-nav-prev" href="beyond-wealth-ideas.html">
+    <span class="story-nav-arrow" aria-hidden="true"><svg width="14" height="12" viewBox="0 0 16 12" fill="none"><path d="M6 1L1 6l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 6h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+    <span>
+      <span class="eyebrow">Previous Story</span>
+      <span class="story-nav-title">Where Ideas Shape the World</span>
+    </span>
+  </a>
+  <a class="story-nav-hub" href="beyond-wealth.html">
+    <span class="eyebrow">Beyond Wealth</span>
+    <span class="story-nav-title">All Stories</span>
+  </a>
+  <a class="story-nav-link story-nav-next" href="beyond-wealth-wildlife.html">
+    <span>
+      <span class="eyebrow">Next Story</span>
+      <span class="story-nav-title">Protecting What Cannot Speak for Itself</span>
+    </span>
+    <span class="story-nav-arrow" aria-hidden="true"><svg width="14" height="12" viewBox="0 0 16 12" fill="none"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
+  </a>
+</div>
+
 <footer class="footer">
   <div class="footer-top">
     <a class="nav-mark" href="homepage.html" aria-label="Regis and Savoy Capital, home">
@@ -440,7 +492,7 @@ body.nav-lock{overflow:hidden}
         <li><a href="beyond-wealth-education.html">A Classroom. A Choice. A Future.</a></li>
         <li><a href="beyond-wealth-wildlife.html">Protecting What Cannot Speak for Itself</a></li>
         <li><a href="beyond-wealth-mentorship.html">Shaping the Leaders of Tomorrow</a></li>
-        <li><a href="associations.html">Associations</a></li>
+        <li><a href="beyond-wealth.html#associations">Associations</a></li>
       </ul>
     </div>
     <div class="footer-col">
