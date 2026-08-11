@@ -127,6 +127,8 @@ body.nav-lock{overflow:hidden}
   display:flex;align-items:center;justify-content:center}
 .slide-media img{width:100%;height:100%;object-fit:cover;object-position:center;
   filter:saturate(.82) brightness(.82) contrast(1.05)}
+/* Slide 2 letterboxes to fit (black fills whatever it doesn't cover) rather than cropping */
+.slide[data-slide="2"] .slide-media img{object-fit:contain}
 .slide-media-fade{position:absolute;inset:0;z-index:1;
   background:
     linear-gradient(90deg,rgba(10,10,10,0) 55%,rgba(10,10,10,.55) 82%,var(--night) 100%),
@@ -170,6 +172,44 @@ body.nav-lock{overflow:hidden}
 .slide-extras img{height:150px;width:auto;max-width:100%;border-radius:6px;object-fit:cover;
   filter:saturate(.85) brightness(.9) contrast(1.04)}
 .slide-extras img.is-mark{object-fit:contain;background:rgba(248,246,241,.94);padding:16px;height:130px}
+
+/* MENTION TRIGGER — the Development Impact Bonds row doubles as a button opening the DIB modal */
+button.mention-row{background:none;border:none;border-top:1px solid var(--rule-night);width:100%;
+  text-align:left;font:inherit;color:inherit;cursor:pointer;transition:opacity .3s ease}
+button.mention-row:first-child{border-top:none;padding-top:0}
+button.mention-row:hover{opacity:.82}
+button.mention-row:hover .mention-view{color:var(--gold)}
+button.mention-row:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.mention-view{display:inline-flex;align-items:center;gap:6px;margin-top:.7em;font-size:.7rem;font-weight:400;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--paper-55);transition:color .3s ease}
+.mention-view svg{flex:none}
+
+/* DIB MODAL — how a Development Impact Bond works, opened from the mention row above */
+.dib-modal{position:fixed;inset:0;z-index:100;background:rgba(5,12,24,.86);
+  display:flex;align-items:center;justify-content:center;padding:clamp(20px,4vw,48px);
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s}
+.dib-modal.open{opacity:1;visibility:visible}
+.dib-modal-card{position:relative;max-width:860px;width:100%;max-height:88svh;overflow-y:auto;
+  background:var(--ivory);color:#0B1526;border-radius:4px;padding:clamp(28px,4vw,52px)}
+.dib-modal-close{position:absolute;top:clamp(14px,2.2vw,22px);right:clamp(14px,2.2vw,22px);
+  flex:none;width:38px;height:38px;border-radius:50%;border:1px solid rgba(11,21,38,.2);background:none;
+  display:flex;align-items:center;justify-content:center;color:#0B1526;cursor:pointer;
+  transition:border-color .3s ease,background-color .3s ease}
+.dib-modal-close:hover{border-color:var(--gold);background:rgba(200,162,90,.14)}
+.dib-modal-eyebrow{font-size:.72rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:#9c7830;margin-bottom:.6em}
+.dib-modal-title{font-family:var(--display);font-weight:300;font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.2;
+  letter-spacing:-.008em;margin-bottom:clamp(20px,2.6vw,28px);max-width:34ch}
+.dib-modal-diagram{width:100%;max-width:480px;display:block;margin:0 auto clamp(24px,3vw,32px);border-radius:4px;
+  border:1px solid rgba(11,21,38,.1)}
+.dib-modal-body{display:flex;flex-direction:column;gap:1.1em;font-family:var(--figure);font-size:.96rem;
+  line-height:1.7;color:rgba(11,21,38,.82);max-width:66ch;margin:0 auto}
+.dib-modal-body p{margin:0}
+.dib-modal-source{margin-top:clamp(20px,2.6vw,26px);font-family:var(--display);font-size:.7rem;
+  letter-spacing:.03em;color:rgba(11,21,38,.45);max-width:66ch;margin:clamp(20px,2.6vw,26px) auto 0}
+@media (max-width:600px){
+  .dib-modal{padding:0}
+  .dib-modal-card{max-height:100svh;height:100%;border-radius:0;padding:64px 20px 32px}
+}
 
 /* ARROWS — vertically centred, pinned to the left/right edges of the slide */
 .deck-arrow{position:absolute;z-index:3;top:50%;transform:translateY(-50%);flex:none;width:68px;height:68px;border-radius:50%;
@@ -319,12 +359,6 @@ body.nav-lock{overflow:hidden}
         </div>
       </div>
       <p class="slide-pull">Education should not simply help a child pass an exam. It should help them see what life could look like after it.</p>
-      <div class="slide-extras">
-        <img src="../assets/beyond-wealth/education/doddaballapura-signboard.jpg" alt="Sri Guru Raghavendra Vidyaniketana, the Doddaballapura school's own signboard" loading="lazy">
-        <img src="../assets/beyond-wealth/education/doddaballapura-building-2.jpg" alt="A second building on the Doddaballapura school campus" loading="lazy">
-        <img src="../assets/beyond-wealth/education/doddaballapura-extra-1.jpg" alt="Students assembled at the Doddaballapura school" loading="lazy">
-        <img src="../assets/beyond-wealth/education/doddaballapura-extra-2.jpg" alt="Students at the Doddaballapura school campus" loading="lazy">
-      </div>
     </div>
   </article>
 
@@ -343,13 +377,16 @@ body.nav-lock{overflow:hidden}
       <p class="slide-kicker">India &middot; Kenya</p>
       <div class="slide-rule"></div>
       <div class="mention-list">
-        <div class="mention-row">
+        <button class="mention-row" type="button" id="dib-trigger" aria-haspopup="dialog" aria-controls="dib-modal">
           <div class="mention-logo" aria-hidden="true"><span class="mention-logo-name">Impact Bonds</span></div>
           <div class="mention-text">
             <p class="mention-name">Development Impact Bonds</p>
             <p class="mention-desc">Worked alongside policymakers to help advance Development Impact Bonds in India, bringing together capital, social purpose and measurable outcomes. One such bond returned an IRR of 15%, an example of Performance-Based Philanthropy: paying for verified outcomes rather than activity. India&rsquo;s private philanthropic spending reached roughly INR 1.31 trillion (about $16 billion) in FY2024, source: Bain India Philanthropy Report 2025.</p>
+            <span class="mention-view">How a Development Impact Bond works
+              <svg width="12" height="9" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            </span>
           </div>
-        </div>
+        </button>
         <div class="mention-row">
           <div class="mention-logo" aria-hidden="true"><span class="mention-logo-name">Narok</span></div>
           <div class="mention-text">
@@ -364,10 +401,6 @@ body.nav-lock{overflow:hidden}
             <p class="mention-desc">More than 2,500 rural students reached across around 400 schools through 17 completed projects, alongside health, hygiene and community programmes.</p>
           </div>
         </div>
-      </div>
-      <div class="slide-extras">
-        <img src="../assets/beyond-wealth/education/dib-diagram.jpg" alt="Diagram of how a Development Impact Bond structures investor, outcome payer and service provider roles" loading="lazy" class="is-mark">
-        <img src="../assets/beyond-wealth/education/rajasthan-girls-education.jpg" alt="Girls near Jaipur, Rajasthan" loading="lazy">
       </div>
     </div>
   </article>
@@ -388,7 +421,7 @@ body.nav-lock{overflow:hidden}
       <div class="slide-rule"></div>
       <div class="mention-list">
         <div class="mention-row">
-          <div class="mention-logo" aria-hidden="true"><span class="mention-logo-name">Karuna MTCT</span></div>
+          <div class="mention-logo"><img src="../assets/logos/associations-color/18-karuna-mother-teresa-charitable-trust.png" alt="Karuna Mother Teresa Charitable Trust" loading="lazy"></div>
           <div class="mention-text">
             <p class="mention-name">Karuna Mother Teresa Charitable Trust</p>
             <p class="mention-desc">Organised clothing and blanket collection drives with a community of like minded donors, delivering warmth and essential garments to underserved families.</p>
@@ -416,9 +449,6 @@ body.nav-lock{overflow:hidden}
           </div>
         </div>
       </div>
-      <div class="slide-extras">
-        <img src="../assets/beyond-wealth/education/teach-for-india-report.jpg" alt="Teach For India, The Colors of Reimagining Education, its first decade report" loading="lazy">
-      </div>
     </div>
   </article>
 
@@ -431,6 +461,23 @@ body.nav-lock{overflow:hidden}
   <div class="deck-pager" aria-live="polite"><span class="deck-current">01</span> / <span class="deck-total">03</span></div>
 
 </section>
+
+<div class="dib-modal" id="dib-modal" role="dialog" aria-modal="true" aria-labelledby="dib-modal-title" aria-hidden="true">
+  <div class="dib-modal-card">
+    <button class="dib-modal-close" type="button" aria-label="Close">
+      <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 1l14 14M15 1L1 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <p class="dib-modal-eyebrow">Performance-Based Philanthropy</p>
+    <h2 class="dib-modal-title" id="dib-modal-title">How a Development Impact Bond Works.</h2>
+    <img class="dib-modal-diagram" src="../assets/beyond-wealth/education/dib-diagram.jpg" alt="Diagram of a Development Impact Bond: an investor provides upfront funding to a service provider, an outcome payer repays the investor on the basis of independently verified results, and beneficiaries receive the outcomes" loading="lazy">
+    <div class="dib-modal-body">
+      <p>A Development Impact Bond moves private capital into a social programme before the results exist. An investor funds the upfront cost of delivery. An outcome payer, typically a government or a philanthropic funder, repays that investor only once an independent evaluator confirms the results were actually achieved. The risk of the programme not working sits with the investor, not with the outcome payer, and funding follows evidence rather than activity.</p>
+      <p>The diagram above traces those roles through the world&rsquo;s first Development Impact Bond in education, the Educate Girls DIB, launched in Bhilwara, Rajasthan in 2015. UBS Optimus Foundation provided the upfront capital as investor. The Children&rsquo;s Investment Fund Foundation stood as outcome payer, repaying only once IDinsight, an independent evaluator, verified the results. Educate Girls delivered the programme on the ground, with Instiglio structuring the contract between them.</p>
+      <p>Over its three years, the programme enrolled 92% of the out-of-school girls identified across its target villages, 116% of its enrolment goal, and more than tripled its learning gains target from year one. UBS Optimus Foundation recovered its principal plus a return of up to 15%, now referenced as a working example of Performance-Based Philanthropy: paying for verified outcomes rather than promised activity.</p>
+    </div>
+    <p class="dib-modal-source">Educate Girls DIB, Rajasthan, 2015&ndash;2018. Sources: Children&rsquo;s Investment Fund Foundation, UBS, Brookings Institution.</p>
+  </div>
+</div>
 
 <div class="story-nav">
   <a class="story-nav-link story-nav-prev" href="beyond-wealth-ideas.html">
@@ -627,6 +674,36 @@ body.nav-lock{overflow:hidden}
 
   show(0);
   restart();
+})();
+</script>
+<script>
+(function(){
+  var trigger = document.getElementById('dib-trigger');
+  var modal = document.getElementById('dib-modal');
+  if(!trigger || !modal) return;
+  var closeBtn = modal.querySelector('.dib-modal-close');
+
+  function open(){
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    document.body.classList.add('nav-lock');
+    closeBtn.focus();
+  }
+  function close(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('nav-lock');
+    trigger.focus();
+  }
+
+  trigger.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', function(e){
+    if(e.target === modal) close();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && modal.classList.contains('open')) close();
+  });
 })();
 </script>
 </body>

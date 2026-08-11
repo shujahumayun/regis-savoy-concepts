@@ -123,12 +123,12 @@ body.nav-lock{overflow:hidden}
   opacity:0;visibility:hidden;pointer-events:none;transition:opacity .7s ease}
 .slide.active{opacity:1;visibility:visible;pointer-events:auto}
 
-/* image left. Slide 1 letterboxes to fit (black fills whatever it doesn't cover); slides 2-3 crop to fill */
+/* image left. All slides letterbox to fit (black fills whatever it doesn't cover) */
 .slide-media{position:relative;height:100%;overflow:hidden;background:#000;
   display:flex;align-items:center;justify-content:center}
 .slide-media img{width:100%;height:100%;object-fit:cover;object-position:center;
   filter:saturate(.82) brightness(.82) contrast(1.05)}
-.slide[data-slide="1"] .slide-media img{object-fit:contain}
+.slide[data-slide="1"] .slide-media img,.slide[data-slide="2"] .slide-media img,.slide[data-slide="3"] .slide-media img{object-fit:contain}
 .slide-media-fade{position:absolute;inset:0;z-index:1;
   background:
     linear-gradient(90deg,rgba(10,10,10,0) 55%,rgba(10,10,10,.55) 82%,var(--night) 100%),
@@ -389,8 +389,7 @@ body.nav-lock{overflow:hidden}
           </div>
         </div>
         <div class="mention-row">
-          <!-- NITI Aayog's mark carries the Government of India emblem, restricted under the State Emblem of India Act: typeset name inside the logo chip -->
-          <div class="mention-logo" aria-hidden="true"><span class="mention-logo-name">NITI Aayog</span></div>
+          <div class="mention-logo"><img src="../assets/logos/associations-color/08-atal-innovation-mission-niti-aayog.png" alt="NITI Aayog &amp; Atal Tinkering Labs" loading="lazy"></div>
           <div class="mention-text">
             <p class="mention-name">NITI Aayog &amp; Atal Tinkering Labs</p>
             <p class="mention-desc">Served as Senior Advisor, supporting innovation and entrepreneurship initiatives.</p>

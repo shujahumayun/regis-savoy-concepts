@@ -6,10 +6,10 @@ Concept-stage imagery for `concepts/beyond-wealth.html`. All resized to max 2400
 |---|---|---|---|
 | `hero-acacia.jpg` | Hero | Shuja's own pick, `antoine-demare-GjVRSz44-fE-unsplash.jpg`, matches the client's mockup hero almost exactly | Unsplash, free license, attribution not required but courteous |
 | `card-coming-home.jpg` | She Refused to Board | `suzi-kim-1h3bHXCRwoo-unsplash.jpg`, empty terminal at golden hour | Unsplash, free license |
-| `card-ideas.jpg` | Excellence and Responsibility (Talks & Thoughtful Leadership) | `lifetime-leather-X875kk9-rnU-unsplash.jpg`, craftsman stitching leather by hand | Unsplash, free license |
+| `card-ideas.jpg` | Excellence and Responsibility (Talks & Thoughtful Leadership) | Client-supplied, `Thought leadership.webp`, a craftsman stitching leather by hand | Client-sourced, swapped in 2026-08-11, replaces the earlier Unsplash placeholder |
 | `card-education.jpg` | A Classroom of Choice | `pexels-valerie-sutton-34163824-14935332.jpg`, Maasai schoolchildren embracing | Pexels, free license |
-| `card-wildlife.jpg` | Jane Goodall & Ol Pejeta | `david-clode-6bM5Dwt1mT0-unsplash.jpg`, rhino close portrait | Unsplash, free license |
-| `card-mentorship.jpg` | Mentorship | Unsplash `photo-1523240795612-9a054b0db644` (Priscilla Du Preez), library study group | Unsplash, free license |
+| `card-wildlife.jpg` | Jane Goodall & Ol Pejeta | Client-supplied, `Jane Goodall.webp`, Dr. Jane Goodall with a chimpanzee | Client-sourced, swapped in 2026-08-11, replaces the earlier Unsplash placeholder |
+| `card-mentorship.jpg` | Mentorship | Client-supplied, `Queen Elizabeth Diamond Jublee Trust _ Young Minds.webp`, the 2017-18 Queen Elizabeth Diamond Jubilee Trust group photo with HM The Queen | Client-sourced, swapped in 2026-08-11, replaces the earlier Unsplash placeholder |
 | `gallery-placeholder.jpg` | Artist showcase teaser | `sheila-c-BPcfZtn4swA-unsplash.jpg`, acacia silhouette at sunset, echoes the hero, deliberately abstract since no real artwork exists yet | Unsplash, free license |
 | `story-coming-home.jpg` | Sub-page hero, `beyond-wealth-coming-home.html` | `shawn-j7bPYcOYJJs-unsplash.jpg`, Shuja's own pick, airport terminal at dusk, two silhouettes watching planes on the tarmac | Unsplash, free license |
 | `ideas/lexus-talk-mumbai.jpg` | Slide 1 feature, `beyond-wealth-ideas.html` | Shuja's own file, `lexus event.jpeg` from the client's "Inside Pages" folder | Client-sourced, provenance not confirmed, ask Sanjna before publish |
@@ -28,6 +28,49 @@ Concept-stage imagery for `concepts/beyond-wealth.html`. All resized to max 2400
 | `mentorship/qedjt-feature.jpg` | Slide 1 feature, `beyond-wealth-mentorship.html` | Client's "Card 5/Slide 1.jpg", Westminster at dusk | Client-sourced |
 | `mentorship/mentors-partners.jpg` | Slide 2 mentions, same page | Client's "Card 5/Slide 2.jpg" | Client-sourced |
 | `mentorship/queens-young-leaders-logo.jpg` | Slide 1 extra, same page | Client's own Queen's Young Leaders programme logo. Found misfiled inside the "Card 3 Education" folder as "Slide 3 extra 1.jpeg"; relocated here since the mark belongs to the QEDJT mentorship feature, not education. Flag to Sanjna before publish, same as the Lexus photo | Client-sourced, provenance/placement not confirmed |
+| `gallery/flag-hoisting-cheer.jpg`, `gallery/school-assembly-circle.jpg`, `gallery/students-playground-run.jpg`, `gallery/midday-meal-service.jpg`, `gallery/auditorium-audience-1.jpg`, `gallery/auditorium-audience-2.jpg`, `gallery/experiential-learning-talk.jpg`, `gallery/speaker-addressing-auditorium.jpg`, `gallery/royal-society-of-arts.jpg` | Gallery section, `beyond-wealth.html#gallery` | Client-supplied, from the "Beyond wealth Pages/Gallery Images" folder (`AAA_0706`, `AAA_9576`, `AAA_9579`, `DSC02911`, `IMG_3025`, `IMG_3043`, `IMG_5148`, `IMG_5152`, `RSA.png`), added 2026-08-11 | Client-sourced. Captions are the generic "Education & Community" / "Thoughtful Leadership" / "Fellow of the Royal Society of Arts" categories already used elsewhere on the page since no specific event names or locations were supplied; ask Sanjna if more specific captions exist |
+
+## Removed 2026-08-11
+
+- `gallery/school-walk-community.jpg`, captioned "Scaling Access, India and Kenya", removed from the gallery grid per client direction. The source file is left in place in case it is wanted elsewhere; it is no longer referenced by any page.
+
+## Sub-page cleanup and gallery expansion, 2026-08-11 (second pass)
+
+Per client direction: the small "extra" images that sat below the copy on the five story sub-pages (`.slide-extras`) were cluttering the slide layout. All of them except one mark have been pulled out and folded into the main `beyond-wealth.html#gallery` grid instead, so nothing is lost, it just lives in one place.
+
+**Moved into the gallery** (renamed from their sub-page filenames, full 2000px-max q82 / thumb 480px-max q80, same convention as the rest of `gallery/`):
+
+| New gallery file | Was | Caption used |
+|---|---|---|
+| `gallery/doddaballapura-signboard.jpg` | `education/doddaballapura-signboard.jpg` | Sri Guru Raghavendra Vidyaniketana, Doddaballapura |
+| `gallery/doddaballapura-building-2.jpg` | `education/doddaballapura-building-2.jpg` | Sri Guru Raghavendra Vidyaniketana, Doddaballapura |
+| `gallery/doddaballapura-students-assembly.jpg` | `education/doddaballapura-extra-1.jpg` | Sri Guru Raghavendra Vidyaniketana, Doddaballapura |
+| `gallery/doddaballapura-students-campus.jpg` | `education/doddaballapura-extra-2.jpg` | Sri Guru Raghavendra Vidyaniketana, Doddaballapura |
+| `gallery/rajasthan-girls-education.jpg` | `education/rajasthan-girls-education.jpg` (slide 2 extra) | Girls' Education, Rajasthan |
+| `gallery/teach-for-india-report.jpg` | `education/teach-for-india-report.jpg` (slide 3 extra) | Teach For India |
+| `gallery/chimp-institute-care.jpg` | `wildlife/chimp-extra-1.jpg` | Jane Goodall Institute, Ol Pejeta |
+| `gallery/chimp-resting-ol-pejeta.jpg` | `wildlife/chimp-extra-2.jpg` | Sweetwaters Chimpanzee Sanctuary, Ol Pejeta |
+
+**Wired into the gallery grid, file already on disk**: `gallery/ol-pejeta-rhino-closeup.jpg` (wildlife slide 2 extra) had a full/thumb pair sitting in `gallery/` unused since the 2026-08-08 build; it just needed a `<button>` in `beyond-wealth.html`. Its sibling `gallery/ol-pejeta-rhino-guarded.jpg` was already a gallery button, so that slide-extra was simply dropped, not re-added.
+
+**Not moved to the gallery**:
+- `education/dib-diagram.jpg` (education slide 2, first extra) stays in place, now shown exclusively inside a new "How a Development Impact Bond Works" modal opened by clicking the Development Impact Bonds mention row on `beyond-wealth-education.html`. The client also supplied `12b.webp` for this modal; it turned out to be the same UBS/CIFF/Educate Girls DIB diagram already sourced here, at a lower resolution, so the existing higher-resolution `dib-diagram.jpg` was kept rather than duplicating the image. Modal copy (what a DIB is, the Educate Girls Rajasthan example, its results) was researched to support the numbers already on the page.
+- `mentorship/queens-young-leaders-logo.jpg` (mentorship slide 1's only extra) was removed from display entirely per client direction, not moved to the gallery. File left in place, unreferenced, same as `school-walk-community.jpg` above.
+
+**Image replacements** (client-supplied, replacing earlier picks):
+- `ideas/global-ideas-platforms.jpg` (Where Ideas Shape the World, slide 2) now uses the client's `IMG_5152.jpeg`.
+- `education/everyday-care.jpg` (A Classroom. A Choice. A Future., slide 3) now uses the client's `DSC02911.jpeg`.
+
+**Letterboxing, no file change, CSS only**: `ideas/india-policy-enterprise.jpg` (ideas slide 3) and `education/scaling-access.jpg` (education slide 2) now display with `object-fit:contain` instead of `cover`, so the full frame shows with black bars rather than being cropped, matching the treatment ideas slide 1 already had.
+
+## Further sub-page and gallery edits, 2026-08-11 (third pass)
+
+- `ideas/global-ideas-platforms.jpg` (Where Ideas Shape the World, slide 2) replaced again, now uses the client's `Knowledge Partner 4.jpg` (the LSE SU India Forum media panel). This slide also now displays with `object-fit:contain` (letterboxed, full frame visible) to match slides 1 and 3, since the panel graphic reads poorly cropped.
+- `mentorship/mentors-partners.jpg` (Shaping the Leaders of Tomorrow, slide 2) replaced with the client's `IMG_5149.jpeg`, a portrait conference/speaker shot; crops cleanly under `object-fit:cover` so no letterboxing needed.
+- `beyond-wealth-mentorship.html` slide 1's hero image now points directly at `../assets/beyond-wealth/card-mentorship.jpg`, the same Westminster/Big Ben photo used for the Mentorship tile on `beyond-wealth.html`, per client direction to match the two.
+- `gallery/ol-pejeta-rhino-guarded.jpg` (captioned "Ol Pejeta Conservancy, Under 24 Hour Guard", showing armed rangers) removed from the gallery grid and deleted from disk (full + thumb); it was only ever referenced there.
+- Added `gallery/artwork-verdant-rapture.jpg`, a second Debabrata Basu nature painting, client-supplied as `VERDANT_RAPTURE_Nature_painting_Debrabta_Basu.webp`, converted to the standard full/thumb JPEG pair and wired into the gallery with its own lightbox caption.
+- The full gallery grid order was reshuffled per client request (32 items total after the swap above); no captions or files besides the two changes above were altered, only the display order.
 
 ## Open before publish
 
