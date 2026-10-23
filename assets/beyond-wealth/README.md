@@ -79,3 +79,13 @@ Per client direction: the small "extra" images that sat below the copy on the fi
 - Client-sent images (chimp/rhino photos from the 2026-08-07 "Photos etc" email, SGRV school photos, the "Inside Pages" card folders) are now built into the 5 sub-pages: `beyond-wealth-education.html`, `beyond-wealth-wildlife.html` and `beyond-wealth-mentorship.html` joined the already-built `beyond-wealth-coming-home.html` and `beyond-wealth-ideas.html` on 2026-08-08. See the plan at `/Users/shujahumayun/.claude/plans/regis-client-sent-me-atomic-biscuit.md` and `beyond-wealth-subpages-structure.md`.
 - The Baraka rhino mention (wildlife slide 2) is sourced from Sanjna's 2026-08-07 "Photos etc" email ("Meet Baraka, the legendary blind rhino of Ol Pejeta") plus the "Card 4 Animal Welfare" folder, not from the docx narrative, which doesn't name him.
 - The `imgi_*.webp` files in the client's Downloads folder are scraped from olpejetaconservancy.org (third-party copyright) — do not use on any published page without the conservancy's permission.
+
+## New concept, `concepts/beyond-wealth-v2.html`, 2026-10-23
+
+Built from the 2026-10-23 call and Sanjna's two emails that day (Impact sectors as the categories, and a "We supported, among others" gallery). It sits beside `beyond-wealth.html` rather than replacing it, so the two can be compared. No new image files: every image is one already listed above.
+
+- **Structure** follows acumen.org/immerse: hero band, a statement with large counting numbers, then the content. **Impact sectors** follow Acumen's submenu (list with arrows and a preview panel), laid out on the page and repeated as the Beyond Wealth submenu in the nav. **Story cards** follow janegoodall.org/make-a-difference: image with the short story over it. **Scroll animation** copies givingpi.org/membership: a plain fade in and rise, 1 second.
+- **Three sectors**: Thought Leadership & Mentorship, Education & Opportunity, Animal Welfare & Conservation. Every number on the page comes from copy already on the sub-pages (2,500+ students, around 400 schools, 17 projects, 18 associations, 15 to 800+ students, 100% pass rate, 15% IRR).
+- **Take Part With Us** is new: the page now invites clients to give, mentor, offer jobs or partner alongside the firm, per the call. The six ways and the three steps are proposals for the client to confirm.
+- **Gallery** is now uniform captioned cards, 16 of the 32 images, chosen for distinct captions.
+- **Left out on purpose**: the Karuna Mother Teresa Charitable Trust logo (`18-...png`) depicts a religious figure, so it is not in this page's marquee. "Register a Complaint" is gone from the footer per Sanjna's 2026-10-22 ask.
