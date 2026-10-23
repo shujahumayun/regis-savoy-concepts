@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regis and Savoy Capital · The World Beyond Wealth</title>
+<meta name="description" content="Three impact sectors, one way of giving. Thought Leadership and Mentorship, Education and Opportunity, Animal Welfare and Conservation, and an open invitation to take part.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..500&family=Spectral:ital,wght@0,200;0,300;1,200;1,300&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --midnight:#0A0A0A;
+  --ivory:#F8F6F1;
+  --sand:#EFEAE0;
+  --gold:#C8A25A;
+  --ink:#0B1526;
+  --ink-75:rgba(7,27,59,.75);
+  --ink-60:rgba(7,27,59,.6);
+  --ink-40:rgba(7,27,59,.4);
+  --rule:rgba(7,27,59,.18);
+  --rule-light:rgba(248,246,241,.22);
+  --display:'Archivo',system-ui,sans-serif;
+  --figure:'Spectral',Georgia,serif;
+  --gutter:clamp(24px,5vw,72px);
+  --nav-h:96px;
+  --night:#0A0A0A;
+  --night-2:#141414;
+  --paper-90:rgba(248,246,241,.9);
+  --paper-78:rgba(248,246,241,.78);
+  --paper-55:rgba(248,246,241,.55);
+  --rule-night:rgba(248,246,241,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+body{
+  font-family:var(--display);
+  font-weight:300;
+  font-size:1.0625rem;
+  line-height:1.65;
+  letter-spacing:.005em;
+  background:var(--ivory);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+::selection{background:var(--gold);color:var(--night)}
+img{max-width:100%;display:block}
+a{color:inherit}
+strong,b{font-weight:400}
+section[id]{scroll-margin-top:72px}
+.wrap{max-width:1320px;margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{font-size:.75rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(7,27,59,.55);margin-bottom:clamp(20px,2.6vw,32px)}
+.eyebrow--gold{color:var(--gold)}
+
+/* SCROLL REVEAL: the simple fade-in-up from givingpi.org/membership */
+.js .rv{opacity:0;transform:translate3d(0,48px,0);transition:opacity 1s ease,transform 1s ease;transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){ .js .rv{opacity:1;transform:none} }
+
+/* NAV: transparent over the hero, dark black once scrolled */
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;background:transparent;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;row-gap:14px;padding:clamp(18px,3vw,32px) var(--gutter);transition:background .35s ease}
+.nav-mark{display:flex;align-items:center;gap:14px;color:var(--ivory);text-decoration:none}
+.nav.scrolled{background:var(--midnight)}
+.nav-logo{height:60px;width:auto;display:block}
+.nav-divider{width:1px;height:48px;background:rgba(248,246,241,.35)}
+.nav-wordmark{display:flex;flex-direction:column;line-height:1.15}
+.nav-mark .wm-name{font-family:'Cormorant Garamond',var(--figure);font-size:1.15rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.nav-mark .wm-sub{font-size:.625rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.nav-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;width:34px;height:34px;
+  padding:0;background:none;border:none;cursor:pointer;z-index:41}
+.nav-toggle-bar{display:block;width:100%;height:1.5px;background:var(--ivory);transition:transform .3s ease,opacity .3s ease}
+.nav.menu-open .nav-toggle-bar:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav.menu-open .nav-toggle-bar:nth-child(2){opacity:0}
+.nav.menu-open .nav-toggle-bar:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+body.nav-lock{overflow:hidden}
+
+.nav-right{display:flex;align-items:center;gap:clamp(22px,2.8vw,44px);flex-wrap:wrap}
+.nav-links{display:flex;align-items:center;gap:clamp(18px,2.4vw,36px);list-style:none}
+.nav-links a{font-family:var(--display);font-weight:300;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory);text-decoration:none;white-space:nowrap;transition:color .3s ease}
+.nav-links a:hover{color:var(--gold)}
+.nav-links a.current{color:var(--gold)}
+
+.nav-dropdown{position:relative;display:inline-flex;align-items:center}
+.nav-caret-btn{background:none;border:none;padding:4px;margin:-4px 0 -4px -2px;display:inline-flex;align-items:center;cursor:pointer;color:var(--ivory)}
+.nav-dropdown.open .nav-caret{transform:rotate(225deg);margin-top:2px}
+.nav-dropdown.open .nav-dropdown-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.nav-dropdown>a{display:inline-flex;align-items:center;gap:7px}
+.nav-caret{width:5px;height:5px;margin-top:-2px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;
+  transform:rotate(45deg);transition:transform .3s ease}
+.nav-dropdown-menu{position:absolute;top:calc(100% + 22px);left:50%;transform:translateX(-50%) translateY(-8px);
+  min-width:236px;list-style:none;margin:0;padding:16px 0;text-align:left;
+  background:var(--midnight);border:1px solid rgba(248,246,241,.14);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .3s ease,transform .3s ease,visibility .3s;z-index:50}
+.nav-dropdown-menu li{padding:0}
+.nav-dropdown-menu a{display:block;padding:11px 26px;font-family:var(--display);font-weight:300;
+  font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;
+  color:var(--ivory);text-decoration:none;transition:color .3s ease}
+.nav-dropdown-menu a:hover{color:var(--gold)}
+/* Beyond Wealth submenu: the impact sectors, Acumen style, with arrows */
+.nav-dropdown-menu--sectors{min-width:320px;padding:12px}
+.nav-dropdown-menu--sectors .menu-label{display:block;padding:10px 16px 12px;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.nav-dropdown-menu--sectors a{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:12px 16px;border-radius:3px;transition:background-color .25s ease,color .25s ease}
+.nav-dropdown-menu--sectors a:hover{background:rgba(248,246,241,.08)}
+.nav-dropdown-menu--sectors svg{flex:none;transition:transform .25s ease}
+.nav-dropdown-menu--sectors a:hover svg{transform:translateX(4px)}
+@media (hover:hover) and (pointer:fine){
+  .nav-dropdown::after{content:"";position:absolute;top:100%;left:50%;
+    transform:translateX(-50%);width:236px;height:22px}
+  .nav-dropdown:hover .nav-caret,.nav-dropdown:focus-within .nav-caret{transform:rotate(225deg);margin-top:2px}
+  .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{
+    opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+}
+
+@media (max-width:760px){
+  .nav{justify-content:space-between;text-align:left}
+  .nav.menu-open{background:var(--midnight)}
+  .nav-toggle{display:flex}
+  .nav-right{position:fixed;top:var(--nav-h);left:0;right:0;margin:0;height:60vh;
+    background:var(--midnight);flex-direction:column;align-items:stretch;justify-content:flex-start;
+    padding:8px var(--gutter) 32px;overflow-y:auto;box-shadow:0 24px 48px rgba(0,0,0,.35);
+    opacity:0;visibility:hidden;transform:translateY(-16px);
+    transition:opacity .3s ease,transform .3s ease,visibility .3s}
+  .nav.menu-open .nav-right{opacity:1;visibility:visible;transform:translateY(0)}
+  .nav-links{flex-direction:column;align-items:flex-start;gap:22px;flex-wrap:nowrap;row-gap:0;width:100%;padding-top:24px}
+  .nav-links>li{width:100%}
+  .nav-dropdown{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between}
+  .nav-caret-btn{padding:10px}
+  .nav-dropdown-menu{position:static;left:auto;flex-basis:100%;width:100%;min-width:0;
+    border:none;background:none;padding:0;margin:0;opacity:1;visibility:visible;pointer-events:auto;
+    max-height:0;overflow:hidden;transition:max-height .3s ease}
+  .nav-dropdown.open .nav-dropdown-menu{max-height:320px;margin-top:2px;padding-bottom:4px;transform:none}
+  .nav-dropdown-menu a{padding:9px 0 9px 18px;font-size:.66rem}
+  .nav-dropdown-menu--sectors{padding:0}
+  .nav-dropdown-menu--sectors .menu-label{display:none}
+  .nav-dropdown-menu--sectors a{white-space:normal}
+}
+
+
+/* V3: same content as v2, every section in a different layout */
+
+/* HERO: split screen, title on midnight, photograph on the right */
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);min-height:100svh;background:var(--midnight);color:var(--ivory)}
+.hero-copy{display:flex;flex-direction:column;justify-content:flex-end;padding:calc(var(--nav-h) + 48px) clamp(28px,4.5vw,72px) clamp(56px,7vw,96px) var(--gutter)}
+.hero-title{font-weight:200;font-size:clamp(2.8rem,6.2vw,6rem);line-height:.98;letter-spacing:-.02em}
+.hero-sub{margin-top:clamp(22px,2.6vw,32px);max-width:40ch;color:var(--paper-78);font-size:clamp(1.05rem,1.4vw,1.25rem);line-height:1.55}
+.hero-sub em{font-family:var(--figure);font-style:italic;color:var(--gold)}
+.hero-rule{width:56px;height:1px;background:var(--gold);margin-top:clamp(32px,4vw,48px)}
+.hero-media{position:relative;overflow:hidden;background:var(--night-2)}
+.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 50%;filter:saturate(.9) brightness(.92)}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.6) 0%,rgba(10,10,10,0) 28%)}
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:0}
+  .hero-media{order:-1;height:58svh;min-height:340px}
+  .hero-copy{padding:clamp(40px,8vw,64px) var(--gutter) clamp(56px,10vw,80px)}
+}
+
+/* NUMBERS: statement held on the left, figures in a ruled 2 by 2 grid */
+.impact{padding:clamp(88px,11vw,150px) 0}
+.impact-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(40px,6vw,104px);align-items:start}
+.statement{position:sticky;top:120px;font-weight:300;font-size:clamp(1.45rem,2.5vw,2.15rem);line-height:1.3;letter-spacing:-.01em}
+.statement strong{font-weight:400}
+.stat-num{font-stretch:62.5%;font-weight:200;line-height:.9;letter-spacing:-.02em;font-variant-numeric:tabular-nums lining-nums;white-space:nowrap}
+.stat-num .sfx{color:var(--gold)}
+.stat-label{color:var(--ink-60);font-size:1rem;line-height:1.45;max-width:24ch}
+.cells{list-style:none;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--rule)}
+.cells .stat{display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:clamp(190px,19vw,270px);
+  padding:clamp(26px,3vw,44px) clamp(18px,2.4vw,36px) clamp(26px,3vw,40px) 0;border-bottom:1px solid var(--rule)}
+.cells .stat:nth-child(even){padding-left:clamp(18px,2.4vw,36px);padding-right:0;border-left:1px solid var(--rule)}
+.cells .stat-num{font-size:clamp(3.2rem,7.2vw,7rem)}
+@media (max-width:900px){
+  .impact-grid{grid-template-columns:1fr}
+  .statement{position:static}
+}
+
+/* IMPACT SECTORS: four image panels, the one in focus opens wide */
+.sectors{background:var(--midnight);color:var(--ivory);padding:clamp(88px,11vw,140px) 0}
+.sectors-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:end;margin-bottom:clamp(44px,5vw,64px)}
+.sectors-title{font-weight:200;font-size:clamp(2.2rem,4.4vw,3.8rem);line-height:1.06;letter-spacing:-.015em}
+.sectors-intro{color:var(--paper-78);max-width:40ch}
+.panels{list-style:none;display:flex;gap:clamp(8px,1vw,14px);height:clamp(440px,62vh,600px)}
+.panels>li{flex:1 1 0;min-width:0;transition:flex-grow .7s cubic-bezier(.2,.7,.2,1)}
+.panels>li.active{flex-grow:2.6}
+.panel{position:relative;display:flex;flex-direction:column;justify-content:flex-end;height:100%;overflow:hidden;color:var(--ivory);text-decoration:none;background:var(--night-2)}
+.panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.62);transition:filter .6s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.panel::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,12,24,.92) 0%,rgba(5,12,24,.45) 45%,rgba(5,12,24,0) 75%)}
+.panels>li.active .panel img{filter:saturate(.95) brightness(.84);transform:scale(1.03)}
+.panel-body{position:relative;z-index:2;padding:clamp(20px,2.2vw,30px)}
+.panel-num{font-stretch:62.5%;font-weight:200;font-size:clamp(2.4rem,3.6vw,3.2rem);line-height:1;color:var(--gold)}
+.panel-name{display:block;margin-top:12px;font-size:clamp(1.02rem,1.35vw,1.28rem);font-weight:300;line-height:1.25;max-width:20ch}
+.panel-desc{display:block;max-height:0;opacity:0;overflow:hidden;color:var(--paper-78);font-size:.96rem;line-height:1.55;max-width:40ch;transition:opacity .45s ease,max-height .6s ease,margin .6s ease}
+.panels>li.active .panel-desc{max-height:9em;opacity:1;margin-top:10px}
+.panel-go{display:inline-flex;margin-top:16px;color:var(--paper-55);transition:color .3s ease,transform .3s ease}
+.panels>li.active .panel-go{color:var(--gold);transform:translateX(4px)}
+.panel:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media (max-width:900px){
+  .sectors-head{grid-template-columns:1fr;gap:18px}
+  .panels{flex-direction:column;height:auto}
+  .panels>li{flex:none}
+  .panel{height:clamp(280px,62vw,360px)}
+  .panel-desc{max-height:none;opacity:1;margin-top:10px}
+}
+
+/* SECTOR SECTIONS: shared type */
+.sector{padding:clamp(88px,11vw,150px) 0;background:var(--ivory)}
+.sector--sand{background:var(--sand)}
+.sector-title{font-weight:200;font-size:clamp(2.3rem,4.4vw,3.9rem);line-height:1.04;letter-spacing:-.018em}
+.sector-intro{display:flex;flex-direction:column;gap:1em;color:var(--ink-75);font-size:clamp(1.05rem,1.2vw,1.15rem);line-height:1.7}
+.places{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(24px,2.6vw,34px)}
+.places li{font-size:.68rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;padding:9px 16px;border:1px solid var(--rule);border-radius:999px;color:var(--ink-60)}
+
+/* STORY CARD: image with the short story over it, Jane Goodall Institute style */
+.story{position:relative;display:flex;align-items:flex-end;height:100%;aspect-ratio:4/5;overflow:hidden;background:var(--night-2);color:var(--ivory);text-decoration:none}
+.story>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.9) brightness(.84);transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.story::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(5,12,24,.93) 0%,rgba(5,12,24,.62) 36%,rgba(5,12,24,.08) 66%,rgba(5,12,24,0) 100%)}
+.story-body{position:relative;z-index:2;padding:clamp(22px,2.4vw,32px)}
+.story-meta{font-size:.66rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.7em}
+.story-title{font-weight:300;font-size:clamp(1.25rem,1.75vw,1.55rem);line-height:1.2;letter-spacing:-.005em}
+.story-text{margin-top:.65em;color:var(--paper-78);font-size:.96rem;line-height:1.55}
+.story-link{display:inline-flex;align-items:center;gap:8px;margin-top:clamp(14px,1.6vw,18px);font-size:.7rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-90);transition:color .3s ease}
+.story-link svg{transition:transform .3s ease}
+a.story:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+@media (hover:hover) and (pointer:fine){
+  .story:hover>img{transform:scale(1.05)}
+  a.story:hover .story-link{color:var(--gold)}
+  a.story:hover .story-link svg{transform:translateX(5px)}
+}
+.story--logos{background:var(--midnight);align-items:stretch}
+.story--logos::after{display:none}
+.story--logos .story-body{display:flex;flex-direction:column;justify-content:space-between;width:100%}
+.story-logos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.story-logos span{display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;padding:6px;border-radius:6px;background:rgba(248,246,241,.95)}
+.story-logos img{width:100%;height:100%;object-fit:contain}
+
+/* TAKE PART LINKS, per sector */
+.sector-join{display:flex;flex-wrap:wrap;align-items:center;gap:14px clamp(20px,2.6vw,36px);margin-top:clamp(44px,5vw,64px);padding-top:clamp(22px,2.4vw,28px);border-top:1px solid var(--rule)}
+.sector-join-label{font-size:.7rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-40)}
+.sector-join a{display:inline-flex;align-items:center;gap:10px;font-size:1rem;text-decoration:none;color:var(--ink);transition:color .3s ease}
+.sector-join a svg{color:var(--gold);transition:transform .3s ease}
+.sector-join a:hover{color:var(--gold)}
+.sector-join a:hover svg{transform:translateX(4px)}
+.sector-join--center{justify-content:center}
+
+/* LEADERSHIP: pinned introduction, stories in two offset columns */
+.split{display:grid;grid-template-columns:minmax(0,.78fr) minmax(0,1.22fr);gap:clamp(40px,5.5vw,96px);align-items:start}
+.split-aside{position:sticky;top:120px}
+.split-aside .sector-intro{margin-top:clamp(22px,2.6vw,32px)}
+.split-aside .sector-join{flex-direction:column;align-items:stretch;gap:0;margin-top:clamp(32px,3.6vw,48px);padding-top:0;border-top:none}
+.split-aside .sector-join-label{padding-bottom:12px}
+.split-aside .sector-join a{justify-content:space-between;padding:14px 0;border-top:1px solid var(--rule)}
+.offset{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,1.6vw,22px);padding-bottom:clamp(48px,6vw,96px)}
+.offset>li:nth-child(even){position:relative;top:clamp(48px,6vw,96px)}
+@media (max-width:900px){
+  .split{grid-template-columns:1fr}
+  .split-aside{position:static}
+}
+@media (max-width:600px){
+  .offset{grid-template-columns:1fr;padding-bottom:0}
+  .offset>li:nth-child(even){top:0}
+  .offset .story{aspect-ratio:4/4.4}
+}
+
+/* QUOTE BANDS: centred over a darkened photograph */
+.quote{position:relative;overflow:hidden;background:var(--night);color:var(--ivory);padding:clamp(120px,15vw,200px) 0;text-align:center}
+.quote-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.6) brightness(.36)}
+.quote .wrap{position:relative;z-index:1}
+.quote blockquote{font-family:var(--figure);font-weight:200;font-size:clamp(1.8rem,3.8vw,3.2rem);line-height:1.22;letter-spacing:-.005em;max-width:26ch;margin:0 auto}
+.quote cite{display:block;margin-top:clamp(24px,3vw,36px);font-style:normal;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+
+/* EDUCATION: centred head, numbers in one ruled band, stories as a feature grid */
+.edu-head{text-align:center;max-width:820px;margin:0 auto}
+.edu-head .sector-intro{align-items:center;margin:clamp(22px,2.6vw,32px) auto 0;max-width:60ch}
+.band{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(56px,6vw,80px);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.band .stat{display:flex;flex-direction:column;align-items:center;text-align:center;padding:clamp(28px,3vw,44px) clamp(16px,2.4vw,36px)}
+.band .stat+.stat{border-left:1px solid var(--rule)}
+.band .stat-num{font-size:clamp(3.4rem,6.6vw,6.2rem)}
+.band .stat-label{margin-top:clamp(10px,1.2vw,16px)}
+.bento{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(clamp(260px,23vw,330px),auto);gap:clamp(12px,1.4vw,18px);margin-top:clamp(56px,6vw,84px)}
+.bento>li:first-child{grid-column:span 2;grid-row:span 2}
+.bento>li:last-child{grid-column:span 4}
+.bento .story{aspect-ratio:auto}
+.bento>li:first-child .story-title{font-size:clamp(1.6rem,2.6vw,2.3rem)}
+.bento>li:first-child .story-text{max-width:42ch}
+@media (max-width:900px){
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .bento>li:first-child{grid-row:span 1;min-height:420px}
+  .bento>li:last-child{grid-column:span 2}
+}
+@media (max-width:600px){
+  .band{grid-template-columns:1fr}
+  .band .stat+.stat{border-left:none;border-top:1px solid var(--rule)}
+  .bento{grid-template-columns:1fr;grid-auto-rows:minmax(360px,auto)}
+  .bento>li:first-child,.bento>li:last-child{grid-column:auto}
+}
+
+/* CONSERVATION: wide title, figures as ruled rows, stories in a sliding rail */
+.cons-title{max-width:16ch}
+.cons-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(40px,6vw,96px);margin-top:clamp(36px,4vw,56px);padding-top:clamp(28px,3vw,40px);border-top:1px solid var(--rule)}
+.rows{list-style:none}
+.rows .stat{display:grid;grid-template-columns:clamp(84px,10vw,140px) 1fr;align-items:center;gap:clamp(16px,2vw,28px);padding:clamp(14px,1.6vw,20px) 0;border-bottom:1px solid var(--rule)}
+.rows .stat:first-child{padding-top:0}
+.rows .stat-num{font-size:clamp(3.2rem,5.4vw,5rem)}
+.rail-wrap{margin-top:clamp(56px,6vw,84px)}
+.rail-bar{display:flex;justify-content:flex-end;gap:10px;margin-bottom:clamp(16px,2vw,24px)}
+.rail-btn{width:48px;height:48px;border-radius:50%;border:1px solid var(--rule);background:none;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:border-color .3s ease,color .3s ease,opacity .3s ease}
+.rail-btn:hover:not(:disabled){border-color:var(--gold);color:var(--gold)}
+.rail-btn:disabled{opacity:.3;cursor:default}
+.rail-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.rail-btn--prev svg{transform:scaleX(-1)}
+.rail{list-style:none;display:grid;grid-auto-flow:column;grid-auto-columns:clamp(268px,31%,420px);gap:clamp(12px,1.4vw,18px);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain}
+.rail::-webkit-scrollbar{display:none}
+.rail>li{scroll-snap-align:start}
+@media (max-width:900px){ .cons-grid{grid-template-columns:1fr} .rail{grid-auto-columns:clamp(260px,46%,420px)} }
+@media (max-width:600px){ .rail{grid-auto-columns:84%} }
+
+/* TAKE PART: pinned invitation, the ways in as an index list, steps on a line */
+.join{background:var(--night);color:var(--ivory);padding:clamp(96px,12vw,160px) 0}
+.join .sector-intro{color:var(--paper-78);margin-top:clamp(22px,2.6vw,32px)}
+.join-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(40px,5.5vw,96px);align-items:start}
+.join-aside{position:sticky;top:120px}
+.ways{list-style:none;border-top:1px solid var(--rule-night)}
+.way{display:grid;grid-template-columns:clamp(96px,11vw,150px) minmax(0,1fr) auto;gap:clamp(18px,2.4vw,32px);align-items:center;padding:clamp(18px,2vw,26px) 0;border-bottom:1px solid var(--rule-night);color:var(--ivory);text-decoration:none}
+.way-media{aspect-ratio:4/3;overflow:hidden;background:var(--night-2)}
+.way-media img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(.85);transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .5s ease}
+.way-num{font-size:.7rem;letter-spacing:.16em;color:var(--gold)}
+.way-title{margin-top:4px;font-size:clamp(1.2rem,1.7vw,1.5rem);font-weight:300;line-height:1.25}
+.way-text{margin-top:6px;color:var(--paper-78);font-size:.96rem;line-height:1.55;max-width:44ch}
+.way-go{display:inline-flex;align-items:center;gap:10px;font-size:.68rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-55);white-space:nowrap;transition:color .3s ease}
+.way-go svg{transition:transform .3s ease}
+.way:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+@media (hover:hover) and (pointer:fine){
+  .way:hover .way-media img{transform:scale(1.06);filter:saturate(.95) brightness(.95)}
+  .way:hover .way-go{color:var(--gold)}
+  .way:hover .way-go svg{transform:translateX(4px)}
+}
+.steps-head{margin-top:clamp(96px,11vw,140px);text-align:center}
+.steps-title{font-weight:200;font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.15}
+.steps-note{margin:12px auto 0;color:var(--paper-55);max-width:40ch}
+.timeline{list-style:none;position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,48px);margin-top:clamp(44px,5vw,64px)}
+.timeline::before{content:"";position:absolute;left:0;right:0;top:28px;height:1px;background:rgba(200,162,90,.45)}
+.timeline .step{position:relative;text-align:center}
+.timeline .step-num{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;border:1px solid var(--gold);background:var(--night);color:var(--gold);font-size:1.05rem;letter-spacing:.06em}
+.step-title{margin-top:20px;font-size:1.2rem;font-weight:400}
+.step-text{margin:8px auto 0;color:var(--paper-78);line-height:1.6;max-width:30ch}
+.join-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:clamp(56px,6vw,80px)}
+@media (max-width:900px){
+  .join-grid{grid-template-columns:1fr}
+  .join-aside{position:static}
+}
+@media (max-width:700px){
+  .timeline{grid-template-columns:1fr;gap:32px}
+  .timeline::before{left:28px;right:auto;top:0;bottom:0;width:1px;height:auto}
+  .timeline .step{text-align:left;padding-left:84px;min-height:56px}
+  .timeline .step-num{position:absolute;left:0;top:0}
+  .step-title{margin-top:12px}
+  .step-text{margin-left:0}
+}
+@media (max-width:600px){
+  .way{grid-template-columns:96px minmax(0,1fr)}
+  .way-go{grid-column:2}
+}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:12px;padding:17px 30px;background:var(--gold);color:var(--night);
+  font-size:.74rem;font-weight:400;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;
+  border:1px solid var(--gold);transition:background-color .3s ease,color .3s ease,border-color .3s ease}
+.btn svg{transition:transform .3s ease}
+.btn:hover{background:transparent;color:var(--gold)}
+.btn:hover svg{transform:translateX(4px)}
+.btn--ghost{background:transparent;color:var(--ivory);border-color:rgba(248,246,241,.35)}
+.btn--ghost:hover{border-color:var(--gold);color:var(--gold)}
+.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* GALLERY: a brick mosaic with captions on the photographs */
+.supported{background:var(--ivory);padding:clamp(88px,11vw,140px) 0}
+.supported-head{margin-bottom:clamp(40px,4.6vw,60px)}
+.supported-title{font-weight:200;font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.2;letter-spacing:-.008em}
+.mosaic{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(180px,18vw,260px);gap:clamp(8px,1vw,14px)}
+.mosaic>li.wide{grid-column:span 2}
+.sup-card{position:relative;display:block;width:100%;height:100%;padding:0;border:none;overflow:hidden;cursor:pointer;background:var(--night-2);font:inherit;color:var(--ivory);text-align:left}
+.sup-card-media{position:absolute;inset:0}
+.sup-card-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.sup-card::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(5,12,24,.82) 0%,rgba(5,12,24,.2) 38%,rgba(5,12,24,0) 60%)}
+.sup-card-caption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:14px 16px;font-size:.66rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;line-height:1.5;color:var(--paper-90)}
+.sup-card:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+@media (hover:hover) and (pointer:fine){ .sup-card:hover .sup-card-media img{transform:scale(1.05)} }
+.supported-note{margin-top:clamp(24px,3vw,36px);font-size:.72rem;letter-spacing:.06em;color:var(--ink-40)}
+@media (max-width:760px){ .mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:clamp(150px,36vw,220px)} }
+@media (max-width:420px){ .mosaic{grid-template-columns:1fr;grid-auto-rows:220px} .mosaic>li.wide{grid-column:auto} }
+
+/* ASSOCIATIONS: a still, ruled logo grid */
+.bw-assoc{background:var(--sand);padding:clamp(80px,10vw,130px) 0}
+.bw-assoc-title{font-weight:200;font-size:clamp(1.9rem,3.6vw,3rem);line-height:1.22;letter-spacing:-.008em;max-width:22ch}
+.bw-assoc-title strong{font-weight:400}
+.assoc-grid{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));margin-top:clamp(40px,4.6vw,56px);padding:1px 0 0 1px}
+.assoc-grid li{display:flex;align-items:center;justify-content:center;height:clamp(110px,10vw,140px);padding:clamp(18px,2vw,28px);background:var(--ivory);border:1px solid var(--rule);margin:-1px 0 0 -1px}
+.assoc-grid img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+@media (max-width:460px){ .assoc-grid{grid-template-columns:repeat(2,1fr)} }
+
+/* CLOSING: two columns over the acacia landscape */
+.bw-closing{position:relative;overflow:hidden;background:var(--night);color:var(--ivory);padding:clamp(110px,13vw,180px) 0}
+.closing-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.7) brightness(.32)}
+.closing-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,6vw,104px);align-items:start}
+.bw-closing-title{font-weight:200;font-size:clamp(2rem,4vw,3.4rem);line-height:1.12;letter-spacing:-.012em}
+.bw-closing-rule{width:56px;height:1px;background:var(--gold);margin:clamp(28px,3.4vw,40px) 0}
+.bw-closing-pull{font-family:var(--figure);font-style:italic;font-weight:300;color:var(--gold);font-size:clamp(1.2rem,2.1vw,1.55rem);line-height:1.5}
+.bw-closing-body{display:flex;flex-direction:column;gap:1.15em;color:var(--paper-78);font-size:clamp(1.05rem,1.25vw,1.15rem);line-height:1.75}
+.bw-closing .btn{margin-top:clamp(32px,4vw,44px)}
+@media (max-width:900px){ .closing-grid{grid-template-columns:1fr} }
+.footer{border-top:1px solid var(--rule-night)}
+
+.bw-lightbox{position:fixed;inset:0;z-index:100;background:rgba(5,12,24,.94);
+  display:flex;align-items:center;justify-content:center;padding:clamp(20px,4vw,48px);
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility .3s}
+.bw-lightbox.open{opacity:1;visibility:visible}
+.bw-lightbox-inner{max-width:1100px;width:100%;text-align:center}
+.bw-lightbox img{max-width:100%;max-height:78svh;object-fit:contain;display:block;margin:0 auto;background:var(--night-2)}
+.bw-lightbox-caption{color:var(--paper-78);text-align:center;margin-top:18px;font-size:.85rem;letter-spacing:.02em}
+.bw-lightbox-close,.bw-lightbox-nav{position:fixed;border-radius:50%;border:1px solid rgba(248,246,241,.3);
+  background:rgba(10,10,10,.4);color:var(--ivory);cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:border-color .3s ease,background-color .3s ease}
+.bw-lightbox-close:hover,.bw-lightbox-nav:hover{border-color:var(--gold);background:rgba(200,162,90,.15)}
+.bw-lightbox-close{top:clamp(16px,3vw,32px);right:clamp(16px,3vw,32px);width:44px;height:44px}
+.bw-lightbox-nav{top:50%;transform:translateY(-50%);width:48px;height:48px}
+.bw-lightbox-prev{left:clamp(10px,2.4vw,28px)}
+.bw-lightbox-next{right:clamp(10px,2.4vw,28px)}
+@media (max-width:600px){ .bw-lightbox-nav{width:40px;height:40px} }
+/* FOOTER: site-wide chrome stays midnight on every page */
+.footer{position:relative;z-index:5;background:var(--midnight);color:rgba(248,246,241,.7);padding:clamp(48px,6vw,72px) var(--gutter) clamp(32px,4vw,40px)}
+.footer-top{display:flex;align-items:center;flex-wrap:wrap;gap:clamp(24px,4vw,40px)}
+.footer-logo{height:clamp(72px,8vw,96px);width:auto;display:block}
+.footer-top .nav-divider{height:clamp(44px,5vw,64px)}
+.footer-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(28px,4vw,56px);margin-top:clamp(40px,5vw,64px)}
+.footer-col-title{font-family:var(--display);font-weight:400;font-size:1.05rem;letter-spacing:.02em;color:var(--ivory);margin:0 0 clamp(18px,2vw,26px)}
+.footer-col-list{list-style:none;display:flex;flex-direction:column;gap:clamp(12px,1.4vw,16px)}
+.footer-col-list a{font-size:.8rem;font-weight:300;letter-spacing:.04em;color:rgba(248,246,241,.62);text-decoration:none;transition:color .25s}
+.footer-col-list a:hover{color:var(--gold)}
+.footer-rule{height:1px;background:var(--rule-light);margin:clamp(40px,5vw,64px) 0 clamp(24px,3vw,32px)}
+.footer-bottom{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:.75rem;font-weight:300;letter-spacing:.04em;color:rgba(248,246,241,.5);line-height:1.8}
+.footer-bottom p{max-width:70ch}
+@media (max-width:900px){ .footer-cols{grid-template-columns:repeat(2,1fr);gap:clamp(28px,5vw,40px)} }
+@media (max-width:720px){ .footer-bottom{flex-direction:column} .footer-top{flex-direction:column;align-items:center;text-align:center} }
+@media (max-width:460px){
+  .footer-cols{grid-template-columns:1fr}
+  .footer .nav-mark{flex-direction:column;gap:16px}
+  .footer .nav-mark .nav-divider{display:none}
+}
+
+</style>
+</head>
+</style>
+</head>
+<body>
+<script>document.documentElement.classList.add('js')</script>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arrow" viewBox="0 0 16 12" fill="none"><path d="M10 1l5 5-5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 6H1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+</svg>
+
+<nav class="nav">
+  <a class="nav-mark" href="homepage.html" aria-label="Regis and Savoy Capital, home">
+    <img class="nav-logo" src="../assets/RandS White Transparent logo.png" alt="">
+    <span class="nav-divider" aria-hidden="true"></span>
+    <span class="nav-wordmark">
+      <span class="wm-name">Regis and Savoy Capital</span>
+      <span class="wm-sub">Pure trust, pure advice</span>
+    </span>
+  </a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle menu">
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+    <span class="nav-toggle-bar" aria-hidden="true"></span>
+  </button>
+  <div class="nav-right" id="nav-menu">
+    <ul class="nav-links">
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="wealth-management.html">Wealth Management</a></li>
+      <li class="nav-dropdown">
+        <a href="services.html">Our Services</a>
+        <button class="nav-caret-btn" type="button" aria-expanded="false" aria-label="Toggle Our Services menu"><span class="nav-caret" aria-hidden="true"></span></button>
+        <ul class="nav-dropdown-menu">
+          <li><a href="private-equity.html">Private Equity</a></li>
+          <li><a href="family-office.html">Family Office</a></li>
+          <li><a href="legacy-and-impact.html">Legacy and Impact</a></li>
+        </ul>
+      </li>
+      <li class="nav-dropdown">
+        <a href="beyond-wealth-v3.html" class="current">Beyond Wealth</a>
+        <button class="nav-caret-btn" type="button" aria-expanded="false" aria-label="Toggle Beyond Wealth menu"><span class="nav-caret" aria-hidden="true"></span></button>
+        <ul class="nav-dropdown-menu nav-dropdown-menu--sectors">
+          <li><span class="menu-label">Impact Sectors</span></li>
+          <li><a href="#leadership">Thought Leadership &amp; Mentorship <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></a></li>
+          <li><a href="#education">Education &amp; Opportunity <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></a></li>
+          <li><a href="#conservation">Animal Welfare &amp; Conservation <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></a></li>
+          <li><a href="#take-part">Take Part With Us <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></a></li>
+        </ul>
+      </li>
+      <li><a href="corporate-services.html">Corporate Services</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<section class="hero" id="top">
+  <div class="hero-copy">
+    <p class="eyebrow eyebrow--gold rv">Beyond Wealth</p>
+    <h1 class="hero-title rv" style="--d:.12s">The World<br>Beyond Wealth</h1>
+    <p class="hero-sub rv" style="--d:.24s">Capital, experience and relationships, put to work for causes that last. <em>And an open invitation to join us.</em></p>
+    <div class="hero-rule rv" style="--d:.36s"></div>
+  </div>
+  <div class="hero-media"><img src="../assets/beyond-wealth/wildlife/ol-pejeta.jpg" alt=""></div>
+</section>
+
+<section class="impact" aria-label="Our impact in numbers">
+  <div class="wrap impact-grid">
+    <p class="statement rv">Over the years we have put capital, time and relationships to work beyond the portfolio: <strong>mentoring the leaders of tomorrow, opening classrooms and protecting lives that cannot speak for themselves.</strong></p>
+    <ul class="cells" data-stagger>
+      <li class="stat rv"><p class="stat-num" data-count="2500"><span class="val">2,500</span><span class="sfx">+</span></p><p class="stat-label">rural students reached</p></li>
+      <li class="stat rv"><p class="stat-num" data-count="400"><span class="val">400</span></p><p class="stat-label">schools supported</p></li>
+      <li class="stat rv"><p class="stat-num" data-count="17"><span class="val">17</span></p><p class="stat-label">education and community projects completed</p></li>
+      <li class="stat rv"><p class="stat-num" data-count="18"><span class="val">18</span></p><p class="stat-label">institutions and fellowships we work alongside</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sectors" id="sectors" aria-labelledby="sectors-title">
+  <div class="wrap">
+    <div class="sectors-head rv">
+      <div>
+        <p class="eyebrow eyebrow--gold">Impact Sectors</p>
+        <h2 class="sectors-title" id="sectors-title">Three sectors. One way of giving.</h2>
+      </div>
+      <p class="sectors-intro">Each brings together capital, knowledge, relationships and action. Choose one to see the stories, the numbers and the ways you can take part.</p>
+    </div>
+    <ul class="panels rv" style="--d:.12s">
+      <li class="active"><a class="panel" href="#leadership">
+        <img src="../assets/beyond-wealth/gallery/speaker-addressing-auditorium.jpg" alt="" loading="lazy">
+        <span class="panel-body">
+          <span class="panel-num">01</span>
+          <span class="panel-name">Thought Leadership &amp; Mentorship</span>
+          <span class="panel-desc">Sharing what we have learned, on global stages and one to one with the leaders of tomorrow.</span>
+          <span class="panel-go"><svg width="16" height="12" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </span>
+      </a></li>
+      <li><a class="panel" href="#education">
+        <img src="../assets/beyond-wealth/card-education.jpg" alt="" loading="lazy">
+        <span class="panel-body">
+          <span class="panel-num">02</span>
+          <span class="panel-name">Education &amp; Opportunity</span>
+          <span class="panel-desc">From a single school in Doddaballapura to girls&rsquo; education in Narok, Kenya, futures that begin with a chance to learn.</span>
+          <span class="panel-go"><svg width="16" height="12" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </span>
+      </a></li>
+      <li><a class="panel" href="#conservation">
+        <img src="../assets/beyond-wealth/card-wildlife.jpg" alt="" loading="lazy">
+        <span class="panel-body">
+          <span class="panel-num">03</span>
+          <span class="panel-name">Animal Welfare &amp; Conservation</span>
+          <span class="panel-desc">From Ol Pejeta and the Jane Goodall Institute to shelters closer to home, protecting lives that cannot ask for help.</span>
+          <span class="panel-go"><svg width="16" height="12" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </span>
+      </a></li>
+      <li><a class="panel" href="#take-part">
+        <img src="../assets/beyond-wealth/gallery/school-community-celebration.jpg" alt="" loading="lazy">
+        <span class="panel-body">
+          <span class="panel-num">04</span>
+          <span class="panel-name">Take Part With Us</span>
+          <span class="panel-desc">Give, mentor or partner alongside us. Beyond Wealth is open to the people we advise.</span>
+          <span class="panel-go"><svg width="16" height="12" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </span>
+      </a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="sector" id="leadership" aria-labelledby="leadership-title">
+  <div class="wrap split">
+    <div class="split-aside rv">
+        <p class="eyebrow">Impact Sector 01</p>
+        <h2 class="sector-title" id="leadership-title">Thought Leadership &amp; Mentorship</h2>
+        <ul class="places" aria-label="Where this work has taken us">
+          <li>London</li><li>New York</li><li>Westminster</li><li>Mumbai</li><li>New Delhi</li><li>Bangalore</li>
+        </ul>
+      <div class="sector-intro">
+        <p>Some change begins with action. Other change begins with a conversation.</p>
+        <p>We take part in the rooms where ideas about business, emerging economies and India&rsquo;s place in the world are shaped. And we pass what we learn forward, to students, young leaders and first time founders.</p>
+      </div>
+    <div class="sector-join">
+      <span class="sector-join-label">Take part</span>
+      <a href="#take-part">Mentor a young leader <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></a>
+      <a href="#take-part">Host a student immersion <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></a>
+      <a href="#take-part">Join us at a talk or forum <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </div>
+    </div>
+    <ul class="offset" data-stagger>
+      <li class="rv"><a class="story" href="beyond-wealth-ideas.html">
+        <img src="../assets/beyond-wealth/gallery/speaker-addressing-auditorium.jpg" alt="A speaker at a podium addressing a full auditorium" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">Talks</p>
+          <h3 class="story-title">A voice in the rooms where ideas take shape.</h3>
+          <p class="story-text">From the Lexus Talk stage in Mumbai to the London School of Economics, New York University and the House of Commons.</p>
+          <span class="story-link">Read the story <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </div>
+      </a></li>
+      <li class="rv"><article class="story">
+        <img src="../assets/beyond-wealth/card-mentorship.jpg" alt="The Queen Elizabeth Diamond Jubilee Trust group photograph" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">Mentorship</p>
+          <h3 class="story-title">Mentoring the Queen&rsquo;s Young Leaders.</h3>
+          <p class="story-text">Through the Queen Elizabeth Diamond Jubilee Trust. Among the mentees, Aditya Kulkarni, now CEO of CareMother.</p>
+        </div>
+      </article></li>
+      <li class="rv"><article class="story">
+        <img src="../assets/beyond-wealth/gallery/royal-society-of-arts.jpg" alt="Queen Elizabeth II and Prince Philip outside the Royal Society of Arts, London" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">Fellowship</p>
+          <h3 class="story-title">Fellow of the Royal Society of Arts.</h3>
+          <p class="story-text">Honoured in London in recognition of contributions to business and society.</p>
+        </div>
+      </article></li>
+      <li class="rv"><a class="story" href="beyond-wealth-mentorship.html">
+        <img src="../assets/beyond-wealth/mentorship/mentors-partners.jpg" alt="A speaker at a podium during a conference session" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">Student Immersion</p>
+          <h3 class="story-title">India, taught first hand.</h3>
+          <p class="story-text">Hosting students from the University of Erlangen-Nürnberg in India, from market entry to cross cultural negotiation.</p>
+          <span class="story-link">Read the story <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </div>
+      </a></li>
+      <li class="rv"><article class="story">
+        <img src="../assets/beyond-wealth/gallery/auditorium-audience-1.jpg" alt="A packed auditorium attending a talk" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">Pro Bono</p>
+          <h3 class="story-title">Financial literacy for women.</h3>
+          <p class="story-text">Workshops and mentoring that encourage women to step into the investment world, most of it given pro bono.</p>
+        </div>
+      </article></li>
+      <li class="rv"><article class="story">
+        <img src="../assets/beyond-wealth/gallery/tata-lit-live-banner.jpg" alt="A conversation on stage at Tata Literature Live, the Mumbai LitFest" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">Tata Literature Live</p>
+          <h3 class="story-title">Business Shastras at The Mumbai LitFest.</h3>
+          <p class="story-text">On The Serendipity Mindset, and what it takes to lead in business.</p>
+        </div>
+      </article></li>
+    </ul>
+  </div>
+</section>
+
+<section class="quote" aria-label="On mentorship">
+  <img class="quote-bg" src="../assets/beyond-wealth/gallery/experiential-learning-talk.jpg" alt="" loading="lazy">
+  <div class="wrap">
+    <blockquote class="rv">&ldquo;Experience becomes meaningful when it is passed forward.&rdquo;</blockquote>
+    <cite class="rv" style="--d:.12s">Regis and Savoy Capital, on mentorship</cite>
+  </div>
+</section>
+
+<section class="sector sector--sand" id="education" aria-labelledby="education-title">
+  <div class="wrap">
+    <div class="edu-head rv">
+        <p class="eyebrow">Impact Sector 02</p>
+        <h2 class="sector-title" id="education-title">Education &amp; Opportunity</h2>
+      <div class="sector-intro">
+        <p>We did not want to simply help a school perform better. We wanted to help its students imagine a better life.</p>
+        <p>Our work in education goes beyond buildings, to the moment a student walks out of the examination hall and into a future.</p>
+      </div>
+    </div>
+
+    <ul class="band" data-stagger>
+      <li class="stat rv"><p class="stat-num" data-count="800"><span class="val">800</span><span class="sfx">+</span></p><p class="stat-label">students at one school today, from 15 a decade ago</p></li>
+      <li class="stat rv"><p class="stat-num" data-count="100"><span class="val">100</span><span class="sfx">%</span></p><p class="stat-label">pass rate, maintained throughout</p></li>
+      <li class="stat rv"><p class="stat-num" data-count="15"><span class="val">15</span><span class="sfx">%</span></p><p class="stat-label">IRR returned by one Development Impact Bond</p></li>
+    </ul>
+
+    <ul class="bento" data-stagger>
+      <li class="rv"><a class="story" href="beyond-wealth-education.html">
+        <img src="../assets/beyond-wealth/education/doddaballapura-school.jpg" alt="Sri Guru Raghavendra Vidyaniketana, the school in Doddaballapura" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">Doddaballapura, India</p>
+          <h3 class="story-title">One school. One decade. A different tomorrow.</h3>
+          <p class="story-text">School buses, security, meals and a computer laboratory, as one school grew from 15 students to over 800.</p>
+          <span class="story-link">Read the story <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </div>
+      </a></li>
+      <li class="rv"><article class="story">
+        <img src="../assets/beyond-wealth/gallery/flag-hoisting-cheer.jpg" alt="Schoolchildren cheering with raised fists beneath the school flag" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">After the Exam</p>
+          <h3 class="story-title">Life after the examination.</h3>
+          <p class="story-text">Students who score above 60% in SSLC are offered on the job training and employment with nearby companies.</p>
+        </div>
+      </article></li>
+      <li class="rv"><article class="story">
+        <img src="../assets/beyond-wealth/gallery/nkoilale-desks.jpg" alt="Students at Nkoilale Primary School, Narok, Kenya" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">Narok, Kenya</p>
+          <h3 class="story-title">Girls who stay in school.</h3>
+          <p class="story-text">Helping girls continue their education at Nkoilale Primary School, in a remote part of Narok.</p>
+        </div>
+      </article></li>
+      <li class="rv"><article class="story">
+        <img src="../assets/beyond-wealth/gallery/rajasthan-girls-education.jpg" alt="Girls near Jaipur, Rajasthan" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">Development Impact Bonds</p>
+          <h3 class="story-title">Paying for outcomes, not activity.</h3>
+          <p class="story-text">Working with policymakers to advance Development Impact Bonds in India. One such bond returned an IRR of 15%.</p>
+        </div>
+      </article></li>
+      <li class="rv"><article class="story">
+        <img src="../assets/beyond-wealth/gallery/midday-meal-service.jpg" alt="Staff serving a meal to rows of seated schoolchildren" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">Everyday Care</p>
+          <h3 class="story-title">The everyday things that matter.</h3>
+          <p class="story-text">Meals, deworming, and health and hygiene programmes, alongside the classroom.</p>
+        </div>
+      </article></li>
+      <li class="rv"><article class="story">
+        <img src="../assets/beyond-wealth/gallery/school-walk-blue-uniforms.jpg" alt="A line of schoolchildren in blue uniforms walking together" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">Rural India</p>
+          <h3 class="story-title">More than 2,500 rural students.</h3>
+          <p class="story-text">Reached across around 400 schools, through 17 completed education and community projects.</p>
+        </div>
+      </article></li>
+    </ul>
+
+    <div class="sector-join sector-join--center rv">
+      <span class="sector-join-label">Take part</span>
+      <a href="#take-part">Offer training or a first job <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></a>
+      <a href="#take-part">Fund a need we have seen first hand <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></a>
+      <a href="#take-part">Give through outcome based structures <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="quote" aria-label="On education">
+  <img class="quote-bg" src="../assets/beyond-wealth/gallery/school-assembly-circle.jpg" alt="" loading="lazy">
+  <div class="wrap">
+    <blockquote class="rv">&ldquo;Education should not simply help a child pass an exam. It should help them see what life could look like after it.&rdquo;</blockquote>
+    <cite class="rv" style="--d:.12s">Regis and Savoy Capital, on education</cite>
+  </div>
+</section>
+
+<section class="sector" id="conservation" aria-labelledby="conservation-title">
+  <div class="wrap">
+    <div class="rv">
+        <p class="eyebrow">Impact Sector 03</p>
+        <h2 class="sector-title cons-title" id="conservation-title">Animal Welfare &amp; Conservation</h2>
+    </div>
+    <div class="cons-grid">
+      <div class="sector-intro rv" style="--d:.12s">
+        <p>Some of the most important lives we encounter cannot ask for our help.</p>
+        <p>From the conservancies of Kenya to shelters closer to home, we support the protection of animals and the wild places they depend on.</p>
+      </div>
+      <ul class="rows" data-stagger>
+      <li class="stat rv"><p class="stat-num" data-count="3"><span class="val">3</span></p><p class="stat-label">dogs brought home from New York, through a pandemic</p></li>
+      <li class="stat rv"><p class="stat-num" data-count="2"><span class="val">2</span></p><p class="stat-label">Kenyan landscapes supported: the Maasai Mara and Ol Pejeta</p></li>
+      <li class="stat rv"><p class="stat-num" data-count="4"><span class="val">4</span></p><p class="stat-label">animal welfare partners across India</p></li>
+      </ul>
+    </div>
+
+    <div class="rail-wrap rv" data-rail>
+      <div class="rail-bar">
+        <button class="rail-btn rail-btn--prev" type="button" aria-label="Previous stories"><svg width="16" height="12" aria-hidden="true"><use href="#arrow"/></svg></button>
+        <button class="rail-btn rail-btn--next" type="button" aria-label="Next stories"><svg width="16" height="12" aria-hidden="true"><use href="#arrow"/></svg></button>
+      </div>
+      <ul class="rail">
+      <li><a class="story" href="beyond-wealth-coming-home.html">
+        <img src="../assets/beyond-wealth/story-coming-home.jpg" alt="A young woman holding her dogs in an airport terminal" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">A Story About Being There</p>
+          <h3 class="story-title">She refused to board.</h3>
+          <p class="story-text">Stranded in New York at the height of the pandemic, she would not leave without her three dogs. All four came home.</p>
+          <span class="story-link">Read the story <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </div>
+      </a></li>
+      <li><a class="story" href="beyond-wealth-wildlife.html">
+        <img src="../assets/beyond-wealth/wildlife/jane-goodall-feature.jpg" alt="Dr. Jane Goodall with a chimpanzee" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">Jane Goodall Institute</p>
+          <h3 class="story-title">Protecting the chimpanzees.</h3>
+          <p class="story-text">Supporting wildlife conservation and chimpanzee protection through our association with the Jane Goodall Institute.</p>
+          <span class="story-link">Read the story <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </div>
+      </a></li>
+      <li><article class="story">
+        <img src="../assets/beyond-wealth/gallery/ol-pejeta-rhino-closeup.jpg" alt="A white rhino at Ol Pejeta Conservancy" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">Ol Pejeta Conservancy</p>
+          <h3 class="story-title">Home to Baraka, the blind rhino.</h3>
+          <p class="story-text">Safeguarding some of the world&rsquo;s most remarkable wildlife, and the right of every living being to survive.</p>
+        </div>
+      </article></li>
+      <li><article class="story">
+        <img src="../assets/beyond-wealth/gallery/chimp-mother-baby.jpg" alt="A rescued chimpanzee mother and infant at Ol Pejeta" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">Sweetwaters Sanctuary</p>
+          <h3 class="story-title">A second chance.</h3>
+          <p class="story-text">Rescued chimpanzees and their young, cared for at the Sweetwaters Chimpanzee Sanctuary in Ol Pejeta.</p>
+        </div>
+      </article></li>
+      <li><article class="story">
+        <img src="../assets/beyond-wealth/wildlife/animal-welfare-india.jpg" alt="An African savanna at sunset" loading="lazy">
+        <div class="story-body">
+          <p class="story-meta">Maasai Mara, Kenya</p>
+          <h3 class="story-title">Room for the lives that came before us.</h3>
+          <p class="story-text">Supporting conservation across the Maasai Mara and Ol Pejeta, for the lives that come after us too.</p>
+        </div>
+      </article></li>
+      <li><article class="story story--logos">
+        <div class="story-body">
+          <div>
+            <p class="story-meta">Closer to Home</p>
+            <h3 class="story-title">Shelters and adoption across India.</h3>
+            <p class="story-text">With national and local partners in animal welfare and responsible care.</p>
+          </div>
+          <div class="story-logos">
+            <span><img src="../assets/logos/associations/pfa.png" alt="People For Animals" loading="lazy"></span>
+            <span><img src="../assets/logos/associations/cupa.png" alt="CUPA, Compassion Unlimited Plus Action" loading="lazy"></span>
+            <span><img src="../assets/logos/associations/bwc.png" alt="BWC, Beauty Without Cruelty" loading="lazy"></span>
+            <span><img src="../assets/logos/associations/arf.png" alt="ARF, Animal Rights Fund" loading="lazy"></span>
+          </div>
+        </div>
+      </article></li>
+      </ul>
+    </div>
+
+    <div class="sector-join rv">
+      <span class="sector-join-label">Take part</span>
+      <a href="#take-part">Adopt from a shelter we support <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></a>
+      <a href="#take-part">Support conservation in Kenya <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></a>
+      <a href="#take-part">Bring a cause to us <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="join" id="take-part" aria-labelledby="join-title">
+  <div class="wrap">
+    <div class="join-grid">
+      <div class="join-aside rv">
+        <p class="eyebrow eyebrow--gold">Take Part With Us</p>
+        <h2 class="sector-title" id="join-title">Beyond wealth is not a journey we take alone.</h2>
+      <div class="sector-intro">
+        <p>The people we advise often ask how they can give with the same care they bring to investing. Beyond Wealth is open to them.</p>
+        <p>Bring your capital, your experience or your network, and we will connect it to work we know first hand.</p>
+      </div>
+      </div>
+      <ul class="ways" data-stagger>
+        <li class="rv"><a class="way" href="contact.html">
+          <span class="way-media"><img src="../assets/beyond-wealth/gallery/school-community-celebration.jpg" alt="" loading="lazy"></span>
+          <span><span class="way-num">01</span><h3 class="way-title">Give alongside us</h3><p class="way-text">Support needs we have seen for ourselves, from school meals and buses to conservation in Kenya.</p></span>
+          <span class="way-go">Start a conversation <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </a></li>
+        <li class="rv"><a class="way" href="contact.html">
+          <span class="way-media"><img src="../assets/beyond-wealth/gallery/school-community-friends.jpg" alt="" loading="lazy"></span>
+          <span><span class="way-num">02</span><h3 class="way-title">Mentor a young leader</h3><p class="way-text">Share what you have learned with students, young leaders and first time founders.</p></span>
+          <span class="way-go">Start a conversation <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </a></li>
+        <li class="rv"><a class="way" href="contact.html">
+          <span class="way-media"><img src="../assets/beyond-wealth/gallery/students-playground-run.jpg" alt="" loading="lazy"></span>
+          <span><span class="way-num">03</span><h3 class="way-title">Open a door</h3><p class="way-text">Offer training, an internship or a first job to students finishing school.</p></span>
+          <span class="way-go">Start a conversation <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </a></li>
+        <li class="rv"><a class="way" href="legacy-and-impact.html">
+          <span class="way-media"><img src="../assets/beyond-wealth/card-ideas.jpg" alt="" loading="lazy"></span>
+          <span><span class="way-num">04</span><h3 class="way-title">Give with structure</h3><p class="way-text">Outcome based giving, family foundations and legacy plans, built into your wealth plan.</p></span>
+          <span class="way-go">Legacy and Impact <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </a></li>
+        <li class="rv"><a class="way" href="contact.html">
+          <span class="way-media"><img src="../assets/beyond-wealth/gallery/chimp-resting-ol-pejeta.jpg" alt="" loading="lazy"></span>
+          <span><span class="way-num">05</span><h3 class="way-title">Protect a wild place</h3><p class="way-text">Back the conservation and animal welfare partners we work with in Kenya and India.</p></span>
+          <span class="way-go">Start a conversation <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </a></li>
+        <li class="rv"><a class="way" href="contact.html">
+          <span class="way-media"><img src="../assets/beyond-wealth/gallery/auditorium-audience-2.jpg" alt="" loading="lazy"></span>
+          <span><span class="way-num">06</span><h3 class="way-title">Join the conversation</h3><p class="way-text">Be part of the talks and forums where these ideas take shape.</p></span>
+          <span class="way-go">Start a conversation <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></span>
+        </a></li>
+      </ul>
+    </div>
+
+    <div class="steps-head rv">
+      <h3 class="steps-title">How it works</h3>
+      <p class="steps-note">No membership, no minimum. Every journey starts with a conversation.</p>
+    </div>
+    <ol class="timeline" data-stagger>
+      <li class="step rv"><p class="step-num">01</p><p class="step-title">A conversation</p><p class="step-text">We begin with what matters to you: the causes, places and people you care about.</p></li>
+      <li class="step rv"><p class="step-num">02</p><p class="step-title">An introduction</p><p class="step-text">We connect you to work we know first hand, and to the people we trust on the ground.</p></li>
+      <li class="step rv"><p class="step-num">03</p><p class="step-title">Taking part</p><p class="step-text">You give, mentor or partner, and see for yourself what your support makes possible.</p></li>
+    </ol>
+    <div class="join-cta rv">
+      <a class="btn" href="contact.html">Start a conversation <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></a>
+      <a class="btn btn--ghost" href="legacy-and-impact.html">Explore Legacy and Impact <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="supported" id="gallery" aria-labelledby="supported-title">
+  <div class="wrap">
+    <div class="supported-head rv">
+      <p class="eyebrow">Gallery</p>
+      <h2 class="supported-title" id="supported-title">We supported, among others.</h2>
+    </div>
+    <ul class="mosaic" data-lightbox-track data-stagger>
+      <li class="rv wide"><button class="sup-card" type="button" data-full="../assets/beyond-wealth/gallery/chimp-resting-ol-pejeta.jpg" data-caption="Sweetwaters Chimpanzee Sanctuary, Ol Pejeta">
+        <span class="sup-card-media"><img src="../assets/beyond-wealth/gallery/chimp-resting-ol-pejeta.jpg" alt="A chimpanzee resting at Ol Pejeta" loading="lazy"></span>
+        <span class="sup-card-caption">Sweetwaters Chimpanzee Sanctuary, Ol Pejeta</span></button></li>
+      <li class="rv"><button class="sup-card" type="button" data-full="../assets/beyond-wealth/gallery/doddaballapura-students-assembly.jpg" data-caption="Sri Guru Raghavendra Vidyaniketana, Doddaballapura">
+        <span class="sup-card-media"><img src="../assets/beyond-wealth/gallery/thumbs/doddaballapura-students-assembly.jpg" alt="Students assembled at the Doddaballapura school" loading="lazy"></span>
+        <span class="sup-card-caption">Sri Guru Raghavendra Vidyaniketana, Doddaballapura</span></button></li>
+      <li class="rv"><button class="sup-card" type="button" data-full="../assets/beyond-wealth/gallery/tata-lit-live-banner.jpg" data-caption="Tata Literature Live, The Mumbai LitFest">
+        <span class="sup-card-media"><img src="../assets/beyond-wealth/gallery/thumbs/tata-lit-live-banner.jpg" alt="A conversation on stage at Tata Literature Live, the Mumbai LitFest" loading="lazy"></span>
+        <span class="sup-card-caption">Tata Literature Live, The Mumbai LitFest</span></button></li>
+      <li class="rv"><button class="sup-card" type="button" data-full="../assets/beyond-wealth/gallery/gorilla-translocation.jpg" data-caption="Mountain Gorilla Conservation">
+        <span class="sup-card-media"><img src="../assets/beyond-wealth/gallery/thumbs/gorilla-translocation.jpg" alt="A conservation team carrying a sedated mountain gorilla for translocation" loading="lazy"></span>
+        <span class="sup-card-caption">Mountain Gorilla Conservation</span></button></li>
+      <li class="rv"><button class="sup-card" type="button" data-full="../assets/beyond-wealth/gallery/nkoilale-classroom.jpg" data-caption="Nkoilale Primary School, Narok">
+        <span class="sup-card-media"><img src="../assets/beyond-wealth/gallery/thumbs/nkoilale-classroom.jpg" alt="A classroom building at Nkoilale Primary School, Narok, Kenya" loading="lazy"></span>
+        <span class="sup-card-caption">Nkoilale Primary School, Narok, Kenya</span></button></li>
+      <li class="rv wide"><button class="sup-card" type="button" data-full="../assets/beyond-wealth/gallery/royal-society-of-arts.jpg" data-caption="Fellow of the Royal Society of Arts">
+        <span class="sup-card-media"><img src="../assets/beyond-wealth/gallery/royal-society-of-arts.jpg" alt="Queen Elizabeth II and Prince Philip outside the Royal Society of Arts, London" loading="lazy"></span>
+        <span class="sup-card-caption">Fellow of the Royal Society of Arts</span></button></li>
+      <li class="rv wide"><button class="sup-card" type="button" data-full="../assets/beyond-wealth/gallery/jane-goodall-institute-fieldwork.jpg" data-caption="Jane Goodall Institute, Field Research">
+        <span class="sup-card-media"><img src="../assets/beyond-wealth/gallery/jane-goodall-institute-fieldwork.jpg" alt="Dr. Jane Goodall observing chimpanzees in the field with a research team" loading="lazy"></span>
+        <span class="sup-card-caption">Jane Goodall Institute, Field Research</span></button></li>
+      <li class="rv"><button class="sup-card" type="button" data-full="../assets/beyond-wealth/gallery/rajasthan-girls-education.jpg" data-caption="Girls&#39; Education, Rajasthan">
+        <span class="sup-card-media"><img src="../assets/beyond-wealth/gallery/thumbs/rajasthan-girls-education.jpg" alt="Girls near Jaipur, Rajasthan" loading="lazy"></span>
+        <span class="sup-card-caption">Girls&rsquo; Education, Rajasthan</span></button></li>
+      <li class="rv"><button class="sup-card" type="button" data-full="../assets/beyond-wealth/gallery/speaker-addressing-auditorium.jpg" data-caption="Thoughtful Leadership">
+        <span class="sup-card-media"><img src="../assets/beyond-wealth/gallery/thumbs/speaker-addressing-auditorium.jpg" alt="A speaker at a podium addressing a full auditorium" loading="lazy"></span>
+        <span class="sup-card-caption">Thoughtful Leadership</span></button></li>
+      <li class="rv"><button class="sup-card" type="button" data-full="../assets/beyond-wealth/gallery/ol-pejeta-rhino-portrait.jpg" data-caption="Ol Pejeta Conservancy">
+        <span class="sup-card-media"><img src="../assets/beyond-wealth/gallery/thumbs/ol-pejeta-rhino-portrait.jpg" alt="A white rhino at Ol Pejeta Conservancy" loading="lazy"></span>
+        <span class="sup-card-caption">Ol Pejeta Conservancy, Kenya</span></button></li>
+      <li class="rv"><button class="sup-card" type="button" data-full="../assets/beyond-wealth/gallery/teach-for-india-report.jpg" data-caption="Teach For India">
+        <span class="sup-card-media"><img src="../assets/beyond-wealth/gallery/thumbs/teach-for-india-report.jpg" alt="Teach For India, The Colors of Reimagining Education, its first decade report" loading="lazy"></span>
+        <span class="sup-card-caption">Teach For India</span></button></li>
+      <li class="rv wide"><button class="sup-card" type="button" data-full="../assets/beyond-wealth/gallery/chimp-veterinary-care.jpg" data-caption="Veterinary Care, Sweetwaters Sanctuary">
+        <span class="sup-card-media"><img src="../assets/beyond-wealth/gallery/chimp-veterinary-care.jpg" alt="A veterinary team providing care to a rescued chimpanzee" loading="lazy"></span>
+        <span class="sup-card-caption">Veterinary Care, Sweetwaters Sanctuary</span></button></li>
+      <li class="rv"><button class="sup-card" type="button" data-full="../assets/beyond-wealth/gallery/flag-hoisting-cheer.jpg" data-caption="Education and Community">
+        <span class="sup-card-media"><img src="../assets/beyond-wealth/gallery/thumbs/flag-hoisting-cheer.jpg" alt="Schoolchildren and a staff member cheering beneath the school flag" loading="lazy"></span>
+        <span class="sup-card-caption">Education and Community</span></button></li>
+      <li class="rv"><button class="sup-card" type="button" data-full="../assets/beyond-wealth/gallery/artwork-midnight-winged-whispers.jpg" data-caption="Midnight Winged Whispers, Debabrata Basu">
+        <span class="sup-card-media"><img src="../assets/beyond-wealth/gallery/thumbs/artwork-midnight-winged-whispers.jpg" alt="Midnight Winged Whispers, an original painting by Debabrata Basu" loading="lazy"></span>
+        <span class="sup-card-caption">Midnight Winged Whispers, Debabrata Basu</span></button></li>
+      <li class="rv"><button class="sup-card" type="button" data-full="../assets/beyond-wealth/gallery/midday-meal-service.jpg" data-caption="School Meals, Education and Community">
+        <span class="sup-card-media"><img src="../assets/beyond-wealth/gallery/thumbs/midday-meal-service.jpg" alt="Staff serving a meal to rows of seated schoolchildren" loading="lazy"></span>
+        <span class="sup-card-caption">School Meals, Education and Community</span></button></li>
+      <li class="rv"><button class="sup-card" type="button" data-full="../assets/beyond-wealth/gallery/artwork-verdant-rapture.jpg" data-caption="Verdant Rapture, Debabrata Basu">
+        <span class="sup-card-media"><img src="../assets/beyond-wealth/gallery/thumbs/artwork-verdant-rapture.jpg" alt="Verdant Rapture, an original nature painting by Debabrata Basu" loading="lazy"></span>
+        <span class="sup-card-caption">Verdant Rapture, Debabrata Basu</span></button></li>
+    </ul>
+    <p class="supported-note">Please write to us if we have missed to give credit to your photos.</p>
+  </div>
+</section>
+
+<div class="bw-lightbox" id="bw-lightbox" aria-hidden="true">
+  <button class="bw-lightbox-close" type="button" aria-label="Close">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M1 1l14 14M15 1L1 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+  </button>
+  <button class="bw-lightbox-nav bw-lightbox-prev" type="button" aria-label="Previous image">
+    <svg width="14" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true"><path d="M6 1L1 6l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 6h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+  </button>
+  <div class="bw-lightbox-inner">
+    <img id="bw-lightbox-img" src="" alt="">
+    <p class="bw-lightbox-caption" id="bw-lightbox-caption"></p>
+  </div>
+  <button class="bw-lightbox-nav bw-lightbox-next" type="button" aria-label="Next image">
+    <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg>
+  </button>
+</div>
+
+<section class="bw-assoc" id="associations" aria-labelledby="assoc-title">
+  <div class="wrap">
+    <div class="rv">
+    <p class="eyebrow">Our Associations</p>
+    <h2 class="bw-assoc-title" id="assoc-title">Institutions and fellowships that have <strong>trusted us with a voice.</strong></h2>
+    </div>
+    <ul class="assoc-grid rv" aria-label="Our associations">
+        <li><img src="../assets/logos/associations-color/01-jane-goodall-institute.png" alt="Jane Goodall Institute" loading="lazy"></li>
+        <li><img src="../assets/logos/associations-color/02-ol-pejeta-conservancy.png" alt="Ol Pejeta Conservancy" loading="lazy"></li>
+        <li><img src="../assets/logos/associations-color/03b-lse-student-union-india-forum.png" alt="LSE SU India Forum" loading="lazy"></li>
+        <li><img src="../assets/logos/associations-color/04-fellow-of-the-royal-society-of-arts-frsa.png" alt="Fellow of the Royal Society of Arts" loading="lazy"></li>
+        <li><img src="../assets/logos/associations-color/05-new-york-university.png" alt="New York University" loading="lazy"></li>
+        <li><img src="../assets/logos/associations-color/06-university-of-erlangen-nurnberg.png" alt="University of Erlangen-N&uuml;rnberg" loading="lazy"></li>
+        <li><img src="../assets/logos/associations-color/07-queen-elizabeth-diamond-jubilee-trust.png" alt="Queen Elizabeth Diamond Jubilee Trust" loading="lazy"></li>
+        <li><img src="../assets/logos/associations-color/08-atal-innovation-mission-niti-aayog.png" alt="Atal Tinkering Labs, NITI Aayog" loading="lazy"></li>
+        <li><img src="../assets/logos/associations-color/09-teach-for-india.png" alt="Teach For India" loading="lazy"></li>
+        <li><img src="../assets/logos/associations-color/10-cry-child-rights-and-you-BRAND-IS-MONOCHROME-BLACK.png" alt="CRY (Child Rights and You)" loading="lazy"></li>
+        <li><img src="../assets/logos/associations-color/11-pfa-people-for-animals.png" alt="PFA (People for Animals)" loading="lazy"></li>
+        <li><img src="../assets/logos/associations-color/12-acumen-fund.png" alt="Acumen Fund" loading="lazy"></li>
+        <li><img src="../assets/logos/associations-color/13-tata-literature-live.png" alt="Tata Literature Live" loading="lazy"></li>
+        <li><img src="../assets/logos/associations-color/14-lexus-PARENT-LOGO-NOT-LEXUS-LIFE-SUBMARK-BRAND-IS-MONOCHROME.png" alt="Lexus Life" loading="lazy"></li>
+        <li><img src="../assets/logos/associations-color/15-bwc-beauty-without-cruelty-LOWRES.png" alt="BWC (Beauty Without Cruelty)" loading="lazy"></li>
+        <li><img src="../assets/logos/associations-color/16-cupa.png" alt="CUPA (Compassion Unlimited Plus Action)" loading="lazy"></li>
+        <li><img src="../assets/logos/associations-color/17-arf-animal-rights-fund-UNCONFIRMED-MATCH.png" alt="ARF (Animal Rights Fund)" loading="lazy"></li>
+    </ul>
+  </div>
+</section>
+
+<section class="bw-closing">
+  <img class="closing-bg" src="../assets/beyond-wealth/hero-acacia.jpg" alt="" loading="lazy">
+  <div class="wrap closing-grid">
+    <div class="rv">
+    <p class="bw-closing-title">Beyond what we manage, there is what we make possible.</p>
+    <div class="bw-closing-rule"></div>
+    <p class="bw-closing-pull">Because true wealth is not only what we preserve, but what we make possible for others.</p>
+    </div>
+    <div class="rv" style="--d:.12s">
+    <div class="bw-closing-body">
+      <p>Beyond managing wealth, we believe in putting what we have to meaningful purpose. Over the years we have had the privilege of working alongside some of the world&rsquo;s leading philanthropists and conservationists, while regularly advising domestic and international organisations, as well as some of India&rsquo;s largest philanthropic institutions.</p>
+      <p>For us, it is a holistic approach to giving back: bringing together capital, knowledge, relationships and action to support causes that create meaningful and lasting impact. And it is an approach we would be glad to share with you.</p>
+    </div>
+    <a class="btn" href="contact.html">Start a conversation <svg width="14" height="10" aria-hidden="true"><use href="#arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<footer class="footer">
+  <div class="footer-top">
+    <a class="nav-mark" href="homepage.html" aria-label="Regis and Savoy Capital, home">
+      <img class="footer-logo" src="../assets/RandS White Transparent logo.png" alt="">
+      <span class="nav-divider" aria-hidden="true"></span>
+      <span class="nav-wordmark">
+        <span class="wm-name">Regis and Savoy Capital</span>
+        <span class="wm-sub">Pure trust, pure advice</span>
+      </span>
+    </a>
+  </div>
+  <div class="footer-cols">
+    <div class="footer-col">
+      <h4 class="footer-col-title">Site Map</h4>
+      <ul class="footer-col-list">
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="about-us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="corporate-services.html">Corporate Services</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">What We Do</h4>
+      <ul class="footer-col-list">
+        <li><a href="wealth-management.html">Wealth Management</a></li>
+        <li><a href="private-equity.html">Private Equity</a></li>
+        <li><a href="family-office.html">Family Office</a></li>
+        <li><a href="legacy-and-impact.html">Legacy and Impact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">Beyond Wealth</h4>
+      <ul class="footer-col-list">
+        <li><a href="#leadership">Thought Leadership &amp; Mentorship</a></li>
+        <li><a href="#education">Education &amp; Opportunity</a></li>
+        <li><a href="#conservation">Animal Welfare &amp; Conservation</a></li>
+        <li><a href="#take-part">Take Part With Us</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 class="footer-col-title">Get in Touch</h4>
+      <ul class="footer-col-list">
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-rule"></div>
+  <div class="footer-bottom">
+    <p>This website is for informational purposes only and does not constitute investment advice, a solicitation, or an offer to buy or sell any investment product or security. Investments are subject to market risks. Past performance of mutual funds is not indicative of future results. Regis and Savoy Capital is an AMFI-registered Mutual Fund Distributor (ARN: 154182). Please refer to our full <a href="privacy-policy.html#disclaimer">Disclaimer and Regulatory Disclosures</a>.</p>
+    <p>&copy; 2026 Regis and Savoy Capital. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('.nav-dropdown').forEach(function(dd){
+    var btn = dd.querySelector('.nav-caret-btn');
+    if(!btn) return;
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      var isOpen = dd.classList.contains('open');
+      document.querySelectorAll('.nav-dropdown.open').forEach(function(o){
+        if(o!==dd){ o.classList.remove('open'); var b=o.querySelector('.nav-caret-btn'); if(b) b.setAttribute('aria-expanded','false'); }
+      });
+      dd.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+  document.addEventListener('click', function(e){
+    document.querySelectorAll('.nav-dropdown.open').forEach(function(dd){
+      if(!dd.contains(e.target)){
+        dd.classList.remove('open');
+        var btn = dd.querySelector('.nav-caret-btn');
+        if(btn) btn.setAttribute('aria-expanded','false');
+      }
+    });
+  });
+
+  var navEl = document.querySelector('.nav');
+  var navToggle = document.querySelector('.nav-toggle');
+  var navMenu = document.getElementById('nav-menu');
+  if(navEl && navToggle && navMenu){
+    var setNavH = function(){ document.documentElement.style.setProperty('--nav-h', navEl.offsetHeight + 'px'); };
+    setNavH();
+    window.addEventListener('resize', setNavH);
+    var closeNavMenu = function(){
+      navEl.classList.remove('menu-open');
+      navToggle.setAttribute('aria-expanded','false');
+      document.body.classList.remove('nav-lock');
+    };
+    navToggle.addEventListener('click', function(e){
+      e.stopPropagation();
+      var isOpen = navEl.classList.contains('menu-open');
+      navEl.classList.toggle('menu-open', !isOpen);
+      navToggle.setAttribute('aria-expanded', String(!isOpen));
+      document.body.classList.toggle('nav-lock', !isOpen);
+    });
+    navMenu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', closeNavMenu);
+    });
+    document.addEventListener('click', function(e){
+      if(navEl.classList.contains('menu-open') && !navEl.contains(e.target)) closeNavMenu();
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && navEl.classList.contains('menu-open')){ closeNavMenu(); navToggle.focus(); }
+    });
+    window.addEventListener('resize', function(){
+      if(window.innerWidth > 760 && navEl.classList.contains('menu-open')) closeNavMenu();
+    });
+  }
+
+  function onNavScroll(){ navEl.classList.toggle('scrolled', window.scrollY > 40); }
+  window.addEventListener('scroll', onNavScroll, {passive:true});
+  onNavScroll();
+})();
+</script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.querySelectorAll('[data-stagger]').forEach(function(group){
+    Array.prototype.forEach.call(group.querySelectorAll('.rv'), function(el, i){
+      el.style.setProperty('--d', (i % 4) * 0.12 + 's');
+    });
+  });
+
+  function countUp(el){
+    var val = el.querySelector('.val');
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    if(!val || isNaN(target) || reduce) return;
+    var start = null, dur = 1600;
+    val.textContent = '0';
+    function tick(t){
+      if(start === null) start = t;
+      var p = Math.min((t - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      val.textContent = Math.round(target * eased).toLocaleString('en-US');
+      if(p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  var items = document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){
+    items.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(!entry.isIntersecting) return;
+      var el = entry.target;
+      el.classList.add('in');
+      var num = el.querySelector('.stat-num[data-count]');
+      if(num) countUp(num);
+      io.unobserve(el);
+    });
+  }, {threshold:0.15, rootMargin:'0px 0px -6% 0px'});
+  items.forEach(function(el){ io.observe(el); });
+})();
+</script>
+<script>
+(function(){
+  var track = document.querySelector('[data-lightbox-track]');
+  if(!track) return;
+  var items = Array.prototype.slice.call(track.querySelectorAll('.sup-card'));
+  var lightbox = document.getElementById('bw-lightbox');
+  var lbImg = document.getElementById('bw-lightbox-img');
+  var lbCaption = document.getElementById('bw-lightbox-caption');
+  var closeBtn = lightbox.querySelector('.bw-lightbox-close');
+  var prevBtn = lightbox.querySelector('.bw-lightbox-prev');
+  var nextBtn = lightbox.querySelector('.bw-lightbox-next');
+  var current = 0;
+  var opener = null;
+
+  function open(index){
+    current = index;
+    var item = items[current];
+    lbImg.src = item.getAttribute('data-full');
+    lbImg.alt = item.querySelector('img').alt;
+    lbCaption.textContent = item.getAttribute('data-caption') || '';
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden','false');
+    document.body.classList.add('nav-lock');
+    closeBtn.focus();
+  }
+  function close(){
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden','true');
+    document.body.classList.remove('nav-lock');
+    if(opener) opener.focus();
+  }
+  function step(delta){
+    current = (current + delta + items.length) % items.length;
+    open(current);
+  }
+
+  items.forEach(function(item, i){
+    item.addEventListener('click', function(){ opener = item; open(i); });
+  });
+  closeBtn.addEventListener('click', close);
+  prevBtn.addEventListener('click', function(){ step(-1); });
+  nextBtn.addEventListener('click', function(){ step(1); });
+  lightbox.addEventListener('click', function(e){
+    if(e.target === lightbox) close();
+  });
+  document.addEventListener('keydown', function(e){
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowLeft') step(-1);
+    if(e.key === 'ArrowRight') step(1);
+  });
+})();
+</script>
+<script>
+(function(){
+  var items = document.querySelectorAll('.panels>li');
+  function show(li){ items.forEach(function(p){ p.classList.toggle('active', p === li); }); }
+  items.forEach(function(li){
+    li.addEventListener('mouseenter', function(){ show(li); });
+    li.addEventListener('focusin', function(){ show(li); });
+  });
+})();
+</script>
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-rail]').forEach(function(wrap){
+    var rail = wrap.querySelector('.rail');
+    var prev = wrap.querySelector('.rail-btn--prev');
+    var next = wrap.querySelector('.rail-btn--next');
+    function step(dir){
+      var card = rail.querySelector('li');
+      var gap = parseFloat(getComputedStyle(rail).columnGap) || 0;
+      var w = card ? card.getBoundingClientRect().width + gap : rail.clientWidth;
+      rail.scrollBy({left: dir * w, behavior: reduce ? 'auto' : 'smooth'});
+    }
+    function update(){
+      prev.disabled = rail.scrollLeft <= 4;
+      next.disabled = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;
+    }
+    prev.addEventListener('click', function(){ step(-1); });
+    next.addEventListener('click', function(){ step(1); });
+    rail.addEventListener('scroll', update, {passive:true});
+    window.addEventListener('resize', update);
+    update();
+  });
+})();
+</script>
+</body>
+</html>

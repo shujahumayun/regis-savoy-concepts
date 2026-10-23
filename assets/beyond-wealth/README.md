@@ -89,3 +89,8 @@ Built from the 2026-10-23 call and Sanjna's two emails that day (Impact sectors 
 - **Take Part With Us** is new: the page now invites clients to give, mentor, offer jobs or partner alongside the firm, per the call. The six ways and the three steps are proposals for the client to confirm.
 - **Gallery** is now uniform captioned cards, 16 of the 32 images, chosen for distinct captions.
 - **Left out on purpose**: the Karuna Mother Teresa Charitable Trust logo (`18-...png`) depicts a religious figure, so it is not in this page's marquee. "Register a Complaint" is gone from the footer per Sanjna's 2026-10-22 ask.
+
+## Hero swap and layout version, `concepts/beyond-wealth-v3.html`, 2026-10-23
+
+- v2 hero changed from `hero-acacia.jpg` to `gallery/students-playground-run.jpg` (Doddaballapura). The "Open a door" card in v2 moved to `gallery/doddaballapura-students-campus.jpg` so the photo is not used twice.
+- v3 keeps every word, number, link and story image of v2 and changes only the layout: split hero (`wildlife/ol-pejeta.jpg`), numbers in a ruled 2 by 2 grid beside a pinned statement, impact sectors as four expanding image panels, Leadership as a pinned intro with stories in two offset columns, quotes over darkened photos, Education as a ruled number band and a feature grid, Conservation as number rows and a sliding story rail, Take Part as an index list and a three step line, the gallery as a brick mosaic with captions on the photos, associations as a still logo grid, and the closing in two columns over the acacia photo.
